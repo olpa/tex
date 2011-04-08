@@ -57,11 +57,33 @@ class LatexFile:
     if not m:
       raise Exception("\\documentclass not found")
     self.classoptions = m.group(2)
+    self.classname    = m.group(3)
     s = s[m.end():]
     pos = s.index('\\begin{document}')
     self.preamble = s[:pos].strip()
     pos2 = s.index('\\end{document}')
     self.document = s[16+pos:pos2].strip()
+
+  #
+  # Each delta is one character. Not effective, but straightforward.
+  # Technically, a delta is a three-item entry: (where, index, letter):
+  # * where  - O (options), N (name), P (preamble), D (document)
+  # * index&letter - which letter to change
+  #
+  def create_deltas(self):
+    deltas = []
+    if 'minimal' != self.classname:
+      deltas.append(('N', None, None))
+    def process_part(where, s):
+      index = 1
+      if s is not None:
+        for ch in s:
+          deltas.append((where, index, ch))
+          index = index + 1
+    process_part('O', self.classoptions)
+    process_part('P', self.preamble)
+    process_part('D', self.document)
+    return deltas
 
 if '__main__' == __name__:
   fname = sys.argv[1]
@@ -69,3 +91,6 @@ if '__main__' == __name__:
   #run_latex(rundir, fname)
   #print collect_errors(rundir, fname)
   lf = LatexFile(fname)
+  deltas = lf.create_deltas()
+  print deltas
+  print len(deltas)
