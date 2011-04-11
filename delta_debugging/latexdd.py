@@ -3,6 +3,7 @@ rundir_basename = 'run'
 latex_cmdline   = 'latex -interaction batchmode -output-directory ${RUNDIR} ${FILENAME} 2>&1 >${RUNDIR}/stdout.txt'
 
 import os, tempfile, string, sys, re
+import DD
 
 #
 # Create a directory to run TeX. Design decision name:
@@ -52,6 +53,7 @@ class LatexFile:
   def __init__(self, fname):
     if fname is None:
       return
+    self.file_name = fname
     h = open(fname)
     s = h.read()
     h.close()
@@ -71,6 +73,7 @@ class LatexFile:
   #
   def write_file(self, fname):
     h = open(fname, 'w')
+    self.file_name = fname
     h.write('\\documentclass')
     if self.classoptions:
       h.write('[%s]' % self.classoptions)
@@ -110,6 +113,7 @@ class LatexFile:
   #
   def apply_deltas(self, deltas):
     lf = LatexFile(None)
+    lf.file_name = self.file_name
     lf.classname = 'minimal'
     lf.classoptions = lf.preamble = lf.document = ''
     for (where, index, ch) in deltas:
@@ -125,14 +129,51 @@ class LatexFile:
         raise Exception("Unsupported delta: " + where)
     return lf
 
+  #
+  # Execute
+  #
+  def run_latex_return_errors(self):
+    rundir = create_run_dir(tmpdir, rundir_basename)
+    fname = os.path.basename(self.file_name)
+    self.write_file(os.path.join(rundir, fname))
+    run_latex(rundir, fname)
+    return collect_errors(rundir, fname)
+
+#
+# DD
+#
+class LatexDD(DD.DD):
+  def __init__(self, fname):
+    DD.DD.__init__(self)
+    self.lf = LatexFile(fname)
+    self.master_errors = self.lf.run_latex_return_errors()
+
+  def _test(self, deltas):
+    lf = self.lf.apply_deltas(deltas)
+    errors = lf.run_latex_return_errors()
+    if '' == errors:
+      return self.PASS
+    if self.master_errors == errors:
+      return self.FAIL
+    return self.UNRESOLVED
+
+  def create_deltas(self):
+    return self.lf.create_deltas()
+
+# ---------------------------------------------------------
+
 if '__main__' == __name__:
   fname = sys.argv[1]
   #rundir = create_run_dir(tmpdir, rundir_basename)
   #run_latex(rundir, fname)
   #print collect_errors(rundir, fname)
-  lf = LatexFile(fname)
-  deltas = lf.create_deltas()
-  print dir(lf)
-  print len(deltas)
-  lf2 = lf.apply_deltas(deltas)
-  lf2.write_file("test2.tex")
+  #lf = LatexFile(fname)
+  #deltas = lf.create_deltas()
+  #print dir(lf)
+  #print len(deltas)
+  #lf2 = lf.apply_deltas(deltas)
+  #lf2.write_file("test2.tex")
+  dd = LatexDD(fname)
+  deltas = dd.create_deltas()
+  c = dd.ddmin(deltas)
+  print c
