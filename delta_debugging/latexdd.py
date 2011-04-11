@@ -50,6 +50,8 @@ def collect_errors(rundir, tex_file):
 re_dclass = re.compile('\\\\documentclass(\\[([^]]*)\\])?\{([^}]*)\}\\s*')
 class LatexFile:
   def __init__(self, fname):
+    if fname is None:
+      return
     h = open(fname)
     s = h.read()
     h.close()
@@ -63,6 +65,23 @@ class LatexFile:
     self.preamble = s[:pos].strip()
     pos2 = s.index('\\end{document}')
     self.document = s[16+pos:pos2].strip()
+
+  #
+  # Save file
+  #
+  def write_file(self, fname):
+    h = open(fname, 'w')
+    h.write('\\documentclass')
+    if self.classoptions:
+      h.write('[%s]' % self.classoptions)
+    h.write("{%s}" % self.classname)
+    if self.preamble:
+      h.write("\n")
+      h.write(self.preamble)
+    h.write("\n\\begin{document}\n")
+    h.write(self.document)
+    h.write("\n\\end{document}\n")
+    h.close()
 
   #
   # Each delta is one character. Not effective, but straightforward.
@@ -84,6 +103,27 @@ class LatexFile:
     process_part('P', self.preamble)
     process_part('D', self.document)
     return deltas
+  
+  #
+  # Apply deltas
+  # According to DD documentation, the deltas are sorted
+  #
+  def apply_deltas(self, deltas):
+    lf = LatexFile(None)
+    lf.classname = 'minimal'
+    lf.classoptions = lf.preamble = lf.document = ''
+    for (where, index, ch) in deltas:
+      if 'D' == where:
+        lf.document = lf.document + ch
+      elif 'P' == where:
+        lf.preamble = lf.preamble + ch
+      elif 'O' == where:
+        lf.classoptions = lf.classoptions + ch
+      elif 'N' == where:
+        lf.classname = self.classname
+      else:
+        raise Exception("Unsupported delta: " + where)
+    return lf
 
 if '__main__' == __name__:
   fname = sys.argv[1]
@@ -92,5 +132,7 @@ if '__main__' == __name__:
   #print collect_errors(rundir, fname)
   lf = LatexFile(fname)
   deltas = lf.create_deltas()
-  print deltas
+  print dir(lf)
   print len(deltas)
+  lf2 = lf.apply_deltas(deltas)
+  lf2.write_file("test2.tex")
