@@ -1,6 +1,6 @@
 tmpdir          = 'tmp'
 rundir_basename = 'run'
-latex_cmdline   = 'latex -interaction batchmode -output-directory ${RUNDIR} ${FILENAME} 2>&1 >${RUNDIR}/stdout.txt'
+latex_cmdline   = 'ulimit -t 30; latex -interaction batchmode -output-directory ${RUNDIR} ${FILENAME} 2>&1 >${RUNDIR}/stdout.txt'
 
 import os, tempfile, string, sys, re
 import DD
@@ -25,7 +25,7 @@ def run_latex(rundir, filename):
       'FILENAME': filename
       }
   cmdline = string.Template(latex_cmdline).substitute(sub)
-  os.system(cmdline)
+  return os.system(cmdline)
 
 #
 # errors: everything what starts with '! ' in log
@@ -71,9 +71,7 @@ class LatexFile:
   #
   # Save file
   #
-  def write_file(self, fname):
-    h = open(fname, 'w')
-    self.file_name = fname
+  def write_stream(self, h):
     h.write('\\documentclass')
     if self.classoptions:
       h.write('[%s]' % self.classoptions)
@@ -84,6 +82,11 @@ class LatexFile:
     h.write("\n\\begin{document}\n")
     h.write(self.document)
     h.write("\n\\end{document}\n")
+
+  def write_file(self, fname):
+    h = open(fname, 'w')
+    self.file_name = fname
+    self.write_stream(h)
     h.close()
 
   #
@@ -136,7 +139,9 @@ class LatexFile:
     rundir = create_run_dir(tmpdir, rundir_basename)
     fname = os.path.basename(self.file_name)
     self.write_file(os.path.join(rundir, fname))
-    run_latex(rundir, fname)
+    ccode = run_latex(rundir, fname)
+    if ccode > 256:
+      return "! HANG\n"
     return collect_errors(rundir, fname)
 
 #
@@ -160,20 +165,17 @@ class LatexDD(DD.DD):
   def create_deltas(self):
     return self.lf.create_deltas()
 
+  def show_applied_delta(self, deltas, h):
+    lf = self.lf.apply_deltas(deltas)
+    lf.write_stream(h)
+
 # ---------------------------------------------------------
 
 if '__main__' == __name__:
   fname = sys.argv[1]
-  #rundir = create_run_dir(tmpdir, rundir_basename)
-  #run_latex(rundir, fname)
-  #print collect_errors(rundir, fname)
-  #lf = LatexFile(fname)
-  #deltas = lf.create_deltas()
-  #print dir(lf)
-  #print len(deltas)
-  #lf2 = lf.apply_deltas(deltas)
-  #lf2.write_file("test2.tex")
   dd = LatexDD(fname)
   deltas = dd.create_deltas()
   c = dd.ddmin(deltas)
-  print c
+  print 'The 1-minimal failure-inducing input is:'
+  print '----------------------------------------'
+  dd.show_applied_delta(c, sys.stdout)
