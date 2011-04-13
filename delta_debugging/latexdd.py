@@ -29,6 +29,7 @@ def run_latex(rundir, filename):
 
 #
 # errors: everything what starts with '! ' in log
+# Improvement: return only the first error.
 #
 def collect_errors(rundir, tex_file):
   logfile = os.path.join(rundir, os.path.splitext(os.path.basename(tex_file))[0] + '.log')
@@ -37,6 +38,7 @@ def collect_errors(rundir, tex_file):
   for l in h:
     if '! ' == l[:2]:
       s_errors = s_errors + l
+      break
   h.close()
   return s_errors
 
