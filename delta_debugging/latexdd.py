@@ -1,46 +1,6 @@
-tmpdir          = 'tmp'
-rundir_basename = 'run'
-latex_cmdline   = 'ulimit -t 30; latex -interaction batchmode -output-directory ${RUNDIR} ${FILENAME} 2>&1 >${RUNDIR}/stdout.txt'
-
-import os, tempfile, string, sys, re
+import os, sys, re
 import DD
-
-#
-# Create a directory to run TeX. Design decision name:
-#      ./tmp/run
-# If exist, first rename existing, then create new.
-#
-def create_run_dir(tmpdir, rundir_basename):
-  rundir = os.path.join(tmpdir, rundir_basename)
-  if os.path.isdir(rundir):
-    tempfile.tempdir = tmpdir
-    newdir = tempfile.mktemp(prefix='run_')
-    os.rename(rundir, newdir)
-  os.makedirs(rundir)
-  return rundir
-
-def run_latex(rundir, filename):
-  sub = {
-      'RUNDIR':   rundir,
-      'FILENAME': filename
-      }
-  cmdline = string.Template(latex_cmdline).substitute(sub)
-  return os.system(cmdline)
-
-#
-# errors: everything what starts with '! ' in log
-# Improvement: return only the first error.
-#
-def collect_errors(rundir, tex_file):
-  logfile = os.path.join(rundir, os.path.splitext(os.path.basename(tex_file))[0] + '.log')
-  s_errors = ''
-  h = open(logfile)
-  for l in h:
-    if '! ' == l[:2]:
-      s_errors = s_errors + l
-      break
-  h.close()
-  return s_errors
+import runlatex
 
 #
 # LaTeX file consist of parts:
@@ -138,13 +98,13 @@ class LatexFile:
   # Execute
   #
   def run_latex_return_errors(self):
-    rundir = create_run_dir(tmpdir, rundir_basename)
+    rundir = runlatex.create_run_dir()
     fname = os.path.basename(self.file_name)
     self.write_file(os.path.join(rundir, fname))
-    ccode = run_latex(rundir, fname)
+    ccode = runlatex.run_latex(rundir, fname)
     if ccode > 256:
       return "! HANG\n"
-    return collect_errors(rundir, fname)
+    return runlatex.collect_errors(rundir, fname)
 
 #
 # DD

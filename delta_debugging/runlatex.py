@@ -1,0 +1,42 @@
+tmpdir          = 'tmp'
+rundir_basename = 'run'
+latex_cmdline   = 'ulimit -t 30; latex -interaction batchmode -output-directory ${RUNDIR} ${FILENAME} 2>&1 >${RUNDIR}/stdout.txt'
+
+import os, tempfile, string
+
+#
+# Create a directory to run TeX. Design decision name:
+#      ./tmp/run
+# If exist, first rename existing, then create new.
+#
+def create_run_dir(tmpdir=tmpdir, rundir_basename=rundir_basename):
+  rundir = os.path.join(tmpdir, rundir_basename)
+  if os.path.isdir(rundir):
+    tempfile.tempdir = tmpdir
+    newdir = tempfile.mktemp(prefix='run_')
+    os.rename(rundir, newdir)
+  os.makedirs(rundir)
+  return rundir
+
+def run_latex(rundir, filename):
+  sub = {
+      'RUNDIR':   rundir,
+      'FILENAME': filename
+      }
+  cmdline = string.Template(latex_cmdline).substitute(sub)
+  return os.system(cmdline)
+
+#
+# errors: everything what starts with '! ' in log
+# Improvement: return only the first error.
+#
+def collect_errors(rundir, tex_file):
+  logfile = os.path.join(rundir, os.path.splitext(os.path.basename(tex_file))[0] + '.log')
+  s_errors = ''
+  h = open(logfile)
+  for l in h:
+    if '! ' == l[:2]:
+      s_errors = s_errors + l
+      break
+  h.close()
+  return s_errors
