@@ -1,0 +1,20 @@
+%
+% The source:
+% "varioref, colons and french", comp.text.tex, 6 Apr 2011
+% http://groups.google.com/group/comp.text.tex/msg/44dd292de180bcfd
+%
+\documentclass[french,german]{article}
+\usepackage{varioref}
+% \usepackage{nameref}  % does help (why? side-effects?)
+\usepackage{babel}
+
+% \shorthandoff{:} % does not help
+% \frenchbsetup{AutoSpacePunctuation=false} % does not help
+
+\begin{document}
+
+\section{Varioref Test \label{sec:test}}
+
+Varioref auf Abschnitt \vref{sec:test}.
+
+\end{document}
