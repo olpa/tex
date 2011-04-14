@@ -1,8 +1,13 @@
 tmpdir          = 'tmp'
 rundir_basename = 'run'
-latex_cmdline   = 'ulimit -t 30; latex -interaction batchmode -output-directory ${RUNDIR} ${FILENAME} 2>&1 >${RUNDIR}/stdout.txt'
+latex_tool      = 'latex'
+latex_cmdline   = 'ulimit -t 30; ${LATEX} -interaction batchmode -output-directory ${RUNDIR} ${FILENAME} 2>&1 >${RUNDIR}/stdout.txt'
 
-import os, tempfile, string
+import os, tempfile, string, re
+
+if os.path.isdir('texinput'):
+  dirname = os.path.abspath('texinput')
+  os.environ['TEXINPUTS'] = dirname + ':' + os.environ.get('TEXINPUTS', '')
 
 #
 # Create a directory to run TeX. Design decision name:
@@ -21,7 +26,8 @@ def create_run_dir(tmpdir=tmpdir, rundir_basename=rundir_basename):
 def run_latex(rundir, filename):
   sub = {
       'RUNDIR':   rundir,
-      'FILENAME': filename
+      'FILENAME': filename,
+      'LATEX':    latex_tool
       }
   cmdline = string.Template(latex_cmdline).substitute(sub)
   return os.system(cmdline)
@@ -46,3 +52,16 @@ def run_latex_collect_errors(rundir, fname):
   if ccode > 256:
     return "! HANG\n"
   return collect_errors(rundir, fname)
+
+#
+# Read a few first lines and find:
+# % !TEX TS-program = latex_tool
+#
+def guess_latex_tool(fname):
+  global latex_tool
+  h = open(fname)
+  s = h.read(1024)
+  h.close()
+  m = re.search('%\\s*!TEX\\s+TS-program\\s*=\\s*(\w+)', s)
+  if m:
+    latex_tool = m.group(1).lower()
