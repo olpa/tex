@@ -101,10 +101,7 @@ class LatexFile:
     rundir = runlatex.create_run_dir()
     fname = os.path.basename(self.file_name)
     self.write_file(os.path.join(rundir, fname))
-    ccode = runlatex.run_latex(rundir, fname)
-    if ccode > 256:
-      return "! HANG\n"
-    return runlatex.collect_errors(rundir, fname)
+    return runlatex.run_latex_collect_errors(rundir, fname)
 
 #
 # DD

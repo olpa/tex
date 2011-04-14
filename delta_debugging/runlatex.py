@@ -40,3 +40,9 @@ def collect_errors(rundir, tex_file):
       break
   h.close()
   return s_errors
+
+def run_latex_collect_errors(rundir, fname):
+  ccode = run_latex(rundir, fname)
+  if ccode > 256:
+    return "! HANG\n"
+  return collect_errors(rundir, fname)
