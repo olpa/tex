@@ -132,6 +132,7 @@ class LatexDD(DD.DD):
 
 if '__main__' == __name__:
   fname = sys.argv[1]
+  runlatex.guess_latex_tool(fname)
   dd = LatexDD(fname)
   deltas = dd.create_deltas()
   c = dd.ddmin(deltas)
