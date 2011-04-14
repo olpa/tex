@@ -1,0 +1,46 @@
+Delta Debugging for LaTeX
+===========================================================
+
+General information on Delta Debugging:
+
+Delta Debugging
+From automated testing to automated debugging
+http://www.st.cs.uni-saarland.de/dd/
+
+---
+
+Tools:
+
+1) Finding a minimal failing example:
+
+$ python latexdd.py texinput/frvref.tex
+(see files/result_frvref.txt)
+
+2) Finding which diff causes an error
+
+$ python diffdelta.py texinput/grftest.tex files/tl2007/grffile.sty files/tl2009/grffile.sty 2>&1 >files/result_grftest.txt 
+(see files/result_frvref.txt)
+
+arg1: TeX file
+arg2: sty-file, the TeX file compiles without errors
+arg2: sty-file, the TeX file does not compile
+
+---
+
+Python code:
+
+DD.py
+Downloaded from http://www.st.cs.uni-saarland.de/dd/DD.py
+The Delta Debugging core module, realizes the Delta Debugging algorithm as a Python class. By providing your own subclass with its own _test method, you can realize arbitrary applications. See the tutorial for details:
+http://www.st.cs.uni-saarland.de/dd/ddusage.php3
+
+runlatex.py
+Module to run latex and report the result.
+
+latexdd.py
+diffdelta.py
+The tools, see above
+
+===========================================================
+Oleg Parashchenko
+olpa uucode com
