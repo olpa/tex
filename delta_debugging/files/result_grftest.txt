@@ -1,0 +1,71 @@
+Master errors:
+! Undefined control sequence.
+
+
+dd: 16 deltas left: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31]
+
+dd (run #1): trying 8 + 8
+
+dd: 8 deltas left: [17, 19, 21, 23, 25, 27, 29, 31]
+
+dd (run #2): trying 4 + 4
+
+dd: 4 deltas left: [25, 27, 29, 31]
+
+dd (run #3): trying 2 + 2
+
+dd: 2 deltas left: [29, 31]
+
+dd (run #4): trying 1 + 1
+
+dd: 1 deltas left: [31]
+dd: done
+The 1-minimal failure-inducing delta is:
+----------------------------------------
+182,187c253,291
+<       \edef\filename@ext{\filename@dot #2\\}%
+<     \fi
+<   \fi
+<   \edef\filename@base{\filename@base #1}%
+< }
+< \def\grffile@ReturnAfterFiFiBase#1#2\filename@base#3{\fi\fi#1}
+---
+>       \grffile@IfFileExists{\filename@area\filename@base.\filename@ext}{%
+>         % success
+>       }{%
+>         \edef\filename@base{\filename@base.\filename@ext}%
+>         \let\filename@ext\relax
+>         \def\grffile@next{\grffile@try@extlist}%
+>       }%
+>     \fi
+>   \fi
+>   \grffile@next
+> }
+> 
+> \def\grffile@try@extlist{%
+>   \@for\grffile@temp:=\Gin@extensions\do{%
+>     \grffile@IfFileExists{\filename@area\filename@base\grffile@temp}{%
+>       \ifx\filename@ext\relax
+>         \edef\filename@ext{\expandafter\@gobble\grffile@temp\@empty}%
+>       \fi
+>     }{}%
+>   }%
+>   \ifx\filename@ext\relax
+>     \expandafter\let\expandafter\filename@base\expandafter\@empty
+>     \expandafter\grffile@use@last@ext\filename@base.\\%
+>   \fi
+> }
+> 
+> \def\grffile@use@last@ext#1.#2\\{%
+>   \ifx\\#2\\%
+>     \edef\filename@base{\expandafter\filename@dot\filename@base\\}%
+>     \def\filename@ext{#1}%
+>     \expandafter\@gobble
+>   \else
+>     \edef\filename@base{\filename@base#1.}%
+>     \expandafter\@firstofone
+>   \fi
+>   {%
+>     \grffile@use@last@ext#2\\%
+>   }%
+> }
