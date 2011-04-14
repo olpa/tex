@@ -1,4 +1,6 @@
-import sys, difflib
+import os, sys, difflib
+import DD
+import runlatex
 
 class DiffDelta:
 
@@ -67,10 +69,48 @@ class DiffDelta:
       for l in self.lines_fail[b1:b2]:
         h.write("> " + l)
 
+class DiffDeltaDD(DD.DD):
+  def __init__(self, tex_file, sty_pass, sty_fail):
+    DD.DD.__init__(self)
+    self.diff = DiffDelta(sty_pass, sty_fail)
+    self.tex_file = os.path.basename(tex_file)
+    self.sty_name = os.path.basename(sty_pass)
+    if self.sty_name != os.path.basename(sty_fail):
+      print "The names of sty-files should match"
+      sys.exit(-1)
+    no_errors = self.run_latex(())
+    if '' != no_errors:
+      print "Compiling against the 'pass' sty should produce no errors, but:"
+      print no_errors
+      sys.exit(-1)
+    self.master_errors = self.run_latex(self.diff.get_deltas())
+    print "Master errors:"
+    print self.master_errors
+    if '' == self.master_errors:
+      print "Compiling against 'fail' sty should produce errors"
+      sys.exit(-1)
+
+  def run_latex(self, deltas):
+    rundir = runlatex.create_run_dir()
+    self.diff.write_file(os.path.join(rundir, self.sty_name), deltas)
+    return runlatex.run_latex_collect_errors(rundir, self.tex_file)
+
+  def _test(self, deltas):
+    errors = self.runlatex(deltas)
+    if '' == errors:
+      return self.PASS
+    if self.master_errors == errors:
+      return self.FAIL
+    return self.UNRESOLVED
+
+  def get_deltas(self):
+    return self.diff.get_deltas()
+
 if '__main__' == __name__:
-  (fname_pass, fname_fail) = sys.argv[1:]
-  fd = DiffDelta(fname_pass, fname_fail)
+  (tex_file, fname_pass, fname_fail) = sys.argv[1:]
+  fd = DiffDeltaDD(tex_file, fname_pass, fname_fail)
   deltas = fd.get_deltas()
-  print deltas
-  #fd.write_diff(sys.stdout, deltas)
-  fd.write_file('out', deltas)
+  c = dd.ddmin(deltas)
+  print 'The 1-minimal failure-inducing delta is:'
+  print '----------------------------------------'
+  dd.diff.write_stream(sys.stdout, c)
