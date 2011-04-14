@@ -96,7 +96,7 @@ class DiffDeltaDD(DD.DD):
     return runlatex.run_latex_collect_errors(rundir, self.tex_file)
 
   def _test(self, deltas):
-    errors = self.runlatex(deltas)
+    errors = self.run_latex(deltas)
     if '' == errors:
       return self.PASS
     if self.master_errors == errors:
@@ -108,9 +108,10 @@ class DiffDeltaDD(DD.DD):
 
 if '__main__' == __name__:
   (tex_file, fname_pass, fname_fail) = sys.argv[1:]
-  fd = DiffDeltaDD(tex_file, fname_pass, fname_fail)
-  deltas = fd.get_deltas()
+  runlatex.guess_latex_tool(tex_file)
+  dd = DiffDeltaDD(tex_file, fname_pass, fname_fail)
+  deltas = dd.get_deltas()
   c = dd.ddmin(deltas)
   print 'The 1-minimal failure-inducing delta is:'
   print '----------------------------------------'
-  dd.diff.write_stream(sys.stdout, c)
+  dd.diff.write_diff(sys.stdout, c)
