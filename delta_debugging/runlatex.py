@@ -2,6 +2,7 @@ tmpdir          = 'tmp'
 rundir_basename = 'run'
 latex_tool      = 'latex'
 latex_cmdline   = '(ulimit -t 30; echo -n '' | ${LATEX} -interaction batchmode -output-directory ${RUNDIR} ${FILENAME}) 2>&1 >${RUNDIR}/stdout.txt'
+latex_max_rerun = 3
 
 import os, tempfile, string, re
 
@@ -36,6 +37,8 @@ def run_latex(rundir, filename):
 # errors: everything what starts with '! ' in log
 # Improvement: return only the first error.
 #
+re_page = re.compile('page\\s+\\d+')
+re_line = re.compile('line\\s+\\d+')
 def collect_errors(rundir, tex_file):
   logfile = os.path.join(rundir, os.path.splitext(os.path.basename(tex_file))[0] + '.log')
   s_errors = ''
@@ -45,24 +48,38 @@ def collect_errors(rundir, tex_file):
     if b_extract_command:
       pos = l.rfind(' ',0, -2) # ignore trailing ' '
       s_errors = s_errors + l[1+pos:]
-      break
+      continue
     if '! ' == l[:2]:
       s_errors = s_errors + l
       if '! Undefined control sequence' in l:
+        s_errors = s_errors.rstrip() + ' '
         b_extract_command = 1
-        continue
-      break
+      continue
     if '### ' == l[:4]: # ### begingroup/endgroup wrong nesting 
       s_errors = s_errors + l[:15] + "\n"
-      break
+      continue
+    if 'Rerun to get' in l:
+      s_errors = s_errors + l
+      continue
+    if 'LaTeX Warning: ' in l:
+      s_errors = s_errors + l
+      continue
   h.close()
+  s_errors = re_page.sub('page NNN', s_errors)
+  s_errors = re_line.sub('line NNN', s_errors)
   return s_errors
 
 def run_latex_collect_errors(rundir, fname):
-  ccode = run_latex(rundir, fname)
-  if ccode > 256:
-    return "! HANG\n"
-  return collect_errors(rundir, fname)
+  i = 0
+  while 1:
+    ccode = run_latex(rundir, fname)
+    if ccode > 256:
+      return "! HANG\n"                                    # return
+    s = collect_errors(rundir, fname)
+    i = i + 1
+    if ('Rerun to get' in s) and (i < latex_max_rerun):
+      continue
+    return s                                               # return
 
 #
 # Read a few first lines and find:
