@@ -1,0 +1,16 @@
+%
+% Incompatibility between hyperref and \ref{} in page headers
+% comp.text.tex, 12 Jul 2007
+% http://groups.google.com/group/comp.text.tex/msg/a1d5310aeea05185
+%
+\documentclass{book}
+\usepackage{hyperref}
+\begin{document}
+\tableofcontents
+\chapter{This is a first chapter} \label{chap1}
+bla bla bla ... \newpage
+bla bla bla ...
+\chapter{Refers to Chapter~\ref{chap1}}
+bla bla bla ... \newpage
+bla bla bla ...
+\end{document} 
