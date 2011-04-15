@@ -1,0 +1,23 @@
+%
+% "siunitx S colums incompatibility with numprint", comp.text.tex, 15 Apr 2011
+% http://groups.google.com/group/comp.text.tex/msg/7eeac619eb115d80
+%
+\documentclass[a4paper]{article}
+\usepackage {numprint}
+\usepackage {siunitx}
+\begin{document}
+
+\begin{tabular}{ l
+*5{S[table-format=3.4,group-digits=true,group-integer-digits] } }
+%\rowfont*{\bfseries}
+%Months       &10/2010  &11/2010  &12/2010  &01/2011  &02/2011  \\ \midrule
+USD          &1,3898   &1,3661   &1,322    &1,336    &1,3649   \\
+JPY          &113,6714 &112,6864 &110,1096 &110,381  &112,768  \\
+DKK          &7,4567   &7,4547   &7,4528   &7,4518   &7,4555   \\
+GBP          &0,8764   &0,8551   &0,8481   &0,8471   &0,8464   \\
+SEK          &9,2794   &9,3166   &9,0559   &8,9122   &8,7882   \\
+CHF          &1,3452   &1,3442   &1,2811   &1,2779   &1,2974   \\
+KRW          &1560,304 &1544,165 &1513,739 &1495,503 &1524,991 \\
+\end{tabular}
+
+\end{document}
