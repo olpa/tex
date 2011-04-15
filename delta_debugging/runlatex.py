@@ -40,9 +40,17 @@ def collect_errors(rundir, tex_file):
   logfile = os.path.join(rundir, os.path.splitext(os.path.basename(tex_file))[0] + '.log')
   s_errors = ''
   h = open(logfile)
+  b_extract_command = 0
   for l in h:
+    if b_extract_command:
+      pos = l.rfind(' ',0, -2) # ignore trailing ' '
+      s_errors = s_errors + l[1+pos:]
+      break
     if '! ' == l[:2]:
       s_errors = s_errors + l
+      if '! Undefined control sequence' in l:
+        b_extract_command = 1
+        continue
       break
     if '### ' == l[:4]: # ### begingroup/endgroup wrong nesting 
       s_errors = s_errors + l[:15] + "\n"
