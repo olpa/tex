@@ -134,6 +134,8 @@ if '__main__' == __name__:
   fname = sys.argv[1]
   runlatex.guess_latex_tool(fname)
   dd = LatexDD(fname)
+  print 'Master errors:'
+  print dd.master_errors
   deltas = dd.create_deltas()
   c = dd.ddmin(deltas)
   print 'The 1-minimal failure-inducing input is:'
