@@ -1,7 +1,7 @@
 tmpdir          = 'tmp'
 rundir_basename = 'run'
 latex_tool      = 'latex'
-latex_cmdline   = 'ulimit -t 30; ${LATEX} -interaction batchmode -output-directory ${RUNDIR} ${FILENAME} 2>&1 >${RUNDIR}/stdout.txt'
+latex_cmdline   = '(ulimit -t 30; echo -n '' | ${LATEX} -interaction batchmode -output-directory ${RUNDIR} ${FILENAME}) 2>&1 >${RUNDIR}/stdout.txt'
 
 import os, tempfile, string, re
 
@@ -43,6 +43,9 @@ def collect_errors(rundir, tex_file):
   for l in h:
     if '! ' == l[:2]:
       s_errors = s_errors + l
+      break
+    if '### ' == l[:4]: # ### begingroup/endgroup wrong nesting 
+      s_errors = s_errors + l[:15] + "\n"
       break
   h.close()
   return s_errors
