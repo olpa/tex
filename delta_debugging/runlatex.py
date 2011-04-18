@@ -48,6 +48,7 @@ def collect_errors(rundir, tex_file):
     if b_extract_command:
       pos = l.rfind(' ',0, -2) # ignore trailing ' '
       s_errors = s_errors + l[1+pos:]
+      b_extract_command = 0
       continue
     if '! ' == l[:2]:
       s_errors = s_errors + l
