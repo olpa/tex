@@ -42,7 +42,10 @@ re_line = re.compile('line\\s+\\d+')
 def collect_errors(rundir, tex_file):
   logfile = os.path.join(rundir, os.path.splitext(os.path.basename(tex_file))[0] + '.log')
   s_errors = ''
-  h = open(logfile)
+  try:
+    h = open(logfile)
+  except IOError:
+    return "! LOG FILE MISSED\n"
   b_extract_command = 0
   for l in h:
     if b_extract_command:
