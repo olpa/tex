@@ -3,9 +3,14 @@ import DD
 import runlatex
 
 class OneCharDeltaFile:
-  def __init__(self, fname):
+  def __init__(self, fname, mode):
     h = open(fname)
-    self.content = h.read()
+    if 'char' == mode:
+      self.content = h.read()
+    elif 'line' == mode:
+      self.content = h.readlines()
+    else:
+      raise Exception("Unknown mode:" + mode)
     h.close()
 
   def get_deltas(self):
@@ -26,11 +31,11 @@ class OneCharDeltaFile:
     h.close()
 
 class StyDD(DD.DD):
-  def __init__(self, tex_file, sty_file):
+  def __init__(self, tex_file, sty_file, mode):
     DD.DD.__init__(self)
     self.tex_file = os.path.basename(tex_file)
     self.sty_file = os.path.basename(sty_file)
-    self.ocdf = OneCharDeltaFile(sty_file)
+    self.ocdf = OneCharDeltaFile(sty_file, mode)
     self.master_errors = self.run_latex_return_errors(self.ocdf.get_deltas())
 
   def run_latex_return_errors(self, deltas):
@@ -60,13 +65,30 @@ class StyDD(DD.DD):
     return self.ocdf.get_deltas()
 
 if '__main__' == __name__:
-  (tex_file, sty_file) = sys.argv[1:]
+  mode     = 'char'
+  out_file = None
+  argv     = sys.argv[1:]
+  if '-o' in argv:
+    i = argv.index('-o')
+    out_file = argv[i+1]
+    del argv[i:i+2]
+  if '--lines' in argv:
+    mode = 'line'
+    argv.remove('--lines')
+  (tex_file, sty_file) = argv
   runlatex.guess_latex_tool(tex_file)
-  dd = StyDD(tex_file, sty_file)
+  dd = StyDD(tex_file, sty_file, mode)
   print 'Master errors:'
   print dd.master_errors
   deltas = dd.get_deltas()
   c = dd.ddmin(deltas)
   print 'The 1-minimal failure-inducing sty input is:'
   print '--------------------------------------------'
-  dd.show_applied_delta(sys.stdout, c)
+  if out_file is None:
+    h = sys.stdout
+  else:
+    h = open(out_file, 'w')
+    print "In the file", out_file
+  dd.show_applied_delta(h, c)
+  if out_file is not None:
+    h.close()
