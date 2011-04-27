@@ -1,0 +1,99 @@
+\LdfInit\CurrentOption\datefrench
+   \ifx\@compatibilitytrue\@undefined
+   \fi
+\long\def\STD@makecaption#1#2{%
+  \vskip\belowcaptionskip}%
+  \initiate@active@char{:}
+  \initiate@active@char{;}
+  \initiate@active@char{!}
+  \initiate@active@char{?}
+  \declare@shorthand{french}{;}{%
+      \ifhmode
+      \ifdim\lastskip>\z@
+        \fi
+      \fi
+      \string?}
+  \declare@shorthand{french}{:}{%
+      \ifhmode
+        \ifdim\lastskip>\z@
+        \fi
+      \fi
+      \string:}
+    \DeclareRobustCommand\ttfamilyFB{%
+  }
+  \addto\noextrasfrench{%
+  \bbl@deactivate{:}\bbl@deactivate{;}%
+  \bbl@deactivate{!}\bbl@deactivate{?}}
+  \def\Warning@degree@TSone{%
+        \PackageWarning{frenchb.ldf}{%
+                       \global\let\Warning@degree@TSone\relax}%
+                     \DeclareRobustCommand*{\degres}{%
+                         \hbox{\UseTextSymbol{TS1}{\textdegree}}}%
+                   \fi}
+\newcommand*{\DecimalMathComma}{\iflanguage{french}%
+   \mathcode`\,=\std@mcc}
+\newcommand*{\nombre}[1]{{#1}\message{%
+     *** \noexpand\nombre no longer formats numbers\string! ***}}%
+\def\FBclean@on@exit{\let\ifLaTeXe\@undefined
+                    \ldf@quit\CurrentOption\endinput}
+\newcommand*{\Warning@nombre}{%
+      {\PackageWarning{frenchb.ldf}{%
+         \protect\nombre\space called}%
+         is no longer\MessageBreak  defined in frenchb v.2,}}
+\@namedef{captions\CurrentOption}{%
+  \vskip\belowcaptionskip}
+\AtBeginDocument{%
+       {\PackageWarning{frenchb.ldf}%
+        {The definition of \protect\@makecaption\space
+         frenchb will NOT customise it;\MessageBreak reported}%
+       }%
+}
+\def\FB@listsettings{%
+      {\settowidth{\labelwidth}{\csname\@itemitem\endcsname}%
+                    \fi}%
+                }
+\long\def\@makefntextFB#1{\ifx\thefootnote\ftnISsymbol
+                  {\ifdim\parindentFFN<10in
+                   \long\def\@makefntext#1{%
+                      \fi}%
+                  }%
+                }
+\newcommand*{\FrenchLayout}{%
+    {\protect\StandardLayout\space is obsolete.  Please use\MessageBreak
+    \protect\frenchbsetup{StandardLayout} instead.}%
+}
+\AtBeginDocument{\DeclareRobustCommand*{\dots}{\relax
+                 \csname\ifmmode M\else T\fi dots@\endcsname}%
+                 \@ifundefined{mdots@}{\let\Tdots@ORI\textellipsis
+                                       \let\Mdots@\mathellipsis}{}}
+\expandafter\addto\csname extras\CurrentOption\endcsname{%
+    \bbl@nonfrenchdots}
+\AtEndOfPackage{%
+   \iflanguage{french}{\FBReduceListSpacingtrue
+         \AtBeginDocument{%
+             {\PackageWarning{frenchb.ldf}%
+               {\@ifundefined{DeclareUnicodeCharacter}%
+                  {\@tempcnta`#1\relax
+                  }%
+               }%
+             }%
+         }{{\FB@@fg}}%
+    }%
+}
+\newcommand*{\FBprocess@options}{%
+    \GenericWarning{* }{%
+     \MessageBreak\protect\frenchbsetup{ShowOptions}}
+}
+\AtBeginDocument{%
+   \@ifundefined{pdfstringdefDisableCommands}{}%
+     {\pdfstringdefDisableCommands{%
+     }}%
+   \iflanguage{french}{\extrasfrench\captionsfrench}{\noextrasfrench}%
+      \begingroup \newcommand{\FBOTone}{OT1}%
+           {OT1 encoding should not be used for French.
+            preamble\MessageBreak of your document,}
+     \endgroup
+       {\PackageWarning{frenchb.ldf}%
+         {Add \protect\usepackage{fontspec} *and*\MessageBreak
+          of your document,}}%
+}

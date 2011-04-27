@@ -1,0 +1,1 @@
+\LdfInit\\g\def\#{}\initiate@active@char{:}\initiate@active@char{;}\initiate@active@char{!}\initiate@active@char{?}\declare@shorthand{\ifhmode\fi}B{}\addto\noextrasfrench{\bbl@deactivate{:}{}}{\PackageWarning{}{}}\newcommand{\ut}{{}}\expandafter\addto\csname\endcsname{{{{{{}}}}}}\AtBeginDocument{{}\iflanguage{french}{}{\noextrasfrench}\begingroup\newcommand{\1}{}\endgroup{{}{}}}
