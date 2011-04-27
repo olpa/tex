@@ -11,19 +11,72 @@ http://www.st.cs.uni-saarland.de/dd/
 
 Tools:
 
-1) Finding a minimal failing example:
 
-$ python latexdd.py texinput/frvref.tex
-(see files/result_frvref.txt)
+1) Finding which diff chunk causes an error:
 
-2) Finding which diff causes an error
+$ python diffdelta.py tex_file sty_pass sty_fail
 
-$ python diffdelta.py texinput/grftest.tex files/tl2007/grffile.sty files/tl2009/grffile.sty 2>&1 >files/result_grftest.txt 
-(see files/result_frvref.txt)
+Example:
 
-arg1: TeX file
-arg2: sty-file, the TeX file compiles without errors
-arg2: sty-file, the TeX file does not compile
+$ python -u diffdelta.py texinput/grftest.tex \
+   files/tl2007/grffile.sty files/tl2009/grffile.sty \
+  | tee files/result_frvref.txt
+
+Output is in "files/result_frvref.txt".
+
+
+2) Finding a minimal failing example:
+
+$ python latexdd.py tex_file
+
+Example:
+
+$ python -u latexdd.py texinput/frvref.tex \
+  | tee files/result_frvref.txt
+
+Output is in "files/result_frvref.txt".
+
+
+3) sty-bug hunting
+
+$ python stydd.py [--lines] [-o out_sty_file] tex_file sty_file
+
+Just like the "finding a minimal failing example", but for sty-files. The input tex-file should be prepared to pass (compile without errors) when the sty-file is empty. Most likely, you need to use \providecommand in the tex-file.
+
+If the sty-file is big, the number of deltas is also big, and the python tool takes a lot of memory. To workaround the problem, the "--line" parameter switches to line-based deltas instead of character-based deltas. After the file is made smaller, one can try to repeat the minimization with character-based deltas.
+
+Example:
+
+Why does "texinput/frvref_minimal.tex" fail? Let's check if the problem in "varioref.sty":
+
+$ python -u stydd.py --lines \
+  -o files/sty-hunt/run1/varioref.sty texinput/frvref_minimal.tex \
+  /opt/texlive/dvd/texmf-dist/tex/latex/tools/varioref.sty 2>&1 \
+  | tee files/result_frvref_min_run1.txt
+
+$ python -u stydd.py -o files/sty-hunt/run2/varioref.sty \
+  texinput/frvref_minimal.tex files/sty-hunt/run1/varioref.sty 2>&1 \
+  | tee files/result_frvref_min_run2.txt
+
+Nothing suspicious in "files/sty-hunt/run2/varioref.sty". Let's look for the problem in another package, babel:
+
+$ python -u stydd.py --lines \
+  -o files/sty-hunt/run1/babel.sty texinput/frvref_minimal.tex \
+  /opt/texlive/dvd/texmf-dist/tex/generic/babel/babel.sty 2>&1 \
+  | tee files/result_frvref_babel_run1.txt
+
+Looking into "files/sty-hunt/run1/babel.sty", it is clear that the search should be continued in "frenchb.ldf" and "germanb.ldf".
+
+$ python -u stydd.py --lines \
+  -o files/sty-hunt/run1/frenchb.ldf texinput/frvref_minimal.tex \
+  /opt/texlive/dvd/texmf-dist/tex/generic/babel/frenchb.ldf 2>&1 \
+  | tee files/result_frvref_frenchb_run1.txt
+
+$ python -u stydd.py -o files/sty-hunt/run2/frenchb.ldf \
+  texinput/frvref_minimal.tex files/sty-hunt/run1/frenchb.ldf 2>&1 \
+  | tee files/result_frvref_frenchb_run2.txt
+
+Looking into "files/sty-hunt/run2/frenchb.ldf", one can conclude that the problem is caused by "\initiate@active@char{:}".
 
 ---
 
@@ -39,6 +92,7 @@ Module to run latex and report the result.
 
 latexdd.py
 diffdelta.py
+stydd.py
 The tools, see above
 
 ===========================================================
