@@ -1,0 +1,27 @@
+\DeclareOption{french}{\input{frenchb.ldf}}%
+\DeclareOption{german}{\input{germanb.ldf}}
+\DeclareOption*{%
+  \InputIfFileExists{\CurrentOption.ldf}{}{%
+    \PackageError{babel}{%
+      Maybe you misspelled the language option?}}%
+  }
+\InputIfFileExists{bblopts.cfg}{%
+  \typeout{*************************************^^J%
+           *}%
+  }{}
+\ProcessOptions*
+\ifx\bbl@main@language\@undefined
+\fi
+\def\substitutefontfamily#1#2#3{%
+  \immediate\write15{%
+    }%
+  }
+\AtBeginDocument{%
+  \@ifpackageloaded{ifthen}{%
+    \bbl@redefine@long\ifthenelse#1#2#3{%
+      \protected@edef\@tempa{\org@ref{#1}}\expandafter\MakeUppercase\@tempa}
+    }{}%
+  \@ifpackageloaded{hhline}%
+    {\expandafter\ifx\csname normal@char\string:\endcsname\relax
+    }%
+}
