@@ -128,6 +128,13 @@ class LatexDD(DD.DD):
     lf = self.lf.apply_deltas(deltas)
     lf.write_stream(h)
 
+  def coerce(self, c):
+    if len(c) < 10:
+      s = str(c)
+    else:
+      s = str(c[:10]) + '........'
+    return s
+
 # ---------------------------------------------------------
 
 if '__main__' == __name__:
