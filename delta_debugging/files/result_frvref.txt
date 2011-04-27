@@ -1,111 +1,135 @@
 Master errors:
-! Undefined control sequence. \\\pdf@filesize 
+! Missing \endcsname inserted.
 
 
-dd: 16 deltas left: [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31]
+dd: 288 deltas left: [('D', 1, '\\'), ('D', 2, 's'), ('D', 3, 'e'), ('D', 4, 'c'), ('D', 5, 't'), ('D', 6, 'i'), ('D', 7, 'o'), ('D', 8, 'n'), ('D', 9, '{'), ('D', 10, 'V')]........
 
-dd (run #1): trying 8 + 8
-
-dd: 8 deltas left: [17, 19, 21, 23, 25, 27, 29, 31]
-
-dd (run #2): trying 4 + 4
+dd (run #1): trying 144 + 144
 dd: increase granularity to 4
 
-dd (run #3): trying 2 + 2 + 2 + 2
+dd (run #2): trying 72 + 72 + 72 + 72
 
-dd: 6 deltas left: [17, 19, 21, 23, 29, 31]
+dd: 216 deltas left: [('D', 1, '\\'), ('D', 2, 's'), ('D', 3, 'e'), ('D', 4, 'c'), ('D', 5, 't'), ('D', 6, 'i'), ('D', 7, 'o'), ('D', 8, 'n'), ('D', 9, '{'), ('D', 10, 'V')]........
 
-dd (run #4): trying 2 + 2 + 2
+dd (run #3): trying 72 + 72 + 72
 dd: increase granularity to 6
 
-dd (run #5): trying 1 + 1 + 1 + 1 + 1 + 1
+dd (run #4): trying 36 + 36 + 36 + 36 + 36 + 36
+dd: increase granularity to 12
 
-dd: 5 deltas left: [19, 21, 23, 29, 31]
+dd (run #5): trying 18 + 18 + 18 + 18 + 18 + 18 + 18 + 18 + 18 + 18 + 18 + 18
 
-dd (run #6): trying 1 + 1 + 1 + 1 + 1
+dd: 198 deltas left: [('D', 1, '\\'), ('D', 2, 's'), ('D', 3, 'e'), ('D', 4, 'c'), ('D', 5, 't'), ('D', 6, 'i'), ('D', 7, 'o'), ('D', 8, 'n'), ('D', 9, '{'), ('D', 10, 'V')]........
 
-dd: 4 deltas left: [19, 23, 29, 31]
+dd (run #6): trying 18 + 18 + 18 + 18 + 18 + 18 + 18 + 18 + 18 + 18 + 18
 
-dd (run #7): trying 1 + 1 + 1 + 1
+dd: 180 deltas left: [('D', 1, '\\'), ('D', 2, 's'), ('D', 3, 'e'), ('D', 4, 'c'), ('D', 5, 't'), ('D', 6, 'i'), ('D', 7, 'o'), ('D', 8, 'n'), ('D', 9, '{'), ('D', 10, 'V')]........
 
-dd: 3 deltas left: [23, 29, 31]
+dd (run #7): trying 18 + 18 + 18 + 18 + 18 + 18 + 18 + 18 + 18 + 18
 
-dd (run #8): trying 1 + 1 + 1
+dd: 162 deltas left: [('D', 1, '\\'), ('D', 2, 's'), ('D', 3, 'e'), ('D', 4, 'c'), ('D', 5, 't'), ('D', 6, 'i'), ('D', 7, 'o'), ('D', 8, 'n'), ('D', 9, '{'), ('D', 10, 'V')]........
+
+dd (run #8): trying 18 + 18 + 18 + 18 + 18 + 18 + 18 + 18 + 18
+dd: increase granularity to 18
+
+dd (run #9): trying 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9
+
+dd: 153 deltas left: [('D', 1, '\\'), ('D', 2, 's'), ('D', 3, 'e'), ('D', 4, 'c'), ('D', 5, 't'), ('D', 6, 'i'), ('D', 7, 'o'), ('D', 8, 'n'), ('D', 9, '{'), ('D', 19, 'T')]........
+
+dd (run #10): trying 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9
+
+dd: 144 deltas left: [('D', 1, '\\'), ('D', 2, 's'), ('D', 3, 'e'), ('D', 4, 'c'), ('D', 5, 't'), ('D', 6, 'i'), ('D', 7, 'o'), ('D', 8, 'n'), ('D', 9, '{'), ('D', 19, 'T')]........
+
+dd (run #11): trying 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9
+
+dd: 135 deltas left: [('D', 1, '\\'), ('D', 2, 's'), ('D', 3, 'e'), ('D', 4, 'c'), ('D', 5, 't'), ('D', 6, 'i'), ('D', 7, 'o'), ('D', 8, 'n'), ('D', 9, '{'), ('D', 19, 'T')]........
+
+dd (run #12): trying 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9
+
+dd: 126 deltas left: [('D', 1, '\\'), ('D', 2, 's'), ('D', 3, 'e'), ('D', 4, 'c'), ('D', 5, 't'), ('D', 6, 'i'), ('D', 7, 'o'), ('D', 8, 'n'), ('D', 9, '{'), ('D', 19, 'T')]........
+
+dd (run #13): trying 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9 + 9
+dd: increase granularity to 28
+
+dd (run #14): trying 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5
+
+dd: 121 deltas left: [('D', 1, '\\'), ('D', 2, 's'), ('D', 3, 'e'), ('D', 4, 'c'), ('D', 5, 't'), ('D', 6, 'i'), ('D', 7, 'o'), ('D', 8, 'n'), ('D', 9, '{'), ('D', 19, 'T')]........
+
+dd (run #15): trying 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5
+
+dd: 116 deltas left: [('D', 1, '\\'), ('D', 2, 's'), ('D', 3, 'e'), ('D', 4, 'c'), ('D', 5, 't'), ('D', 6, 'i'), ('D', 7, 'o'), ('D', 8, 'n'), ('D', 9, '{'), ('D', 19, 'T')]........
+
+dd (run #16): trying 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5
+
+dd: 112 deltas left: [('D', 5, 't'), ('D', 6, 'i'), ('D', 7, 'o'), ('D', 8, 'n'), ('D', 9, '{'), ('D', 19, 'T'), ('D', 20, 'e'), ('D', 21, 's'), ('D', 22, 't'), ('D', 23, ' ')]........
+
+dd (run #17): trying 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5
+
+dd: 108 deltas left: [('D', 9, '{'), ('D', 19, 'T'), ('D', 20, 'e'), ('D', 21, 's'), ('D', 22, 't'), ('D', 23, ' '), ('D', 24, '\\'), ('D', 25, 'l'), ('D', 26, 'a'), ('D', 27, 'b')]........
+
+dd (run #18): trying 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5
+
+dd: 104 deltas left: [('D', 9, '{'), ('D', 19, 'T'), ('D', 20, 'e'), ('D', 21, 's'), ('D', 22, 't'), ('D', 23, ' '), ('D', 24, '\\'), ('D', 25, 'l'), ('D', 26, 'a'), ('D', 27, 'b')]........
+
+dd (run #19): trying 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5
+
+dd: 99 deltas left: [('D', 9, '{'), ('D', 19, 'T'), ('D', 20, 'e'), ('D', 21, 's'), ('D', 22, 't'), ('D', 23, ' '), ('D', 24, '\\'), ('D', 25, 'l'), ('D', 26, 'a'), ('D', 27, 'b')]........
+
+dd (run #20): trying 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 4 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5 + 5
+dd: increase granularity to 44
+
+dd (run #21): trying 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3
+
+dd: 97 deltas left: [('D', 9, '{'), ('D', 19, 'T'), ('D', 22, 't'), ('D', 23, ' '), ('D', 24, '\\'), ('D', 25, 'l'), ('D', 26, 'a'), ('D', 27, 'b'), ('D', 28, 'e'), ('D', 29, 'l')]........
+
+dd (run #22): trying 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3
+
+dd: 95 deltas left: [('D', 9, '{'), ('D', 19, 'T'), ('D', 24, '\\'), ('D', 25, 'l'), ('D', 26, 'a'), ('D', 27, 'b'), ('D', 28, 'e'), ('D', 29, 'l'), ('D', 30, '{'), ('D', 31, 's')]........
+
+dd (run #23): trying 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3
+
+dd: 93 deltas left: [('D', 9, '{'), ('D', 19, 'T'), ('D', 24, '\\'), ('D', 25, 'l'), ('D', 26, 'a'), ('D', 27, 'b'), ('D', 28, 'e'), ('D', 29, 'l'), ('D', 30, '{'), ('D', 31, 's')]........
+
+dd (run #24): trying 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3 + 3
+dd: increase granularity to 82
+
+dd (run #25): trying 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2
+
+dd: 92 deltas left: [('D', 9, '{'), ('D', 19, 'T'), ('D', 24, '\\'), ('D', 25, 'l'), ('D', 26, 'a'), ('D', 27, 'b'), ('D', 28, 'e'), ('D', 29, 'l'), ('D', 30, '{'), ('D', 31, 's')]........
+
+dd (run #26): trying 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2
+
+dd: 91 deltas left: [('D', 9, '{'), ('D', 19, 'T'), ('D', 24, '\\'), ('D', 25, 'l'), ('D', 26, 'a'), ('D', 27, 'b'), ('D', 28, 'e'), ('D', 29, 'l'), ('D', 30, '{'), ('D', 31, 's')]........
+
+dd (run #27): trying 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2
+
+dd: 89 deltas left: [('D', 9, '{'), ('D', 19, 'T'), ('D', 24, '\\'), ('D', 25, 'l'), ('D', 26, 'a'), ('D', 27, 'b'), ('D', 28, 'e'), ('D', 29, 'l'), ('D', 30, '{'), ('D', 31, 's')]........
+
+dd (run #28): trying 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2
+
+dd: 88 deltas left: [('D', 9, '{'), ('D', 24, '\\'), ('D', 25, 'l'), ('D', 26, 'a'), ('D', 27, 'b'), ('D', 28, 'e'), ('D', 29, 'l'), ('D', 30, '{'), ('D', 31, 's'), ('D', 32, 'e')]........
+
+dd (run #29): trying 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2
+
+dd: 87 deltas left: [('D', 9, '{'), ('D', 24, '\\'), ('D', 25, 'l'), ('D', 26, 'a'), ('D', 27, 'b'), ('D', 28, 'e'), ('D', 29, 'l'), ('D', 30, '{'), ('D', 31, 's'), ('D', 32, 'e')]........
+
+dd (run #30): trying 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2 + 2
+dd: increase granularity to 87
+
+dd (run #31): trying 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1
+
+dd: 86 deltas left: [('D', 9, '{'), ('D', 24, '\\'), ('D', 25, 'l'), ('D', 26, 'a'), ('D', 27, 'b'), ('D', 28, 'e'), ('D', 29, 'l'), ('D', 30, '{'), ('D', 31, 's'), ('D', 32, 'e')]........
+
+dd (run #32): trying 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1
+
+dd: 85 deltas left: [('D', 9, '{'), ('D', 24, '\\'), ('D', 25, 'l'), ('D', 26, 'a'), ('D', 27, 'b'), ('D', 28, 'e'), ('D', 29, 'l'), ('D', 30, '{'), ('D', 31, 's'), ('D', 32, 'e')]........
+
+dd (run #33): trying 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1
 dd: done
-The 1-minimal failure-inducing delta is:
+The 1-minimal failure-inducing input is:
 ----------------------------------------
-139,139c193,194
-<   \expandafter\ifx\expandafter\\\pdffilesize{#1}\\%
----
->   \expandafter\expandafter\expandafter
->   \ifx\expandafter\expandafter\expandafter\\\pdf@filesize{#1}\\%
-177,180c235,251
-<     \expandafter\ifx\csname
-<         Gin@rule@.\filename@dot #2\\\endcsname\relax
-<       \edef\filename@base{\filename@base #1.}%
-<       \grffile@ReturnAfterFiFiBase{\grffile@filename@simple #2\\}%
----
->     \def\filename@base{}%
->     \grffile@analyze@ext{#1}.{#2}\\%
->   \fi
-> }
-> 
-> \def\grffile@analyze@ext#1.#2\\{%
->   \let\grffile@next\relax
->   \ifx\\#2\\%
->     \edef\filename@base{\filename@base#1}%
->     \let\filename@ext\relax
->     \def\grffile@next{\grffile@try@extlist}%
->   \else
->     \edef\filename@base{\filename@base #1}%
->     \edef\filename@ext{\filename@dot#2\\}%
->     \expandafter\ifx\csname Gin@rule@.\filename@ext\endcsname\relax
->       \edef\filename@base{\filename@base.}%
->       \def\grffile@next{\grffile@analyze@ext#2\\}%
-182,187c253,291
-<       \edef\filename@ext{\filename@dot #2\\}%
-<     \fi
-<   \fi
-<   \edef\filename@base{\filename@base #1}%
-< }
-< \def\grffile@ReturnAfterFiFiBase#1#2\filename@base#3{\fi\fi#1}
----
->       \grffile@IfFileExists{\filename@area\filename@base.\filename@ext}{%
->         % success
->       }{%
->         \edef\filename@base{\filename@base.\filename@ext}%
->         \let\filename@ext\relax
->         \def\grffile@next{\grffile@try@extlist}%
->       }%
->     \fi
->   \fi
->   \grffile@next
-> }
-> 
-> \def\grffile@try@extlist{%
->   \@for\grffile@temp:=\Gin@extensions\do{%
->     \grffile@IfFileExists{\filename@area\filename@base\grffile@temp}{%
->       \ifx\filename@ext\relax
->         \edef\filename@ext{\expandafter\@gobble\grffile@temp\@empty}%
->       \fi
->     }{}%
->   }%
->   \ifx\filename@ext\relax
->     \expandafter\let\expandafter\filename@base\expandafter\@empty
->     \expandafter\grffile@use@last@ext\filename@base.\\%
->   \fi
-> }
-> 
-> \def\grffile@use@last@ext#1.#2\\{%
->   \ifx\\#2\\%
->     \edef\filename@base{\expandafter\filename@dot\filename@base\\}%
->     \def\filename@ext{#1}%
->     \expandafter\@gobble
->   \else
->     \edef\filename@base{\filename@base#1.}%
->     \expandafter\@firstofone
->   \fi
->   {%
->     \grffile@use@last@ext#2\\%
->   }%
-> }
+\documentclass[french,german]{minimal}
+\usepackage{varioref}\usepackage{babel}
+\begin{document}
+{\label{sec:test}}\vref{sec:test}
+\end{document}
