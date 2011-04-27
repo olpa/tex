@@ -1,0 +1,66 @@
+\def\vref@addto#1#2{%
+}
+\def\vref@excuse#1{%
+  \PackageWarningNoLine{varioref}{Sorry, language `#1'
+            to the author of this\MessageBreak package}}
+  {\vref@addto\extrasafrikaans{%
+  }}
+  {\vref@addto\extrasamerican{%
+    \def\reftextfacebefore{on the \reftextvario{facing}{preceding}
+                           page}%
+  }}
+  {\vref@excuse{esperanto}%
+   \vref@addto\extrasesperanto{%
+    \def\reftextfacebefore{on the \reftextvario{facing}{preceding}
+                           page}%
+    \def\reftextfaceafter {sthn \reftextvario{paro'usa}%
+                           {ep'omenh} sel'ida}%
+    \def\reftextfacebefore{sthn \reftextvario{paro'usa}{prohgo'umenh}
+       \cyrn\cyrk\cyra\cyrh~\pageref{#1}--\pageref{#2}}%
+   }}
+\DeclareRobustCommand\vpageref{\@ifstar
+  \@vpageref{\@vpageref[\reftextcurrent]}%
+}
+\def\@vpageref[#1]{\@ifnextchar[%
+  {\@@vpageref{#1}}{\@@vpageref{#1}[\unskip\vref@space]}}
+\def\@@vpageref#1[#2]#3{%
+  \vrefpagenum\thevpagerefnum{#3}%
+  \vref@space
+  \ifx\@tempa\thevpagerefnum
+    \ifx\@tempc\@empty
+       {%
+        \ifnum \thevpagerefnum =\@tempcnta
+         \ifodd\@tempcnta
+           \if@twoside
+              \fi
+            \fi
+          \fi
+        \fi
+       }%
+  \fi
+}
+\def\vref@label#1{\@bsphack
+  \@esphack}
+\def\vrefshowerrors{\def\vref@err##1{\PackageError{varioref}{##1}%
+    {Please check the pages in question. You might need to replace
+     stop LaTeX running forever.}}}
+\DeclareRobustCommand\vref{\@ifstar
+   {\let\vref@space\relax\vr@f}%
+   {\let\vref@space\nobreakspace\vr@f}}
+\def\vr@f#1{%
+  \vpageref[\unskip]{#1}}
+\def\is@pos@num@#1\@nil{%
+    \expandafter\@secondoftwo  \fi}
+\def\vref@pagenum#1#2{%
+  \protected@edef#1{\expandafter\expandafter\expandafter
+                \@cdr\csname r@#2\endcsname
+                \@nil}%
+}
+\def\vrefpagenum#1#2{%
+  \@ifundefined{r@#2}%
+    {\G@refundefinedtrue
+     \@latex@warning{Reference `#2' on page \thepage \space
+             undefined}}{}%
+  \vref@pagenum{#1}{#2}}
+\newcommand\@svpagerefrange[3][\reftextcurrent]{%
+}
