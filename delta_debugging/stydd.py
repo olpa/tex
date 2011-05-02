@@ -80,6 +80,9 @@ if '__main__' == __name__:
   dd = StyDD(tex_file, sty_file, mode)
   print 'Master errors:'
   print dd.master_errors
+  if '' == dd.master_errors:
+    print 'No errors, exiting'
+    sys.exit(-1)
   deltas = dd.get_deltas()
   c = dd.ddmin(deltas)
   print 'The 1-minimal failure-inducing sty input is:'
