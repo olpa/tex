@@ -1,0 +1,17 @@
+% !TEX TS-program = XeLaTeX
+% Does not work with DD because some external program is executed,
+% and the program writes to stdout/stderr instead of the log file.
+\documentclass{article}
+\usepackage{tikz}
+\usepackage[active,tightpage]{preview} % Optionally comment out
+\begin{document}
+\ifx\endpreview\relax
+  \newenvironment{preview}{}{}
+\fi
+\begin{preview} % Optionally comment out
+   \begin{tikzpicture}
+       \shade [left color=blue, right color=green] (0,0) rectangle
+(10,10);
+   \end{tikzpicture}
+\end{preview} % Optionally comment out
+\end{document}
