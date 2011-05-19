@@ -1,0 +1,40 @@
+import glob, os
+
+version = '20101008'
+out_dir = 'cals-' + version
+
+def add_to_install(file):
+  node = InstallAs(os.path.join(out_dir, file), file)
+  Alias('copy', node)
+
+dev_files = glob.glob('dev/*.dtx')
+dev_files.append('dev/cals.ins')
+for file in dev_files:
+  tgt_file = os.path.join(out_dir, 'cals', os.path.basename(file))
+  node = InstallAs(tgt_file, file)
+  Alias('copy', node)
+
+node = InstallAs(os.path.join(out_dir, 'cals.pdf'), 'dev/cals.pdf')
+Alias('copy', node)
+
+example_files = glob.glob('examples/*.tex')
+example_files.append('examples/demo.pdf')
+for file in example_files:
+  add_to_install(file)
+
+test_files = glob.glob('test/support/*.py')
+test_files.extend(glob.glob('test/*/test_*.tex'))
+test_files.extend(glob.glob('test/*/test_*.chk'))
+test_files.extend(glob.glob('test/*/test_*.png'))
+test_files.append('test/template.txt')
+test_files.append('test/README')
+Node = Execute(Mkdir(os.path.join(out_dir, 'test', 'tmp')))
+Alias('copy', node)
+for file in test_files:
+  if '/tmp/' not in file:
+    add_to_install(file)
+
+add_to_install('README')
+
+node = Tar(out_dir+'.tar.gz', out_dir, TARFLAGS = '-c -z')
+Depends(node, 'copy')

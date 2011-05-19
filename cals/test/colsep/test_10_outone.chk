@@ -1,0 +1,62 @@
+%
+% test1
+%
+> \cals@lastLeftWidth=macro:
+->0pt.
+> \boxXX=
+\hbox(0.0+0.0)x0.0
+%
+% test2
+%
+> \cals@lastLeftWidth=macro:
+->4pt.
+> \boxXX=
+\hbox(0.0+0.0)x50.0
+.\pdfcolorstack 0 push {1 0 0 rg 1 0 0 RG}
+.\rule(*+0.0)x50.0
+.\pdfcolorstack 0 pop
+.\glue -50.0
+.\glue -2.0
+.\rule(*+0.0)x4.0
+.\glue -2.0
+.\glue 50.0
+%
+% test3
+%
+> \cals@lastLeftWidth=macro:
+->2pt.
+> \boxXX=
+\hbox(0.0+0.0)x100.0
+.\pdfcolorstack 0 push {0 1 0 rg 0 1 0 RG}
+.\rule(*+0.0)x100.0
+.\pdfcolorstack 0 pop
+.\glue -100.0
+.\glue -1.0
+.\rule(*+0.0)x2.0
+.\glue -1.0
+.\glue 100.0
+%
+% test4
+%
+> \boxXX=
+\hbox(0.0+0.0)x0.0
+.\glue -1.0
+.\rule(*+0.0)x2.0
+.\glue -1.0
+%
+% test5
+% 
+> \boxXX=
+\hbox(0.0+0.0)x300.0
+.\glue 300.0
+%
+% test6
+%
+> \boxXX=
+\hbox(0.0+0.0)x0.0
+.\glue 0.0
+%
+% test7
+%
+> \boxXX=
+\hbox(0.0+0.0)x0.0

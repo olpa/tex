@@ -1,0 +1,65 @@
+\def\contentI{\noindent\vrule height10pt depth0pt width30pt\hfil}
+\def\contentII{\noindent\vrule height20pt depth2pt width60pt\hfil}
+
+\def\cals@cs@width{2pt}
+\def\cals@framecs@width{0pt}
+\def\cals@bgcolor{}
+
+\def\wC{100pt}
+\def\wCC{200pt}
+
+%
+% Empty row
+%
+\cals@decor@begin
+\cals@decor@end
+\showbox\cals@current@cs
+\show\cals@current@rs@above
+\show\cals@current@rs@below
+
+%
+% One cell, no overrides
+%
+\cals@decor@begin
+\let\cals@borderL=\relax
+\let\cals@borderR=\relax
+\let\cals@borderT=\relax
+\let\cals@borderB=\relax
+\def\cals@bgcolor{}
+\cals@decor@next\wC{\contentI}
+\cals@decor@end
+\showbox\cals@current@cs
+\show\cals@current@rs@above
+\show\cals@current@rs@below
+
+%
+% Two cells, no overrides
+%
+\cals@decor@begin
+\cals@decor@next\wC{\contentI}
+\cals@decor@next\wCC{\contentII}
+\cals@decor@end
+\showbox\cals@current@cs
+\show\cals@current@rs@above
+\show\cals@current@rs@below
+
+%
+% Two cells, overrides
+%
+\cals@decor@begin
+\def\cals@borderL{4pt}
+\def\cals@borderR{6pt}
+\let\cals@borderT=\relax
+\let\cals@borderB=\relax
+\def\cals@bgcolor{green}
+\cals@decor@next\wC{\contentI}
+\let\cals@borderL=\relax
+\let\cals@borderR=\relax
+\def\cals@borderT{8pt}
+\def\cals@borderB{10pt}
+\def\cals@bgcolor{}
+\cals@decor@next\wCC{\contentII}
+\cals@decor@end
+\showbox\cals@current@cs
+\show\cals@current@rs@above
+\show\cals@current@rs@below

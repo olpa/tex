@@ -1,0 +1,55 @@
+\def\cals@cs@width{1pt}
+\def\cals@framecs@width{2pt}
+\def\cals@bgcolor{black}
+
+%
+% Normal use
+%
+\cals@csrow@begin
+\def\rborder{4pt}
+\cals@csrow@nextcell{100pt}{3pt}\rborder{green}
+\def\rborder{6pt}
+\cals@csrow@nextcell{110pt}{5pt}\rborder{red}
+\cals@csrow@end
+\showbox\cals@current@cs
+
+%
+% What happens if we have no columns (should never happen)
+%
+\cals@csrow@begin
+\cals@csrow@end
+\showbox\cals@current@cs
+
+%
+% Defaults are used
+%
+\cals@csrow@begin
+\cals@csrow@nextcell{120pt}\relax\relax\relax
+\cals@csrow@nextcell{130pt}\relax\relax\relax
+\cals@csrow@end
+\showbox\cals@current@cs
+
+%
+% test: left frame is bigger as the user-specified width:
+% we should not use the maximal width, but drop the default.
+% (The first run is not for the test, but for comparation.)
+%
+\def\rborder{4pt}
+\def\cals@framecs@width{2pt}
+\cals@csrow@begin
+\cals@csrow@nextcell{100pt}{3pt}\rborder{}
+\cals@csrow@end
+\showbox\cals@current@cs
+\def\cals@framecs@width{10pt}
+\cals@csrow@begin
+\cals@csrow@nextcell{100pt}{3pt}\rborder{}
+\cals@csrow@end
+\showbox\cals@current@cs
+
+%
+% Bug hunting (a space)
+%
+\setbox\cals@current@cs=\hbox{}
+\let\cals@lastWidth=\relax
+\cals@csrow@nextcell\relax\cals@framecs@width\relax\relax
+\showbox\cals@current@cs

@@ -1,0 +1,16 @@
+% row 1
+> \cals@spanq@heights=macro:
+->{0.0pt}.
+% row 2
+> \cals@spanq@heights=macro:
+->{0.0pt}{0.0pt}.
+> \cals@spanq@heights=macro:
+->{0.0pt}{50.0pt}.
+% row 3
+> \cals@spanq@heights=macro:
+->{50.0pt}{50.0pt}.
+> \cals@spanq@heights=macro:
+->{50.0pt}.
+% row 4
+> \cals@spanq@heights=macro:
+->.

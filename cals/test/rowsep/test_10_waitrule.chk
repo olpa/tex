@@ -1,0 +1,47 @@
+%
+% Empty
+%
+> \boxXX=
+\hbox(0.0+0.0)x0.0
+%
+% One
+%
+> \boxXX=
+\hbox(0.5+0.5)x100.0
+.\glue -1.0
+.\rule(0.5+0.5)x103.0
+.\glue -2.0
+%
+% Several, same width
+%
+> \boxXX=
+\hbox(0.5+0.5)x300.0
+.\glue -1.0
+.\rule(0.5+0.5)x303.0
+.\glue -2.0
+%
+% Mixed
+%
+> \boxXX=
+\hbox(2.5+2.5)x300.0
+.\glue -1.0
+.\rule(0.5+0.5)x103.0
+.\glue -2.0
+.\glue -1.0
+.\rule(1.5+1.5)x103.0
+.\glue -2.0
+.\glue -1.0
+.\rule(2.5+2.5)x103.0
+.\glue -2.0
+%
+% No rule at all
+%
+> \boxXX=
+\hbox(1.0+1.0)x400.0
+.\glue -1.0
+.\rule(1.0+1.0)x103.0
+.\glue -2.0
+.\glue 200.0
+.\glue -1.0
+.\rule(1.0+1.0)x103.0
+.\glue -2.0

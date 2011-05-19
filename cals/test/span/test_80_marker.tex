@@ -1,0 +1,35 @@
+\begin{calstable}
+\colwidths{{100pt}{100pt}}
+
+\brow
+\nullcell{ltb}\nullcell{rtb}\spancontent{row1}
+\show\cals@ifInRspan
+\cals@ifLastRspanRow\iftrue \show L \else \show X \fi
+\erow
+
+\brow
+\nullcell{ltr}\cell{r2}
+\show\cals@ifInRspan
+\cals@ifLastRspanRow\iftrue \show L \else \show X \fi
+\erow
+
+\brow
+\nullcell{lbr}\spancontent{r3}\nullcell{ltr}
+\show\cals@ifInRspan
+\cals@ifLastRspanRow\iftrue \show L \else \show X \fi
+\erow
+
+\brow
+\cell{r3}\nullcell{lbr}\spancontent{r4}
+\show\cals@ifInRspan
+\cals@ifLastRspanRow\iftrue \show L \else \show X \fi
+\erow
+
+\brow
+\cell{r4c1}
+\cell{r4c2}
+\show\cals@ifInRspan
+\cals@ifLastRspanRow\iftrue \show L \else \show X \fi
+\erow
+
+\end{calstable}

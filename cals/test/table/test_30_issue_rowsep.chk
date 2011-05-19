@@ -1,0 +1,110 @@
+%
+% Alone
+%
+> \boxXX=
+\vbox(0.0+0.0)x330.0
+.\hbox(0.0+0.0)x330.0
+..\glue 0.0
+..\glue 210.0
+..\glue -3.0
+..\rule(2.0+2.0)x127.0
+..\glue -4.0
+..\glue 0.0
+%
+% n to h, f, b: exactly the same as "alone"
+%
+> \boxXX=
+\vbox(0.0+0.0)x330.0
+.\hbox(0.0+0.0)x330.0
+..\glue 0.0
+..\glue 210.0
+..\glue -3.0
+..\rule(2.0+2.0)x127.0
+..\glue -4.0
+..\glue 0.0
+> \boxXX=
+\vbox(0.0+0.0)x330.0
+.\hbox(0.0+0.0)x330.0
+..\glue 0.0
+..\glue 210.0
+..\glue -3.0
+..\rule(2.0+2.0)x127.0
+..\glue -4.0
+..\glue 0.0
+> \boxXX=
+\vbox(0.0+0.0)x330.0
+.\hbox(0.0+0.0)x330.0
+..\glue 0.0
+..\glue 210.0
+..\glue -3.0
+..\rule(2.0+2.0)x127.0
+..\glue -4.0
+..\glue 0.0
+%
+% h to h: default width; h to f,b: body separation
+%
+> \boxXX=
+\vbox(0.0+0.0)x330.0
+.\hbox(0.0+0.0)x330.0
+..\glue 0.0
+..\glue -1.0
+% relax-width here
+..\rule(0.5+0.5)x103.0
+..\glue -2.0
+..\glue -2.0
+..\rule(1.0+1.0)x115.0
+..\glue -3.0
+..\glue -110.0
+..\glue -2.0
+% also relax-width
+..\rule(0.5+0.5)x236.0
+..\glue -4.0
+..\glue -120.0
+..\glue -3.0
+..\rule(2.0+2.0)x127.0
+..\glue -4.0
+..\glue 0.0
+%
+% Body separation
+%
+> \boxXX=
+\vbox(0.0+0.0)x330.0
+.\hbox(0.0+0.0)x330.0
+..\glue 0.0
+..\glue -1.0
+% relax-width here
+..\rule(1.5+1.5)x103.0
+..\glue -2.0
+..\glue -2.0
+..\rule(1.0+1.0)x115.0
+..\glue -3.0
+..\glue -110.0
+..\glue -2.0
+% also relax-width
+..\rule(1.5+1.5)x236.0
+..\glue -4.0
+..\glue -120.0
+..\glue -3.0
+..\rule(2.0+2.0)x127.0
+..\glue -4.0
+..\glue 0.0
+> \cals@tmpIII=macro:
+->3pt.
+%
+% f to h and b: never happens, body separation; f to f: default width
+% 
+> \cals@tmpIII=macro:
+->3pt.
+> \cals@tmpIII=macro:
+->1pt.
+> \cals@tmpIII=macro:
+->3pt.
+%
+% b to h: never happens, body separation; b to b: default, b to f: body 
+%
+> \cals@tmpIII=macro:
+->3pt.
+> \cals@tmpIII=macro:
+->3pt.
+> \cals@tmpIII=macro:
+->1pt.

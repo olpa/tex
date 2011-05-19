@@ -1,0 +1,21 @@
+%
+% Empty
+%
+> \cals@current@rs@above=macro:
+->.
+> \cals@current@rs@below=macro:
+->.
+%
+% One element
+%
+> \cals@current@rs@above=macro:
+->{{100pt}{3pt}{5pt}\relax }.
+> \cals@current@rs@below=macro:
+->{{100pt}{3pt}{5pt}{4pt}}.
+%
+% Two elements
+%
+> \cals@current@rs@above=macro:
+->{{100pt}{0pt}{2pt}\relax }{{200pt}{2pt}{8pt}{6pt}}.
+> \cals@current@rs@below=macro:
+->{{100pt}{0pt}{2pt}{4pt}}{{200pt}{2pt}{8pt}\relax }.

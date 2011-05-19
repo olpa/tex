@@ -1,0 +1,32 @@
+%
+% 0pt for thick
+%
+\cals@rs@pack\tmp{100pt}{2pt}{4pt}{0pt}
+\show\tmp
+\cals@rs@unpack\tmp\ll\dl\dr\w
+\show\ll
+\show\dl
+\show\dr
+\show\w
+
+%
+% Use default think
+%
+\cals@rs@pack\tmp{200pt}{2pt}{4pt}\relax
+\show\tmp
+\cals@rs@unpack\tmp\ll\dl\dr\w
+\show\ll
+\show\dl
+\show\dr
+\show\w
+
+%
+% User-specified thick
+%
+\cals@rs@pack\tmp{300pt}{0pt}{0pt}{3pt}
+\show\tmp
+\cals@rs@unpack\tmp\ll\dl\dr\w
+\show\ll
+\show\dl
+\show\dr
+\show\w

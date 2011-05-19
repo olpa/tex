@@ -1,0 +1,21 @@
+% I use a penalty to force a run of the output routine.
+% But I was afraid that this penalty prohibites a break.
+
+\edef\oldoutput{\the\output}
+\output={\immediate\show O%
+\oldoutput}
+
+\dimen0=\vsize
+\divide \dimen0 by 3
+\advance \dimen0 by 1cm
+\let\olderow=\erow
+\edef\erow{\ht\cals@current@row=\the\dimen0 \noexpand\olderow}
+%\show\erow
+
+\begin{calstable}
+\colwidths{{100pt}}
+\thead{\brow \cell{aaa} \erow \immediate\show H}
+\brow \cell{bbb} \erow \immediate\show 1
+\brow \cell{ccc} \erow \immediate\show 2
+\brow \cell{ddd} \erow \immediate\show 3
+\end{calstable}

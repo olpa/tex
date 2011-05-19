@@ -1,0 +1,38 @@
+%
+% 0pt
+%
+> \tmp=macro:
+->{100pt}{2pt}{4pt}{0pt}.
+> \ll=macro:
+->100pt.
+> \dl=macro:
+->2pt.
+> \dr=macro:
+->4pt.
+> \w=macro:
+->0pt.
+%
+% \relax
+%
+> \tmp=macro:
+->{200pt}{2pt}{4pt}\relax .
+> \ll=macro:
+->200pt.
+> \dl=macro:
+->2pt.
+> \dr=macro:
+->4pt.
+> \w=\relax.
+%
+% User-specified
+%
+> \tmp=macro:
+->{300pt}{0pt}{0pt}{3pt}.
+> \ll=macro:
+->300pt.
+> \dl=macro:
+->0pt.
+> \dr=macro:
+->0pt.
+> \w=macro:
+->3pt.

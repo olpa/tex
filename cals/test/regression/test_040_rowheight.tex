@@ -1,0 +1,40 @@
+% Initially, re-height of the current row and setting
+% \cals@last@row@height was in '\cals@issue@row'.
+% After implementing row spanning, this actions were moved
+% to \erow. Unfortunately, I forget to move the second action.
+\begin{calstable}
+\cals@setpadding{}
+\cals@setcellprevdepth{}
+\colwidths{{100pt}{100pt}{100pt}}
+
+\thead{%
+\brow
+ \cell{h1}\cell{h2}\cell{h3}
+\erow
+}
+
+\brow
+ \cell{a1}
+ \cell{a2}
+ \cell{a3}
+ \ht\cals@current@row=30pt
+\erow
+\showthe\cals@last@row@height
+
+\brow
+ \cell{b1}
+ \nullcell{ltr}
+ \nullcell{ltr}
+ \ht\cals@current@row=40pt
+\erow
+\showthe\cals@last@row@height
+
+\brow
+ \cell{c1}
+ \nullcell{lbr}\spancontent{s2}
+ \nullcell{lbr}\spancontent{s3}
+ \ht\cals@current@row=50pt
+\erow
+\showthe\cals@last@row@height
+
+\end{calstable}

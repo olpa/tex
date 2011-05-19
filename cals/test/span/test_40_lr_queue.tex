@@ -1,0 +1,28 @@
+\def\cals@lastWidth{2pt}
+\def\cals@rs@spec@ll{2pt}
+\def\cals@rs@spec@bl{2pt}
+\def\cals@rs@spec@bt{2pt}
+\def\cals@current@rs@above{}
+\def\cals@current@rs@below{}
+%
+\colwidths{{100pt}{200pt}{300pt}}
+%
+\cals@span@height=20pt \relax
+\show\cals@spanq@heights
+\brow\def\cals@lastWidth{0pt}
+\nullcell{tr}
+\show\cals@spanq@heights
+\brow\def\cals@lastWidth{0pt}
+\nullcell{br}
+\show\cals@spanq@heights
+%
+\cals@span@height=40pt \relax
+\showthe\cals@span@height
+\let\cals@borderL=\relax \brow\def\cals@lastWidth{0pt}
+\nullcell{lt}
+\showthe\cals@span@height
+\show\cals@spanq@heights
+\brow\def\cals@lastWidth{0pt}
+\nullcell{bl}
+\showthe\cals@span@height
+\show\cals@spanq@heights

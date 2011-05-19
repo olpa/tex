@@ -1,0 +1,44 @@
+%
+% A smoke test for \row
+%
+\def\mkcell#1{\edef\cals@borderB{#1}\edef\cals@borderR{#1}%
+\cell{\nointerlineskip\noindent\vrule height#1 depth0pt width#1}}
+\def\mkcellI{\mkcell{10pt}}
+\def\mkcellII{\mkcell{20pt}}
+\def\mkcellIII{\mkcell{30pt}}
+\def\mkcellIV{\mkcell{40pt}}
+
+\let\cals@last@context=n
+\let\cals@current@context=b
+
+\def\cals@cs@width{0pt}
+\def\cals@framecs@width{0pt}
+\def\cals@rs@width{10pt}
+\def\cals@framers@width{0pt}
+\def\cals@bodyrs@width{0pt}
+\def\cals@bgcolor{}
+\def\cals@bgcolor{}
+\let\cals@borderL=\relax
+\let\cals@borderR=\relax
+\let\cals@borderT=\relax
+\let\cals@borderB=\relax
+
+\def\cals@ifbreak#1{\iffalse}
+\let\oldend=\cals@celll@end
+\def\cals@celll@end{%
+  \setbox0=\vbox{\hrule height\ht0 depth0pt width\wd0 \vfil}%
+  \oldend}
+
+\colwidths{{100pt}{200pt}}
+
+\setbox0=\vbox{%
+\brow \mkcellI\mkcellII \erow
+\show\cals@last@context
+\show\cals@last@rs@below
+\showthe\cals@last@row@height
+\brow \mkcellIII\mkcellIV \erow
+\show\cals@last@context
+\show\cals@last@rs@below
+\showthe\cals@last@row@height
+}
+\showbox0

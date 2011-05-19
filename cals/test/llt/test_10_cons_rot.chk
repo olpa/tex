@@ -1,0 +1,23 @@
+> \lst=macro:
+->{abcd}{efgh}{ijkl}.
+> \lst=macro:
+->{efgh}{ijkl}{abcd}.
+> \llt@car=macro:
+->abcd.
+> \lst=macro:
+->{abcd}{efgh}.
+> \lst=macro:
+->{efgh}{abcd}.
+> \llt@car=macro:
+->abcd.
+> \lst=macro:
+->{abcd}.
+> \lst=macro:
+->{abcd}.
+> \llt@car=macro:
+->abcd.
+> \lst=macro:
+->.
+> \lst=macro:
+->.
+> \llt@car=\relax.

@@ -1,0 +1,24 @@
+\parindent=0pt
+par1\par
+par2\par
+\leftskip=10pt
+par3\par
+par4\par
+\setbox0=\vbox{%
+\begin{calstable}
+\colwidths{{100pt}}
+\brow
+ \cell{c}
+ \nullcell{ltr}
+\erow
+\brow
+ \cell{c}
+ \nullcell{lbr}\spancontent{c}
+\erow
+\end{calstable}
+}
+\showthe\wd0
+\box0
+par5\par
+par6\par
+\showthe\leftskip

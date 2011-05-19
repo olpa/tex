@@ -1,0 +1,32 @@
+<!-- horizontal spanning -->
+<data xmlns:tch="table:conversion:helper">
+  <in>
+    <table>
+      <tr>
+        <td>cell 1</td>
+        <td colspan="2">cell 2 and 3</td>
+        <td>cell 4</td>
+      </tr>
+      <tr>
+        <td colspan="3">cell 5,6,7</td>
+        <td>cell 8</td>
+      </tr>
+    </table>
+  </in>
+  <out>
+    <table>
+      <tr>
+        <td>cell 1</td>
+        <td colspan="2" tch:span="tch1" tch:left="1" tch:top="1" tch:bottom="1">cell 2 and 3</td>
+        <tch:fakecell tch:span="tch1" tch:top="1" tch:bottom="1" tch:right="1"/>
+        <td>cell 4</td>
+      </tr>
+      <tr>
+        <td colspan="3" tch:span="tch2" tch:left="1" tch:top="1" tch:bottom="1">cell 5,6,7</td>
+        <tch:fakecell tch:span="tch2" tch:top="1" tch:bottom="1"/>
+        <tch:fakecell tch:span="tch2" tch:top="1" tch:bottom="1" tch:right="1"/>
+        <td>cell 8</td>
+      </tr>
+    </table>
+  </out>
+</data>

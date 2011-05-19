@@ -1,0 +1,25 @@
+%
+% vboxes of the row should be of the same height
+%
+\let\cals@last@context=h
+\let\cals@current@context=b
+\def\cals@bodyrs@width{4pt}
+
+\newbox\cals@current@row
+\setbox\cals@current@row=\hbox{%
+ \vbox{\hrule height10pt depth0pt width100pt \vfil}%
+ \vbox{\hrule height20pt depth0pt width200pt \vfil}%
+}
+\cals@reheight@cells\cals@current@row
+
+\newbox\cals@current@cs
+\setbox\cals@current@cs=\hbox{\vrule width10pt depth0pt}
+\ht\cals@current@cs=\ht\cals@current@row
+\def\cals@current@rs@above{{{200pt}{2pt}{2pt}\relax}}
+\def\cals@current@rs@below{{{200pt}{2pt}{2pt}{7pt}}}
+\def\cals@last@rs@below{{{200pt}{2pt}{2pt}\relax}}
+
+\setbox0=\vbox{\cals@issue@row
+\show\cals@last@context
+\show\cals@last@rs@below}
+\showbox0

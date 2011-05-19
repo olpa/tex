@@ -1,0 +1,27 @@
+\hrule width\hsize \vskip10pt
+
+\begin{calstable}
+\colwidths{{60pt}{120pt}}
+\brow \cell{aaa} \cell{bbb} \erow
+\brow \cell{ccc} \cell{ddd} \erow
+\tbreak{(break)\par}
+\brow \cell{eee} \cell{fff} \erow
+\brow \cell{ggg} \cell{hhh} \erow
+\end{calstable}
+
+\bigskip
+\hrule height5pt depth5pt width180pt
+\bigskip
+
+\def\cbll#1{\cell{\textbf{#1}}}
+\begin{calstable}
+\colwidths{{60pt}{120pt}}
+\thead{\brow\cbll{iii}\cbll{jjj}\erow}
+\tfoot{\brow\cbll{kkk}\cbll{lll}\erow}
+\brow \cell{aaa} \cell{bbb} \erow
+\brow \cell{ccc} \cell{ddd} \erow
+\tbreak{(break)\par}
+\brow \cell{eee} \cell{fff} \erow
+\brow \cell{ggg} \cell{hhh} \erow
+\end{calstable}
+

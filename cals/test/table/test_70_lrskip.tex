@@ -1,0 +1,22 @@
+par1\par
+\parindent=0pt
+par2\par
+
+\setbox0=\vbox{%
+\leftskip=50pt
+\rightskip=150pt
+\begin{calstable}
+\cals@setpadding{}
+\cals@setcellprevdepth{}
+\def\borderL{0pt}
+\let\borderR=\borderL
+\let\borderT=\borderL
+\let\borderB=\borderL
+\colwidths{{100pt}}
+\brow \cell{} \ht\cals@current@row=20pt \erow
+\end{calstable}
+}
+\showbox0
+\box0
+par3\par
+par4\par

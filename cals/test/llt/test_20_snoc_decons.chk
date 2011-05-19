@@ -1,0 +1,14 @@
+> \lst=macro:
+->.
+> \lst=macro:
+->{snoc-a}.
+> \lst=macro:
+->{snoc-a}{snoc-b}.
+> \lst=macro:
+->{snoc-b}.
+> \lst=macro:
+->.
+> \lst=macro:
+->{}.
+> \lst=macro:
+->.

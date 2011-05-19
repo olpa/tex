@@ -1,0 +1,33 @@
+\makeatletter
+\newcommand\bbrow{\brow\setbox\cals@current@row=
+ \hbox{\vbox to 3cm{}}}
+
+\newenvironment{decotable}{\begin{calstable}
+\fontsize{15pt}{17pt}\selectfont
+\cals@setpadding{Ag}\cals@setcellprevdepth{Al}
+\cals@paddingL=0pt \relax
+\cals@paddingR=0pt \relax
+\def\cals@framecs@width{2pt}
+\def\cals@rs@width{8pt}
+\def\cals@cs@width{4pt}
+}{\end{calstable}}
+
+\begin{decotable}
+\colwidths{{3cm}{3cm}{3cm}}
+\bbrow
+ \cell{left,\\top}
+ \alignC \cell{center,\\top}
+ \def\cals@borderL{0pt}\def\cals@borderB{0pt}
+ \alignR \cell{right,\\top} \erow
+ \let\cals@borderL=\relax \let\cals@borderB=\relax
+\bbrow
+ \alignL \cell{\vfil left,\\middle}
+ \alignC \cell{\vfil center,\\middle}
+ \alignR \cell{\vfil right,\\middle} \erow
+\bbrow
+ \def\cals@bgcolor{green}
+ \alignL \cell{\vfill left,\\bottom}
+ \def\cals@bgcolor{}
+ \alignC \cell{\vfill center,\\bottom}
+ \alignR \cell{\vfill right,\\bottom} \erow
+\end{decotable}

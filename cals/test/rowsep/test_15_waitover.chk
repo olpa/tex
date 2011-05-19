@@ -1,0 +1,36 @@
+%
+% Same width
+%
+> \boxXX=
+\hbox(1.0+1.0)x100.0
+.\glue -1.0
+.\rule(1.0+1.0)x103.0
+.\glue -2.0
+%
+% Different borders
+%
+> \boxXX=
+\hbox(1.0+1.0)x100.0
+.\glue -3.0
+.\rule(1.0+1.0)x107.0
+.\glue -4.0
+%
+% Different widths
+%
+> \boxXX=
+\hbox(2.0+2.0)x100.0
+.\glue -1.0
+.\rule(1.0+1.0)x103.0
+.\glue -2.0
+.\glue -100.0
+.\glue -1.0
+.\rule(2.0+2.0)x103.0
+.\glue -2.0
+%
+% Different widths, second is 0pt
+%
+> \boxXX=
+\hbox(1.0+1.0)x100.0
+.\glue -1.0
+.\rule(1.0+1.0)x103.0
+.\glue -2.0

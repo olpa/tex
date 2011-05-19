@@ -1,0 +1,26 @@
+> \boxXX=
+\hbox(20.0+0.0)x300.0
+.\vbox(0.0+0.0)x100.0
+..\glue 0.0
+..\glue 0.0 plus -1.0
+..\glue 0.0 plus 1.0fil
+..\glue 0.0
+.\vbox(20.0+0.0)x200.0
+..\glue 0.0
+..\glue 0.0 plus -1.0
+..\rule(20.0+0.0)x300.0
+..\glue 0.0 plus 1.0fil
+..\glue 0.0
+> \boxXX=
+\hbox(20.0+0.0)x300.0
+.\vbox(20.0+0.0)x100.0, glue set 20.0fil
+..\glue 0.0
+..\glue 0.0 plus -1.0
+..\glue 0.0 plus 1.0fil
+..\glue 0.0
+.\vbox(20.0+0.0)x200.0
+..\glue 0.0
+..\glue 0.0 plus -1.0
+..\rule(20.0+0.0)x300.0
+..\glue 0.0 plus 1.0fil
+..\glue 0.0

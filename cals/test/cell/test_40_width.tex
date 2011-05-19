@@ -1,0 +1,15 @@
+%
+% Force width if force major
+%
+\begin{calstable}
+\cals@setpadding{}
+\cals@setcellprevdepth{}
+\colwidths{{100pt}{200pt}}
+\brow
+\cell{}
+\cell{\hrule width300pt height20pt depth0pt}
+\showbox\cals@current@row
+\cals@reheight@cells\cals@current@row
+\showbox\cals@current@row
+\erow
+\end{calstable}

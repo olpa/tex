@@ -1,0 +1,32 @@
+\begin{calstable}
+\colwidths{{1cm}{7cm}{1cm}}
+\brow \cell{x} \cell{x} \cell{x} \erow
+\brow \cell{x} \cell{
+\columnsep=0cm\relax
+% Force multicols to regard our \leftskip
+% by pretending that we are a list.
+\@totalleftmargin=\cals@paddingL\relax
+\begin{multicols}{2}
+
+\begin{calstable}
+\alignR
+\colwidths{{1.5cm}{1.5cm}}
+\thead{\brow \cell{$n$}\cell{$n^2$} \erow}
+\tfoot{\brow \cell{$n$}\cell{$n^2$} \erow}
+\brow \cell{2}  \cell{4}   \erow
+\brow \cell{3}  \cell{9}   \erow
+\brow \cell{4}  \cell{16}  \erow
+\brow \cell{5}  \cell{25}  \erow
+\brow \cell{6}  \cell{36}  \erow
+\tbreak{\break }
+\brow \cell{7}  \cell{49}  \erow
+\brow \cell{8}  \cell{64}  \erow
+\brow \cell{9}  \cell{81}  \erow
+\brow \cell{10} \cell{100} \erow
+\brow \cell{11} \cell{121} \erow
+\end{calstable}
+
+\end{multicols}
+} \cell{x} \erow
+\brow \cell{x} \cell{x} \cell{x} \erow
+\end{calstable}

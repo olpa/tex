@@ -1,0 +1,28 @@
+\cals@maxWidth{10pt}\relax
+\PackageInfo{test}{10pt vs relax: \cals@width}
+
+\cals@maxWidth\relax{20pt}
+\PackageInfo{test}{relax vs 20pt: \cals@width}
+
+\cals@maxWidth\relax\relax
+\PackageInfo{test}{relax vs relax: \cals@width}
+
+\cals@maxWidth{30pt}{40pt}
+\PackageInfo{test}{30pt vs 40pt: \cals@width}
+
+\cals@maxWidth{60pt}{50pt}
+\PackageInfo{test}{60pt vs 50pt: \cals@width}
+
+\cals@maxWidth{70pt}{70pt}
+\PackageInfo{test}{70pt vs 70pt: \cals@width}
+
+%
+% Regression test: avoid recursion 
+%
+\def\cals@width{50pt}
+\cals@maxWidth{10pt}\cals@width
+\PackageInfo{test}{regression, recursion avoid: \cals@width}
+\cals@maxWidth\cals@width{10pt}
+\PackageInfo{test}{regression, recursion avoid: \cals@width}
+\cals@maxWidth\cals@width\cals@width
+\PackageInfo{test}{regression, recursion avoid: \cals@width}

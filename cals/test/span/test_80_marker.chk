@@ -1,0 +1,20 @@
+% 1
+> \cals@ifInRspan=macro:
+#1->\iffalse .
+> the letter L.
+% 2
+> \cals@ifInRspan=macro:
+#1->\iftrue .
+> the letter X.
+% 3
+> \cals@ifInRspan=macro:
+#1->\iftrue .
+> the letter X.
+% 4
+> \cals@ifInRspan=macro:
+#1->\iftrue .
+> the letter L.
+% 5
+> \cals@ifInRspan=macro:
+#1->\iffalse .
+> the letter L.

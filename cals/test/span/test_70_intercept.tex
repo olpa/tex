@@ -1,0 +1,28 @@
+%
+% Bug hunting / regresion test
+%
+\begin{calstable}
+\colwidths{{50pt}}
+\cals@setpadding{}\cals@setcellprevdepth{}
+
+\brow
+ \cell{\noindent\vrule height50pt depth0pt width10pt}
+  \cell{\noindent\vrule height50pt depth0pt width10pt}
+   \nullcell{tlr}\show\cals@spanq@heights
+    \erow
+\brow
+ \cell{\noindent\vrule height50pt depth0pt width10pt}
+  \nullcell{tlr}\show\cals@spanq@heights
+   \nullcell{lr}\show\cals@spanq@heights
+    \erow
+\brow
+ \cell{\noindent\vrule height50pt depth0pt width10pt}
+  \nullcell{lr}\show\cals@spanq@heights
+   \nullcell{rlb}\spancontent{\noindent\vrule height50pt depth0pt width10pt}\show\cals@spanq@heights
+    \erow
+\brow
+ \cell{\noindent\vrule height50pt depth0pt width10pt}
+  \nullcell{lrb}\spancontent{\noindent\vrule height50pt depth0pt width10pt}\show\cals@spanq@heights
+   \cell{\noindent\vrule height50pt depth0pt width10pt}
+    \erow
+\end{calstable}

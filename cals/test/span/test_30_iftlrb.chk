@@ -1,0 +1,16 @@
+> \cals@span@ifL=macro:
+#1->\iftrue .
+> \cals@span@ifT=macro:
+#1->\iffalse .
+> \cals@span@ifR=macro:
+#1->\iftrue .
+> \cals@span@ifB=macro:
+#1->\iffalse .
+> \cals@span@ifL=macro:
+#1->\iffalse .
+> \cals@span@ifT=macro:
+#1->\iftrue .
+> \cals@span@ifR=macro:
+#1->\iffalse .
+> \cals@span@ifB=macro:
+#1->\iftrue .

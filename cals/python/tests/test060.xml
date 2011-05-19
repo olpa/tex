@@ -1,0 +1,65 @@
+<data xmlns:tch="table:conversion:helper">
+  <in>
+<article>
+  
+<table frame = "all" colsep = "1" rowsep = "1"><title>Some
+table</title>
+<tgroup cols = "3" tgroupstyle = "Format A" colsep = "1" rowsep = "1">
+<colspec colnum = "1" colname = "col1" colwidth = "1.000in"/>
+<colspec colnum = "2" colname = "col2" colwidth = "1.000in"/>
+<colspec colnum = "3" colname = "col3" colwidth = "1.000in"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "col1">head col1</entry>
+<entry colname = "col2">head col2</entry>
+<entry colname = "col3">head col3</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "col1" morerows = "1">aaa</entry>
+<entry namest = "col2" nameend = "col3">bbb</entry>
+</row>
+<row rowsep = "0">
+<entry colname = "col2"></entry>
+<entry colname = "col3"></entry>
+</row>
+</tbody>
+</tgroup></table>
+
+
+</article></in>
+  <out>
+<article>
+  
+<table frame = "all" colsep = "1" rowsep = "1"><title>Some
+table</title>
+<tgroup cols = "3" tgroupstyle = "Format A" colsep = "1" rowsep = "1">
+<colspec colnum = "1" colname = "col1" colwidth = "1.000in"/>
+<colspec colnum = "2" colname = "col2" colwidth = "1.000in"/>
+<colspec colnum = "3" colname = "col3" colwidth = "1.000in"/>
+<thead>
+<row rowsep = "1">
+<entry colname = "col1">head col1</entry>
+<entry colname = "col2">head col2</entry>
+<entry colname = "col3">head col3</entry>
+</row>
+</thead>
+<tbody>
+<row rowsep = "1">
+<entry colname = "col1" morerows = "1" tch:span="tch1" tch:left="1" tch:right="1" tch:top="1">aaa</entry>
+<entry namest = "col2" nameend = "col3" tch:span="tch2" tch:left="1" tch:top="1" tch:bottom="1">bbb</entry>
+<tch:fakecell tch:span="tch2" tch:right="1" tch:top="1" tch:bottom="1"/>
+</row>
+<row rowsep = "0">
+<tch:fakecell tch:span="tch1" tch:right="1" tch:left="1" tch:bottom="1"/>
+<entry colname = "col2"></entry>
+<entry colname = "col3"></entry>
+</row>
+</tbody>
+</tgroup></table>
+
+
+</article></out>
+
+</data>

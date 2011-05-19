@@ -1,0 +1,25 @@
+<!-- vertical spanning -->
+<data xmlns:tch="table:conversion:helper">
+  <in>
+    <table>
+      <tr>
+        <td rowspan="2">cell 1</td>
+        <td rowspan="2">cell 2</td>
+      </tr>
+      <tr>
+      </tr>
+    </table>
+  </in>
+  <out>
+    <table>
+      <tr>
+        <td rowspan="2" tch:span="tch1" tch:left="1" tch:right="1" tch:top="1">cell 1</td>
+        <td rowspan="2" tch:span="tch2" tch:left="1" tch:right="1" tch:top="1">cell 2</td>
+      </tr>
+      <tr>
+        <tch:fakecell tch:span="tch1" tch:left="1" tch:right="1" tch:bottom="1"/>
+        <tch:fakecell tch:span="tch2" tch:left="1" tch:right="1" tch:bottom="1"/>
+      </tr>
+    </table>
+  </out>
+</data>

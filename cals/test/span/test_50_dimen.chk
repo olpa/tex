@@ -1,0 +1,38 @@
+> \boxXX=
+\hbox(0.0+0.0)x60.0
+.\vbox(0.0+0.0)x10.0
+..\hbox(0.0+0.0)x10.0
+..\glue 0.0 plus 1.0fil
+.\vbox(0.0+0.0)x20.0
+..\hbox(0.0+0.0)x20.0
+..\glue 0.0 plus 1.0fil
+.\vbox(0.0+0.0)x30.0
+..\hbox(0.0+0.0)x30.0
+..\glue 0.0 plus 1.0fil
+> \cals@spanq@heights=macro:
+->{0.0pt}.
+%
+> \boxXX=
+\hbox(0.0+0.0)x60.0
+.\vbox(0.0+0.0)x10.0
+..\hbox(0.0+0.0)x10.0
+..\glue 0.0 plus 1.0fil
+.\vbox(0.0+0.0)x20.0
+..\hbox(0.0+0.0)x20.0
+..\glue 0.0 plus 1.0fil
+.\vbox(0.0+0.0)x30.0
+..\hbox(0.0+0.0)x30.0
+..\glue 0.0 plus 1.0fil
+> \cals@spanq@heights=macro:
+->{40.0pt}.
+%
+> \boxXX=
+\hbox(0.0+0.0)x0.0
+> \cals@spanq@heights=macro:
+->.
+> 60.0pt.
+> 90.0pt.
+%
+% Bug
+%
+> 60.0pt.

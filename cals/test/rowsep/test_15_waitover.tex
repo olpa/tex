@@ -1,0 +1,51 @@
+\def\ll{100pt}
+\def\dl{2pt}
+\def\dr{4pt}
+%
+% Same width and borders
+%
+\def\w{2pt}
+\setbox0=\hbox{%
+\cals@rs@sofar@reset
+\cals@rs@sofar@next\ll\dl\dr\w
+\cals@rs@sofar@over\ll\dl\dr\w
+\cals@rs@sofar@end
+}
+\showbox0
+
+%
+% Same width, bigger borders
+%
+\setbox0=\hbox{%
+\cals@rs@sofar@reset
+\cals@rs@sofar@next\ll\dl\dr\w
+\def\dlII{6pt}%
+\def\drII{8pt}%
+\cals@rs@sofar@over\ll\dlII\drII\w
+\cals@rs@sofar@end
+}
+\showbox0
+
+%
+% Different widths
+%
+\setbox0=\hbox{%
+\cals@rs@sofar@reset
+\cals@rs@sofar@next\ll\dl\dr\w
+\def\wII{4pt}%
+\cals@rs@sofar@over\ll\dl\dr\wII
+\cals@rs@sofar@end
+}
+\showbox0
+
+%
+% Different widths, second is 0pt
+%
+\setbox0=\hbox{%
+\cals@rs@sofar@reset
+\cals@rs@sofar@next\ll\dl\dr\w
+\def\wII{0pt}%
+\cals@rs@sofar@over\ll\dl\dr\wII
+\cals@rs@sofar@end
+}
+\showbox0

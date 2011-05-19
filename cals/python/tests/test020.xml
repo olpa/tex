@@ -1,0 +1,26 @@
+<!-- creating empty cells -->
+<data xmlns:tch="table:conversion:helper">
+  <in>
+    <table>
+      <tr>
+        <td>cell 1</td>
+        <td>cell 2</td>
+      </tr>
+      <tr>
+        <td>cell 3</td>
+      </tr>
+    </table>
+  </in>
+  <out>
+    <table>
+      <tr>
+        <td>cell 1</td>
+        <td>cell 2</td>
+      </tr>
+      <tr>
+        <td>cell 3</td>
+        <td></td>
+      </tr>
+    </table>
+  </out>
+</data>

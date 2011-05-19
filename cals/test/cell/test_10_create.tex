@@ -1,0 +1,22 @@
+\cals@paddingL=12pt \relax
+\cals@paddingR=13pt \relax
+\setlength{\cals@paddingT}{14pt}
+\setlength{\cals@paddingB}{15pt}
+
+\cals@paddingD=1pt \relax
+\setlength{\baselineskip}{10pt}
+
+\def\cals@celll@end{}
+
+\setbox0=\cals@cell{200pt}{0pt}{\noindent \vrule height3pt depth2pt width1pt}
+\showbox0
+
+\setbox0=\cals@cell{200pt}{100pt}{\noindent \vrule height3pt depth2pt width1pt}
+\showbox0
+
+%
+% Zero width makes exact size
+%
+\cals@setpadding{}\cals@setcellprevdepth{}
+\setbox0=\cals@cell{200pt}{0pt}{\noindent \vrule height50pt depth0pt width200pt}
+\showbox0

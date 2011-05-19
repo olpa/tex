@@ -1,0 +1,20 @@
+\def\cbll#1{\cell{\textbf{#1}}}
+%
+\begin{calstable}
+\colwidths{{60pt}{120pt}}
+%
+\thead{Hello from the THead caption!\par
+\brow \cbll{eee} \cbll{fff} \erow
+\brow \cbll{ggg} \cbll{hhh} \erow
+}
+%
+\tfoot{
+\brow \cbll{iii} \cbll{jjj} \erow
+\brow \cbll{kkk} \cbll{lll} \erow
+\lastrule
+I am the TFoot caption\par
+}
+%
+\brow \cell{aaa} \cell{bbb} \erow
+\brow \cell{ccc} \cell{ddd} \erow
+\end{calstable}

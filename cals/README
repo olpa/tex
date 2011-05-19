@@ -1,0 +1,48 @@
+CALS tables
+
+The "cals" package is a set of macros to typeset multipage tables
+with repeatable headers and footers, with cells spanned over
+rows and columns. Decorations are supported: padding, background
+color, width of separation rules. The code is compatible with
+multicols and pdfsync.
+
+The work is released to public (LaTeX license, see below)
+by bitplant.de GmbH, a company which provides technical
+documentation services to industry.
+
+
+Contents:
+
+README:
+  This file.
+
+cals.pdf:
+  Documentation.
+
+dev/
+  The source code of the package. To generate cals.sty:
+  $ cd cals
+  $ latex cals.ins
+
+examples/
+  The file "demo.pdf", produced from "demo.tex" and several
+  include files, demonstrates features of the cals package.
+  To re-generate demo.pdf, after you got cals.ins:
+  $ export TEXINPUTS=../cals:
+  $ pdflatex demo.tex
+
+tests/
+  Unit tests. See "README" inside.
+
+
+Copyright (C) 2010 by Oleg Parashchenko <olpa uucode com>
+ 
+Files from this pacjage may be distributed and/or modified under the
+conditions of the LaTeX Project Public License, either version 1.3c
+of this license or (at your option) any later version.
+The latest version of this license is in:
+
+http://www.latex-project.org/lppl.txt
+
+and version 1.3c or later is part of all distributions of LaTeX 
+version 2006/05/20 or later.

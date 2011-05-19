@@ -1,0 +1,23 @@
+\cals@withColorII{black}{blue}\iftrue
+ \PackageInfo{test}{user color: \cals@color }
+\else
+ \PackageInfo{test}{fail}
+\fi
+
+\cals@withColorII{black}{}\iftrue
+ \PackageInfo{test}{fail}
+\else
+ \PackageInfo{test}{(user) no color}
+\fi
+
+\cals@withColorII{black}\relax\iftrue
+ \PackageInfo{test}{default color: \cals@color}
+\else
+ \PackageInfo{test}{fail}
+\fi
+
+\cals@withColorII{}\relax\iftrue
+ \PackageInfo{test}{fail}
+\else
+ \PackageInfo{test}{(default) no color}
+\fi

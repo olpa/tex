@@ -1,0 +1,27 @@
+<!-- simple table, no spanning at all -->
+<data xmlns:tch="table:conversion:helper" xmlns:aaa="a:a:a">
+  <in>
+    <table>
+      <tr>
+        <td>cell 1</td>
+        <td>cell 2</td>
+      </tr>
+      <tr>
+        <td>cell 3</td>
+        <td>cell 4</td>
+      </tr>
+    </table>
+  </in>
+  <out>
+    <table>
+      <tr>
+        <td>cell 1</td>
+        <td>cell 2</td>
+      </tr>
+      <tr>
+        <td>cell 3</td>
+        <td>cell 4</td>
+      </tr>
+    </table>
+  </out>
+</data>

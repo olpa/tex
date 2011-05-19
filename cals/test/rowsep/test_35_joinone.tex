@@ -1,0 +1,27 @@
+\def\defaultwidth{1pt}
+
+%
+% Empty
+%
+\def\rs{}
+\def\mkbox{\setbox0=\hbox{\cals@rs@sofar@reset \cals@rs@joinOne\defaultwidth\rs \cals@rs@sofar@end}}
+\mkbox
+\showbox0
+
+%
+% One element
+%
+\cals@rs@pack\rs{100pt}{2pt}{4pt}{6pt}
+\edef\rs{{\rs}}
+\mkbox
+\showbox0
+
+%
+% Several elements, with no-line and default
+%
+\cals@rs@pack\frI{100pt}{2pt}{4pt}{6pt}
+\cals@rs@pack\frII{101pt}{2pt}{4pt}\relax
+\cals@rs@pack\frIII{102pt}{2pt}{4pt}{0pt}
+\edef\rs{{\frI}{\frI}{\frII}{\frIII}}
+\mkbox
+\showbox0

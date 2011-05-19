@@ -1,0 +1,16 @@
+> \boxXX=
+\hbox(10.0+0.0)x100.0
+.\vbox(10.0+0.0)x100.0
+..\glue -30.0
+..\glue 14.0
+..\glue 0.0 plus -1.0
+..\glue(\parskip) 0.0 plus 1.0
+..\glue(\baselineskip) 6.0
+..\hbox(3.0+2.0)x100.0, glue set 74.0fil
+...\glue(\leftskip) 12.0
+...\rule(3.0+2.0)x1.0
+...\penalty 10000
+...\glue(\parfillskip) 0.0 plus 1.0fil
+...\glue(\rightskip) 13.0
+..\glue 0.0 plus 1.0fil
+..\glue 15.0

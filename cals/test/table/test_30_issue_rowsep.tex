@@ -1,0 +1,52 @@
+\def\cals@framers@width{0pt}
+\def\cals@bodyrs@width{3pt}
+\def\cals@rs@width{1pt}
+
+%
+% Reusable definitions
+%
+\def\frameI{{{100pt}{2pt}{4pt}\relax}{{110pt}{4pt}{6pt}{2pt}}{{120pt}{6pt}{8pt}\relax}}
+\def\frameII{{{100pt}{2pt}{4pt}\relax}{{110pt}{4pt}{6pt}\relax}{{120pt}{6pt}{8pt}{4pt}}}
+\def\update{%
+\toks0=\expandafter{\frameI}%
+\edef\cals@last@rs@below{\the\toks0}%
+\toks0=\expandafter{\frameII}%
+\edef\cals@current@rs@above{\the\toks0}%
+}
+
+%
+% Alone
+%
+\update
+\setbox0=\vbox{\cals@issue@rowsep@alone}
+\showbox0
+
+%
+% Different combinations
+%
+\def\combineII#1#2{%
+\let\cals@last@context=#1%
+\let\cals@current@context=#2%
+\update
+\setbox0=\vbox{\cals@issue@rowsep}}
+\def\combine#1#2{\combineII#1#2\showbox0 }
+
+% n h f b   vs   h f b
+\combine nh
+\combine nf
+\combine nb
+\combine hh
+\combine hf
+
+%
+% Optimize the rest: do not pollute expected results
+%
+\renewcommand\cals@rs@joinTwo[3]{%
+\show#1}
+\combineII hb
+\combineII fh
+\combineII ff
+\combineII fb
+\combineII bh
+\combineII bf
+\combineII bb

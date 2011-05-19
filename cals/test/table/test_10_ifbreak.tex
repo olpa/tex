@@ -1,0 +1,53 @@
+%
+\newbox\cals@current@row % To be removed after defined in cals.sty
+%
+\def\mkcurrow#1{\setbox\cals@current@row=\vbox to #1{a\vfil}%
+  \ht\cals@current@row=#1\relax}
+%\def\mkbakrow#1{\setbox\cals@backup@row=\vbox to #1{a\vfil}}
+\def\mkfoot#1{\def\cals@tfoot@tokens{aaa}\def\cals@tfoot@height{#1}}
+\def\rmfoot{\let\cals@tfoot@tokens=\relax}
+
+\def\ok{\PackageInfo{test}{OK}}
+\def\fail{\PackageInfo{test}{FAIL}}
+
+\let\cals@tbreak@tokens=\relax
+
+%
+% 1: Body, no break
+%
+\def\pagegoal{400pt}
+\def\pagetotal{300pt}
+\mkfoot{50pt}
+\mkcurrow{50pt}
+\let\cals@last@context=b
+\let\cals@current@context=b
+\cals@ifbreak\iftrue \fail \else \ok \fi
+
+%
+% 2: Body, break
+%
+\mkcurrow{60pt}
+\cals@ifbreak\iftrue \ok \else \fail \fi
+
+%
+% 3: No break in head or foot
+%
+\let\cals@current@context=h
+\cals@ifbreak\iftrue \fail \else \ok \fi
+\let\cals@current@context=f
+\cals@ifbreak\iftrue \fail \else \ok \fi
+\let\cals@current@context=b
+
+%
+% 4: No break after the header
+%
+\let\cals@current@context=b
+\cals@ifbreak\iftrue \ok \else \fail \fi
+\let\cals@last@context=h
+\cals@ifbreak\iftrue \fail \else \ok \fi
+
+%
+% 5: User forces a break
+%
+\tbreak{ok}
+\cals@ifbreak\iftrue \ok \else \fail \fi

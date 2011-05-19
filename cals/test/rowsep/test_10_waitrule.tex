@@ -1,0 +1,68 @@
+%
+% Testing "waiting" rule
+%
+
+%
+% Empty
+%
+\setbox0=\hbox{%
+\cals@rs@sofar@reset
+\cals@rs@sofar@end
+}
+\showbox0
+
+%
+% One element
+%
+\def\ll{100pt}
+\def\dl{2pt}
+\def\dr{4pt}
+\def\w{1pt}
+\setbox0=\hbox{%
+\cals@rs@sofar@reset
+\cals@rs@sofar@next\ll\dl\dr\w
+\cals@rs@sofar@end
+}
+\showbox0
+
+%
+% Elements of the same width
+%
+\setbox0=\hbox{%
+\cals@rs@sofar@reset
+\cals@rs@sofar@next\ll\dl\dr\w
+\cals@rs@sofar@next\ll\dl\dr\w
+\cals@rs@sofar@next\ll\dl\dr\w
+\cals@rs@sofar@end
+}
+\showbox0
+
+%
+% Elements of different widths
+%
+\setbox0=\hbox{%
+\cals@rs@sofar@reset
+\cals@rs@sofar@next\ll\dl\dr\w
+\def\w{3pt}%
+\cals@rs@sofar@next\ll\dl\dr\w
+\def\w{5pt}%
+\cals@rs@sofar@next\ll\dl\dr\w
+\cals@rs@sofar@end
+}
+\showbox0
+
+%
+% 0pt width=no rule at all
+%
+\setbox0=\hbox{%
+\def\w{2pt}%
+\cals@rs@sofar@reset
+\cals@rs@sofar@next\ll\dl\dr\w
+\def\w{0pt}%
+\cals@rs@sofar@next\ll\dl\dr\w
+\cals@rs@sofar@next\ll\dl\dr\w
+\def\w{2pt}%
+\cals@rs@sofar@next\ll\dl\dr\w
+\cals@rs@sofar@end
+}
+\showbox0

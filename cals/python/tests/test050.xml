@@ -1,0 +1,56 @@
+<!-- complex spanning -->
+<!--
+
+ AAAB
+ CDDB
+ CDDB
+ CEEE
+
+-->
+<data xmlns:tch="table:conversion:helper">
+  <in>
+    <table>
+      <tr>
+        <td colspan="3">cell (1,1), (1,2), (1,3)</td>
+        <td rowspan="3">cell (1,4), (2,4), (3,4)</td>
+      </tr>
+      <tr>
+        <td rowspan="3">cell (2,1), (3,1), (4,1)</td>
+        <td rowspan="2" colspan="2">cell (2,2), (2,3), (3,2), (3,3)</td>
+      </tr>
+      <tr>
+      </tr>
+      <tr>
+        <td colspan="3">cell (4,2), (4,3), (4,4)</td>
+      </tr>
+    </table>
+  </in>
+  <out>
+    <table>
+      <tr>
+        <td colspan="3" tch:span="tch1" tch:top="1" tch:bottom="1" tch:left="1">cell (1,1), (1,2), (1,3)</td>
+        <tch:fakecell tch:span="tch1" tch:top="1" tch:bottom="1"/>
+        <tch:fakecell tch:span="tch1" tch:top="1" tch:bottom="1" tch:right="1"/>
+        <td rowspan="3" tch:span="tch2" tch:left="1" tch:right="1" tch:top="1">cell (1,4), (2,4), (3,4)</td>
+      </tr>
+      <tr>
+        <td rowspan="3" tch:span="tch3" tch:left="1" tch:right="1" tch:top="1">cell (2,1), (3,1), (4,1)</td>
+        <td rowspan="2" colspan="2" tch:span="tch4" tch:left="1" tch:top="1">cell (2,2), (2,3), (3,2), (3,3)</td>
+        <tch:fakecell tch:span="tch4" tch:top="1" tch:right="1"/>
+        <tch:fakecell tch:span="tch2" tch:left="1" tch:right="1"/>
+      </tr>
+      <tr>
+        <tch:fakecell tch:span="tch3" tch:left="1" tch:right="1"/>
+        <tch:fakecell tch:span="tch4" tch:left="1" tch:bottom="1"/>
+        <tch:fakecell tch:span="tch4" tch:right="1" tch:bottom="1"/>
+        <tch:fakecell tch:span="tch2" tch:left="1" tch:right="1" tch:bottom="1"/>
+      </tr>
+      <tr>
+        <tch:fakecell tch:span="tch3" tch:left="1" tch:right="1" tch:bottom="1"/>
+        <td colspan="3" tch:span="tch5" tch:top="1" tch:bottom="1" tch:left="1">cell (4,2), (4,3), (4,4)</td>
+        <tch:fakecell tch:span="tch5" tch:top="1" tch:bottom="1"/>
+        <tch:fakecell tch:span="tch5" tch:top="1" tch:bottom="1" tch:right="1"/>
+      </tr>
+    </table>
+  </out>
+</data>

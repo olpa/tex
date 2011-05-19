@@ -1,0 +1,40 @@
+\colwidths{{10pt}{20pt}{30pt}}
+\cals@last@row@height=1000pt %
+%
+\brow
+\nullcell{tl}
+\nullcell{t}
+\nullcell{tr}
+%\erow
+\cals@last@row@height=40pt %
+\showbox\cals@current@row
+\show\cals@spanq@heights
+
+\brow
+\nullcell{l}
+\nullcell{}
+\nullcell{r}
+%\erow
+\cals@last@row@height=50pt %
+\showbox\cals@current@row
+\show\cals@spanq@heights
+
+
+\brow
+\nullcell{lb}
+\nullcell{b}
+\nullcell{br}
+%\erow
+\showbox\cals@current@row
+\show\cals@spanq@heights
+\showthe\cals@span@width
+\showthe\cals@span@height
+
+%
+% Bug was here
+%
+\brow
+\nullcell{ltb}
+\nullcell{tb}
+\nullcell{btr}
+\showthe\cals@span@width

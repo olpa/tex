@@ -1,0 +1,32 @@
+%
+% Do not break rowspanned cells
+%
+
+%
+% Unfortunately, this test seems does not check it.
+% Probably I should look at \tracingoutput
+%
+
+\edef\oldoutput{\the\output}
+\output={\immediate\show O%
+\oldoutput}
+
+\dimen0=\vsize
+\divide \dimen0 by 3
+\advance \dimen0 by 1cm
+\let\olderow=\erow
+\edef\erow{\ht\cals@current@row=\the\dimen0 \noexpand\olderow}
+%\show\erow
+
+\begin{calstable}
+\colwidths{{100pt}{100pt}}
+\thead{\brow \cell{h1}\cell{h2} \erow \immediate\show H}
+\brow \cell{r0c1}\cell{r0c2} \olderow
+\brow \cell{r1}\nullcell{ltr} \erow \immediate\show 1
+\cals@ifInRspan\iftrue \show R \else \show X \fi
+\brow \cell{r2}\nullcell{lbr}\spancontent{r1+r2} \erow \immediate\show 2
+%
+% Unfortunately yes, this row is orphan
+%
+\brow \cell{r3a}\cell{r3b} \erow \immediate\show 3
+\end{calstable}

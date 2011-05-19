@@ -1,0 +1,10 @@
+> \cals@colwidths=macro:
+->{100pt}{200pt}.
+> \llt@car=macro:
+->100pt.
+> \cals@colwidths=macro:
+->{200pt}{100pt}.
+> \llt@car=macro:
+->200pt.
+> \cals@colwidths=macro:
+->{100pt}{200pt}.

@@ -1,0 +1,24 @@
+> \lst=macro:
+->{\multiply \cals@borderwidthL by 3\relax }{}.
+> \llt@car=macro:
+->.
+> \lst=macro:
+->{item1}{item2}.
+> \llt@car=macro:
+->item3.
+> \lst=macro:
+->.
+> \lst=macro:
+->{bbb}.
+> \lst=macro:
+->{bbb}{ccc}.
+> \lst=macro:
+->{aaa}{bbb}{ccc}.
+> \llt@car=macro:
+->aaa.
+> \lst=macro:
+->{bbb}{ccc}.
+> \llt@car=macro:
+->bbb.
+> \lst=macro:
+->{ccc}{bbb}.

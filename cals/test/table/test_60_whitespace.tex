@@ -1,0 +1,21 @@
+\def\cals@issue@rowsep@alone{}
+\def\cals@issue@rowsep{}
+\def\cals@issue@row{}
+
+%
+% Check that there are no unneeded whitespace in output
+%
+
+\setbox0=\vbox{
+
+\begin{calstable}
+
+\colwidths{{100pt}{200pt}}
+
+\brow{}
+ \cell{aaaaa} \nullcell{ltb}  \nullcell{rtb}  \spancontent{bbbbb}  \cell{bbbb}  \erow{}  % ok
+\end{calstable}
+
+}
+
+\showbox0

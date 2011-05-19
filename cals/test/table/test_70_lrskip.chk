@@ -1,0 +1,32 @@
+> \boxXX=
+\vbox(20.0+0.0)x300.0
+% colsep
+.\vbox(0.0+0.0)x300.0
+..\hbox(20.0+0.0)x300.0
+...\glue 50.0
+...\hbox(20.0+0.0)x100.0
+....\glue 100.0
+...\glue 150.0
+% rowsep
+.\hbox(0.0+0.0)x300.0
+..\glue 50.0
+..\glue 100.0
+..\glue 150.0
+% cell
+.\hbox(20.0+0.0)x300.0
+..\glue 50.0
+..\hbox(20.0+0.0)x100.0
+...\vbox(20.0+0.0)x100.0, glue set 20.0fil
+....\glue 0.0
+....\glue 0.0 plus -1.0
+....\glue 0.0 plus 1.0fil
+....\glue 0.0
+..\glue 150.0
+% thead+row1 break workaround
+.\glue 0.0
+.\penalty 10000
+% rowsep
+.\hbox(0.0+0.0)x300.0
+..\glue 50.0
+..\glue 100.0
+..\glue 150.0

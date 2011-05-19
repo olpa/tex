@@ -1,0 +1,32 @@
+\cals@withWidthII{1pt}{5pt}\iftrue
+ \PackageInfo{test}{user width: \cals@width}
+\else
+ \PackageInfo{test}{fail}
+\fi
+
+\def\defaultDimen{2pt}
+\cals@withWidthII\defaultDimen{0pt}\iftrue
+ \PackageInfo{test}{fail}
+\else
+ \PackageInfo{test}{no width}
+\fi
+
+\cals@withWidthII\defaultDimen\relax\iftrue
+ \PackageInfo{test}{default width: \cals@width}
+\else
+ \PackageInfo{test}{fail}
+\fi
+
+\cals@withWidthII{0pt}\relax\iftrue
+ \PackageInfo{test}{fail}
+\else
+ \PackageInfo{test}{no width}
+\fi
+
+%
+% Bug hunting: a space
+%
+\def\cals@default@cs@width{4pt}
+\setbox0=\hbox{\hbox{}%
+\cals@withWidthII\cals@default@cs@width\relax\iftrue \fi}
+\showbox0

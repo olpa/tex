@@ -1,0 +1,57 @@
+%
+%
+\def\cals@cs@width{2pt}
+\def\cals@bgcolor{green}
+
+%
+% cals@cs@outone:
+% #1: cell width
+% #2: left border width
+% #3: background color
+%
+%
+% test1: everything disabled
+%
+\setbox0=\hbox{\cals@cs@outOne\relax{0pt}{}%
+\show\cals@lastLeftWidth
+}
+\showbox0
+
+%
+% test2: everything specified
+%
+\setbox0=\hbox{\cals@cs@outOne{50pt}{4pt}{red}%
+\show\cals@lastLeftWidth
+}
+\showbox0
+%
+% test3: use defaults for everything
+%
+\setbox0=\hbox{\cals@cs@outOne{100pt}\relax\relax%
+\show\cals@lastLeftWidth
+}
+\showbox0
+%
+% test4: background color ignored if no cell width
+%
+\setbox0=\hbox{\cals@cs@outOne\relax{2pt}{green}}
+\showbox0
+%
+% test5: defaults are no colors, no borders
+%
+\def\cals@cs@width{0pt}
+\def\cals@bgcolor{}
+\setbox0=\hbox{\cals@cs@outOne{300pt}\relax\relax}
+\showbox0
+%
+% test6: cell width: 0pt != \relax
+%
+\setbox0=\hbox{\cals@cs@outOne{0pt}{0pt}{}}
+\showbox0
+
+%
+% test7: only \relax
+% (Bug hunting for a space)
+%
+\setbox0=\hbox{\cals@cs@outOne\relax\relax\relax}
+\showbox0

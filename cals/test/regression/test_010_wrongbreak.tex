@@ -1,0 +1,33 @@
+% Wrong behaviour:
+% - page 1: "a"
+% - page 2: thead, tbody1
+% - page 3: thead, tbody2, tbody3
+% Right behaviour:
+% - page 1: "a"
+% - page 2: thead, tbody1, tbody2, tbody3
+%
+%
+\edef\oldoutput{\the\output}
+\output={\immediate\show O%
+\oldoutput}
+\let\oldifbreak=\cals@ifbreak
+\def\cals@ifbreak{%
+\oldifbreak\iftrue \immediate\show T\else \immediate\show F\fi
+\cals@tmp}
+%\tracingoutput=1
+%\tracingpages=1
+%
+%
+%
+a\par
+\dimen0=\pagegoal\relax
+\advance\dimen0 by -\pagetotal\relax
+\advance\dimen0 by -150pt
+\vskip\dimen0\relax
+\begin{calstable}
+\colwidths{{100pt}{100pt}}
+\thead{\brow\cell{thead}\cell{\vrule width10pt height100pt depth0pt}\erow}
+\brow\cell{tbody1}\cell{\vrule width10pt height100pt depth0pt}\erow
+\brow\cell{tbody2}\cell{\vrule width10pt height100pt depth0pt}\erow
+\brow\cell{tbody3}\cell{\vrule width10pt height100pt depth0pt}\erow
+\end{calstable}

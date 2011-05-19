@@ -1,0 +1,36 @@
+\def\wNone{0pt}
+\def\wII{2pt}
+\def\wIII{3pt}
+\def\wIV{4pt}
+\def\wV{5pt}
+\def\wVI{6pt}
+\def\wVIII{8pt}
+\def\wC{100pt}
+\def\wCC{200pt}
+
+%
+% Empty
+%
+\cals@rs@spec@begin
+\cals@rs@spec@end\wII
+\show\cals@current@rs@above
+\show\cals@current@rs@below
+
+%
+% One element
+%
+\cals@rs@spec@begin
+\cals@rs@spec@next\wC\wIII\relax\wIV  % length, borderT, borderB
+\cals@rs@spec@end\wV
+\show\cals@current@rs@above
+\show\cals@current@rs@below
+
+%
+% Two elements
+%
+\cals@rs@spec@begin
+\cals@rs@spec@next\wC\wNone\relax\wIV
+\cals@rs@spec@next\wCC\wII\wVI\relax
+\cals@rs@spec@end\wVIII
+\show\cals@current@rs@above
+\show\cals@current@rs@below

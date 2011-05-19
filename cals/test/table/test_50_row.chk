@@ -1,0 +1,99 @@
+> \cals@last@context=the letter b.
+> \cals@last@rs@below=macro:
+->{{100pt}{0pt}{10pt}{10pt}}{{200pt}{10pt}{20pt}{20pt}}.
+> 20.0pt.
+> \cals@last@context=the letter b.
+> \cals@last@rs@below=macro:
+->{{100pt}{0pt}{30pt}{30pt}}{{200pt}{30pt}{40pt}{40pt}}.
+> 40.0pt.
+%
+% The table
+%
+> \boxXX=
+\vbox(60.0+0.0)x300.0
+%
+% Row 1, colsep
+%
+.\vbox(0.0+0.0)x300.0
+..\hbox(20.0+0.0)x300.0
+...\glue 0.0
+...\hbox(20.0+0.0)x300.0
+....\glue 100.0
+....\glue -5.0
+....\rule(*+0.0)x10.0
+....\glue -5.0
+....\glue 200.0
+....\glue -10.0
+....\rule(*+0.0)x20.0
+....\glue -10.0
+...\glue 0.0
+%
+% Rowsep before row 1
+%
+.\hbox(0.0+0.0)x300.0
+..\glue 0.0
+..\glue 300.0
+..\glue 0.0
+%
+% Row 1
+%
+.\hbox(20.0+0.0)x300.0
+..\glue 0.0
+..\hbox(20.0+0.0)x300.0
+...\vbox(20.0+0.0)x100.0, glue set 10.0fil
+....\rule(10.0+0.0)x100.0
+....\glue 0.0 plus 1.0fil
+...\vbox(20.0+0.0)x200.0
+....\rule(20.0+0.0)x200.0
+....\glue 0.0 plus 1.0fil
+..\glue 0.0
+%
+% Output procesure forcing
+%
+.\glue 0.0
+.\penalty 10000
+%
+% Row 2, colsep
+%
+.\vbox(0.0+0.0)x300.0
+..\hbox(40.0+0.0)x300.0
+...\glue 0.0
+...\hbox(40.0+0.0)x300.0
+....\glue 100.0
+....\glue -15.0
+....\rule(*+0.0)x30.0
+....\glue -15.0
+....\glue 200.0
+....\glue -20.0
+....\rule(*+0.0)x40.0
+....\glue -20.0
+...\glue 0.0
+%
+% Rowsep between row 1 and row 2
+%
+.\hbox(0.0+0.0)x300.0
+..\glue 0.0
+..\glue 0.0
+..\rule(5.0+5.0)x115.0
+..\glue -15.0
+..\glue -5.0
+..\rule(10.0+10.0)x215.0
+..\glue -10.0
+..\glue -200.0
+..\glue -15.0
+..\rule(5.0+5.0)x235.0
+..\glue -20.0
+..\glue 0.0
+%
+% Row 2
+%
+.\hbox(40.0+0.0)x300.0
+..\glue 0.0
+..\hbox(40.0+0.0)x300.0
+...\vbox(40.0+0.0)x100.0, glue set 10.0fil
+....\rule(30.0+0.0)x100.0
+....\glue 0.0 plus 1.0fil
+...\vbox(40.0+0.0)x200.0
+....\rule(40.0+0.0)x200.0
+....\glue 0.0 plus 1.0fil
+..\glue 0.0

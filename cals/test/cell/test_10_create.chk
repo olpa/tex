@@ -1,0 +1,45 @@
+> \boxXX=
+\vbox(40.0+0.0)x200.0
+.\glue 14.0
+.\glue 0.0 plus -1.0
+.\glue(\parskip) 0.0 plus 1.0
+.\glue(\baselineskip) 6.0
+.\hbox(3.0+2.0)x200.0, glue set 174.0fil
+..\glue(\leftskip) 12.0
+..\rule(3.0+2.0)x1.0
+..\penalty 10000
+..\glue(\parfillskip) 0.0 plus 1.0fil
+..\glue(\rightskip) 13.0
+.\glue 0.0 plus 1.0fil
+.\glue 15.0
+> \boxXX=
+\vbox(-60.0+0.0)x200.0
+.\glue -100.0
+.\glue 14.0
+.\glue 0.0 plus -1.0
+.\glue(\parskip) 0.0 plus 1.0
+.\glue(\baselineskip) 6.0
+.\hbox(3.0+2.0)x200.0, glue set 174.0fil
+..\glue(\leftskip) 12.0
+..\rule(3.0+2.0)x1.0
+..\penalty 10000
+..\glue(\parfillskip) 0.0 plus 1.0fil
+..\glue(\rightskip) 13.0
+.\glue 0.0 plus 1.0fil
+.\glue 15.0
+%
+% Zero width
+%
+> \boxXX=
+\vbox(50.0+0.0)x200.0
+.\glue 0.0
+.\glue 0.0 plus -1.0
+.\glue(\parskip) 0.0 plus 1.0
+.\glue(\lineskip) 0.0
+.\hbox(50.0+0.0)x200.0
+..\rule(50.0+0.0)x200.0
+..\penalty 10000
+..\glue(\parfillskip) 0.0 plus 1.0fil
+..\glue(\rightskip) 0.0
+.\glue 0.0 plus 1.0fil
+.\glue 0.0

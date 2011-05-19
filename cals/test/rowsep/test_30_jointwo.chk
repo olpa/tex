@@ -1,0 +1,29 @@
+%
+% Empty
+%
+> \boxXX=
+\hbox(0.0+0.0)x0.0
+%
+% One element
+%
+> \boxXX=
+\hbox(3.0+3.0)x100.0
+.\glue -1.5
+.\rule(3.0+3.0)x104.0
+.\glue -2.5
+%
+% Several elements
+%
+> \boxXX=
+\hbox(4.0+4.0)x303.0
+.\glue -1.0
+.\rule(3.0+3.0)x103.0
+.\glue -2.0
+.\glue -100.0
+.\glue -2.0
+.\rule(4.0+4.0)x104.0
+.\glue -2.0
+.\glue -1.0
+.\rule(0.5+0.5)x104.0
+.\glue -2.0
+.\glue 102.0

@@ -1,0 +1,65 @@
+%
+% Some redefs
+%
+\def\cals@issue@rowsep{\vbox{\hrule width400pt height4pt depth0pt}}
+\def\cals@issue@row{\nointerlineskip \box\cals@current@row}
+
+\def\cals@current@rs@above{rsabove}
+\def\cals@current@rs@below{rsbelow}
+\renewcommand\lastrule{}
+
+\def\somerow#1#2{%
+\setbox\cals@current@row=\vbox{\hrule width#1 height#1 depth0pt}%
+\let\cals@current@context=#2%
+\cals@row@dispatch
+}
+
+\def\bodyrowI{\somerow{10pt}b}
+\def\bodyrowII{\somerow{20pt}b}
+\def\headrowI{\somerow{110pt}h}
+\def\headrowII{\somerow{120pt}h}
+\def\footrowI{\somerow{210pt}f}
+\def\footrowII{\somerow{220pt}f}
+
+%
+% Normal table
+%
+\setbox0=\vbox{%
+\headrowI
+\headrowII
+\headrowI
+\bodyrowI
+\bodyrowII
+\bodyrowI
+\footrowI
+\footrowII
+\footrowI
+}
+\showbox0
+
+%
+% Make a break
+%
+\setbox0=\vbox{%
+\def\cals@thead@tokens{\headrowI\headrowII}
+\def\cals@tfoot@tokens{\footrowI}
+\bodyrowI
+\tbreak{\break}
+\bodyrowII
+}
+\showbox0
+
+%
+% Span
+%
+\setbox0=\vbox{%
+\bodyrowI
+  \let\cals@ifInRspan=\cals@iftrue
+  \let\cals@ifLastRspanRow=\cals@iffalse
+\bodyrowII
+  \let\cals@ifLastRspanRow=\cals@iftrue
+\bodyrowI
+  \let\cals@ifInRspan=\cals@iffalse
+\bodyrowII
+}
+\showbox0

@@ -1,0 +1,26 @@
+\def\lst{{\multiply \cals@borderwidthL by 3\relax}{}{}}
+\llt@desnoc{\lst}
+\show\lst
+\show\llt@car
+\def\lst{{item1}{item2}{item3}}
+\llt@desnoc{\lst}
+\show\lst
+\show\llt@car
+
+\def\aaa{aaa}
+\def\bbb{bbb}
+\def\ccc{ccc}
+\def\lst{}         % empty list
+\show\lst
+\llt@cons\bbb\lst  % \lst -> "{bbb}"
+\show\lst
+\llt@snoc\lst\ccc  % \lst -> "{bbb}{ccc}"
+\show\lst
+\llt@cons\aaa\lst  % \lst -> "{aaa}{bbb}{ccc}"
+\show\lst
+\llt@decons\lst    % \llt@car -> "aaa", \lst -> "{bbb}{ccc}"
+\show\llt@car
+\show\lst
+\llt@rot\lst       % \llt@car -> "bbb", \lst -> "{ccc}{bbb}"
+\show\llt@car
+\show\lst
