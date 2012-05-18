@@ -2,6 +2,8 @@ import os, sys, re
 import DD
 import runlatex
 
+delta_mode = 'lines'
+
 #
 # LaTeX file consist of parts:
 # * classname       - {} part of \documentclass
@@ -64,6 +66,10 @@ class LatexFile:
     def process_part(where, s):
       index = 1
       if s is not None:
+        if 'lines' == delta_mode:
+          s = s.split("\n")
+          s = [l+"\n" for l in s]
+          print >>sys.stderr, "!!!!! Lines mode"
         for ch in s:
           deltas.append((where, index, ch))
           index = index + 1
