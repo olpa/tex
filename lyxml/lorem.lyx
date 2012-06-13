@@ -4,6 +4,9 @@
 \begin_header
 \textclass article
 \use_default_options true
+\begin_modules
+logicalmkup
+\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -62,6 +65,26 @@
 
 \begin_layout Section
 Lorem ipsum
+\end_layout
+
+\begin_layout Standard
+
+\backslash
+begin_layout Здравствуй, жестокий мир.
+ / | < > @ ^ $$.
+ 
+\begin_inset Flex Emph
+status collapsed
+
+\begin_layout Plain Layout
+Test passed?
+\end_layout
+
+\end_inset
+
+ 
+\backslash
+end_layout
 \end_layout
 
 \begin_layout Standard
