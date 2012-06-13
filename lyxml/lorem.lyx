@@ -109,6 +109,8 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
 \end_layout
 
 \begin_layout Standard
+\paragraph_spacing double
+\align center
 Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie
  consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et
  accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit
