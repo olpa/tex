@@ -2,6 +2,42 @@
 # Oleg Parashchenko <olpa@ http://uucode.com/>
 import sys, codecs, re, cStringIO
 
+#
+# LyX file format
+#
+# Paragraph style:
+# see lyx-2.0.3/src/Paragraph.cpp, Paragraph::write
+#
+# * \begin_layout name [options]
+# * For each child:
+# . - META_INSET: direct write, or begin_inset ... end_inset
+# . - '\':        \\backslash\n
+# . - '.':        drops the trailing whitespace while writing .lyx
+# * \end_layout
+#
+# Character style
+# see lyx-2.0.3/src/insets/InsetFlex.cpp, InsetCollapsable.cpp,
+# InsetText.cpp, Text.cpp
+#
+# 1. \begin_inset Flex name
+# 2. "status collapsed" or "status open"
+# 3. For each item in style: print. Usually it is a paragraph style
+#    of name "Plain" and option "Layout":
+#    3b. \begin_layout Plain Layout
+#        ... text ...
+#        \end_layout
+# 4 \end_inset
+# comes from
+# (1):  Paragraph::write, InsetFlex::write
+# (2):  InsetCollapsable::write
+# (3):  Text::write
+# (3b): Paragraph::write
+# (4):  Paragraph::write
+#
+# There are also \begin_deeper and \end_deeper
+
+# =========================================================
+
 def lyx2xml(in_file, out_file):
   if '-' == in_file:
     h_in = sys.stdin
