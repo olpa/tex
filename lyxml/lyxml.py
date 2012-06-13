@@ -8,7 +8,8 @@ import sys, codecs, re, cStringIO
 # Paragraph style:
 # see lyx-2.0.3/src/Paragraph.cpp, Paragraph::write
 #
-# * \begin_layout name [options]
+# * \begin_layout name [annotations]
+# * Options
 # * For each child:
 # . - META_INSET: direct write, or begin_inset ... end_inset
 # . - '\':        \\backslash\n
@@ -53,29 +54,52 @@ def lyx2xml(in_file, out_file):
   if not (h_out == sys.stdout):
     h_out.close()
 
+
 def lyx2xml_h(h_in, h_out):
-  blob = BlobWriter(h_out)
-  in_blob = 1
-  stack   = []
-  re_begin_layout = re.compile("^\\\\begin_layout \s*(\w+)$")
+  blob  = BlobWriter(h_out)
+  stack = []
+  re_begin_layout = re.compile("^\\\\begin_layout \s*(\w+)\s*(.*)$")
+  skip_lines = 1 # 1: till \begin_body, 2: one line after \begin_inset
   h_out.write("<lyx>\n")
   for l in h_in:
+    if skip_lines:
+      if 2 == skip_lines:
+        skip_lines = 0
+        continue                                           # continue
+      blob.write(l)
+      if '\\begin_body' == l[:11]:
+        skip_lines = 0
+      continue                                             # continue
+    if not len(l):
+      continue                                             # continue
+    ch = l[0]
+    if not('\\' == ch):
+      blob.flush()
+      h_out.write(l) # TODO: unescape and escape
+      continue                                             # continue
+    l = l.rstrip()
+    if '\\backslash' == l:
+      blob.flush()
+      h_out.write('\\')
+      continue                                             # continue
+    if '\\end_layout' == l:
+      blob.flush()
+      (el_name, el_ann) = stack.pop()
+      if not len(el_ann):
+        h_out.write('</' + el_name + ">\n")
+      continue                                             # continue
     m = re_begin_layout.match(l)
     if m:
       blob.flush()
       el_name = m.group(1)
-      stack.append((in_blob, el_name))
-      in_blob = 0
-      h_out.write('<' + el_name + '>')
+      el_ann  = m.group(2)
+      stack.append((el_name, el_ann))
+      if not len(el_ann):
+        h_out.write('<' + el_name + '>')
       continue                                             # continue
-    if '\\end_layout' == l.rstrip():
-      (in_blob, el_name) = stack.pop()
-      h_out.write('</' + el_name + ">\n")
+    if ('\\end_body' == l) or ('\\end_document' == l):
       continue                                             # continue
-    if in_blob:
-      blob.write(l)
-    else:
-      h_out.write(l) # FIXME: decode, escape
+    blob.write(l)
   blob.flush()
   h_out.write("</lyx>\n")
 
@@ -89,7 +113,12 @@ class BlobWriter:
   def write(self, s):
     self.blob.write(s)
 
+  def len(self):
+    return self.blob.tell()
+
   def flush(self):
+    if not(self.blob.tell()):
+      return
     s = self.blob.getvalue()
     self.blob.close()
     if not re_empty.match(s):
