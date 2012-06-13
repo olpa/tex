@@ -1,6 +1,6 @@
 # LyX-XML roundtrip converter
 # Oleg Parashchenko <olpa@ http://uucode.com/>
-import sys, codecs
+import sys, codecs, re, cStringIO
 
 def lyx2xml(in_file, out_file):
   if '-' == in_file:
@@ -11,12 +11,54 @@ def lyx2xml(in_file, out_file):
     h_out = sys.stdout
   else:
     h_out = open(out_file, 'w')
-  for l in h_in:
-    h_out.write(l)
+  lyx2xml_h(h_in, h_out)
   if not (h_in == sys.stdin):
     h_in.close()
   if not (h_out == sys.stdout):
     h_out.close()
+
+def lyx2xml_h(h_in, h_out):
+  blob = BlobWriter(h_out)
+  in_blob = 1
+  stack   = []
+  re_begin_layout = re.compile("^\\\\begin_layout \s*(\w+)$")
+  h_out.write("<lyx>\n")
+  for l in h_in:
+    m = re_begin_layout.match(l)
+    if m:
+      blob.flush()
+      el_name = m.group(1)
+      stack.append((in_blob, el_name))
+      in_blob = 0
+      h_out.write('<' + el_name + '>')
+      continue                                             # continue
+    if '\\end_layout' == l.rstrip():
+      (in_blob, el_name) = stack.pop()
+      h_out.write('</' + el_name + ">\n")
+      continue                                             # continue
+    if in_blob:
+      blob.write(l)
+    else:
+      h_out.write(l) # FIXME: decode, escape
+  blob.flush()
+  h_out.write("</lyx>\n")
+
+re_empty = re.compile('^\s*$')
+
+class BlobWriter:
+  def __init__(self, h):
+    self.blob = cStringIO.StringIO()
+    self.h    = h
+
+  def write(self, s):
+    self.blob.write(s)
+
+  def flush(self):
+    s = self.blob.getvalue()
+    self.blob.close()
+    if not re_empty.match(s):
+      self.h.write("<blob>TODO</blob>\n")
+    self.blob = cStringIO.StringIO()
 
 # =========================================================
 # Parse command line
