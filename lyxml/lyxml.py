@@ -1,18 +1,30 @@
 # LyX-XML roundtrip converter
 # Oleg Parashchenko <olpa@ http://uucode.com/>
-import sys
+import sys, codecs
 
-#
-# The mode of work
+def lyx2xml(in_file, out_file):
+  if '-' == in_file:
+    h_in = sys.stdin
+  else:
+    h_in = open(in_file)
+  if '-' == out_file:
+    h_out = sys.stdout
+  else:
+    h_out = open(out_file, 'w')
+  for l in h_in:
+    h_out.write(l)
+  if not (h_in == sys.stdin):
+    h_in.close()
+  if not (h_out == sys.stdout):
+    h_out.close()
+
+# =========================================================
+# Parse command line
 #
 mode_lyx2xml = 0
 mode_xml2lyx = 0
 in_file      = None
 out_file     = None
-
-#
-# Parse command line
-#
 for a in sys.argv[1:]:
   if '--lyx2xml' == a:
     mode_lyx2xml = 1
@@ -44,4 +56,11 @@ if out_file is None:
 if in_file is None:
   in_file = '-'
 
-print '!!!!!!!!!!!!!!', in_file, out_file, mode_lyx2xml, mode_xml2lyx
+#
+# Open files and start conversion
+#
+if mode_lyx2xml:
+  lyx2xml(in_file, out_file)
+if mode_xml2lyx:
+  print >>sys.stderr, 'lyxml: XML to LyX is not supported yet.'
+  sys.exit(-1)
