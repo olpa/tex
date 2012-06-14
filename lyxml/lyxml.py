@@ -1,6 +1,8 @@
 # LyX-XML roundtrip converter
 # Oleg Parashchenko <olpa@ http://uucode.com/>
-import sys, codecs, re, cStringIO
+import sys, codecs, re, cStringIO, base64
+
+lx_ns = 'http://getfo.org/lyxml/'
 
 #
 # LyX file format
@@ -81,7 +83,7 @@ def lyx2xml_h(h_in, h_out):
       else:
         h_out.write('>')
   skip_lines = -1 # -1: till \begin_body, N: how much (after \begin_inset)
-  h_out.write("<lyx>\n")
+  h_out.write("<lx:lyx xmlns:lx='%s'>\n" % lx_ns)
   for l in h_in:
     if skip_lines:
       if skip_lines > 0:
@@ -122,7 +124,7 @@ def lyx2xml_h(h_in, h_out):
       continue                                             # continue
     blob.writeln(l)
   blob.flush()
-  h_out.write("</lyx>\n")
+  h_out.write("</lx:lyx>\n")
 
 re_empty = re.compile('^\s*$')
 
@@ -147,7 +149,16 @@ class BlobWriter:
     s = self.blob.getvalue()
     self.blob.close()
     if not re_empty.match(s):
-      self.h.write("<blob>TODO</blob>\n")
+      self.h.write('<lx:blob>')
+      s = base64.b64encode(s)
+      llen = 63
+      while len(s) > llen:
+        self.h.write(s[:llen])
+        self.h.write("\n")
+        s = s[llen:]
+        llen = 72
+      self.h.write(s)
+      self.h.write("</lx:blob>\n")
     self.blob = cStringIO.StringIO()
 
 # =========================================================
