@@ -39,6 +39,12 @@ import sys, codecs, re, cStringIO
 
 # =========================================================
 
+def html_escape(s):
+  s = s.replace('&', '&amp;')
+  s = s.replace('<', '&lt;')
+  s = s.replace('>', '&gt;')
+  return s
+
 def lyx2xml(in_file, out_file):
   if '-' == in_file:
     h_in = sys.stdin
@@ -53,7 +59,6 @@ def lyx2xml(in_file, out_file):
     h_in.close()
   if not (h_out == sys.stdout):
     h_out.close()
-
 
 def lyx2xml_h(h_in, h_out):
   blob  = BlobWriter(h_out)
@@ -92,7 +97,7 @@ def lyx2xml_h(h_in, h_out):
     ch = l[0]
     if not('\\' == ch):
       blob.flush()
-      h_out.write(l) # TODO: unescape and escape
+      h_out.write(html_escape(l))
       continue                                             # continue
     if '\\backslash' == l:
       blob.flush()
