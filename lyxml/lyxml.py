@@ -57,7 +57,7 @@ def lyx2xml(in_file, out_file):
 
 def lyx2xml_h(h_in, h_out):
   blob  = BlobWriter(h_out)
-  stack = []
+  stack = [('#dummy','#dummy')]
   re_begin_layout = re.compile("^\\\\begin_layout (?P<ename>\w+)\s*(?P<eann>.*)$")
   re_begin_inset  = re.compile("^\\\\begin_inset (?P<eann>\w+) (?P<ename>\w+)$")
   def begin_end_tag(l, name, ann, is_end):
@@ -71,21 +71,22 @@ def lyx2xml_h(h_in, h_out):
       if is_end:
         h_out.write('/')
       h_out.write(name)
-      if is_end and is_not_plain:
+      if is_end and is_not_plain and ('Flex' != ann):
         h_out.write(">\n")
       else:
         h_out.write('>')
-  skip_lines = 1 # 1: till \begin_body, 2: one line after \begin_inset
+  skip_lines = -1 # -1: till \begin_body, N: how much (after \begin_inset)
   h_out.write("<lyx>\n")
   for l in h_in:
     if skip_lines:
-      if 2 == skip_lines:
-        skip_lines = 0
+      if skip_lines > 0:
+        skip_lines = skip_lines - 1
         continue                                           # continue
       blob.write(l)
       if '\\begin_body' == l[:11]:
         skip_lines = 0
       continue                                             # continue
+    l = l.rstrip("\r\n")
     if not len(l):
       continue                                             # continue
     ch = l[0]
@@ -93,7 +94,6 @@ def lyx2xml_h(h_in, h_out):
       blob.flush()
       h_out.write(l) # TODO: unescape and escape
       continue                                             # continue
-    l = l.rstrip()
     if '\\backslash' == l:
       blob.flush()
       h_out.write('\\')
@@ -106,7 +106,7 @@ def lyx2xml_h(h_in, h_out):
     if not m:
       m = re_begin_inset.match(l)
       if m:
-        skip_lines = 2
+        skip_lines = 1
     if m:
       el_name = m.group('ename')
       el_ann  = m.group('eann')
@@ -118,7 +118,6 @@ def lyx2xml_h(h_in, h_out):
     blob.writeln(l)
   blob.flush()
   h_out.write("</lyx>\n")
-  print stack # FIXME
 
 re_empty = re.compile('^\s*$')
 
