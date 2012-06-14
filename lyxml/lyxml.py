@@ -40,6 +40,7 @@ lx_ns = 'http://getfo.org/lyxml/'
 # There are also \begin_deeper and \end_deeper
 
 # =========================================================
+# LyX to XML
 
 def html_escape(s):
   s = s.replace('&', '&amp;')
@@ -68,8 +69,9 @@ def lyx2xml_h(h_in, h_out):
   re_begin_layout = re.compile("^\\\\begin_layout (?P<ename>\w+)\s*(?P<eann>.*)$")
   re_begin_inset  = re.compile("^\\\\begin_inset (?P<eann>\w+) (?P<ename>\w+)$")
   def begin_end_tag(l, name, ann, is_end):
-    is_not_plain = ('Plain' != name) or ('Layout' != ann)
-    if len(ann) and ('Flex' != ann):
+    is_not_plain  = ('Plain' != name) or ('Layout' != ann)
+    is_char_style = 'Flex' == ann
+    if len(ann) and not(is_char_style):
       if is_not_plain:
         blob.writeln(l)
     else:
@@ -78,7 +80,9 @@ def lyx2xml_h(h_in, h_out):
       if is_end:
         h_out.write('/')
       h_out.write(name)
-      if is_end and is_not_plain and ('Flex' != ann):
+      if is_char_style and not(is_end):
+        h_out.write(' lx:ch="1"')
+      if is_end and is_not_plain and not(is_char_style):
         h_out.write(">\n")
       else:
         h_out.write('>')
@@ -162,6 +166,13 @@ class BlobWriter:
     self.blob = cStringIO.StringIO()
 
 # =========================================================
+# XML to LyX
+#
+def xml2lyx(in_file, out_file):
+  print 'TODO'
+  raise Exception('TODO')
+
+# =========================================================
 # Parse command line
 #
 mode_lyx2xml = 0
@@ -205,5 +216,4 @@ if in_file is None:
 if mode_lyx2xml:
   lyx2xml(in_file, out_file)
 if mode_xml2lyx:
-  print >>sys.stderr, 'lyxml: XML to LyX is not supported yet.'
-  sys.exit(-1)
+  xml2lyx(in_file, out_file)
