@@ -58,7 +58,23 @@ def lyx2xml(in_file, out_file):
 def lyx2xml_h(h_in, h_out):
   blob  = BlobWriter(h_out)
   stack = []
-  re_begin_layout = re.compile("^\\\\begin_layout \s*(\w+)\s*(.*)$")
+  re_begin_layout     = re.compile("^\\\\begin_layout \s*(\w+)\s*(.*)$")
+  re_begin_flex_inset = re.compile("^\\\\begin_inset Flex (\w+)()$")
+  def begin_end_tag(l, name, ann, is_end):
+    is_not_plain = ('Plain' != name) or ('Layout' != ann)
+    if len(ann):
+      if is_not_plain:
+        blob.writeln(l)
+    else:
+      blob.flush()
+      h_out.write('<')
+      if is_end:
+        h_out.write('/')
+      h_out.write(name)
+      if is_end and is_not_plain:
+        h_out.write(">\n")
+      else:
+        h_out.write('>')
   skip_lines = 1 # 1: till \begin_body, 2: one line after \begin_inset
   h_out.write("<lyx>\n")
   for l in h_in:
@@ -83,23 +99,23 @@ def lyx2xml_h(h_in, h_out):
       h_out.write('\\')
       continue                                             # continue
     if '\\end_layout' == l:
-      blob.flush()
       (el_name, el_ann) = stack.pop()
-      if not len(el_ann):
-        h_out.write('</' + el_name + ">\n")
+      begin_end_tag(l, el_name, el_ann, 1)
       continue                                             # continue
     m = re_begin_layout.match(l)
+    if not m:
+      m = re_begin_flex_inset.match(l)
+      if m:
+        skip_lines = 2
     if m:
-      blob.flush()
       el_name = m.group(1)
       el_ann  = m.group(2)
       stack.append((el_name, el_ann))
-      if not len(el_ann):
-        h_out.write('<' + el_name + '>')
+      begin_end_tag(l, el_name, el_ann, 0)
       continue                                             # continue
     if ('\\end_body' == l) or ('\\end_document' == l):
       continue                                             # continue
-    blob.write(l)
+    blob.writeln(l)
   blob.flush()
   h_out.write("</lyx>\n")
 
@@ -112,6 +128,10 @@ class BlobWriter:
 
   def write(self, s):
     self.blob.write(s)
+
+  def writeln(self, s):
+    self.blob.write(s)
+    self.blob.write("\n")
 
   def len(self):
     return self.blob.tell()
