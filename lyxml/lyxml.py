@@ -1,6 +1,6 @@
 # LyX-XML roundtrip converter
 # Oleg Parashchenko <olpa@ http://uucode.com/>
-import sys, codecs, re, cStringIO, base64
+import sys, codecs, re, cStringIO, base64, xml.etree.ElementTree
 
 lx_ns = 'http://getfo.org/lyxml/'
 
@@ -169,8 +169,32 @@ class BlobWriter:
 # XML to LyX
 #
 def xml2lyx(in_file, out_file):
-  print 'TODO'
-  raise Exception('TODO')
+  if '-' == in_file:
+    xml_in = sys.stdin
+  else:
+    xml_in = in_file
+  tree = xml.etree.ElementTree.ElementTree()
+  tree.parse(xml_in)
+  if '-' == out_file:
+    h_out = sys.stdout
+  else:
+    h_out = open(out_file, 'w')
+  xml2lyx_rec(tree.getroot(), h_out)
+  if not (h_out == sys.stdout):
+    h_out.close()
+
+def xml2lyx_rec(tree, h_out):
+  on_text(tree.text, h_out)
+  for kid in tree.getchildren():
+    h_out.write("\\begin_layout\n")
+    xml2lyx_rec(kid, h_out)
+    h_out.write("\\end_layout\n")
+  on_text(tree.tail, h_out)
+
+def on_text(s, h_out):
+  if s is None:
+    return
+  h_out.write(s) # FIXME: escape for lyx
 
 # =========================================================
 # Parse command line
