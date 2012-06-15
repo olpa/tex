@@ -178,14 +178,14 @@ def xml2lyx(in_file, out_file):
   if '-' == out_file:
     h_out = sys.stdout
   else:
-    h_out = open(out_file, 'w')
-  xml2lyx_rec(tree.getroot(), h_out, 2)
+    h_out = codecs.open(out_file, 'w', 'utf8')
+  xml2lyx_rec(tree.getroot(), h_out, 1)
   h_out.write("\n\\end_body\n\\end_document\n")
   if not (h_out == sys.stdout):
     h_out.close()
 
-def xml2lyx_rec(tree, h_out, drop_ws):
-  on_text(tree.text, h_out, 2 == drop_ws)
+def xml2lyx_rec(tree, h_out, do_drop_ws):
+  on_text(tree.text, h_out, do_drop_ws)
   for kid in tree.getchildren():
     gi = kid.tag
     if '{http://getfo.org/lyxml/}blob' == gi:
@@ -193,25 +193,37 @@ def xml2lyx_rec(tree, h_out, drop_ws):
       on_text(kid.tail, h_out, 0)
       continue                                            # continue
     if '1' == kid.get('{http://getfo.org/lyxml/}ch'):
-      h_out.write("\n\\begin_inset Flex %s\nstatus collapsed\n\n" % gi)
+      h_out.write("\n\\begin_inset Flex %s\nstatus collapsed\n" % gi)
       gi = 'Plain Layout'
     h_out.write("\n\\begin_layout %s\n" % gi)
-    xml2lyx_rec(kid, h_out, drop_ws-1)
+    xml2lyx_rec(kid, h_out, 0)
     h_out.write("\n\\end_layout\n")
-    if 'Lpain Layout' == gi:
+    on_text(kid.tail, h_out, do_drop_ws)
+    if 'Plain Layout' == gi:
       h_out.write("\n\\end_inset\n")
-  on_text(tree.tail, h_out, drop_ws > 0)
 
+# split large line on smaller ones: taken from LyX source code,
+# see 'Paragraph::write'
 def on_text(s, h_out, do_drop_ws):
   if s is None:
     return
   if do_drop_ws and re_empty.match(s):
     return
-  h_out.write('{'+s+'}') # FIXME: escape for lyx
+  col = 0
+  for ch in s:
+    if '\\' == ch:
+      h_out.write("\n\\backslash\n")
+      col = 0
+      continue                                             # continue
+    if ((col > 70) and (ch == ' ')) or (col > 79):
+      h_out.write("\n")
+      col = 0
+    h_out.write(ch)
+    col = col + 1
 
 def on_blob(s, h_out):
   s = base64.b64decode(s)
-  h_out.write('{'+s+'}') #FIXME
+  h_out.write(s)
 
 # =========================================================
 # Parse command line
