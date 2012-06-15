@@ -86,7 +86,8 @@ def lyx2xml_h(h_in, h_out):
         h_out.write(">\n")
       else:
         h_out.write('>')
-  skip_lines = -1 # -1: till \begin_body, N: how much (after \begin_inset)
+  skip_lines = -1 # -1: till \begin_body, -2: till \end_inset, N: how much (after \begin_inset)
+  inset_level = 0
   h_out.write("<lx:lyx xmlns:lx='%s'>\n" % lx_ns)
   for l in h_in:
     if skip_lines:
@@ -96,6 +97,12 @@ def lyx2xml_h(h_in, h_out):
       blob.write(l)
       if '\\begin_body' == l[:11]:
         skip_lines = 0
+      elif '\\end_inset' == l[:10]:
+        inset_level = inset_level - 1
+        if not inset_level:
+          skip_lines = 0
+      elif '\\begin_inset' == l[:12]:
+        inset_level = inset_level + 1
       continue                                             # continue
     l = l.rstrip("\r\n")
     if not len(l):
@@ -118,6 +125,11 @@ def lyx2xml_h(h_in, h_out):
       m = re_begin_inset.match(l)
       if m:
         skip_lines = 1
+        if m.group('eann') != 'Flex':
+          skip_lines  = -2
+          inset_level = 1
+          blob.writeln(l)
+          continue                                         # continue
     if m:
       el_name = m.group('ename')
       el_ann  = m.group('eann')
