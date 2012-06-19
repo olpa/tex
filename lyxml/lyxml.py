@@ -175,7 +175,7 @@ class BlobWriter:
     self.blob.close()
     if not re_empty.match(s):
       s_hash = hashlib.md5(s).hexdigest()
-      self.h.write('<?LyXblob id %s?>' % s_hash)
+      self.h.write('<?LyXblob %s?>' % s_hash)
       db = self.get_db()
       db[s_hash] = s
     self.blob = cStringIO.StringIO()
@@ -183,7 +183,35 @@ class BlobWriter:
 # =========================================================
 # XML to LyX
 #
-def xml2lyx(in_file, out_file):
+class BlobReader:
+  def __init__(self, blob_file):
+    self.blob_file     = blob_file
+    self.db            = None
+    self.nodb_reported = 0
+
+  def get_db(self):
+    if not self.db:
+      if not self.nodb_reported:
+        self.db = anydbm.open(self.blob_file, 'r')
+    return self.db
+
+  def get(self, key):
+    db = self.get_db()
+    if db:
+      return db[key]
+    else:
+      return ''
+
+  def close_db(self):
+    if self.db:
+      self.db.close()
+
+def pi_handler(obj, target, data):
+  obj.start('*PI*', {'target': target, 'data': data})
+  obj.end('*PI*')
+xml.etree.ElementTree.TreeBuilder.pi = pi_handler
+
+def xml2lyx(in_file, out_file, blob_file):
   if '-' == in_file:
     xml_in = sys.stdin
   else:
@@ -194,24 +222,26 @@ def xml2lyx(in_file, out_file):
     h_out = sys.stdout
   else:
     h_out = codecs.open(out_file, 'w', 'utf8')
-  xml2lyx_rec(tree.getroot(), h_out, 1)
+  blob = BlobReader(blob_file)
+  xml2lyx_rec(tree.getroot(), h_out, do_drop_ws=1, blob=blob)
   h_out.write("\n\\end_body\n\\end_document\n")
   if not (h_out == sys.stdout):
     h_out.close()
+  blob.close_db()
 
-def xml2lyx_rec(tree, h_out, do_drop_ws):
+def xml2lyx_rec(tree, h_out, do_drop_ws, blob):
   on_text(tree.text, h_out, do_drop_ws)
   for kid in tree.getchildren():
     gi = kid.tag
-    if '{http://getfo.org/lyxml/}blob' == gi:
-      on_blob(kid.text, h_out)
-      on_text(kid.tail, h_out, 0)
+    if '*PI*' == gi:
+      if 'LyXblob' == kid.get('target'):
+        h_out.write(blob.get(kid.get('data')))
       continue                                            # continue
     if '1' == kid.get('{http://getfo.org/lyxml/}ch'):
       h_out.write("\n\\begin_inset Flex %s\nstatus collapsed\n" % gi)
       gi = 'Plain Layout'
     h_out.write("\n\\begin_layout %s\n" % gi)
-    xml2lyx_rec(kid, h_out, 0)
+    xml2lyx_rec(kid, h_out, 0, blob)
     h_out.write("\n\\end_layout\n")
     on_text(kid.tail, h_out, do_drop_ws)
     if 'Plain Layout' == gi:
@@ -272,7 +302,7 @@ if not(options.l2x) and not(options.x2l):
     if '.lyx' == ext:
       options.l2x = 1
     elif '.xml' == ext:
-      options.x2 = 1
+      options.x2l = 1
 if not(options.l2x) and not(options.x2l):
   parser.error("no --lyx2xml or --xml2lyx is given, and can\'t guess direction")
   sys.exit(-1)
@@ -298,4 +328,4 @@ if blob_file is None:
 if options.l2x:
   lyx2xml(in_file, out_file, blob_file)
 else:
-  xml2lyx(in_file, out_file)
+  xml2lyx(in_file, out_file, blob_file)
