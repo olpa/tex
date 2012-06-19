@@ -129,7 +129,7 @@ def lyx2xml_h(h_in, h_out, blob_file):
         if m.group('eann') != 'Flex':
           skip_lines  = -2
           inset_level = 1
-          blob.write(l)
+          blob.write(l+"\n")
           continue                                         # continue
     if m:
       el_name = m.group('ename')
@@ -139,7 +139,7 @@ def lyx2xml_h(h_in, h_out, blob_file):
       continue                                             # continue
     if ('\\end_body' == l) or ('\\end_document' == l):
       continue                                             # continue
-    blob.write(l)
+    blob.write(l+"\n")
   blob.flush()
   blob.close_db()
   h_out.write("</lx:lyx>\n")
