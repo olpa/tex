@@ -202,7 +202,11 @@ class BlobReader:
   def get(self, key):
     db = self.get_db()
     if db:
-      return db[key]
+      if db.has_key(key):
+        return db[key]
+      else:
+        print >>sys.stderr, 'lyxml: blob not found: \'%s\'' % key
+        return ''
     else:
       return ''
 
