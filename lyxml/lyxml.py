@@ -1,6 +1,7 @@
 # LyX-XML roundtrip converter
 # Oleg Parashchenko <olpa@ http://uucode.com/>
 import sys, codecs, re, cStringIO, base64, xml.etree.ElementTree
+import optparse
 
 lx_ns = 'http://getfo.org/lyxml/'
 
@@ -240,45 +241,59 @@ def on_blob(s, h_out):
 # =========================================================
 # Parse command line
 #
-mode_lyx2xml = 0
-mode_xml2lyx = 0
-in_file      = None
-out_file     = None
-for a in sys.argv[1:]:
-  if '--lyx2xml' == a:
-    mode_lyx2xml = 1
-  elif '--xml2lyx' == a:
-    mode_xml2lyx = 1
-  else:
-    if in_file is None:
-      in_file = a
-    elif out_file is None:
-      out_file = a
-    else:
-      print >>sys.stderr, 'lyxml: too many command arguments'
-      sys.exit(-1)
-if mode_lyx2xml and mode_xml2lyx:
-  print >>sys.stderr, 'lyxml: both --lyx2xml and --xml2lyx are given'
+usage = "usage: %prog [options] source target"
+parser = optparse.OptionParser(usage)
+parser.add_option("-b", "--blob", dest="blob_file",
+                      help="read/store blobs in BLOB_FILE")
+parser.add_option("-x", "--xml2lyx", dest="x2l",
+    action="store_true", help="mode: from LyXML to LyX")
+parser.add_option("-l", "--lyx2xml", dest="l2x",
+    action="store_true", help="mode: from LyX to LyXML")
+(options, args) = parser.parse_args()
+if options.l2x and options.x2l:
+  parser.error("both --lyx2xml and --xml2lyx are given")
   sys.exit(-1)
-if not(mode_lyx2xml) and not(mode_xml2lyx):
+if len(args) > 2:
+  parser.error("incorrect number of arguments")
+  sys.exit(-1)
+
+in_file  = None
+out_file = None
+for a in args:
+  if in_file is None:
+    in_file = a
+  else:
+    out_file = a
+if not(options.l2x) and not(options.x2l):
   if in_file is not None:
     ext = in_file[-4:].lower()
     if '.lyx' == ext:
-      mode_lyx2xml = 1
+      options.l2x = 1
     elif '.xml' == ext:
-      mode_xml2lyx = 1
-if not(mode_lyx2xml) and not(mode_xml2lyx):
-  print >>sys.stderr, 'lyxml: no --lyx2xml or --xml2lyx is given, and can\'t guess direction'
+      options.x2 = 1
+if not(options.l2x) and not(options.x2l):
+  parser.error("no --lyx2xml or --xml2lyx is given, and can\'t guess direction")
   sys.exit(-1)
 if out_file is None:
   out_file = '-'
 if in_file is None:
   in_file = '-'
 
+blob_file = options.blob_file
+if blob_file is None:
+  if options.l2x:
+    f = out_file
+  else:
+    f = in_file
+  if '-' != f:
+    blob_file = os.path.splitext(f)[0] + '.dbm'
+  else:
+    blob_file = 'blobs.dbm'
+
 #
 # Open files and start conversion
 #
-if mode_lyx2xml:
+if options.l2x:
   lyx2xml(in_file, out_file)
-if mode_xml2lyx:
+else:
   xml2lyx(in_file, out_file)
