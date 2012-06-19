@@ -192,7 +192,11 @@ class BlobReader:
   def get_db(self):
     if not self.db:
       if not self.nodb_reported:
-        self.db = anydbm.open(self.blob_file, 'r')
+        try:
+          self.db = anydbm.open(self.blob_file, 'r')
+        except anydbm.error, e:
+          print >>sys.stderr, 'lyxml: can\'t open blob file: %s' % e
+          self.nodb_reported = 1
     return self.db
 
   def get(self, key):
@@ -236,6 +240,7 @@ def xml2lyx_rec(tree, h_out, do_drop_ws, blob):
     if '*PI*' == gi:
       if 'LyXblob' == kid.get('target'):
         h_out.write(blob.get(kid.get('data')))
+      on_text(kid.tail, h_out, do_drop_ws)
       continue                                            # continue
     if '1' == kid.get('{http://getfo.org/lyxml/}ch'):
       h_out.write("\n\\begin_inset Flex %s\nstatus collapsed\n" % gi)
