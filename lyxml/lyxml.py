@@ -1,7 +1,7 @@
 # LyX-XML roundtrip converter
 # Oleg Parashchenko <olpa@ http://uucode.com/>
-import sys, codecs, re, cStringIO, base64, xml.etree.ElementTree
-import optparse
+import sys, os, codecs, re, cStringIO, xml.etree.ElementTree
+import optparse, hashlib, anydbm
 
 lx_ns = 'http://getfo.org/lyxml/'
 
@@ -49,7 +49,7 @@ def html_escape(s):
   s = s.replace('>', '&gt;')
   return s
 
-def lyx2xml(in_file, out_file):
+def lyx2xml(in_file, out_file, blob_file):
   if '-' == in_file:
     h_in = sys.stdin
   else:
@@ -58,14 +58,14 @@ def lyx2xml(in_file, out_file):
     h_out = sys.stdout
   else:
     h_out = open(out_file, 'w')
-  lyx2xml_h(h_in, h_out)
+  lyx2xml_h(h_in, h_out, blob_file)
   if not (h_in == sys.stdin):
     h_in.close()
   if not (h_out == sys.stdout):
     h_out.close()
 
-def lyx2xml_h(h_in, h_out):
-  blob  = BlobWriter(h_out)
+def lyx2xml_h(h_in, h_out, blob_file):
+  blob  = BlobWriter(h_out, blob_file)
   stack = [('#dummy','#dummy')]
   re_begin_layout = re.compile("^\\\\begin_layout (?P<ename>\w+)\s*(?P<eann>.*)$")
   re_begin_inset  = re.compile("^\\\\begin_inset (?P<eann>\w+) (?P<ename>\w+)$")
@@ -74,7 +74,7 @@ def lyx2xml_h(h_in, h_out):
     is_char_style = 'Flex' == ann
     if len(ann) and not(is_char_style):
       if is_not_plain:
-        blob.writeln(l)
+        blob.write(l)
     else:
       blob.flush()
       h_out.write('<')
@@ -129,7 +129,7 @@ def lyx2xml_h(h_in, h_out):
         if m.group('eann') != 'Flex':
           skip_lines  = -2
           inset_level = 1
-          blob.writeln(l)
+          blob.write(l)
           continue                                         # continue
     if m:
       el_name = m.group('ename')
@@ -139,23 +139,31 @@ def lyx2xml_h(h_in, h_out):
       continue                                             # continue
     if ('\\end_body' == l) or ('\\end_document' == l):
       continue                                             # continue
-    blob.writeln(l)
+    blob.write(l)
   blob.flush()
+  blob.close_db()
   h_out.write("</lx:lyx>\n")
 
 re_empty = re.compile('^\s*$')
 
 class BlobWriter:
-  def __init__(self, h):
-    self.blob = cStringIO.StringIO()
-    self.h    = h
+  def __init__(self, h, fname):
+    self.h     = h
+    self.fname = fname
+    self.db    = None
+    self.blob  = cStringIO.StringIO()
+
+  def get_db(self):
+    if not self.db:
+      self.db = anydbm.open(self.fname, 'c')
+    return self.db
+
+  def close_db(self):
+    if self.db:
+      self.db.close()
 
   def write(self, s):
     self.blob.write(s)
-
-  def writeln(self, s):
-    self.blob.write(s)
-    self.blob.write("\n")
 
   def len(self):
     return self.blob.tell()
@@ -166,16 +174,10 @@ class BlobWriter:
     s = self.blob.getvalue()
     self.blob.close()
     if not re_empty.match(s):
-      self.h.write('<lx:blob>')
-      s = base64.b64encode(s)
-      llen = 63
-      while len(s) > llen:
-        self.h.write(s[:llen])
-        self.h.write("\n")
-        s = s[llen:]
-        llen = 72
-      self.h.write(s)
-      self.h.write("</lx:blob\n>")
+      s_hash = hashlib.md5(s).hexdigest()
+      self.h.write('<?LyXblob id %s?>' % s_hash)
+      db = self.get_db()
+      db[s_hash] = s
     self.blob = cStringIO.StringIO()
 
 # =========================================================
@@ -294,6 +296,6 @@ if blob_file is None:
 # Open files and start conversion
 #
 if options.l2x:
-  lyx2xml(in_file, out_file)
+  lyx2xml(in_file, out_file, blob_file)
 else:
   xml2lyx(in_file, out_file)
