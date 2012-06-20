@@ -252,9 +252,9 @@ def xml2lyx_rec(tree, h_out, do_drop_ws, blob):
     h_out.write("\n\\begin_layout %s\n" % gi)
     xml2lyx_rec(kid, h_out, 0, blob)
     h_out.write("\n\\end_layout\n")
-    on_text(kid.tail, h_out, do_drop_ws)
     if 'Plain Layout' == gi:
       h_out.write("\n\\end_inset\n")
+    on_text(kid.tail, h_out, do_drop_ws)
 
 # split large line on smaller ones: taken from LyX source code,
 # see 'Paragraph::write'
