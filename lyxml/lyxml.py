@@ -214,10 +214,14 @@ class BlobReader:
     if self.db:
       self.db.close()
 
-def pi_handler(obj, target, data):
-  obj.start('*PI*', {'target': target, 'data': data})
-  obj.end('*PI*')
-xml.etree.ElementTree.TreeBuilder.pi = pi_handler
+xetxtb_saved_init = xml.etree.ElementTree.XMLTreeBuilder.__init__
+def xetxtb_new_init(self, *ls, **kw):
+  def new_pi(target, data):
+    self._parser.StartElementHandler('*PI*', ['target', target, 'data', data])
+    self._parser.EndElementHandler('*PI*')
+  xetxtb_saved_init(self, *ls, **kw)
+  self._parser.ProcessingInstructionHandler = new_pi
+xml.etree.ElementTree.XMLTreeBuilder.__init__ = xetxtb_new_init
 
 def xml2lyx(in_file, out_file, blob_file):
   if '-' == in_file:
