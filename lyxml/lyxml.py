@@ -268,6 +268,10 @@ def xml2lyx_rec(tree, h_out, do_drop_ws, blob):
         h_out.write(blob.get(kid.get('data')))
       on_text(kid.tail, h_out, do_drop_ws)
       continue                                            # continue
+    if '{http://getfo.org/lyxml/}newline' == gi:
+      h_out.write("\n\\begin_inset Newline newline\n\\end_inset\n")
+      on_text(kid.tail, h_out, do_drop_ws)
+      continue                                            # continue
     if '1' == kid.get('{http://getfo.org/lyxml/}ch'):
       h_out.write("\n\\begin_inset Flex %s\nstatus collapsed\n" % gi)
       gi = 'Plain Layout'
