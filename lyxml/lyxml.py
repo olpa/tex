@@ -271,6 +271,9 @@ def xml2lyx_rec(tree, h_out, do_drop_ws, blob):
     if '1' == kid.get('{http://getfo.org/lyxml/}ch'):
       h_out.write("\n\\begin_inset Flex %s\nstatus collapsed\n" % gi)
       gi = 'Plain Layout'
+    # namespaced GI: actually, we want style names with semicolon
+    if '{' == gi[0]:
+      gi = gi[1:].replace('}', ':')
     h_out.write("\n\\begin_layout %s\n" % gi)
     xml2lyx_rec(kid, h_out, 0, blob)
     h_out.write("\n\\end_layout\n")
