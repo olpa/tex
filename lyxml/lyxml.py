@@ -4,6 +4,7 @@ import sys, os, codecs, re, cStringIO, xml.etree.ElementTree
 import optparse, hashlib, anydbm
 
 lx_ns = 'http://getfo.org/lyxml/'
+template_file = os.path.join(os.path.dirname(__file__), 'template.lyx')
 
 #
 # LyX file format
@@ -39,6 +40,9 @@ lx_ns = 'http://getfo.org/lyxml/'
 # (4):  Paragraph::write
 #
 # There are also \begin_deeper and \end_deeper
+#
+# More at
+# http://wiki.lyx.org/Devel/LyXFileFormatReverse
 
 # =========================================================
 # LyX to XML
@@ -223,6 +227,14 @@ def xetxtb_new_init(self, *ls, **kw):
   self._parser.ProcessingInstructionHandler = new_pi
 xml.etree.ElementTree.XMLTreeBuilder.__init__ = xetxtb_new_init
 
+def copy_header(template_file, h_out):
+  h = open(template_file)
+  for l in h:
+    h_out.write(l)
+    if '\\begin_body' == l.rstrip():
+      break
+  h.close()
+
 def xml2lyx(in_file, out_file, blob_file):
   if '-' == in_file:
     xml_in = sys.stdin
@@ -235,7 +247,13 @@ def xml2lyx(in_file, out_file, blob_file):
   else:
     h_out = codecs.open(out_file, 'w', 'utf8')
   blob = BlobReader(blob_file)
-  xml2lyx_rec(tree.getroot(), h_out, do_drop_ws=1, blob=blob)
+  # The document header is supposed to be stored in the first
+  # processing instruction, before any styles. Otherwise use
+  # the header from the template
+  root = tree.getroot()
+  if '*PI*' != root.getchildren()[0].tag:
+    copy_header(template_file, h_out)
+  xml2lyx_rec(root, h_out, do_drop_ws=1, blob=blob)
   h_out.write("\n\\end_body\n\\end_document\n")
   if not (h_out == sys.stdout):
     h_out.close()
@@ -285,6 +303,7 @@ def on_blob(s, h_out):
 
 # =========================================================
 # Parse command line
+# TODO: template file
 #
 usage = "usage: %prog [options] source target"
 parser = optparse.OptionParser(usage)
@@ -311,10 +330,10 @@ for a in args:
     out_file = a
 if not(options.l2x) and not(options.x2l):
   if in_file is not None:
-    ext = in_file[-4:].lower()
+    ext = os.path.splitext(in_file)[1].lower()
     if '.lyx' == ext:
       options.l2x = 1
-    elif '.xml' == ext:
+    elif ext in ('.xml', '.lyxml'):
       options.x2l = 1
 if not(options.l2x) and not(options.x2l):
   parser.error("no --lyx2xml or --xml2lyx is given, and can\'t guess direction")
