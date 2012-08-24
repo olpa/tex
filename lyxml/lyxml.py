@@ -298,9 +298,13 @@ def on_text(s, h_out, do_drop_ws):
       h_out.write("\n\\backslash\n")
       col = 0
       continue                                             # continue
-    if ((col > 70) and (ch == ' ')) or (col > 79):
+    if ((col > 70) and (' ' == ch)) or (col > 79) or ('\n' == ch):
       h_out.write("\n")
       col = 0
+      if (' ' == ch) or ('\n' == ch):
+        h_out.write(' ')
+        col = 1
+      continue                                             # continue
     h_out.write(ch)
     col = col + 1
 
