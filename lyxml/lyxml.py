@@ -320,10 +320,14 @@ parser.add_option("-x", "--xml2lyx", dest="x2l",
     action="store_true", help="mode: from LyXML to LyX")
 parser.add_option("-l", "--lyx2xml", dest="l2x",
     action="store_true", help="mode: from LyX to LyXML")
+parser.add_option("-t", "--template", dest="tpl",
+    action="store", type="string", help="use the system header from the .lyx file")
 (options, args) = parser.parse_args()
 if options.l2x and options.x2l:
   parser.error("both --lyx2xml and --xml2lyx are given")
   sys.exit(-1)
+if options.tpl:
+  template_file = options.tpl
 if len(args) > 2:
   parser.error("incorrect number of arguments")
   sys.exit(-1)
