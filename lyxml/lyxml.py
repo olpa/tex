@@ -71,8 +71,8 @@ def lyx2xml(in_file, out_file, blob_file):
 def lyx2xml_h(h_in, h_out, blob_file):
   blob  = BlobWriter(h_out, blob_file)
   stack = [('#dummy','#dummy')]
-  re_begin_layout = re.compile("^\\\\begin_layout (?P<ename>\w+)\s*(?P<eann>.*)$")
-  re_begin_inset  = re.compile("^\\\\begin_inset (?P<eann>\w+) (?P<ename>.*)$")
+  re_begin_layout = re.compile("^\\\\begin_layout (?P<ename>[^ ]+)\s*(?P<eann>.*)$")
+  re_begin_inset  = re.compile("^\\\\begin_inset (?P<eann>[^ ]+) (?P<ename>.*)$")
   def begin_end_tag(l, name, ann, is_end):
     is_not_plain  = ('Plain' != name) or ('Layout' != ann)
     is_char_style = 'Flex' == ann
