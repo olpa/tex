@@ -72,11 +72,11 @@ def lyx2xml_h(h_in, h_out, blob_file):
   blob  = BlobWriter(h_out, blob_file)
   stack = [('#dummy','#dummy')]
   re_begin_layout = re.compile("^\\\\begin_layout (?P<ename>\w+)\s*(?P<eann>.*)$")
-  re_begin_inset  = re.compile("^\\\\begin_inset (?P<eann>\w+) (?P<ename>\w+)$")
+  re_begin_inset  = re.compile("^\\\\begin_inset (?P<eann>\w+) (?P<ename>.*)$")
   def begin_end_tag(l, name, ann, is_end):
     is_not_plain  = ('Plain' != name) or ('Layout' != ann)
     is_char_style = 'Flex' == ann
-    if len(ann) and not(is_char_style):
+    if len(ann) and not(is_char_style) and not('Branch'==ann):
       if is_not_plain:
         blob.write(l)
     else:
@@ -84,7 +84,12 @@ def lyx2xml_h(h_in, h_out, blob_file):
       h_out.write('<')
       if is_end:
         h_out.write('/')
-      h_out.write(name)
+      if 'Branch' == ann:
+        h_out.write('lyx:branch')
+        if not is_end:
+          h_out.write(' name="%s"' % html_escape(name))
+      else:
+        h_out.write(name)
       if is_char_style and not(is_end):
         h_out.write(' lx:ch="1"')
       if is_end and is_not_plain and not(is_char_style):
@@ -130,7 +135,7 @@ def lyx2xml_h(h_in, h_out, blob_file):
       m = re_begin_inset.match(l)
       if m:
         skip_lines = 1
-        if m.group('eann') != 'Flex':
+        if m.group('eann') not in ('Flex', 'Branch'):
           skip_lines  = -2
           inset_level = 1
           blob.write(l+"\n")
