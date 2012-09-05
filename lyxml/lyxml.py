@@ -85,7 +85,7 @@ def lyx2xml_h(h_in, h_out, blob_file):
       if is_end:
         h_out.write('/')
       if 'Branch' == ann:
-        h_out.write('lyx:branch')
+        h_out.write('lx:branch')
         if not is_end:
           h_out.write(' name="%s"' % html_escape(name))
       else:
