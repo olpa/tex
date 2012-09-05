@@ -187,6 +187,10 @@ class BlobWriter:
 # =========================================================
 # XML to LyX
 #
+re_safe_string = re.compile('[\x00-\x19]+')
+def lyx_safe_string(s):
+  return re_safe_string.sub('_', s)
+
 class BlobReader:
   def __init__(self, blob_file):
     self.blob_file     = blob_file
@@ -227,11 +231,20 @@ def xetxtb_new_init(self, *ls, **kw):
   self._parser.ProcessingInstructionHandler = new_pi
 xml.etree.ElementTree.XMLTreeBuilder.__init__ = xetxtb_new_init
 
-def copy_header(template_file, h_out):
+def copy_header(template_file, h_out, root):
   h = open(template_file)
   for l in h:
+    l2 = l.rstrip()
+    if '\\end_header' == l2:
+      branches_seen = []
+      for kid in root.findall('.//{http://getfo.org/lyxml/}branch'):
+        branch_name = lyx_safe_string(kid.get('name', ''))
+        if branch_name in branches_seen:
+          continue
+        branches_seen.append(branch_name)
+        h_out.write("\\branch %s\n\\selected 1\n\\color linen\n\\end_branch\n" % branch_name)
     h_out.write(l)
-    if '\\begin_body' == l.rstrip():
+    if '\\begin_body' == l2:
       break
   h.close()
 
@@ -252,7 +265,7 @@ def xml2lyx(in_file, out_file, blob_file):
   # the header from the template
   root = tree.getroot()
   if '*PI*' != root.getchildren()[0].tag:
-    copy_header(template_file, h_out)
+    copy_header(template_file, h_out, root)
   xml2lyx_rec(root, h_out, do_drop_ws=1, blob=blob)
   h_out.write("\n\\end_body\n\\end_document\n")
   if not (h_out == sys.stdout):
@@ -260,6 +273,7 @@ def xml2lyx(in_file, out_file, blob_file):
   blob.close_db()
 
 def xml2lyx_rec(tree, h_out, do_drop_ws, blob):
+  on_attrib(tree.attrib, h_out)
   on_text(tree.text, h_out, do_drop_ws)
   for kid in tree.getchildren():
     gi = kid.tag
@@ -270,6 +284,13 @@ def xml2lyx_rec(tree, h_out, do_drop_ws, blob):
       continue                                            # continue
     if '{http://getfo.org/lyxml/}newline' == gi:
       h_out.write("\n\\begin_inset Newline newline\n\\end_inset\n")
+      on_text(kid.tail, h_out, do_drop_ws)
+      continue                                            # continue
+    if '{http://getfo.org/lyxml/}branch' == gi:
+      inset_name = lyx_safe_string(kid.get('name', ''))
+      h_out.write("\n\\begin_layout Standard\n\\begin_inset Branch %s\nstatus open\n" % inset_name)
+      xml2lyx_rec(kid, h_out, 0, blob)
+      h_out.write("\n\\end_inset\n\\end_layout\n")
       on_text(kid.tail, h_out, do_drop_ws)
       continue                                            # continue
     if '1' == kid.get('{http://getfo.org/lyxml/}ch'):
@@ -311,6 +332,15 @@ def on_text(s, h_out, do_drop_ws):
 def on_blob(s, h_out):
   s = base64.b64decode(s)
   h_out.write(s)
+
+def on_attrib(attrib, h_out):
+  return # FIXME
+  for aitem in attrib.iteritems():
+    h_out.write("\\begin_inset Flex XmlAttribute\nstatus collapsed\n")
+    h_out.write("\n\\begin_layout Plain Layout\n")
+    on_text("%s=%s" % aitem, h_out, 0)
+    h_out.write("\n\\end_layout\n")
+    h_out.write("\n\\end_inset\n\n")
 
 # =========================================================
 # Parse command line
