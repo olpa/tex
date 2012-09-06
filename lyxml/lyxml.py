@@ -271,13 +271,13 @@ def xml2lyx(in_file, out_file, blob_file):
   root = tree.getroot()
   if '*PI*' != root.getchildren()[0].tag:
     copy_header(template_file, h_out, root)
-  xml2lyx_rec(root, h_out, do_drop_ws=1, blob=blob)
+  xml2lyx_rec(root, h_out, do_drop_ws=1, blob=blob, want_char=0)
   h_out.write("\n\\end_body\n\\end_document\n")
   if not (h_out == sys.stdout):
     h_out.close()
   blob.close_db()
 
-def xml2lyx_rec(tree, h_out, do_drop_ws, blob):
+def xml2lyx_rec(tree, h_out, do_drop_ws, blob, want_char):
   on_attrib(tree.attrib, h_out)
   on_text(tree.text, h_out, do_drop_ws)
   for kid in tree.getchildren():
@@ -294,18 +294,20 @@ def xml2lyx_rec(tree, h_out, do_drop_ws, blob):
     if '{http://getfo.org/lyxml/}branch' == gi:
       inset_name = lyx_safe_string(kid.get('name', ''))
       h_out.write("\n\\begin_layout Standard\n\\begin_inset Branch %s\nstatus open\n" % inset_name)
-      xml2lyx_rec(kid, h_out, 0, blob)
+      xml2lyx_rec(kid, h_out, 0, blob, want_char=0)
       h_out.write("\n\\end_inset\n\\end_layout\n")
       on_text(kid.tail, h_out, do_drop_ws)
       continue                                            # continue
-    if '1' == kid.get('{http://getfo.org/lyxml/}ch'):
+    if want_char or ('1' == kid.get('{http://getfo.org/lyxml/}ch')):
+      if 1 != kid.get('{http://getfo.org/lyxml/}ch'):
+        print >>sys.stderr, 'lyxml: nested paragraph styles are not supported (%s)' % gi
       h_out.write("\n\\begin_inset Flex %s\nstatus collapsed\n" % gi)
       gi = 'Plain Layout'
     # namespaced GI: actually, we want style names with semicolon
     if '{' == gi[0]:
       gi = gi[1:].replace('}', ':')
     h_out.write("\n\\begin_layout %s\n" % gi)
-    xml2lyx_rec(kid, h_out, 0, blob)
+    xml2lyx_rec(kid, h_out, 0, blob, want_char=1)
     h_out.write("\n\\end_layout\n")
     if 'Plain Layout' == gi:
       h_out.write("\n\\end_inset\n")
