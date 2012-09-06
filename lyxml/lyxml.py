@@ -278,8 +278,9 @@ def xml2lyx(in_file, out_file, blob_file):
   blob.close_db()
 
 def xml2lyx_rec(tree, h_out, do_drop_ws, blob, want_char):
-  on_attrib(tree.attrib, h_out)
-  on_text(tree.text, h_out, do_drop_ws)
+  if want_char:
+    on_attrib(tree.attrib, h_out)
+    on_text(tree.text, h_out, do_drop_ws)
   for kid in tree.getchildren():
     gi = kid.tag
     if '*PI*' == gi:
@@ -341,7 +342,6 @@ def on_blob(s, h_out):
   h_out.write(s)
 
 def on_attrib(attrib, h_out):
-  return # FIXME
   for aitem in attrib.iteritems():
     h_out.write("\\begin_inset Flex XmlAttribute\nstatus collapsed\n")
     h_out.write("\n\\begin_layout Plain Layout\n")
@@ -351,7 +351,6 @@ def on_attrib(attrib, h_out):
 
 # =========================================================
 # Parse command line
-# TODO: template file
 #
 usage = "usage: %prog [options] source target"
 parser = optparse.OptionParser(usage)
