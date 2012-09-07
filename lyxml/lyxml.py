@@ -135,7 +135,7 @@ def lyx2xml_h(h_in, h_out, blob_file):
       m = re_begin_inset.match(l)
       if m:
         skip_lines = 1
-        if m.group('eann') not in ('Flex', 'Branch'):
+        if m.group('eann') not in ('Flex', 'Branch', 'script'):
           skip_lines  = -2
           inset_level = 1
           blob.write(l+"\n")
@@ -299,7 +299,11 @@ def xml2lyx_rec(tree, h_out, do_drop_ws, blob, want_char):
       h_out.write("\n\\end_inset\n\\end_layout\n")
       on_text(kid.tail, h_out, do_drop_ws)
       continue                                            # continue
-    if want_char or ('1' == kid.get('{http://getfo.org/lyxml/}ch')):
+    if gi in ('{http://getfo.org/lyxml/}superscript','{http://getfo.org/lyxml/}subscript'):
+      ann = gi[gi.index('}')+1:]
+      h_out.write("\n\\begin_inset script %s\n" % ann)
+      gi = 'Plain Layout'
+    elif want_char or ('1' == kid.get('{http://getfo.org/lyxml/}ch')):
       if 1 != kid.get('{http://getfo.org/lyxml/}ch'):
         print >>sys.stderr, 'lyxml: nested paragraph styles are not supported (%s)' % gi
       h_out.write("\n\\begin_inset Flex %s\nstatus collapsed\n" % gi)
