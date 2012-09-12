@@ -302,7 +302,7 @@ def xml2lyx_rec(tree, h_out, do_drop_ws, blob, want_char):
       on_text(kid.tail, h_out, do_drop_ws)
       continue                                            # continue
     if '{http://getfo.org/lyxml/}figure' == gi:
-      h_out.write("\n\\begin_layout Standard\n\\begin_inset Float figure\nwide false\nsideways false\nstatus collapsed\n")
+      h_out.write("\n\\begin_layout Standard\n\\begin_inset Float figure\nwide false\nsideways false\nstatus open\n")
       xml2lyx_rec(kid, h_out, 0, blob, want_char=0)
       h_out.write("\n\\end_inset\n\\end_layout\n")
       on_text(kid.tail, h_out, do_drop_ws)
@@ -315,7 +315,7 @@ def xml2lyx_rec(tree, h_out, do_drop_ws, blob, want_char):
       continue                                            # continue
     if '{http://getfo.org/lyxml/}image' == gi:
       h_out.write("\n\\begin_layout Standard\n\\begin_inset Graphics\n")
-      h_out.write("\tfilename %s\n" % lyx_safe_string(kid.get('file', 'dummy')))
+      h_out.write("\tfilename %s\n" % lyx_safe_string(kid.get('file', 'dummy.png')))
       h_out.write("\twidth %s\n" % lyx_safe_string(kid.get('width', '')))
       h_out.write("\theight %s\n" % lyx_safe_string(kid.get('height', '')))
       h_out.write("\n\\end_inset\n\\end_layout\n")
