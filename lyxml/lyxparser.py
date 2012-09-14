@@ -79,6 +79,7 @@ class LyXparser:
       while self.lex_state:
         l = self.read_next_line_not_empty()
         if not ('\\begin_layout ' == l[:14]):
+          self.put_line_back(l)
           return                                           # return
         layout_name = l[14:].lstrip()
         break                                              # break
@@ -107,32 +108,68 @@ class LyXparser:
             self.callback.end_layout()
             break                                          # break
           if '\\begin_inset' == cmd_name:
-            self.parse_inset(self, l)
+            self.parse_inset(l)
             continue                                       # continue
           if not ('\\backslash' == cmd_name):
             self.error("Unknown command while parsing layout: " + cmd_name) # raise
         l = l.replace('\\backslash', '\\')
         self.callback.text(l)
+      #
+      if not (l == '\\end_layout'):
+        self.error('Missed \\end_layout')                  # raise
 
-class LyXparserCallback:
+  def parse_inset(self, l):
+    a = l.split(' ', 3)
+    inset_type = a[1]
+    if len(a) == 3:
+      inset_subtype = a[2]
+    else:
+      inset_subtype = None
+    opts = {}
+    while self.lex_state:
+      l = self.read_next_line_not_empty()
+      if '\\' == l[0]:
+        break
+      a = l.split(' ', 2)
+      if len(a) == 2:
+        opts[a[0]] = a[1]
+      else:
+        opts[a[0]] = None
+    if not self.lex_state:
+      self.error('End of file while parsing an inset')     # raise
+    self.callback.begin_inset(inset_type, inset_subtype, opts)
+    cmd = l.split(' ')[0]
+    if '\\begin_layout' == cmd:
+      self.put_line_back(l)
+      self.parse_layout_list()
+      l = self.read_next_line_not_empty()
+    if '\\end_inset' == l:
+      self.callback.end_inset()
+      return                                               # return
+    self.error('Unknown command in inset: ' + l)           # raise
 
-  def header_line(self, s):
-    print '(hl)',
-
-  def begin_body(self):
-    print '(bd)',
-
-  def end_body(self):
-    print '(ed)',
-
-  def begin_layout(self, lname, opts):
-    print '(%s:%s)' % (lname, opts),
-
-  def end_layout(self):
-    print '(el)',
-
-cb = LyXparserCallback()
-h = open('chap1.lyx')
-lp = LyXparser(cb, h)
-lp.parse()
-h.close()
+if '__main__' == __name__:
+  import sys
+  class LyXparserCallback:
+    def header_line(self, s):
+      print '(hl)',
+    def begin_body(self):
+      print '(bd)',
+    def end_body(self):
+      print '(ed)',
+    def begin_layout(self, lname, opts):
+      print '(%s:%s)' % (lname, opts),
+    def end_layout(self):
+      print '(el)',
+    def begin_inset(self, itype, isubtype, opts):
+      print '(%s:%s:%s)' % (itype, isubtype, opts),
+    def end_inset(self):
+      print '(ei)',
+    def text(self, t):
+      print '(t)',
+  fname = sys.argv[1]
+  cb = LyXparserCallback()
+  h = open(fname)
+  lp = LyXparser(cb, h)
+  lp.parse()
+  h.close()
