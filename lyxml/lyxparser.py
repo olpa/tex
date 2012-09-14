@@ -43,6 +43,13 @@ class LyXparser:
       self.lex_state = LEX_STATE_EOF
     return l.rstrip("\r\n")
 
+  def read_next_line_not_empty(self):
+    while self.lex_state:
+      l = self.read_next_line()
+      if not('' == l):
+        return l
+    return ''
+
   def put_line_back(self, l):
     assert(self.line_back is None)
     self.line_back = l
@@ -61,17 +68,51 @@ class LyXparser:
     if not self.lex_state:
       self.error('No ''\\begin_body'' ')                    # raise
     self.parse_layout_list()
-    l = self.read_next_line()
+    l = self.read_next_line_not_empty()
     if not ('\\end_body' == l):
       self.error('Expected ''\\end_body'', got ' + l)       # raise
     self.callback.end_body()
 
   def parse_layout_list(self):
     while self.lex_state:
-      l = self.read_next_line()
-      if '\\end_body' == l:
-        self.put_line_back(l)
-        return                                             # return
+      # Get '\\begin_layout'
+      while self.lex_state:
+        l = self.read_next_line_not_empty()
+        if not ('\\begin_layout ' == l[:14]):
+          return                                           # return
+        layout_name = l[14:].lstrip()
+        break                                              # break
+      # Get options
+      opts = {}
+      while self.lex_state:
+        l = self.read_next_line_not_empty()
+        if '\\' == l[0]:
+          a = l[1:].split(' ', 2)
+          opt_name = a[0]
+          if opt_name in ('end_layout', 'begin_inset', 'backslash'):
+            break                                          # break
+          if 2 == len(a):
+            opts[opt_name] = a[1]
+          else:
+            opts[opt_name] = None
+      self.callback.begin_layout(layout_name, opts)
+      # Parse text till end_layout
+      self.put_line_back(l)
+      while self.lex_state:
+        l = self.read_next_line_not_empty()
+        if '\\' == l[0]:
+          a = l.split(' ', 2)
+          cmd_name = a[0]
+          if '\\end_layout' == cmd_name:
+            self.callback.end_layout()
+            break                                          # break
+          if '\\begin_inset' == cmd_name:
+            self.parse_inset(self, l)
+            continue                                       # continue
+          if not ('\\backslash' == cmd_name):
+            self.error("Unknown command while parsing layout: " + cmd_name) # raise
+        l = l.replace('\\backslash', '\\')
+        self.callback.text(l)
 
 class LyXparserCallback:
 
@@ -83,6 +124,12 @@ class LyXparserCallback:
 
   def end_body(self):
     print '(ed)',
+
+  def begin_layout(self, lname, opts):
+    print '(%s:%s)' % (lname, opts),
+
+  def end_layout(self):
+    print '(el)',
 
 cb = LyXparserCallback()
 h = open('chap1.lyx')
