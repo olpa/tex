@@ -58,7 +58,7 @@ def lyx2xml(in_file, out_file, blob_file):
   if '-' == in_file:
     h_in = sys.stdin
   else:
-    h_in = open(in_file)
+    h_in = codecs.open(in_file, 'r', 'utf-8')
   if '-' == out_file:
     h_out = sys.stdout
   else:
@@ -120,16 +120,43 @@ class XmlBuilder:
     self.node = node
 
   def end_layout(self):
+    if self.node.tail is None:
+      self.node.tail = '\n'
     self.node = self.stack.pop()
 
   def begin_inset(self, itype, isubtype, opts):
-    pass # TODO
+    self.stack.append(self.node)
+    node = None
+    if 'Flex' == itype:
+      opts['lx:ch'] = '1'
+      node = xml.etree.ElementTree.Element(xml_safe_name(isubtype), opts)
+    if node is None:
+      if isubtype is None:
+        gi = itype
+      else:
+        gi = itype + '_' + xml_safe_name(isubtype)
+      node = xml.etree.ElementTree.Element(gi, opts)
+    self.node.append(node)
+    self.node = node
 
   def end_inset(self):
-    pass # TODO
+    self.node = self.stack.pop()
 
   def text(self, s):
-    pass # TODO
+    kids = self.node.getchildren()
+    print kids # FIXME
+    if kids:
+      el = kids[-1]
+      if el.tail is None:
+        el.tail = s
+      else:
+        el.tail = el.tail + s
+    else:
+      print '!!! ' # FIXME
+      if self.text is None:
+        self.text = s
+      else:
+        self.text = self.text + s
 
 def lyx2xml_h(h_in, h_out, blob_file):
   xb = XmlBuilder()
