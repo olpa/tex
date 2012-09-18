@@ -38,7 +38,7 @@ class LyXparser:
       self.line_back = None
       return l
     self.lineno = self.lineno + 1
-    l = h.readline()
+    l = self.in_stream.readline()
     if '' == l:
       self.lex_state = LEX_STATE_EOF
     return l.rstrip("\r\n")
