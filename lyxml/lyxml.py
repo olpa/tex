@@ -2,6 +2,7 @@
 # Oleg Parashchenko <olpa@ http://uucode.com/>
 import sys, os, codecs, re, cStringIO, xml.etree.ElementTree
 import optparse, hashlib, anydbm
+import lyxparser
 
 lx_ns = 'http://getfo.org/lyxml/'
 template_file = os.path.join(os.path.dirname(__file__), 'template.lyx')
@@ -61,14 +62,82 @@ def lyx2xml(in_file, out_file, blob_file):
   if '-' == out_file:
     h_out = sys.stdout
   else:
-    h_out = open(out_file, 'w')
+    h_out = open('et_' + out_file, 'w') # FIXME
   lyx2xml_h(h_in, h_out, blob_file)
   if not (h_in == sys.stdin):
     h_in.close()
   if not (h_out == sys.stdout):
     h_out.close()
 
+def is_xml_name_char(ch, is_start_char=0):
+  if (':' == ch) or ('_' == ch):
+    return 1
+  n = ord(ch)
+  if (n >= 65) and (n <= 90): # A...Z
+    return 1
+  if (n >= 97) and (n <= 122): # a...z
+    return 1
+  if n >= 0xc0:
+    return 1
+  if is_start_char:
+    return 0
+  if ('-' == ch) or ('.' == ch):
+    return 1
+  return (n >= 48) and (n <= 57) # 0...9
+
+def xml_safe_name(s):
+  a = []
+  b = 1
+  for ch in s:
+    if is_xml_name_char(ch, b):
+      a.append(ch)
+    else:
+      a.extend('_0x%x_' % ord(ch))
+    b = 0
+  return ''.join(a)
+
+class XmlBuilder:
+
+  def __init__(self):
+    #self.xmldoc = xml.etree.ElementTree.ElementTree()
+    self.root  = xml.etree.ElementTree.Element('lx:lyx', {'xmlns:lx': 'http://getfo.org/lyxml/'})
+    self.node  = self.root
+    self.stack = []
+
+  def header_line(self, l):
+    pass # FIXME
+
+  def begin_body(self):
+    pass
+
+  def end_body(self):
+    pass
+
+  def begin_layout(self, lname, opts):
+    self.stack.append(self.node)
+    node = xml.etree.ElementTree.Element(xml_safe_name(lname), opts)
+    self.node.append(node)
+    self.node = node
+
+  def end_layout(self):
+    self.node = self.stack.pop()
+
+  def begin_inset(self, itype, isubtype, opts):
+    pass # TODO
+
+  def end_inset(self):
+    pass # TODO
+
+  def text(self, s):
+    pass # TODO
+
 def lyx2xml_h(h_in, h_out, blob_file):
+  xb = XmlBuilder()
+  lp = lyxparser.LyXparser(xb, h_in)
+  lp.parse()
+  h_out.write(xml.etree.ElementTree.tostring(xb.root, 'utf-8'))
+
+def lyx2xml_h2(h_in, h_out, blob_file):
   blob  = BlobWriter(h_out, blob_file)
   stack = [('#dummy','#dummy')]
   re_begin_layout = re.compile("^\\\\begin_layout (?P<ename>[^ ]+)\s*(?P<eann>.*)$")
@@ -76,7 +145,7 @@ def lyx2xml_h(h_in, h_out, blob_file):
   def begin_end_tag(l, name, ann, is_end):
     is_not_plain  = ('Plain' != name) or ('Layout' != ann)
     is_char_style = ann in ('Flex', 'script')
-    if len(ann) and not(is_char_style) and not('Branch'==ann):
+    if len(ann) and not(is_char_style) and not(ann in ('Branch')):
       if is_not_plain:
         blob.write(l)
     else:
@@ -89,7 +158,7 @@ def lyx2xml_h(h_in, h_out, blob_file):
         if not is_end:
           h_out.write(' name="%s"' % html_escape(name))
       else:
-        if ann == 'script':
+        if ann in ('script'):
           name = 'lx:' + name
         h_out.write(name)
       if is_char_style and not(is_end) and ('script'!=ann):
