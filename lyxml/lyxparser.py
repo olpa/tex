@@ -1,6 +1,7 @@
 # Callback-parser of a LyX document
 # There is no official grammar, but there is enough regularity
-# to suggest our own.
+# to suggest our own. See also the notes at
+# http://wiki.lyx.org/Devel/LyXFileFormatReverse
 #
 # LYX      := HEADER, BEGIN_DOCUMENT, DOCUMENT, END_DOCUMENT
 # DOCUMENT := LAYOUT*
