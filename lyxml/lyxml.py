@@ -144,7 +144,6 @@ class XmlBuilder:
 
   def text(self, s):
     kids = self.node.getchildren()
-    print kids # FIXME
     if kids:
       el = kids[-1]
       if el.tail is None:
@@ -152,11 +151,10 @@ class XmlBuilder:
       else:
         el.tail = el.tail + s
     else:
-      print '!!! ' # FIXME
-      if self.text is None:
-        self.text = s
+      if self.node.text is None:
+        self.node.text = s
       else:
-        self.text = self.text + s
+        self.node.text = self.node.text + s
 
 def lyx2xml_h(h_in, h_out, blob_file):
   xb = XmlBuilder()
