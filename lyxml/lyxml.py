@@ -113,9 +113,17 @@ class XmlBuilder:
   def end_body(self):
     pass
 
+  def opt_with_prefix(self, opts):
+    new_opts = {}
+    for (k, v) in opts.iteritems():
+      new_opts['lx:'+xml_safe_name(k)] = v # for image attributes
+    return new_opts
+
   def begin_layout(self, lname, opts):
     self.stack.append(self.node)
-    node = xml.etree.ElementTree.Element(xml_safe_name(lname), opts)
+    if 'Plain Layout' == lname:
+      return                                               # return
+    node = xml.etree.ElementTree.Element(xml_safe_name(lname), self.opt_with_prefix(opts))
     self.node.append(node)
     self.node = node
 
@@ -126,15 +134,16 @@ class XmlBuilder:
 
   def begin_inset(self, itype, isubtype, opts):
     self.stack.append(self.node)
+    opts = self.opt_with_prefix(opts)
     node = None
     if 'Flex' == itype:
-      opts['lx:ch'] = '1'
+      opts['ch'] = '1'
       node = xml.etree.ElementTree.Element(xml_safe_name(isubtype), opts)
     if node is None:
       if isubtype is None:
-        gi = itype
+        gi = 'lx:' + itype
       else:
-        gi = itype + '_' + xml_safe_name(isubtype)
+        gi = 'lx:' + itype + '_' + xml_safe_name(isubtype)
       node = xml.etree.ElementTree.Element(gi, opts)
     self.node.append(node)
     self.node = node
