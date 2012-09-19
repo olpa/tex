@@ -96,6 +96,8 @@ class LyXparser:
             opts[opt_name] = a[1]
           else:
             opts[opt_name] = None
+        else:
+          break
       self.callback.begin_layout(layout_name, opts)
       # Parse text till end_layout
       self.put_line_back(l)
