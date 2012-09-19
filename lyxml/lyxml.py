@@ -116,7 +116,7 @@ class XmlBuilder:
   def opt_with_prefix(self, opts):
     new_opts = {}
     for (k, v) in opts.iteritems():
-      new_opts['lx:'+xml_safe_name(k)] = v # for image attributes
+      new_opts['lx:'+xml_safe_name(k.strip())] = v # for image attributes
     return new_opts
 
   def begin_layout(self, lname, opts):
