@@ -134,17 +134,16 @@ class XmlBuilder:
 
   def begin_inset(self, itype, isubtype, opts):
     self.stack.append(self.node)
-    opts = self.opt_with_prefix(opts)
     node = None
+    gi   = 'lx:' + itype
     if 'Flex' == itype:
       opts['ch'] = '1'
-      node = xml.etree.ElementTree.Element(xml_safe_name(isubtype), opts)
-    if node is None:
-      if isubtype is None:
-        gi = 'lx:' + itype
-      else:
-        gi = 'lx:' + itype + '_' + xml_safe_name(isubtype)
-      node = xml.etree.ElementTree.Element(gi, opts)
+      gi = xml_safe_name(isubtype)
+    else:
+      if isubtype is not None:
+        gi = gi + '_' + xml_safe_name(isubtype)
+    opts = self.opt_with_prefix(opts)
+    node = xml.etree.ElementTree.Element(gi, opts)
     self.node.append(node)
     self.node = node
 
