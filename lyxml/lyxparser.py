@@ -88,7 +88,7 @@ class LyXparser:
       while self.lex_state:
         l = self.read_next_line_not_empty()
         if '\\' == l[0]:
-          a = l[1:].split(' ', 2)
+          a = l[1:].split(' ', 1)
           opt_name = a[0]
           if opt_name in ('end_layout', 'begin_inset', 'backslash'):
             break                                          # break
@@ -104,7 +104,7 @@ class LyXparser:
       while self.lex_state:
         l = self.read_next_line_not_empty()
         if '\\' == l[0]:
-          a = l.split(' ', 2)
+          a = l.split(' ', 1)
           cmd_name = a[0]
           if '\\end_layout' == cmd_name:
             self.callback.end_layout()
@@ -121,7 +121,7 @@ class LyXparser:
         self.error('Missed \\end_layout')                  # raise
 
   def parse_inset(self, l):
-    a = l.split(' ', 3)
+    a = l.split(' ', 2)
     inset_type = a[1]
     if len(a) == 3:
       inset_subtype = a[2]
@@ -132,7 +132,7 @@ class LyXparser:
       l = self.read_next_line_not_empty()
       if '\\' == l[0]:
         break
-      a = l.split(' ', 2)
+      a = l.split(' ', 1)
       if len(a) == 2:
         opts[a[0]] = a[1]
       else:
