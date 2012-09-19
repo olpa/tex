@@ -204,19 +204,53 @@ def xml2lyx(in_file, out_file, blob_file):
   else:
     h_out = codecs.open(out_file, 'w', 'utf8')
   blob = BlobReader(blob_file)
-  # The document header is supposed to be stored in the first
-  # processing instruction, before any styles. Otherwise use
-  # the header from the template
   root = tree.getroot()
-  if '*PI*' != root.getchildren()[0].tag:
-    copy_header(template_file, h_out, root)
-  xml2lyx_rec(root, h_out, do_drop_ws=1, blob=blob, want_char=0)
+  copy_header(template_file, h_out, root) # and insert branch names
+  for kid in root.getchildren():
+    x2l_layout(kid, None, {}, h_out)
   h_out.write("\n\\end_body\n\\end_document\n")
   if not (h_out == sys.stdout):
     h_out.close()
   blob.close_db()
 
-def xml2lyx_rec(tree, h_out, do_drop_ws, blob, want_char):
+# we want style names with semicolon
+def xml_name_to_lyx_name(s):
+  if '{' == s[0]:
+    s = s[1:].replace('}', ':')
+  return lyx_safe_string(s)
+
+def x2l_layout(node, force_name, attr_from_inset, h_out):
+  if force_name is None:
+    gi = xml_name_to_lyx_name(node.tag)
+  else:
+    gi = force_name
+  h_out.write("\n\\begin_layout %s\n" % gi)
+  # TODO: parameters
+  x2l_text(node.text, h_out)
+  for kid in node.getchildren():
+    x2l_inset(kid, h_out)
+    x2l_text(kid.tail, h_out)
+  h_out.write("\n\\end_layout\n")
+
+def x2l_inset(node, h_out):
+  gi = xml_name_to_lyx_name(node.tag)
+  if '{http://getfo.org/lyxml/}' != gi[:25]:
+    h_out.write("\n\\begin_inset Flex %s\n" % gi)
+    x2l_layout(node, 'Plain Layout', {}, h_out)
+    h_out.write("\n\\end_inset\n")
+    return                                                 # return
+  subtype = node.get('{http://getfo.org/lyxml/}ann')
+  if subtype:
+    h_out.write("\n\\begin_inset %s %s\n" % (gi, lyx_safe_string(subtype)))
+  else:
+    h_out.write("\n\\begin_inset %s\n" % gi)
+  # TODO: parameters
+  # TODO: send parameters to layout
+  for kid in node.getchildren():
+    x2l_layout(kid, None, {}, h_out)
+  h_out.write("\n\\end_inset\n\\end_layout\n")
+
+def xml2lyx_rec_x(tree, h_out, do_drop_ws, blob, want_char):
   if want_char:
     on_attrib(tree.attrib, h_out)
     on_text(tree.text, h_out, do_drop_ws)
@@ -279,11 +313,9 @@ def xml2lyx_rec(tree, h_out, do_drop_ws, blob, want_char):
 
 # split large line on smaller ones: taken from LyX source code,
 # see 'Paragraph::write'
-def on_text(s, h_out, do_drop_ws):
+def x2l_text(s, h_out):
   if s is None:
-    return
-  if do_drop_ws and re_empty.match(s):
-    return
+    return                                                 # return
   col = 0
   for ch in s:
     if '\\' == ch:
