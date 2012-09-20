@@ -221,12 +221,17 @@ def xml_name_to_lyx_name(s):
 
 def x2l_layout(node, force_name, attr_from_inset, h_out):
   if force_name is None:
-    if '{http://getfo.org/lyxml/}' == node.tag[:25]: # an inset
-      h_out.write("\n\\begin_layout Standard\n")
+    gi = node.tag
+    if '{http://getfo.org/lyxml/}' == gi[:25]: # an inset
+      if gi[25:] in ('image', 'caption'):
+        gi = 'Plain Layout'
+      else:
+        gi = 'Standard'
+      h_out.write("\n\\begin_layout %s\n" % gi)
       x2l_inset(node, h_out)
       h_out.write("\n\\end_layout\n")
       return                                               # return
-    gi = xml_name_to_lyx_name(node.tag)
+    gi = xml_name_to_lyx_name(gi)
   else:
     gi = force_name
   h_out.write("\n\\begin_layout %s\n" % gi)
@@ -245,18 +250,31 @@ def x2l_inset(node, h_out):
     h_out.write("\n\\end_inset\n")
     return                                                 # return
   gi = xml_name_to_lyx_name(gi[25:])
+  subtype = node.get('{http://getfo.org/lyxml/}ann')
   if 'branch' == gi:
     gi = 'Branch'
-  subtype = node.get('{http://getfo.org/lyxml/}ann')
+    del(node.attrib['{http://getfo.org/lyxml/}ann'])
+  if 'figure' == gi:
+    gi      = 'Float'
+    subtype = 'figure'
+    def_param = {'wide': 'false', 'sideways': 'false', 'status': 'open'}
+    for (k,v) in def_param.iteritems():
+      node.attrib.setdefault('{http://getfo.org/lyxml/}'+k, v)
   if subtype:
     h_out.write("\n\\begin_inset %s %s\n" % (gi, lyx_safe_string(subtype)))
   else:
     h_out.write("\n\\begin_inset %s\n" % gi)
+  xml_attr = {}
+  for (k, v) in node.attrib.iteritems():
+    if '{http://getfo.org/lyxml/}' == k[:25]:
+      h_out.write("%s %s\n" % (lyx_safe_string(k[25:]), lyx_safe_string(v)))
+    else:
+      xml_attr[k] = v
   # TODO: parameters
   # TODO: send parameters to layout
   # TODO: if there are children, two variants: layouts or insets
   for kid in node.getchildren():
-    x2l_layout(kid, None, {}, h_out)
+    x2l_layout(kid, None, xml_attr, h_out)
   h_out.write("\n\\end_inset\n\\end_layout\n")
 
 def xml2lyx_rec_x(tree, h_out, do_drop_ws, blob, want_char):
