@@ -221,6 +221,11 @@ def xml_name_to_lyx_name(s):
 
 def x2l_layout(node, force_name, attr_from_inset, h_out):
   if force_name is None:
+    if '{http://getfo.org/lyxml/}' == node.tag[:25]: # an inset
+      h_out.write("\n\\begin_layout Standard\n")
+      x2l_inset(node, h_out)
+      h_out.write("\n\\end_layout\n")
+      return                                               # return
     gi = xml_name_to_lyx_name(node.tag)
   else:
     gi = force_name
@@ -233,12 +238,15 @@ def x2l_layout(node, force_name, attr_from_inset, h_out):
   h_out.write("\n\\end_layout\n")
 
 def x2l_inset(node, h_out):
-  gi = xml_name_to_lyx_name(node.tag)
+  gi = node.tag
   if '{http://getfo.org/lyxml/}' != gi[:25]:
     h_out.write("\n\\begin_inset Flex %s\n" % gi)
     x2l_layout(node, 'Plain Layout', {}, h_out)
     h_out.write("\n\\end_inset\n")
     return                                                 # return
+  gi = xml_name_to_lyx_name(gi[25:])
+  if 'branch' == gi:
+    gi = 'Branch'
   subtype = node.get('{http://getfo.org/lyxml/}ann')
   if subtype:
     h_out.write("\n\\begin_inset %s %s\n" % (gi, lyx_safe_string(subtype)))
@@ -246,6 +254,7 @@ def x2l_inset(node, h_out):
     h_out.write("\n\\begin_inset %s\n" % gi)
   # TODO: parameters
   # TODO: send parameters to layout
+  # TODO: if there are children, two variants: layouts or insets
   for kid in node.getchildren():
     x2l_layout(kid, None, {}, h_out)
   h_out.write("\n\\end_inset\n\\end_layout\n")
