@@ -90,11 +90,12 @@ class XmlBuilder:
 
   def begin_inset(self, itype, isubtype, opts):
     self.stack.append(self.node)
+    itype = itype.lower()
     gi = 'lx:' + itype
-    if 'Flex' == itype:
+    if 'flex' == itype:
       gi = xml_safe_name(isubtype)
     else:
-      if itype in ('script', 'Float'):
+      if itype in ('script', 'float'):
         gi = 'lx:' + isubtype
         isubtype = None
       if isubtype is not None:
