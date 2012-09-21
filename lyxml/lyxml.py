@@ -10,7 +10,7 @@ template_file = os.path.join(os.path.dirname(__file__), 'template.lyx')
 # =========================================================
 # LyX to XML
 
-def lyx2xml(in_file, out_file, blob_file):
+def lyx2xml(in_file, out_file):
   if '-' == in_file:
     h_in = sys.stdin
   else:
@@ -19,7 +19,7 @@ def lyx2xml(in_file, out_file, blob_file):
     h_out = sys.stdout
   else:
     h_out = open(out_file, 'w')
-  lyx2xml_h(h_in, h_out, blob_file)
+  lyx2xml_h(h_in, h_out)
   if not (h_in == sys.stdin):
     h_in.close()
   if not (h_out == sys.stdout):
@@ -121,7 +121,7 @@ class XmlBuilder:
       else:
         self.node.text = self.node.text + s
 
-def lyx2xml_h(h_in, h_out, blob_file):
+def lyx2xml_h(h_in, h_out):
   xb = XmlBuilder()
   lp = lyxparser.LyXparser(xb, h_in)
   lp.parse()
@@ -141,7 +141,7 @@ def copy_header(template_file, h_out, root):
     if '\\end_header' == l2:
       branches_seen = []
       for kid in root.findall('.//{http://getfo.org/lyxml/}branch'):
-        branch_name = lyx_safe_string(kid.get('name', ''))
+        branch_name = lyx_safe_string(kid.get('{http://getfo.org/lyxml/}ann', ''))
         if branch_name in branches_seen:
           continue
         branches_seen.append(branch_name)
@@ -151,7 +151,7 @@ def copy_header(template_file, h_out, root):
       break
   h.close()
 
-def xml2lyx(in_file, out_file, blob_file):
+def xml2lyx(in_file, out_file):
   if '-' == in_file:
     xml_in = sys.stdin
   else:
@@ -162,7 +162,6 @@ def xml2lyx(in_file, out_file, blob_file):
     h_out = sys.stdout
   else:
     h_out = codecs.open(out_file, 'w', 'utf8')
-  blob = BlobReader(blob_file)
   root = tree.getroot()
   copy_header(template_file, h_out, root) # and insert branch names
   for kid in root.getchildren():
@@ -170,7 +169,6 @@ def xml2lyx(in_file, out_file, blob_file):
   h_out.write("\n\\end_body\n\\end_document\n")
   if not (h_out == sys.stdout):
     h_out.close()
-  blob.close_db()
 
 # we want style names with semicolon
 def xml_name_to_lyx_name(s):
@@ -194,7 +192,18 @@ def x2l_layout(node, force_name, attr_from_inset, h_out):
   else:
     gi = force_name
   h_out.write("\n\\begin_layout %s\n" % gi)
-  # TODO: parameters
+  xml_attr = {}
+  for (k, v) in node.attrib.iteritems():
+    if '{http://getfo.org/lyxml/}' == k[:25]:
+      h_out.write("\\%s %s\n" % (lyx_safe_string(k[25:]), lyx_safe_string(v)))
+    else:
+      xml_attr[k] = v
+  xml_attr.update(attr_from_inset)
+  for (k, v) in xml_attr.iteritems():
+    fake_node = xml.etree.ElementTree.Element('XmlAttribute')
+    fake_node.children = []
+    fake_node.text = '%s=%s' % (k, v)
+    x2l_inset(fake_node, h_out)
   x2l_text(node.text, h_out)
   for kid in node.getchildren():
     x2l_inset(kid, h_out)
@@ -281,8 +290,6 @@ def x2l_text(s, h_out):
 #
 usage = "usage: %prog [options] source target"
 parser = optparse.OptionParser(usage)
-parser.add_option("-b", "--blob", dest="blob_file",
-                      help="read/store blobs in BLOB_FILE")
 parser.add_option("-x", "--xml2lyx", dest="x2l",
     action="store_true", help="mode: from LyXML to LyX")
 parser.add_option("-l", "--lyx2xml", dest="l2x",
@@ -321,21 +328,10 @@ if out_file is None:
 if in_file is None:
   in_file = '-'
 
-blob_file = options.blob_file
-if blob_file is None:
-  if options.l2x:
-    f = out_file
-  else:
-    f = in_file
-  if '-' != f:
-    blob_file = os.path.splitext(f)[0] + '.dbm'
-  else:
-    blob_file = 'blobs.dbm'
-
 #
 # Open files and start conversion
 #
 if options.l2x:
-  lyx2xml(in_file, out_file, blob_file)
+  lyx2xml(in_file, out_file)
 else:
-  xml2lyx(in_file, out_file, blob_file)
+  xml2lyx(in_file, out_file)
