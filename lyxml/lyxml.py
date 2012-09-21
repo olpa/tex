@@ -92,7 +92,6 @@ class XmlBuilder:
     self.stack.append(self.node)
     gi = 'lx:' + itype
     if 'Flex' == itype:
-      opts['ch'] = '1'
       gi = xml_safe_name(isubtype)
     else:
       if itype in ('script', 'Float'):
@@ -134,46 +133,6 @@ def lyx2xml_h(h_in, h_out, blob_file):
 re_safe_string = re.compile('[\x00-\x19]+')
 def lyx_safe_string(s):
   return re_safe_string.sub('_', s)
-
-class BlobReader:
-  def __init__(self, blob_file):
-    self.blob_file     = blob_file
-    self.db            = None
-    self.nodb_reported = 0
-
-  def get_db(self):
-    if not self.db:
-      if not self.nodb_reported:
-        try:
-          self.db = anydbm.open(self.blob_file, 'r')
-        except anydbm.error, e:
-          print >>sys.stderr, 'lyxml: can\'t open blob file: %s' % e
-          self.nodb_reported = 1
-    return self.db
-
-  def get(self, key):
-    db = self.get_db()
-    if db:
-      if db.has_key(key):
-        return db[key]
-      else:
-        print >>sys.stderr, 'lyxml: blob not found: \'%s\'' % key
-        return ''
-    else:
-      return ''
-
-  def close_db(self):
-    if self.db:
-      self.db.close()
-
-xetxtb_saved_init = xml.etree.ElementTree.XMLTreeBuilder.__init__
-def xetxtb_new_init(self, *ls, **kw):
-  def new_pi(target, data):
-    self._parser.StartElementHandler('*PI*', ['target', target, 'data', data])
-    self._parser.EndElementHandler('*PI*')
-  xetxtb_saved_init(self, *ls, **kw)
-  self._parser.ProcessingInstructionHandler = new_pi
-xml.etree.ElementTree.XMLTreeBuilder.__init__ = xetxtb_new_init
 
 def copy_header(template_file, h_out, root):
   h = open(template_file)
@@ -289,76 +248,12 @@ def x2l_inset(node, h_out):
       h_out.write("%s %s\n" % (lyx_safe_string(k[25:]), lyx_safe_string(v)))
     else:
       xml_attr[k] = v
-  # TODO: parameters
-  # TODO: send parameters to layout
-  # TODO: if there are children, two variants: layouts or insets
   if gi in ('Caption', 'script'):
     x2l_layout(node, 'Plain Layout', xml_attr, h_out)
   else:
     for kid in node.getchildren():
       x2l_layout(kid, None, xml_attr, h_out)
   h_out.write("\n\\end_inset\n")
-
-def xml2lyx_rec_x(tree, h_out, do_drop_ws, blob, want_char):
-  if want_char:
-    on_attrib(tree.attrib, h_out)
-    on_text(tree.text, h_out, do_drop_ws)
-  for kid in tree.getchildren():
-    gi = kid.tag
-    if '*PI*' == gi:
-      if 'LyXblob' == kid.get('target'):
-        h_out.write(blob.get(kid.get('data')))
-      on_text(kid.tail, h_out, do_drop_ws)
-      continue                                            # continue
-    if '{http://getfo.org/lyxml/}newline' == gi:
-      h_out.write("\n\\begin_inset Newline newline\n\\end_inset\n")
-      on_text(kid.tail, h_out, do_drop_ws)
-      continue                                            # continue
-    if '{http://getfo.org/lyxml/}branch' == gi:
-      inset_name = lyx_safe_string(kid.get('name', ''))
-      h_out.write("\n\\begin_layout Standard\n\\begin_inset Branch %s\nstatus open\n" % inset_name)
-      xml2lyx_rec(kid, h_out, 0, blob, want_char=0)
-      h_out.write("\n\\end_inset\n\\end_layout\n")
-      on_text(kid.tail, h_out, do_drop_ws)
-      continue                                            # continue
-    if '{http://getfo.org/lyxml/}figure' == gi:
-      h_out.write("\n\\begin_layout Standard\n\\begin_inset Float figure\nwide false\nsideways false\nstatus open\n")
-      xml2lyx_rec(kid, h_out, 0, blob, want_char=0)
-      h_out.write("\n\\end_inset\n\\end_layout\n")
-      on_text(kid.tail, h_out, do_drop_ws)
-      continue                                            # continue
-    if '{http://getfo.org/lyxml/}caption' == gi:
-      h_out.write("\n\\begin_layout Standard\n\\begin_inset Caption\n\\begin_layout Plain Layout\n")
-      xml2lyx_rec(kid, h_out, 0, blob, want_char=1)
-      h_out.write("\n\\end_layout\n\\end_inset\n\\end_layout\n")
-      on_text(kid.tail, h_out, do_drop_ws)
-      continue                                            # continue
-    if '{http://getfo.org/lyxml/}image' == gi:
-      h_out.write("\n\\begin_layout Standard\n\\begin_inset Graphics\n")
-      h_out.write("\tfilename %s\n" % lyx_safe_string(kid.get('file', 'dummy.png')))
-      h_out.write("\twidth %s\n" % lyx_safe_string(kid.get('width', '')))
-      h_out.write("\theight %s\n" % lyx_safe_string(kid.get('height', '')))
-      h_out.write("\n\\end_inset\n\\end_layout\n")
-      on_text(kid.tail, h_out, do_drop_ws)
-      continue                                            # continue
-    if gi in ('{http://getfo.org/lyxml/}superscript','{http://getfo.org/lyxml/}subscript'):
-      ann = gi[gi.index('}')+1:]
-      h_out.write("\n\\begin_inset script %s\n" % ann)
-      gi = 'Plain Layout'
-    elif want_char or ('1' == kid.get('{http://getfo.org/lyxml/}ch')):
-      if 1 != kid.get('{http://getfo.org/lyxml/}ch'):
-        print >>sys.stderr, 'lyxml: nested paragraph styles are not supported (%s)' % gi
-      h_out.write("\n\\begin_inset Flex %s\nstatus collapsed\n" % gi)
-      gi = 'Plain Layout'
-    # namespaced GI: actually, we want style names with semicolon
-    if '{' == gi[0]:
-      gi = gi[1:].replace('}', ':')
-    h_out.write("\n\\begin_layout %s\n" % gi)
-    xml2lyx_rec(kid, h_out, 0, blob, want_char=1)
-    h_out.write("\n\\end_layout\n")
-    if 'Plain Layout' == gi:
-      h_out.write("\n\\end_inset\n")
-    on_text(kid.tail, h_out, do_drop_ws)
 
 # split large line on smaller ones: taken from LyX source code,
 # see 'Paragraph::write'
@@ -380,18 +275,6 @@ def x2l_text(s, h_out):
       continue                                             # continue
     h_out.write(ch)
     col = col + 1
-
-def on_blob(s, h_out):
-  s = base64.b64decode(s)
-  h_out.write(s)
-
-def on_attrib(attrib, h_out):
-  for aitem in attrib.iteritems():
-    h_out.write("\\begin_inset Flex XmlAttribute\nstatus collapsed\n")
-    h_out.write("\n\\begin_layout Plain Layout\n")
-    on_text("%s=%s" % aitem, h_out, 0)
-    h_out.write("\n\\end_layout\n")
-    h_out.write("\n\\end_inset\n\n")
 
 # =========================================================
 # Parse command line
