@@ -53,6 +53,19 @@ def xml_safe_name(s):
     b = 0
   return ''.join(a)
 
+def reformat_lyx_xml(node):
+  no_cdata = node.text is None
+  if no_cdata:
+    for kid in node.getchildren():
+      if kid.tail:
+        no_cdata = 0
+        break
+  if no_cdata:
+    node.text = '\n'
+  for kid in node.getchildren():
+    if kid.tail is None:
+      kid.tail = '\n'
+
 class XmlBuilder:
 
   def __init__(self):
@@ -84,8 +97,6 @@ class XmlBuilder:
     self.node = node
 
   def end_layout(self):
-    if self.node.tail is None:
-      self.node.tail = '\n'
     self.node = self.stack.pop()
 
   def begin_inset(self, itype, isubtype, opts):
@@ -106,6 +117,7 @@ class XmlBuilder:
     self.node = node
 
   def end_inset(self):
+    reformat_lyx_xml(self.node)
     self.node = self.stack.pop()
 
   def text(self, s):
@@ -126,6 +138,7 @@ def lyx2xml_h(h_in, h_out):
   xb = XmlBuilder()
   lp = lyxparser.LyXparser(xb, h_in)
   lp.parse()
+  reformat_lyx_xml(xb.root)
   h_out.write(xml.etree.ElementTree.tostring(xb.root, 'utf-8'))
 
 # =========================================================
