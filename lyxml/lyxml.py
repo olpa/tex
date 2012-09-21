@@ -242,29 +242,48 @@ def x2l_layout(node, force_name, attr_from_inset, h_out):
     x2l_text(kid.tail, h_out)
   h_out.write("\n\\end_layout\n")
 
+inset_param_order = ('wide', 'sideways', 'status')
+inset_param_order = ['{http://getfo.org/lyxml/}'+s for s in inset_param_order]
+
 def x2l_inset(node, h_out):
   gi = node.tag
   if '{http://getfo.org/lyxml/}' != gi[:25]:
-    h_out.write("\n\\begin_inset Flex %s\n" % gi)
+    h_out.write("\n\\begin_inset Flex %s\nstatus collapsed\n" % gi)
     x2l_layout(node, 'Plain Layout', {}, h_out)
     h_out.write("\n\\end_inset\n")
     return                                                 # return
   gi = xml_name_to_lyx_name(gi[25:])
   subtype = node.get('{http://getfo.org/lyxml/}ann')
+  def_param = None
   if 'branch' == gi:
     gi = 'Branch'
     del(node.attrib['{http://getfo.org/lyxml/}ann'])
-  if 'figure' == gi:
+    def_param = {'status': 'open'}
+  elif 'figure' == gi:
     gi      = 'Float'
     subtype = 'figure'
     def_param = {'wide': 'false', 'sideways': 'false', 'status': 'open'}
-    for (k,v) in def_param.iteritems():
-      node.attrib.setdefault('{http://getfo.org/lyxml/}'+k, v)
+  elif 'image' == gi:
+    gi = 'Graphics'
+    def_param = {'filename': 'dummy.pdf', 'width': '5cm', 'height': '5cm'}
+  elif 'caption' == gi:
+    gi = 'Caption'
+  elif gi in ('superscript', 'subscript'):
+    subtype = gi
+    gi = 'script'
   if subtype:
     h_out.write("\n\\begin_inset %s %s\n" % (gi, lyx_safe_string(subtype)))
   else:
     h_out.write("\n\\begin_inset %s\n" % gi)
+  if def_param:
+    for (k,v) in def_param.iteritems():
+      node.attrib.setdefault('{http://getfo.org/lyxml/}'+k, v)
   xml_attr = {}
+  for k in inset_param_order:
+    v = node.attrib.get(k, None)
+    if v is not None:
+      h_out.write("%s %s\n" % (lyx_safe_string(k[25:]), lyx_safe_string(v)))
+      del node.attrib[k]
   for (k, v) in node.attrib.iteritems():
     if '{http://getfo.org/lyxml/}' == k[:25]:
       h_out.write("%s %s\n" % (lyx_safe_string(k[25:]), lyx_safe_string(v)))
@@ -273,9 +292,12 @@ def x2l_inset(node, h_out):
   # TODO: parameters
   # TODO: send parameters to layout
   # TODO: if there are children, two variants: layouts or insets
-  for kid in node.getchildren():
-    x2l_layout(kid, None, xml_attr, h_out)
-  h_out.write("\n\\end_inset\n\\end_layout\n")
+  if gi in ('Caption', 'script'):
+    x2l_layout(node, 'Plain Layout', xml_attr, h_out)
+  else:
+    for kid in node.getchildren():
+      x2l_layout(kid, None, xml_attr, h_out)
+  h_out.write("\n\\end_inset\n")
 
 def xml2lyx_rec_x(tree, h_out, do_drop_ws, blob, want_char):
   if want_char:
