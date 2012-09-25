@@ -133,6 +133,11 @@ class LyXparser:
       l = self.read_next_line_not_empty()
       if '\\' == l[0]:
         break
+      if '<' == l[0]: # table
+        self.callback.begin_inset(inset_type, inset_subtype, opts)
+        self.put_line_back(l)
+        self.parse_xmlized_inset()
+        return                                             # return
       a = l.split(' ', 1)
       if len(a) == 2:
         opts[a[0]] = a[1]
@@ -150,6 +155,17 @@ class LyXparser:
       self.callback.end_inset()
       return                                               # return
     self.error('Unknown command in inset: ' + l)           # raise
+
+  def parse_xmlized_inset(self):
+    while self.lex_state:
+      l = self.read_next_line_not_empty()
+      if '<' == l[0]:
+        self.callback.xml_line(l)
+      elif '\\end_inset' == l:
+        self.callback.end_inset()
+        return                                             # return
+      else:
+        self.parse_inset(l)
 
 if '__main__' == __name__:
   import sys
@@ -170,6 +186,8 @@ if '__main__' == __name__:
       print '(ei)',
     def text(self, t):
       print '(t)',
+    def xml_line(self, l):
+      print '(x)',
   fname = sys.argv[1]
   cb = LyXparserCallback()
   h = open(fname)
