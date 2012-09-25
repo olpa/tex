@@ -67,6 +67,8 @@ def reformat_lyx_xml(node):
       kid.tail = '\n'
 
 class XmlBuilder:
+  re_xml_tag_name  = re.compile('<(\\w+)')
+  re_xml_attr_pair = re.compile('''(\\w+)\\s*=\\s*["']([^"']*)["']''')
 
   def __init__(self):
     self.root  = xml.etree.ElementTree.Element('lx:lyx', {'xmlns:lx': 'http://getfo.org/lyxml/'})
@@ -102,6 +104,10 @@ class XmlBuilder:
   def begin_inset(self, itype, isubtype, opts):
     self.stack.append(self.node)
     itype = itype.lower()
+    if itype in ('tabular', 'text'):
+      # Tabular is created by XML option 'lyxtabular'.
+      # 'Text' appears inside a table cell. Probably redundant.
+      return                                               # return
     gi = 'lx:' + itype
     if 'flex' == itype:
       gi = xml_safe_name(isubtype)
@@ -133,6 +139,22 @@ class XmlBuilder:
         self.node.text = s
       else:
         self.node.text = self.node.text + s
+
+  def xml_line(self, l):
+    if '/' == l[1]:
+      reformat_lyx_xml(self.node)
+      self.node = self.stack.pop()
+      return                                               # return
+    m = XmlBuilder.re_xml_tag_name.match(l)
+    gi = 'lx:' + str(m.group(1))
+    opts = {}
+    for m in XmlBuilder.re_xml_attr_pair.finditer(l):
+      opts['lx:' + str(m.group(1))] = str(m.group(2))
+    node = xml.etree.ElementTree.Element(gi, opts)
+    self.node.append(node)
+    if gi not in ('lx:features', 'lx:column'):
+      self.stack.append(self.node)
+      self.node = node
 
 def lyx2xml_h(h_in, h_out):
   xb = XmlBuilder()
