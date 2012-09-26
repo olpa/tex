@@ -319,8 +319,14 @@ def x2l_inset(node, h_out):
       x2l_layout(kid, None, xml_attr, h_out)
   h_out.write("\n\\end_inset\n")
 
-def x2l_xmlline(node, local_name, postponed_attr, h_out):
+def x2l_xmlline(node, local_name, param_order, postponed_attr, h_out):
   h_out.write("\n<" + local_name)
+  for k in param_order:
+    k_full = '{http://getfo.org/lyxml/}' + k
+    v = node.attrib.get(k_full, None)
+    if v is not None:
+      del(node.attrib[k_full])
+      h_out.write(' %s="%s"' % (k, lyx_safe_string(v)))
   for k,v in node.attrib.iteritems():
     (k1, k2) = split_gi(k)
     if k1 is None:
@@ -329,20 +335,35 @@ def x2l_xmlline(node, local_name, postponed_attr, h_out):
       h_out.write(' %s="%s"' % (k2, lyx_safe_string(v)))
   h_out.write('>')
 
+param_order_tabular = ('version', 'rows', 'columns')
+param_order_tbl_feature = ("rotate", "booktabs", "islongtable",
+  "tabularvalignment", "tabularwidth", "longtabularalignment",
+  "firstHeadTopDL","firstHeadBottomDL", "firstHeadEmpty",
+  "headTopDL", "headBottomDL", "footTopDL", "footBottomDL",
+  "lastFootTopDL", "lastFootBottomDL", "lastFootEmpty")
+param_order_column = ("alignment", "decimal_point",
+  "valignment", "width", "special")
+param_order_row = ("topspace", "bottomspace", "interlinespace",
+  "endfirsthead", "endhead", "endfoot", "endlastfoot", "newpage",
+  "caption")
+param_order_cell = ("multicolumn", "multirow", "mroffset",
+  "alignment", "valignment", "topline", "bottomline", "leftline",
+  "rightline", "rotate", "usebox", "width" , "special")
+
 def x2l_tabular(node, h_out):
   userattr = {}
   h_out.write("\n\\begin_inset Tabular")
-  x2l_xmlline(node, 'lyxtabular', userattr, h_out)
+  x2l_xmlline(node, 'lyxtabular', param_order_tabular, userattr, h_out)
   for kid_tbl in node.getchildren():
     if '{http://getfo.org/lyxml/}features' == kid_tbl.tag:
-      x2l_xmlline(kid_tbl, 'features', userattr, h_out)
+      x2l_xmlline(kid_tbl, 'features', param_order_tbl_feature, userattr, h_out)
     elif '{http://getfo.org/lyxml/}column' == kid_tbl.tag:
-      x2l_xmlline(kid_tbl, 'column', userattr, h_out)
+      x2l_xmlline(kid_tbl, 'column', param_order_column, userattr, h_out)
     elif '{http://getfo.org/lyxml/}row' == kid_tbl.tag:
-      x2l_xmlline(kid_tbl, 'row', userattr, h_out)
+      x2l_xmlline(kid_tbl, 'row', param_order_row, userattr, h_out)
       for kid_row in kid_tbl.getchildren():
         if '{http://getfo.org/lyxml/}cell' == kid_row.tag:
-          x2l_xmlline(kid_row, 'cell', userattr, h_out)
+          x2l_xmlline(kid_row, 'cell', param_order_cell, userattr, h_out)
           h_out.write("\n\\begin_inset Text")
           a = kid_row.getchildren()
           if len(a):
