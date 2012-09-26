@@ -289,8 +289,6 @@ def x2l_inset(node, h_out):
     def_param = {'filename': 'dummy.pdf', 'width': '5cm', 'height': '5cm'}
   elif 'caption' == gi:
     gi = 'Caption'
-  elif 'lyxtabular' == gi:
-    gi = 'Tabular'
   elif gi in ('superscript', 'subscript'):
     subtype = gi
     gi = 'script'
@@ -298,13 +296,8 @@ def x2l_inset(node, h_out):
     def_param = {'wide': 'false', 'sideways': 'false', 'status': 'open'}
   if subtype:
     h_out.write("\n\\begin_inset %s %s\n" % (gi, lyx_safe_string(subtype)))
-  elif gi in ('features', 'column', 'row', 'cell'):
-    h_out.write("\n<%s" % gi)
   else:
     h_out.write("\n\\begin_inset %s\n" % gi)
-
-  if 'Tabular' == gi:
-    h_out.write('<lyxtabular')
   if def_param:
     for (k,v) in def_param.iteritems():
       node.attrib.setdefault('{http://getfo.org/lyxml/}'+k, v)
@@ -316,31 +309,15 @@ def x2l_inset(node, h_out):
       del node.attrib[k]
   for (k, v) in node.attrib.iteritems():
     if '{http://getfo.org/lyxml/}' == k[:25]:
-      if gi in ('Tabular', 'features', 'column', 'row', 'cell'):
-        fmt_str = ' %s="%s"'
-      else:
-        fmt_str = "%s %s\n"
-      h_out.write(fmt_str % (lyx_safe_string(k[25:]), lyx_safe_string(v)))
+      h_out.write("%s %s\n" % (lyx_safe_string(k[25:]), lyx_safe_string(v)))
     else:
       xml_attr[k] = v
-  if gi in ('Tabular', 'features', 'column', 'row', 'cell'):
-    h_out.write('>')
-  if 'cell' == gi:
-    h_out.write("\n\\begin_inset Text")
   if gi in ('Caption', 'script'):
     x2l_layout(node, 'Plain Layout', xml_attr, h_out)
   else:
     for kid in node.getchildren():
       x2l_layout(kid, None, xml_attr, h_out)
-    if (gi == 'cell') and (0 == len(node.getchildren())):
-      node.attrib = {}
-      x2l_layout(node, 'Plain Layout', xml_attr, h_out)
-  if 'Tabular' == gi:
-    h_out.write("\n</lyxtabular>")
-  if gi not in ('features', 'column', 'row'):
-    h_out.write("\n\\end_inset\n")
-  if gi in ('row', 'cell'):
-    h_out.write("\n</%s>" % gi)
+  h_out.write("\n\\end_inset\n")
 
 def x2l_xmlline(node, local_name, postponed_attr, h_out):
   h_out.write("\n<" + local_name)
