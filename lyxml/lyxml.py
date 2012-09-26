@@ -253,14 +253,25 @@ def x2l_layout(node, force_name, attr_from_inset, h_out):
 inset_param_order = ('wide', 'sideways', 'status')
 inset_param_order = ['{http://getfo.org/lyxml/}'+s for s in inset_param_order]
 
+# lx-namespace and local name, or None and full name
+def split_gi(gi):
+  if '{http://getfo.org/lyxml/}' == gi[:25]:
+    return ('http://getfo.org/lyxml/', gi[25:])
+  else:
+    return (None, gi)
+
 def x2l_inset(node, h_out):
   gi = node.tag
-  if '{http://getfo.org/lyxml/}' != gi[:25]:
+  (ns, local_gi) = split_gi(gi)
+  if ns is None:
     h_out.write("\n\\begin_inset Flex %s\nstatus collapsed\n" % gi)
     x2l_layout(node, 'Plain Layout', {}, h_out)
     h_out.write("\n\\end_inset\n")
     return                                                 # return
-  gi = xml_name_to_lyx_name(gi[25:])
+  if '{http://getfo.org/lyxml/}lyxtabular' == gi:
+    x2l_tabular(node, h_out)
+    return                                                 # return
+  gi = local_gi
   subtype = node.get('{http://getfo.org/lyxml/}ann')
   def_param = None
   if 'branch' == gi:
@@ -330,6 +341,46 @@ def x2l_inset(node, h_out):
     h_out.write("\n\\end_inset\n")
   if gi in ('row', 'cell'):
     h_out.write("\n</%s>" % gi)
+
+def x2l_xmlline(node, local_name, postponed_attr, h_out):
+  h_out.write("\n<" + local_name)
+  for k,v in node.attrib.iteritems():
+    (k1, k2) = split_gi(k)
+    if k1 is None:
+      postponed_attr[k] = v
+    else:
+      h_out.write(' %s="%s"' % (k2, lyx_safe_string(v)))
+  h_out.write('>')
+
+def x2l_tabular(node, h_out):
+  userattr = {}
+  h_out.write("\n\\begin_inset Tabular")
+  x2l_xmlline(node, 'lyxtabular', userattr, h_out)
+  for kid_tbl in node.getchildren():
+    if '{http://getfo.org/lyxml/}features' == kid_tbl.tag:
+      x2l_xmlline(kid_tbl, 'features', userattr, h_out)
+    elif '{http://getfo.org/lyxml/}column' == kid_tbl.tag:
+      x2l_xmlline(kid_tbl, 'column', userattr, h_out)
+    elif '{http://getfo.org/lyxml/}row' == kid_tbl.tag:
+      x2l_xmlline(kid_tbl, 'row', userattr, h_out)
+      for kid_row in kid_tbl.getchildren():
+        if '{http://getfo.org/lyxml/}cell' == kid_row.tag:
+          x2l_xmlline(kid_row, 'cell', userattr, h_out)
+          h_out.write("\n\\begin_inset Text")
+          a = kid_row.getchildren()
+          if len(a):
+            for kid_cell in a:
+              x2l_layout(kid_cell, None, userattr, h_out)
+          else:
+            kid_row.attrib = {}
+            x2l_layout(kid_row, 'Plain Layout', userattr, h_out)
+          h_out.write("\n\\end_inset\n</cell>")
+        else:
+          print >>sys.stderr, "lyxml: unknown row child '%s'" % kid_tbl.tag
+      h_out.write("\n</row>")
+    else:
+      print >>sys.stderr, "lyxml: unknown table child '%s'" % kid_tbl.tag
+  h_out.write("\n</lyxtabular>\n\\end_inset")
 
 # split large line on smaller ones: taken from LyX source code,
 # see 'Paragraph::write'
