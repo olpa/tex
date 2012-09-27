@@ -370,10 +370,16 @@ def x2l_tabular(node, h_out):
   userattr = {}
   h_out.write("\n\\begin_inset Tabular")
   x2l_xmlline(node, 'lyxtabular', param_order_tabular, userattr, h_out)
+  tag_features_is_present = 0
   for kid_tbl in node.getchildren():
     if '{http://getfo.org/lyxml/}features' == kid_tbl.tag:
+      tag_features_is_present = 1
       x2l_xmlline(kid_tbl, 'features', param_order_tbl_feature, userattr, h_out)
     elif '{http://getfo.org/lyxml/}column' == kid_tbl.tag:
+      if not tag_features_is_present:
+        tag_features_is_present = 1
+        f = xml.etree.ElementTree.Element('features')
+        x2l_xmlline(f, 'features', param_order_tbl_feature, None, h_out)
       x2l_xmlline(kid_tbl, 'column', param_order_column, userattr, h_out)
     elif '{http://getfo.org/lyxml/}row' == kid_tbl.tag:
       x2l_xmlline(kid_tbl, 'row', param_order_row, userattr, h_out)
