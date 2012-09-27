@@ -368,6 +368,22 @@ param_tbl_must_have_default = {
 
 def x2l_tabular(node, h_out):
   userattr = {}
+  def on_cell(cell_node):
+    x2l_xmlline(cell_node, 'cell', param_order_cell, userattr, h_out)
+    h_out.write("\n\\begin_inset Text")
+    a = cell_node.getchildren()
+    if len(a):
+      for kid_cell in a:
+        x2l_layout(kid_cell, None, userattr, h_out)
+    else:
+      cell_node.attrib = {}
+      x2l_layout(cell_node, 'Plain Layout', userattr, h_out)
+    h_out.write("\n\\end_inset\n</cell>")
+  try:
+    n_cols = int(node.get('{http://getfo.org/lyxml/}columns'))
+  except Exception, e:
+    print >>sys.stderr, "lyxml: can't get number of columns: %s" % e
+    return                                                 # return
   h_out.write("\n\\begin_inset Tabular")
   x2l_xmlline(node, 'lyxtabular', param_order_tabular, userattr, h_out)
   tag_features_is_present = 0
@@ -383,20 +399,22 @@ def x2l_tabular(node, h_out):
       x2l_xmlline(kid_tbl, 'column', param_order_column, userattr, h_out)
     elif '{http://getfo.org/lyxml/}row' == kid_tbl.tag:
       x2l_xmlline(kid_tbl, 'row', param_order_row, userattr, h_out)
+      i_col = 0
       for kid_row in kid_tbl.getchildren():
         if '{http://getfo.org/lyxml/}cell' == kid_row.tag:
-          x2l_xmlline(kid_row, 'cell', param_order_cell, userattr, h_out)
-          h_out.write("\n\\begin_inset Text")
-          a = kid_row.getchildren()
-          if len(a):
-            for kid_cell in a:
-              x2l_layout(kid_cell, None, userattr, h_out)
-          else:
-            kid_row.attrib = {}
-            x2l_layout(kid_row, 'Plain Layout', userattr, h_out)
-          h_out.write("\n\\end_inset\n</cell>")
+          i_col = i_col + 1
+          if i_col > n_cols:
+            # error message displayed later in check i_col != n_cols
+            break
+          on_cell(kid_row)
         else:
           print >>sys.stderr, "lyxml: unknown row child '%s'" % kid_tbl.tag
+      if i_col != n_cols:
+        print >>sys.stderr, "lyxml: declared and actual number of columns differ"
+        while i_col < n_cols:
+          i_col = i_col + 1
+          c = xml.etree.ElementTree.Element('cell')
+          on_cell(c)
       h_out.write("\n</row>")
     else:
       print >>sys.stderr, "lyxml: unknown table child '%s'" % kid_tbl.tag
