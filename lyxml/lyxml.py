@@ -323,9 +323,12 @@ def x2l_xmlline(node, local_name, param_order, postponed_attr, h_out):
   h_out.write("\n<" + local_name)
   for k in param_order:
     k_full = '{http://getfo.org/lyxml/}' + k
-    v = node.attrib.get(k_full, None)
+    v = node.attrib.get(k_full,None )
     if v is not None:
       del(node.attrib[k_full])
+    else:
+      v = param_tbl_must_have_default.get(k, None)
+    if v is not None:
       h_out.write(' %s="%s"' % (k, lyx_safe_string(v)))
   for k,v in node.attrib.iteritems():
     (k1, k2) = split_gi(k)
@@ -349,6 +352,19 @@ param_order_row = ("topspace", "bottomspace", "interlinespace",
 param_order_cell = ("multicolumn", "multirow", "mroffset",
   "alignment", "valignment", "topline", "bottomline", "leftline",
   "rightline", "rotate", "usebox", "width" , "special")
+param_tbl_must_have_default = {
+    'version':     '3',
+    'rows':        '5',
+    'columns':     '5',
+    'tabularvalignment': 'middle',
+    'alignment':   'center',
+    'valignment':  'top',
+    'width':       '0',
+    'topline':     'true',
+    'bottomline':  'true',
+    'leftline':    'true',
+    'usebox':      'none'
+    }
 
 def x2l_tabular(node, h_out):
   userattr = {}
