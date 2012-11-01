@@ -234,15 +234,23 @@ def x2l_layout(node, force_name, attr_from_inset, h_out):
   h_out.write("\n\\begin_layout %s\n" % gi)
   xml_attr = {}
   for (k, v) in node.attrib.iteritems():
-    if '{http://getfo.org/lyxml/}' == k[:25]:
+    if ('{http://getfo.org/lyxml/}' == k[:25]) and ('{http://getfo.org/lyxml/}id' != k):
       h_out.write("\\%s %s\n" % (lyx_safe_string(k[25:]), lyx_safe_string(v)))
     else:
       xml_attr[k] = v
   xml_attr.update(attr_from_inset)
   for (k, v) in xml_attr.iteritems():
-    fake_node = xml.etree.ElementTree.Element('XmlAttribute')
+    if '{http://getfo.org/lyxml/}id' == k:
+      label_attr = {
+          '{http://getfo.org/lyxml/}LatexCommand': 'label',
+          '{http://getfo.org/lyxml/}ann':          'label',
+          '{http://getfo.org/lyxml/}name':         ('"%s"' % lyx_safe_string(v))
+          }
+      fake_node = xml.etree.ElementTree.Element('{http://getfo.org/lyxml/}commandinset', label_attr)
+    else:
+      fake_node = xml.etree.ElementTree.Element('XmlAttribute')
+      fake_node.text = '%s=%s' % (k, v)
     fake_node.children = []
-    fake_node.text = '%s=%s' % (k, v)
     x2l_inset(fake_node, h_out)
   x2l_text(node.text, h_out)
   for kid in node.getchildren():
@@ -292,6 +300,9 @@ def x2l_inset(node, h_out):
   elif gi in ('superscript', 'subscript'):
     subtype = gi
     gi = 'script'
+  elif 'commandinset' == gi:
+    gi = 'CommandInset'
+    del(node.attrib['{http://getfo.org/lyxml/}ann'])
   if 'Float' == gi:
     def_param = {'wide': 'false', 'sideways': 'false', 'status': 'open'}
   if subtype:
@@ -308,7 +319,7 @@ def x2l_inset(node, h_out):
       h_out.write("%s %s\n" % (lyx_safe_string(k[25:]), lyx_safe_string(v)))
       del node.attrib[k]
   for (k, v) in node.attrib.iteritems():
-    if '{http://getfo.org/lyxml/}' == k[:25]:
+    if ('{http://getfo.org/lyxml/}' == k[:25]) and ('{http://getfo.org/lyxml/}id' != k):
       h_out.write("%s %s\n" % (lyx_safe_string(k[25:]), lyx_safe_string(v)))
     else:
       xml_attr[k] = v
@@ -361,7 +372,7 @@ param_tbl_must_have_default = {
     'valignment':  'top',
     'width':       '0',
     'topline':     'true',
-    'bottomline':  'true',
+    #'bottomline':  'true',
     'leftline':    'true',
     'usebox':      'none'
     }
