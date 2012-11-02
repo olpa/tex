@@ -258,7 +258,12 @@ def x2l_layout(node, force_name, attr_from_inset, h_out):
     x2l_text(kid.tail, h_out)
   h_out.write("\n\\end_layout\n")
 
-inset_param_order = ('wide', 'sideways', 'status')
+inset_param_order = (
+  # image
+  'wide', 'sideways', 'status',
+  # reference
+  'LatexCommand', 'reference',
+  )
 inset_param_order = ['{http://getfo.org/lyxml/}'+s for s in inset_param_order]
 
 # lx-namespace and local name, or None and full name
@@ -303,6 +308,12 @@ def x2l_inset(node, h_out):
   elif 'commandinset' == gi:
     gi = 'CommandInset'
     del(node.attrib['{http://getfo.org/lyxml/}ann'])
+  elif 'ref' == gi:
+    gi = 'CommandInset'
+    subtype = 'ref'
+    def_param = {'LatexCommand': 'formatted'}
+    node.attrib.setdefault('{http://getfo.org/lyxml/}reference', '"' + lyx_safe_string(node.attrib.get('{http://getfo.org/lyxml/}idref', "")) + '"')
+    del(node.attrib['{http://getfo.org/lyxml/}idref'])
   if 'Float' == gi:
     def_param = {'wide': 'false', 'sideways': 'false', 'status': 'open'}
   if subtype:
