@@ -302,6 +302,10 @@ def x2l_inset(node, h_out):
     def_param = {'filename': 'dummy.pdf', 'width': '5cm', 'height': '5cm'}
   elif 'caption' == gi:
     gi = 'Caption'
+  elif 'comment' == gi:
+    gi = 'Note'
+    subtype = 'Comment'
+    def_param = {'status': 'open'}
   elif gi in ('superscript', 'subscript'):
     subtype = gi
     gi = 'script'
