@@ -103,7 +103,7 @@
  \let\cals@backup@context=\cals@last@context
  \cals@backup@leftskip=\leftskip
  \cals@backup@rightskip=\rightskip
- \leftskip=0pt \rightskip=0pt \relax
+ \leftskip=0pt\relax \rightskip=0pt\relax
 \else
  \setbox\cals@backup@row=\vbox{\unvbox\cals@backup@row
   \cals@issue@row}%
@@ -243,7 +243,7 @@
 % and outputs the row separator.
 %    \begin{macrocode}
 \newcommand\cals@issue@rowsep@alone{%
-\setbox0=\hbox{%
+\setbox0=\hbox to \hsize{%
  \hskip\leftskip
  \cals@rs@sofar@reset
  \cals@rs@joinOne\cals@framers@width\cals@current@rs@above
@@ -269,7 +269,7 @@
  \ifx \cals@last@context\cals@current@context
    \let\cals@tmpIII=\cals@rs@width     \else
    \let\cals@tmpIII=\cals@bodyrs@width \fi
- \setbox0=\hbox{%
+ \setbox0=\hbox to \hsize{%
   \hskip\leftskip
   \cals@rs@sofar@reset
   \cals@rs@joinTwo\cals@tmpIII\cals@last@rs@below\cals@current@rs@above
@@ -298,7 +298,7 @@
 % Decorations: first the column separation, then the row separation.
 %    \begin{macrocode}
 \nointerlineskip
-\setbox0=\vtop{\hbox{\hskip\leftskip \box\cals@current@cs \hskip\rightskip}}%
+\setbox0=\vtop{\hbox to \hsize{\hskip\leftskip \box\cals@current@cs \hskip\rightskip}}%
   \ht0=0pt \box0
 \nointerlineskip
 \cals@issue@rowsep
@@ -306,7 +306,7 @@
 %    \end{macrocode}
 % Output the row, update the last context.
 %    \begin{macrocode}
-\hbox{\hskip\leftskip \box\cals@current@row \hskip\rightskip}%
+\hbox to \hsize{\hskip\leftskip \box\cals@current@row \hskip\rightskip}%
 \let\cals@last@rs@below=\cals@current@rs@below
 \let\cals@last@context=\cals@current@context}
 %    \end{macrocode}
