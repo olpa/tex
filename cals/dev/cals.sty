@@ -29,7 +29,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesPackage{cals}
-    [2010/10/07 CALS tables v.2.0]
+    [2013/05/24 CALS tables v.2.1]
 
 
 \newcommand\cals@cell[3]{}
@@ -273,9 +273,10 @@
  \setbox\cals@backup@cs=\box\cals@current@cs
  \let\cals@backup@rs@above=\cals@current@rs@above
  \let\cals@backup@context=\cals@last@context
- \cals@backup@leftskip=\leftskip
- \cals@backup@rightskip=\rightskip
- \leftskip=0pt \rightskip=0pt \relax
+ \cals@backup@leftskip=\leftskip\relax
+ \cals@backup@rightskip=\rightskip\relax
+ \let\cals@backup@tohsize=\cals@tohsize
+ \leftskip=0pt\relax \rightskip=0pt\relax \def\cals@tohsize{}%
 \else
  \setbox\cals@backup@row=\vbox{\unvbox\cals@backup@row
   \cals@issue@row}%
@@ -289,6 +290,7 @@
  \let\cals@last@context=\cals@backup@context
  \leftskip=\cals@backup@leftskip
  \rightskip=\cals@backup@rightskip
+ \let\cals@tohsize=\cals@backup@tohsize
  \cals@row@dispatch@nospan
 \fi
 }
@@ -331,8 +333,19 @@
 \let\cals@tbreak@tokens=\relax
 \let\cals@last@context=n}
 
+\newcommand\cals@tohsize{}
+\newcommand\cals@set@tohsize{\def\cals@tohsize{}%
+\ifnum\gluestretchorder\leftskip>0\relax \def\cals@tohsize{to \hsize}\fi
+\ifnum\gluestretchorder\rightskip>0\relax \def\cals@tohsize{to \hsize}\fi
+}
+
+\newcommand\cals@hbox{}
+\newcommand\cals@activate@rtl{\let\cals@hbox=\hboxR}
+\newcommand\cals@deactivate@rtl{\let\cals@hbox=\hbox}
+\cals@deactivate@rtl
+
 \newcommand\cals@issue@rowsep@alone{%
-\setbox0=\hbox{%
+\setbox0=\cals@hbox\cals@tohsize{%
  \hskip\leftskip
  \cals@rs@sofar@reset
  \cals@rs@joinOne\cals@framers@width\cals@current@rs@above
@@ -345,7 +358,7 @@
  \ifx \cals@last@context\cals@current@context
    \let\cals@tmpIII=\cals@rs@width     \else
    \let\cals@tmpIII=\cals@bodyrs@width \fi
- \setbox0=\hbox{%
+ \setbox0=\cals@hbox\cals@tohsize{%
   \hskip\leftskip
   \cals@rs@sofar@reset
   \cals@rs@joinTwo\cals@tmpIII\cals@last@rs@below\cals@current@rs@above
@@ -358,12 +371,12 @@
 
 \newcommand\cals@issue@row{%
 \nointerlineskip
-\setbox0=\vtop{\hbox{\hskip\leftskip \box\cals@current@cs \hskip\rightskip}}%
-  \ht0=0pt \box0
+\setbox0=\vtop{\cals@hbox\cals@tohsize{\hskip\leftskip \box\cals@current@cs \hskip\rightskip}}%
+\ht0=0pt\relax\box0
 \nointerlineskip
 \cals@issue@rowsep
 \nointerlineskip
-\hbox{\hskip\leftskip \box\cals@current@row \hskip\rightskip}%
+\cals@hbox\cals@tohsize{\hskip\leftskip \box\cals@current@row \hskip\rightskip}%
 \let\cals@last@rs@below=\cals@current@rs@below
 \let\cals@last@context=\cals@current@context}
 
@@ -376,7 +389,7 @@
 \let\cals@last@context=n%
 \let\cals@current@context=b%
 \parindent=0pt %
-\cals@setpadding{Ag}\cals@setcellprevdepth{Al}%
+\cals@setpadding{Ag}\cals@setcellprevdepth{Al}\cals@set@tohsize%
 \let\cals@borderL=\relax
 \let\cals@borderR=\relax
 \let\cals@borderT=\relax
