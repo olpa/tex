@@ -257,13 +257,27 @@
 % \end{macro}
 % \end{macro}
 
+% \begin{macro}{\cals@activate@rtl}
+% \begin{macro}{\cals@deactivate@rtl}
+% \begin{macro}{\cals@hbox}
+% For bidi support, use |\hboxR| instead of |\hbox|.
+%    \begin{macrocode}
+\newcommand\cals@hbox{}
+\newcommand\cals@activate@rtl{\let\cals@hbox=\hboxR}
+\newcommand\cals@deactivate@rtl{\let\cals@hbox=\hbox}
+\cals@deactivate@rtl
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+
 % \begin{macro}{\cals@issue@rowsep@alone}
 % Typesets the top (or bottom) frame of a table:
 % combines |\cals@current@rs@above| and |\cals@framers@width|
 % and outputs the row separator.
 %    \begin{macrocode}
 \newcommand\cals@issue@rowsep@alone{%
-\setbox0=\hbox\cals@tohsize{%
+\setbox0=\cals@hbox\cals@tohsize{%
  \hskip\leftskip
  \cals@rs@sofar@reset
  \cals@rs@joinOne\cals@framers@width\cals@current@rs@above
@@ -289,7 +303,7 @@
  \ifx \cals@last@context\cals@current@context
    \let\cals@tmpIII=\cals@rs@width     \else
    \let\cals@tmpIII=\cals@bodyrs@width \fi
- \setbox0=\hbox\cals@tohsize{%
+ \setbox0=\cals@hbox\cals@tohsize{%
   \hskip\leftskip
   \cals@rs@sofar@reset
   \cals@rs@joinTwo\cals@tmpIII\cals@last@rs@below\cals@current@rs@above
@@ -318,7 +332,7 @@
 % Decorations: first the column separation, then the row separation.
 %    \begin{macrocode}
 \nointerlineskip
-\setbox0=\vtop{\hbox\cals@tohsize{\hskip\leftskip \box\cals@current@cs \hskip\rightskip}}%
+\setbox0=\vtop{\cals@hbox\cals@tohsize{\hskip\leftskip \box\cals@current@cs \hskip\rightskip}}%
 \ht0=0pt\relax\box0
 \nointerlineskip
 \cals@issue@rowsep
@@ -326,7 +340,7 @@
 %    \end{macrocode}
 % Output the row, update the last context.
 %    \begin{macrocode}
-\hbox\cals@tohsize{\hskip\leftskip \box\cals@current@row \hskip\rightskip}%
+\cals@hbox\cals@tohsize{\hskip\leftskip \box\cals@current@row \hskip\rightskip}%
 \let\cals@last@rs@below=\cals@current@rs@below
 \let\cals@last@context=\cals@current@context}
 %    \end{macrocode}
