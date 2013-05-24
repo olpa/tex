@@ -22,7 +22,7 @@
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{cals}
 %<*package>
-    [2010/10/07 CALS tables v.2.0]
+    [2013/05/24 CALS tables v.2.1]
 %</package>
 %
 %<*driver>
@@ -58,6 +58,7 @@
 %   Right brace   \}     Tilde         \~}
 %
 %
+% \changes{v2.1}{2013/05/24}{Alignment of tables works. Bidi support.}
 % \changes{v2.0}{2010/10/08}{Complete rewrite with different approach}
 % \changes{v1.0}{2010/06/17}{Initial version from skeleton.dtx}
 %
@@ -78,7 +79,7 @@
 % with repeatable headers and footers, with cells spanned over
 % rows and columns. Decorations are supported: padding, background
 % color, width of separation rules. The code is compatible with
-% multicols and pdfsync.
+% multicols, pdfsync and bidi.
 %
 % The work is released to public (\LaTeX{} license)
 % by \url{bitplant.de}~GmbH, a company which provides technical
@@ -86,13 +87,14 @@
 %
 % \section{Usage}
 %
-% An users' guide is a separate document, yet to be written.
-% I'll do it for TUGboat 2011:1. At the moment, as a substitute,
-% use the demo document provided with the package. The most
-% important feature: the table (its rows) must start in a vertical
-% mode, the cells content should switch to a horizontal mode.
+% The users' guide is a separate document, published in TUGboat 2011:2:
+% \url{http://tug.org/TUGboat/tb32-2/tb101parashchenko.pdf}
 %
-% Please post questions and suggestions to the newsgroup
+% The most important feature: the table (its rows) must start in a
+% vertical mode, the cells content should switch to a horizontal mode.
+%
+% Please post questions and suggestions to TeX-SX
+% (\url{http://tex.stackexchange.com/}), the newsgroup
 % |comp.text.tex| and the |texhax| mailing list (see
 % \url{http://tug.org/mailman/listinfo/texhax}),
 % not directly to me.
