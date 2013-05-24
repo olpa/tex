@@ -239,6 +239,24 @@
 %    \end{macrocode}
 % \end{macro}
 
+% \begin{macro}{\cals@set@tohsize}
+% \begin{macro}{\cals@tohsize}
+% Table row contains not only the row itself, but also |\leftskip|
+% and |\rightskip|. Now the dilemma. If the row is just |\hbox|,
+% than the glue component is ignored, and the table always aligned
+% left. On the other side, if the row is |\hbox to \hsize|, then
+% the user gets underfulled boxes. A simple solution is to
+% switch on and off the |hsize|-part depending on the skips.
+%    \begin{macrocode}
+\newcommand\cals@tohsize{}
+\newcommand\cals@set@tohsize{\def\cals@tohsize{}%
+\ifnum\gluestretchorder\leftskip>0\relax \def\cals@tohsize{to \hsize}\fi
+\ifnum\gluestretchorder\rightskip>0\relax \def\cals@tohsize{to \hsize}\fi
+}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+
 % \begin{macro}{\cals@issue@rowsep@alone}
 % Typesets the top (or bottom) frame of a table:
 % combines |\cals@current@rs@above| and |\cals@framers@width|
@@ -327,7 +345,7 @@
 \let\cals@last@context=n%
 \let\cals@current@context=b%
 \parindent=0pt %
-\cals@setpadding{Ag}\cals@setcellprevdepth{Al}%
+\cals@setpadding{Ag}\cals@setcellprevdepth{Al}\cals@set@tohsize%
 \let\cals@borderL=\relax
 \let\cals@borderR=\relax
 \let\cals@borderT=\relax
