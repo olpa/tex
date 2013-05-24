@@ -97,13 +97,14 @@
 % row, and once to the common span box.
 %    \begin{macrocode}
 \ifvoid\cals@backup@row
- \setbox\cals@backup@row=\vbox{\box\cals@current@row}%
+ \setbox\cals@backup@row=\vbox{\hbox to \hsize{%
+   \hskip\leftskip\relax \box\cals@current@row \hskip\rightskip\relax}}%
  \setbox\cals@backup@cs=\box\cals@current@cs
  \let\cals@backup@rs@above=\cals@current@rs@above
  \let\cals@backup@context=\cals@last@context
  \cals@backup@leftskip=\leftskip
  \cals@backup@rightskip=\rightskip
- \leftskip=0pt\relax \rightskip=0pt\relax
+ %\leftskip=0pt\relax \rightskip=0pt\relax
 \else
  \setbox\cals@backup@row=\vbox{\unvbox\cals@backup@row
   \cals@issue@row}%
@@ -299,7 +300,7 @@
 %    \begin{macrocode}
 \nointerlineskip
 \setbox0=\vtop{\hbox to \hsize{\hskip\leftskip \box\cals@current@cs \hskip\rightskip}}%
-  \ht0=0pt \box0
+\ht0=0pt\relax\box0
 \nointerlineskip
 \cals@issue@rowsep
 \nointerlineskip
