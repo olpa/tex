@@ -97,14 +97,14 @@
 % row, and once to the common span box.
 %    \begin{macrocode}
 \ifvoid\cals@backup@row
- \setbox\cals@backup@row=\vbox{\hbox to \hsize{%
-   \hskip\leftskip\relax \box\cals@current@row \hskip\rightskip\relax}}%
+ \setbox\cals@backup@row=\vbox{\box\cals@current@row}%
  \setbox\cals@backup@cs=\box\cals@current@cs
  \let\cals@backup@rs@above=\cals@current@rs@above
  \let\cals@backup@context=\cals@last@context
- \cals@backup@leftskip=\leftskip
- \cals@backup@rightskip=\rightskip
- %\leftskip=0pt\relax \rightskip=0pt\relax
+ \cals@backup@leftskip=\leftskip\relax
+ \cals@backup@rightskip=\rightskip\relax
+ \let\cals@backup@tohsize=\cals@tohsize
+ \leftskip=0pt\relax \rightskip=0pt\relax \def\cals@tohsize{}%
 \else
  \setbox\cals@backup@row=\vbox{\unvbox\cals@backup@row
   \cals@issue@row}%
@@ -123,6 +123,7 @@
  \let\cals@last@context=\cals@backup@context
  \leftskip=\cals@backup@leftskip
  \rightskip=\cals@backup@rightskip
+ \let\cals@tohsize=\cals@backup@tohsize
  \cals@row@dispatch@nospan
 \fi
 }
@@ -244,7 +245,7 @@
 % and outputs the row separator.
 %    \begin{macrocode}
 \newcommand\cals@issue@rowsep@alone{%
-\setbox0=\hbox to \hsize{%
+\setbox0=\hbox\cals@tohsize{%
  \hskip\leftskip
  \cals@rs@sofar@reset
  \cals@rs@joinOne\cals@framers@width\cals@current@rs@above
@@ -270,7 +271,7 @@
  \ifx \cals@last@context\cals@current@context
    \let\cals@tmpIII=\cals@rs@width     \else
    \let\cals@tmpIII=\cals@bodyrs@width \fi
- \setbox0=\hbox to \hsize{%
+ \setbox0=\hbox\cals@tohsize{%
   \hskip\leftskip
   \cals@rs@sofar@reset
   \cals@rs@joinTwo\cals@tmpIII\cals@last@rs@below\cals@current@rs@above
@@ -299,7 +300,7 @@
 % Decorations: first the column separation, then the row separation.
 %    \begin{macrocode}
 \nointerlineskip
-\setbox0=\vtop{\hbox to \hsize{\hskip\leftskip \box\cals@current@cs \hskip\rightskip}}%
+\setbox0=\vtop{\hbox\cals@tohsize{\hskip\leftskip \box\cals@current@cs \hskip\rightskip}}%
 \ht0=0pt\relax\box0
 \nointerlineskip
 \cals@issue@rowsep
@@ -307,7 +308,7 @@
 %    \end{macrocode}
 % Output the row, update the last context.
 %    \begin{macrocode}
-\hbox to \hsize{\hskip\leftskip \box\cals@current@row \hskip\rightskip}%
+\hbox\cals@tohsize{\hskip\leftskip \box\cals@current@row \hskip\rightskip}%
 \let\cals@last@rs@below=\cals@current@rs@below
 \let\cals@last@context=\cals@current@context}
 %    \end{macrocode}
