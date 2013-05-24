@@ -1,0 +1,37 @@
+\def\w{\ht\cals@current@row=50pt\relax}
+\def\mktable{%
+\begin{calstable}
+\colwidths{{70pt}{80pt}{90pt}}
+\def\cals@framecs@width{\cals@cs@width}
+\def\cals@framers@width{\cals@rs@width}
+\setlength{\cals@paddingR}{2pt plus1fil}
+\brow \nullcell{ltr} \cell{b} \cell{c} \w \erow
+\brow \nullcell{lrb}\spancontent{a,d} \cell{e} \cell{f} \w \erow
+\brow \cell{g} \cell{h} \cell{i} \w \erow
+\end{calstable}
+}
+
+\showboxdepth=2
+\hsize=400pt
+
+\setbox0=\vbox{%
+\leftskip=50pt\relax
+\mktable}
+\showbox0
+\box0
+
+\begin{center}
+some text\\
+\setbox0=\vbox{%
+\mktable}
+\showbox0
+\box0
+\end{center}
+
+\begin{flushright}
+some text\\
+\setbox0=\vbox{%
+\mktable}
+\showbox0
+\box0
+\end{flushright}

@@ -1,0 +1,106 @@
+> \boxXX=
+\vbox(150.0+0.0)x290.0
+.\vbox(0.0+0.0)x290.0
+..\hbox(50.0+0.0)x290.0 []
+.\hbox(0.0+0.0)x290.0
+..\glue 50.0
+..\glue -0.2
+..\rule(0.2+0.2)x240.4
+..\glue -0.2
+..\glue 0.0
+.\hbox(100.0+0.0)x290.0
+..\glue 50.0
+..\vbox(100.0+0.0)x240.0 []
+..\glue 0.0
+.\glue 0.0
+.\penalty 10000
+.\vbox(0.0+0.0)x290.0
+..\hbox(50.0+0.0)x290.0 []
+.\hbox(0.0+0.0)x290.0
+..\glue 50.0
+..\glue -0.2
+..\rule(0.2+0.2)x240.4
+..\glue -0.2
+..\glue 0.0
+.\hbox(50.0+0.0)x290.0
+..\glue 50.0
+..\hbox(50.0+0.0)x240.0 []
+..\glue 0.0
+.\hbox(0.0+0.0)x290.0
+..\glue 50.0
+..\glue -0.2
+..\rule(0.2+0.2)x240.4
+..\glue -0.2
+..\glue 0.0
+%
+%
+> \boxXX=
+\vbox(150.0+0.0)x400.0
+.\vbox(0.0+0.0)x400.0
+..\hbox(50.0+0.0)x400.0, glue set 80.0fil []
+.\hbox(0.0+0.0)x400.0, glue set 80.0fil
+..\glue 0.0 plus 1.0fil
+..\glue -0.2
+..\rule(0.2+0.2)x240.4
+..\glue -0.2
+..\glue 0.0 plus 1.0fil
+.\hbox(100.0+0.0)x400.0, glue set 80.0fil
+..\glue 0.0 plus 1.0fil
+..\vbox(100.0+0.0)x240.0 []
+..\glue 0.0 plus 1.0fil
+.\glue 0.0
+.\penalty 10000
+.\vbox(0.0+0.0)x400.0
+..\hbox(50.0+0.0)x400.0, glue set 80.0fil []
+.\hbox(0.0+0.0)x400.0, glue set 80.0fil
+..\glue 0.0 plus 1.0fil
+..\glue -0.2
+..\rule(0.2+0.2)x240.4
+..\glue -0.2
+..\glue 0.0 plus 1.0fil
+.\hbox(50.0+0.0)x400.0, glue set 80.0fil
+..\glue 0.0 plus 1.0fil
+..\hbox(50.0+0.0)x240.0 []
+..\glue 0.0 plus 1.0fil
+.\hbox(0.0+0.0)x400.0, glue set 80.0fil
+..\glue 0.0 plus 1.0fil
+..\glue -0.2
+..\rule(0.2+0.2)x240.4
+..\glue -0.2
+..\glue 0.0 plus 1.0fil
+%
+%
+> \boxXX=
+\vbox(150.0+0.0)x400.0
+.\vbox(0.0+0.0)x400.0
+..\hbox(50.0+0.0)x400.0, glue set 160.0fil []
+.\hbox(0.0+0.0)x400.0, glue set 160.0fil
+..\glue 0.0 plus 1.0fil
+..\glue -0.2
+..\rule(0.2+0.2)x240.4
+..\glue -0.2
+..\glue 0.0
+.\hbox(100.0+0.0)x400.0, glue set 160.0fil
+..\glue 0.0 plus 1.0fil
+..\vbox(100.0+0.0)x240.0 []
+..\glue 0.0
+.\glue 0.0
+.\penalty 10000
+.\vbox(0.0+0.0)x400.0
+..\hbox(50.0+0.0)x400.0, glue set 160.0fil []
+.\hbox(0.0+0.0)x400.0, glue set 160.0fil
+..\glue 0.0 plus 1.0fil
+..\glue -0.2
+..\rule(0.2+0.2)x240.4
+..\glue -0.2
+..\glue 0.0
+.\hbox(50.0+0.0)x400.0, glue set 160.0fil
+..\glue 0.0 plus 1.0fil
+..\hbox(50.0+0.0)x240.0 []
+..\glue 0.0
+.\hbox(0.0+0.0)x400.0, glue set 160.0fil
+..\glue 0.0 plus 1.0fil
+..\glue -0.2
+..\rule(0.2+0.2)x240.4
+..\glue -0.2
+..\glue 0.0
