@@ -1,0 +1,45 @@
+> \boxXX=
+\hbox(40.0+0.0)x100.0
+.\vbox(40.0+0.0)x100.0
+..\glue 10.0
+..\glue 0.0 plus -1.0
+..\glue(\parskip) 0.0 plus 1.0
+..\glue(\lineskip) 0.0
+..\hbox(20.0+0.0)x100.0, glue set 80.0fil
+...\glue(\leftskip) 10.0
+...\vbox(20.0+0.0)x0.0
+...\penalty 10000
+...\glue(\parfillskip) 0.0 plus 1.0fil
+...\glue(\rightskip) 10.0
+..\glue 0.0 plus 1.0fil
+..\glue 10.0
+> \boxXX=
+\hbox(40.0+0.0)x100.0
+.\vbox(40.0+0.0)x100.0
+..\glue 10.0
+..\glue 0.0 plus -1.0
+..\glue(\parskip) 0.0 plus 1.0
+..\glue(\lineskip) 0.0
+..\hbox(20.0+0.0)x100.0, glue set 80.0fil
+...\glue(\leftskip) 10.0
+...\vbox(20.0+0.0)x0.0
+...\penalty 10000
+...\glue(\parfillskip) 0.0 plus 1.0fil
+...\glue(\rightskip) 10.0
+..\glue 0.0 plus 1.0fil
+..\glue 10.0
+> \boxXX=
+\hbox(40.0+0.0)x100.0
+.\vbox(40.0+0.0)x100.0
+..\glue 10.0
+..\glue 0.0 plus -1.0
+..\glue(\parskip) 0.0 plus 1.0
+..\glue(\lineskip) 0.0
+..\hbox(20.0+0.0)x100.0, glue set 80.0fil
+...\glue(\leftskip) 10.0
+...\vbox(20.0+0.0)x0.0
+...\penalty 10000
+...\glue(\parfillskip) 0.0 plus 1.0fil
+...\glue(\rightskip) 10.0
+..\glue 0.0 plus 1.0fil
+..\glue 10.0

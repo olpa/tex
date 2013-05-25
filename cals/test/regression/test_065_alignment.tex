@@ -1,0 +1,25 @@
+% Alignment outside a table should not affect alignment inside tanle
+\def\tbl{%
+\begin{calstable}
+\colwidths{{100pt}}
+\def\cals@paddingT{10pt}
+\def\cals@paddingR{10pt}
+\def\cals@paddingB{10pt}
+\def\cals@paddingL{10pt}
+\brow
+\cell{\noindent\vbox to 20pt{}}
+\ht\cals@current@row=40pt
+\showbox\cals@current@row
+\erow
+\end{calstable}
+}
+
+\tbl
+
+\begin{center}
+\tbl
+\end{center}
+
+\begin{flushright}
+\tbl
+\end{flushright}
