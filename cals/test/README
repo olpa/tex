@@ -1,6 +1,7 @@
 Unit tests for the CALS package. Usage:
 
-$ export TEXINPUTS=`pwd`/../cals:
+$ export TEXINPUTS=`pwd`/../dev:
+$ mkdir tmp
 $ python support/run_tests.py
   or, to execute a subset of the tests,
 $ python support/run_tests.py cell/test_10
