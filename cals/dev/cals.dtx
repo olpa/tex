@@ -22,7 +22,7 @@
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{cals}
 %<*package>
-    [2013/05/24 CALS tables v.2.1]
+    [2013/05/24 CALS tables v.2.2]
 %</package>
 %
 %<*driver>
@@ -58,7 +58,8 @@
 %   Right brace   \}     Tilde         \~}
 %
 %
-% \changes{v2.1}{2013/05/24}{Alignment of tables works. Bidi support.}
+% \changes{v2.2}{2013/05/27}{Hooks for bidi support.}
+% \changes{v2.1}{2013/05/24}{Alignment of tables works.}
 % \changes{v2.0}{2010/10/08}{Complete rewrite with different approach}
 % \changes{v1.0}{2010/06/17}{Initial version from skeleton.dtx}
 %
@@ -120,7 +121,8 @@
 % |\cals@framers@width|, |\cals@bodyrs@width|. Overrides:
 % |\cals@borderL| (|...T,R,B|).
 %
-% Hooks: |\cals@AtBeginCell|, |\cals@AtEndCell|.
+% Hooks: |\cals@AtBeginTable|, |\cals@AtEndTable|,
+% |\cals@AtBeginCell|, |\cals@AtEndCell|.
 %
 % Spanning: |\nullcell|, |\spancontent|.
 %

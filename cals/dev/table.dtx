@@ -366,10 +366,21 @@
 \let\cals@borderR=\relax
 \let\cals@borderT=\relax
 \let\cals@borderB=\relax
+\cals@AtBeginTable
 }{% End of the table
-\cals@tfoot@tokens\lastrule}
+\cals@tfoot@tokens\lastrule\cals@AtEndTable}
 %    \end{macrocode}
 % \end{environment}
+
+% \begin{macro}{\cals@AtBeginTable}
+% \begin{macro}{\cals@AtEndTable}
+% Callbacks for more initialization possibilities.
+%    \begin{macrocode}
+\newcommand\cals@AtBeginTable{}%
+\newcommand\cals@AtEndTable{}%
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
 
 % \begin{macro}{\lastrule}
 % Typesets the last rule (bottom frame) of a table chunk.

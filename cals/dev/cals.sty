@@ -29,7 +29,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesPackage{cals}
-    [2013/05/24 CALS tables v.2.1]
+    [2013/05/24 CALS tables v.2.2]
 
 
 \newcommand\cals@cell[3]{}
@@ -396,8 +396,12 @@
 \let\cals@borderR=\relax
 \let\cals@borderT=\relax
 \let\cals@borderB=\relax
+\cals@AtBeginTable
 }{% End of the table
-\cals@tfoot@tokens\lastrule}
+\cals@tfoot@tokens\lastrule\cals@AtEndTable}
+
+\newcommand\cals@AtBeginTable{}%
+\newcommand\cals@AtEndTable{}%
 
 \newcommand\lastrule{%
 \ifx r\cals@last@context \relax \else
