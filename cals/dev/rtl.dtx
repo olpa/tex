@@ -1,0 +1,44 @@
+% \subsection{RTL (right-to-left) hooks}
+
+% \begin{macro}{\if@RTL}
+% \begin{macro}{\if@RTLtab}
+% \begin{macro}{\@RTLtabtrue}
+% Provide RTL status commands even if the RTL packages are not loaded.
+%    \begin{macrocode}
+\def\next{%
+  \let\if@RTL=\iffalse
+  \let\if@RTLtab=\iffalse
+  \let\@RTLtabtrue=\relax
+}
+\ifdefined\if@RTL \relax \else \next \fi
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+% \end{macro}
+
+% \begin{macro}{\cals@setup@alignment}
+% TODO
+% The default alignment of tables in the text flow.
+% Doesn't affect the text alignment inside cells.
+% \begin{itemize}
+% \item |n|: no settings, the default |\leftskip| and |\rightskip| are used
+% \item |l|: align left
+% \item |c|: align center
+% \item |r|: align right
+% \end{itemize}
+% This setting is appeared in the version 2.3. Earlier versions
+% worked as it were |n|. The subtle difference to |l| is explained
+% in comments to |\cals@setup@alignment|.
+%    \begin{macrocode}
+\newcommand\cals@setup@alignment[1]{%
+\ifx c#1 \cals@fillAdd \leftskip \cals@fillAdd \rightskip \fi
+\if@RTL
+ \ifx l#1 \cals@fillAdd \leftskip \cals@fillDrop\rightskip \fi
+ \ifx r#1 \cals@fillDrop\leftskip \cals@fillDrop\rightskip \fi
+\else
+ \ifx l#1 \cals@fillDrop\leftskip \cals@fillDrop\rightskip \fi
+ \ifx r#1 \cals@fillAdd \leftskip \cals@fillDrop\rightskip \fi
+\fi
+}
+%    \end{macrocode}
+% \end{macro}

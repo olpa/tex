@@ -219,18 +219,31 @@
 % by assigning skip to dimen.
 %    \begin{macrocode}
 \newcommand\alignL{%
-\dimen0=\cals@paddingL \cals@paddingL=\dimen0 \relax
-\dimen0=\cals@paddingR \cals@paddingR=\dimen0 \relax}
+\cals@vfillDrop\cals@paddingL
+\cals@vfillDrop\cals@paddingR}
 
 \newcommand\alignC{%
-\dimen0=\cals@paddingL \cals@paddingL=\dimen0 plus 1fill\relax
-\dimen0=\cals@paddingR \cals@paddingR=\dimen0 plus 1fill\relax}
+\cals@vfillAdd\cals@paddingL
+\cals@vfillAdd\cals@paddingR}
 
 \newcommand\alignR{%
-\dimen0=\cals@paddingL \cals@paddingL=\dimen0 plus 1fill\relax
-\dimen0=\cals@paddingR \cals@paddingR=\dimen0 \relax}
+\cals@vfillAdd\cals@paddingL
+\cals@vfillDrop\cals@paddingR}
 %    \end{macrocode}
 % \end{macro}
+% \end{macro}
+% \end{macro}
+
+% \begin{macro}{\cals@vfillAdd}
+% \begin{macro}{\cals@vfillDrop}
+% Add or remove the |vfill|-part of a skip. Retain the existing
+% value if possible.
+%    \begin{macrocode}
+%    \end{macrocode}
+\newcommand\cals@vfillAdd[1]{\ifnum\gluestretchorder#1>0\relax\else
+\dimen0=#1\relax #1=\dimen0 plus 1fill\relax \fi}
+\newcommand\cals@vfillDrop[1]{\ifnum\gluestretchorder#1>0\relax
+\dimen0=#1\relax #1=\dimen0\relax \fi}
 % \end{macro}
 % \end{macro}
 

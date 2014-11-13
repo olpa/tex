@@ -351,14 +351,16 @@
 % \begin{environment}{\calstable}
 % Setup the parameters and let the row dispatcher to do all the work.
 %    \begin{macrocode}
-\newenvironment{calstable}{%
+\newenvironment{calstable}[1][\cals@table@alignment]{%
+\if@RTL\@RTLtabtrue\fi
 \let\cals@thead@tokens=\relax
 \let\cals@tfoot@tokens=\relax
 \let\cals@tbreak@tokens=\relax
 \cals@tfoot@height=0pt \relax
 \let\cals@last@context=n%
 \let\cals@current@context=b%
-\parindent=0pt %
+\parindent=0pt \relax%
+\cals@setup@alignment{#1}%
 \cals@setpadding{Ag}\cals@setcellprevdepth{Al}\cals@set@tohsize%
 %% Alignment inside is independent on center/flushright outside
 \parfillskip=0pt plus1fil\relax
@@ -430,5 +432,22 @@
 % like |\penalty-10000 |.
 %    \begin{macrocode}
 \newcommand\tbreak[1]{\def\cals@tbreak@tokens{#1}}
+%    \end{macrocode}
+% \end{macro}
+
+% \begin{macro}{\cals@table@alignment}
+% The default alignment of tables in the text flow.
+% Doesn't affect the text alignment inside cells.
+% \begin{itemize}
+% \item |n|: no settings, the default |\leftskip| and |\rightskip| are used
+% \item |l|: align left
+% \item |c|: align center
+% \item |r|: align right
+% \end{itemize}
+% This setting is appeared in the version 2.3. Earlier versions
+% worked as it were |n|. The subtle difference to |l| is explained
+% in comments to |\cals@setup@alignment|.
+%    \begin{macrocode}
+\newcommand\cals@table@alignment{l}
 %    \end{macrocode}
 % \end{macro}
