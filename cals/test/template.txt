@@ -15,6 +15,7 @@
 \input{decor.dtx}
 \input{colsep.dtx}
 \input{rowsep.dtx}
+\input{rtl.dtx}
 \fi
 
 % Variables defined inside calstable environment

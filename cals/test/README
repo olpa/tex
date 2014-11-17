@@ -9,6 +9,7 @@ $ python support/run_tests.py cell/test_10
 Expect that the tests in the directory "visual_tables" fail.
 Depending on the OS and TeX distro version, the font drawing
 might look different.
+17 Nov 2014: the tests in "visual_tables" are disabled.
 
 Probably I need to package the unit testing code as a separate
 package and publish an article about it.

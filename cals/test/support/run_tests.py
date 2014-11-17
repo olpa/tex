@@ -23,6 +23,7 @@ filter = None
 if len(sys.argv) > 1:
   filter = sys.argv[1]
 test_files = glob.glob('*/test_*.tex')
+test_files = [x for x in test_files if 'visual_tables' not in x]
 modules_and_tests = {}
 for fname in test_files:
   (dir, basename) = os.path.split(fname)

@@ -154,7 +154,7 @@ class LatexTestCase(unittest.TestCase):
       expected_png = os.path.join(module, png)
       got_png      = os.path.join(tmp_dir, png)
       diff_png     = os.path.join(tmp_dir, 'diff.png')
-      cmd = "compare -metric RMSE %s %s %s 2>%s" % (expected_png, got_png, diff_png, os.path.join(tmp_dir, 'compare-stdout'))
+      cmd = "compare compare -metric RMSE %s %s %s 2>%s" % (expected_png, got_png, diff_png, os.path.join(tmp_dir, 'compare-stdout'))
       os.system(cmd)
       h = open(os.path.join(tmp_dir, 'compare-stdout'))
       s = h.read()
