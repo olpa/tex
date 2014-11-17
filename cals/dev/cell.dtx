@@ -240,7 +240,7 @@
 % value if possible.
 %    \begin{macrocode}
 %    \end{macrocode}
-\newcommand\cals@vfillAdd[1]{\ifnum\gluestretchorder#1>0\relax\else
+\newcommand\cals@vfillAdd[1]{\ifnum\gluestretchorder#1>1\relax\else
 \dimen0=#1\relax #1=\dimen0 plus 1fill\relax \fi}
 \newcommand\cals@vfillDrop[1]{\ifnum\gluestretchorder#1>0\relax
 \dimen0=#1\relax #1=\dimen0\relax \fi}

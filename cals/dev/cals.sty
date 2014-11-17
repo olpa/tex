@@ -12,6 +12,7 @@
 %% decor.dtx  (with options: `package')
 %% colsep.dtx  (with options: `package')
 %% rowsep.dtx  (with options: `package')
+%% rtl.dtx  (with options: `package')
 %% 
 %% This is a generated file.
 %% 
@@ -29,7 +30,8 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesPackage{cals}
-    [2013/05/24 CALS tables v.2.2]
+    [2014/11/12 CALS tables v.2.3]
+
 
 
 \newcommand\cals@cell[3]{}
@@ -106,16 +108,21 @@
 \cals@paddingD=\dimen0 }
 
 \newcommand\alignL{%
-\dimen0=\cals@paddingL \cals@paddingL=\dimen0 \relax
-\dimen0=\cals@paddingR \cals@paddingR=\dimen0 \relax}
+\cals@vfillDrop\cals@paddingL
+\cals@vfillDrop\cals@paddingR}
 
 \newcommand\alignC{%
-\dimen0=\cals@paddingL \cals@paddingL=\dimen0 plus 1fill\relax
-\dimen0=\cals@paddingR \cals@paddingR=\dimen0 plus 1fill\relax}
+\cals@vfillAdd\cals@paddingL
+\cals@vfillAdd\cals@paddingR}
 
 \newcommand\alignR{%
-\dimen0=\cals@paddingL \cals@paddingL=\dimen0 plus 1fill\relax
-\dimen0=\cals@paddingR \cals@paddingR=\dimen0 \relax}
+\cals@vfillAdd\cals@paddingL
+\cals@vfillDrop\cals@paddingR}
+
+\newcommand\cals@vfillAdd[1]{\ifnum\gluestretchorder#1>1\relax\else
+\dimen0=#1\relax #1=\dimen0 plus 1fill\relax \fi}
+\newcommand\cals@vfillDrop[1]{\ifnum\gluestretchorder#1>0\relax
+\dimen0=#1\relax #1=\dimen0\relax \fi}
 
 
 \newbox\cals@current@row
@@ -381,14 +388,16 @@
 \let\cals@last@context=\cals@current@context}
 
 
-\newenvironment{calstable}{%
+\newenvironment{calstable}[1][\cals@table@alignment]{%
+\if@RTL\@RTLtabtrue\fi
 \let\cals@thead@tokens=\relax
 \let\cals@tfoot@tokens=\relax
 \let\cals@tbreak@tokens=\relax
 \cals@tfoot@height=0pt \relax
 \let\cals@last@context=n%
 \let\cals@current@context=b%
-\parindent=0pt %
+\parindent=0pt \relax%
+\cals@setup@alignment{#1}%
 \cals@setpadding{Ag}\cals@setcellprevdepth{Al}\cals@set@tohsize%
 %% Alignment inside is independent on center/flushright outside
 \parfillskip=0pt plus1fil\relax
@@ -423,6 +432,8 @@
 \newdimen\cals@tfoot@height
 
 \newcommand\tbreak[1]{\def\cals@tbreak@tokens{#1}}
+
+\newcommand\cals@table@alignment{l}
 
 \def\llt@cons#1#2{%
 \toks0=\expandafter{#1}%
@@ -717,6 +728,24 @@
  \cals@rs@sofar@next\cals@tmpL\cals@tmpBl\cals@tmpBr\cals@width
 \fi\next}%
 \expandafter\next#2\eol}
+
+\def\next{%
+  \let\if@RTL=\iffalse
+  \let\if@RTLtab=\iffalse
+  \let\@RTLtabtrue=\relax
+}
+\ifdefined\if@RTL \relax \else \next \fi
+
+\newcommand\cals@setup@alignment[1]{%
+\ifx c#1 \cals@vfillAdd \leftskip \cals@vfillAdd \rightskip \fi
+\if@RTL
+ \ifx l#1 \cals@vfillAdd \leftskip \cals@vfillDrop\rightskip \fi
+ \ifx r#1 \cals@vfillDrop\leftskip \cals@vfillDrop\rightskip \fi
+\else
+ \ifx l#1 \cals@vfillDrop\leftskip \cals@vfillDrop\rightskip \fi
+ \ifx r#1 \cals@vfillAdd \leftskip \cals@vfillDrop\rightskip \fi
+\fi
+}
 \endinput
 %%
 %% End of file `cals.sty'.
