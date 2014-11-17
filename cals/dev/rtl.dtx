@@ -17,28 +17,26 @@
 % \end{macro}
 
 % \begin{macro}{\cals@setup@alignment}
-% TODO
-% The default alignment of tables in the text flow.
-% Doesn't affect the text alignment inside cells.
-% \begin{itemize}
-% \item |n|: no settings, the default |\leftskip| and |\rightskip| are used
-% \item |l|: align left
-% \item |c|: align center
-% \item |r|: align right
-% \end{itemize}
-% This setting is appeared in the version 2.3. Earlier versions
-% worked as it were |n|. The subtle difference to |l| is explained
-% in comments to |\cals@setup@alignment|.
+% Swap alignment in the RTL mode.
 %    \begin{macrocode}
 \newcommand\cals@setup@alignment[1]{%
-\if c#1 \cals@vfillAdd \leftskip \cals@vfillAdd \rightskip \fi
+\if c#1\relax \cals@vfillAdd \leftskip \cals@vfillAdd \rightskip \fi
 \if@RTL
- \if l#1 \cals@vfillAdd \leftskip \cals@vfillDrop\rightskip \fi
- \if r#1 \cals@vfillDrop\leftskip \cals@vfillDrop\rightskip \fi
+ \if l#1\relax \cals@vfillAdd \leftskip \cals@vfillDrop\rightskip \fi
+ \if r#1\relax \cals@vfillDrop\leftskip \cals@vfillDrop\rightskip \fi
 \else
- \if l#1 \cals@vfillDrop\leftskip \cals@vfillDrop\rightskip \fi
- \if r#1 \cals@vfillAdd \leftskip \cals@vfillDrop\rightskip \fi
+ \if l#1\relax \cals@vfillDrop\leftskip \cals@vfillDrop\rightskip \fi
+ \if r#1\relax \cals@vfillAdd \leftskip \cals@vfillDrop\rightskip \fi
 \fi
 }
 %    \end{macrocode}
 % \end{macro}
+
+% \begin{macro}{\cals@hskip@lr}
+% Do |hskip| with the first argument, unless in the RTL mode.
+%    \begin{macrocode}
+\newcommand\cals@hskip@lr[2]{%
+\if@RTL \hskip#2\relax \else \hskip#1\relax \fi}
+%    \end{macrocode}
+% \end{macro}
+

@@ -281,11 +281,11 @@
 %    \begin{macrocode}
 \newcommand\cals@issue@rowsep@alone{%
 \setbox0=\cals@hbox\cals@tohsize{%
- \hskip\leftskip
+ \cals@hskip@lr\leftskip\rightskip
  \cals@rs@sofar@reset
  \cals@rs@joinOne\cals@framers@width\cals@current@rs@above
  \cals@rs@sofar@end
- \hskip\rightskip}%
+ \cals@hskip@lr\rightskip\leftskip}%
 \ht0=0pt \dp0=0pt \box0 }
 %    \end{macrocode}
 % \end{macro}
@@ -307,11 +307,11 @@
    \let\cals@tmpIII=\cals@rs@width     \else
    \let\cals@tmpIII=\cals@bodyrs@width \fi
  \setbox0=\cals@hbox\cals@tohsize{%
-  \hskip\leftskip
+  \cals@hskip@lr\leftskip\rightskip
   \cals@rs@sofar@reset
   \cals@rs@joinTwo\cals@tmpIII\cals@last@rs@below\cals@current@rs@above
   \cals@rs@sofar@end
-  \hskip\rightskip}%
+  \cals@hskip@lr\rightskip\leftskip}%
  \ht0=0pt \dp0=0pt \box0 %
 \fi}
 %    \end{macrocode}
@@ -335,7 +335,8 @@
 % Decorations: first the column separation, then the row separation.
 %    \begin{macrocode}
 \nointerlineskip
-\setbox0=\vtop{\cals@hbox\cals@tohsize{\hskip\leftskip \box\cals@current@cs \hskip\rightskip}}%
+\setbox0=\vtop{\cals@hbox\cals@tohsize{\cals@hskip@lr\leftskip\rightskip
+\box\cals@current@cs \cals@hskip@lr\rightskip\leftskip}}%
 \ht0=0pt\relax\box0
 \nointerlineskip
 \cals@issue@rowsep
@@ -343,7 +344,8 @@
 %    \end{macrocode}
 % Output the row, update the last context.
 %    \begin{macrocode}
-\cals@hbox\cals@tohsize{\hskip\leftskip \box\cals@current@row \hskip\rightskip}%
+\cals@hbox\cals@tohsize{\cals@hskip@lr\leftskip\rightskip
+\box\cals@current@row \cals@hskip@lr\rightskip\leftskip}%
 \let\cals@last@rs@below=\cals@current@rs@below
 \let\cals@last@context=\cals@current@context}
 %    \end{macrocode}
@@ -448,8 +450,7 @@
 % \item |r|: align right
 % \end{itemize}
 % This setting is appeared in the version 2.3. Earlier versions
-% worked as it were |n|. The subtle difference to |l| is explained
-% in comments to |\cals@setup@alignment|.
+% worked as it were |n|.
 %    \begin{macrocode}
 \newcommand\cals@table@alignment{l}
 %    \end{macrocode}

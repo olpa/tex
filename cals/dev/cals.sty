@@ -353,11 +353,11 @@
 
 \newcommand\cals@issue@rowsep@alone{%
 \setbox0=\cals@hbox\cals@tohsize{%
- \hskip\leftskip
+ \cals@hskip@lr\leftskip\rightskip
  \cals@rs@sofar@reset
  \cals@rs@joinOne\cals@framers@width\cals@current@rs@above
  \cals@rs@sofar@end
- \hskip\rightskip}%
+ \cals@hskip@lr\rightskip\leftskip}%
 \ht0=0pt \dp0=0pt \box0 }
 
 \newcommand\cals@issue@rowsep{%
@@ -366,11 +366,11 @@
    \let\cals@tmpIII=\cals@rs@width     \else
    \let\cals@tmpIII=\cals@bodyrs@width \fi
  \setbox0=\cals@hbox\cals@tohsize{%
-  \hskip\leftskip
+  \cals@hskip@lr\leftskip\rightskip
   \cals@rs@sofar@reset
   \cals@rs@joinTwo\cals@tmpIII\cals@last@rs@below\cals@current@rs@above
   \cals@rs@sofar@end
-  \hskip\rightskip}%
+  \cals@hskip@lr\rightskip\leftskip}%
  \ht0=0pt \dp0=0pt \box0 %
 \fi}
 
@@ -378,12 +378,14 @@
 
 \newcommand\cals@issue@row{%
 \nointerlineskip
-\setbox0=\vtop{\cals@hbox\cals@tohsize{\hskip\leftskip \box\cals@current@cs \hskip\rightskip}}%
+\setbox0=\vtop{\cals@hbox\cals@tohsize{\cals@hskip@lr\leftskip\rightskip
+\box\cals@current@cs \cals@hskip@lr\rightskip\leftskip}}%
 \ht0=0pt\relax\box0
 \nointerlineskip
 \cals@issue@rowsep
 \nointerlineskip
-\cals@hbox\cals@tohsize{\hskip\leftskip \box\cals@current@row \hskip\rightskip}%
+\cals@hbox\cals@tohsize{\cals@hskip@lr\leftskip\rightskip
+\box\cals@current@row \cals@hskip@lr\rightskip\leftskip}%
 \let\cals@last@rs@below=\cals@current@rs@below
 \let\cals@last@context=\cals@current@context}
 
@@ -737,15 +739,19 @@
 \ifdefined\if@RTL \relax \else \next \fi
 
 \newcommand\cals@setup@alignment[1]{%
-\if c#1 \cals@vfillAdd \leftskip \cals@vfillAdd \rightskip \fi
+\if c#1\relax \cals@vfillAdd \leftskip \cals@vfillAdd \rightskip \fi
 \if@RTL
- \if l#1 \cals@vfillAdd \leftskip \cals@vfillDrop\rightskip \fi
- \if r#1 \cals@vfillDrop\leftskip \cals@vfillDrop\rightskip \fi
+ \if l#1\relax \cals@vfillAdd \leftskip \cals@vfillDrop\rightskip \fi
+ \if r#1\relax \cals@vfillDrop\leftskip \cals@vfillDrop\rightskip \fi
 \else
- \if l#1 \cals@vfillDrop\leftskip \cals@vfillDrop\rightskip \fi
- \if r#1 \cals@vfillAdd \leftskip \cals@vfillDrop\rightskip \fi
+ \if l#1\relax \cals@vfillDrop\leftskip \cals@vfillDrop\rightskip \fi
+ \if r#1\relax \cals@vfillAdd \leftskip \cals@vfillDrop\rightskip \fi
 \fi
 }
+
+\newcommand\cals@hskip@lr[2]{%
+\if@RTL \hskip#2\relax \else \hskip#1\relax \fi}
+
 \endinput
 %%
 %% End of file `cals.sty'.
