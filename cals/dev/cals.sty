@@ -737,13 +737,13 @@
 \ifdefined\if@RTL \relax \else \next \fi
 
 \newcommand\cals@setup@alignment[1]{%
-\ifx c#1 \cals@vfillAdd \leftskip \cals@vfillAdd \rightskip \fi
+\if c#1 \cals@vfillAdd \leftskip \cals@vfillAdd \rightskip \fi
 \if@RTL
- \ifx l#1 \cals@vfillAdd \leftskip \cals@vfillDrop\rightskip \fi
- \ifx r#1 \cals@vfillDrop\leftskip \cals@vfillDrop\rightskip \fi
+ \if l#1 \cals@vfillAdd \leftskip \cals@vfillDrop\rightskip \fi
+ \if r#1 \cals@vfillDrop\leftskip \cals@vfillDrop\rightskip \fi
 \else
- \ifx l#1 \cals@vfillDrop\leftskip \cals@vfillDrop\rightskip \fi
- \ifx r#1 \cals@vfillAdd \leftskip \cals@vfillDrop\rightskip \fi
+ \if l#1 \cals@vfillDrop\leftskip \cals@vfillDrop\rightskip \fi
+ \if r#1 \cals@vfillAdd \leftskip \cals@vfillDrop\rightskip \fi
 \fi
 }
 \endinput
