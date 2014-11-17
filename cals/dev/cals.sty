@@ -346,13 +346,8 @@
 \ifnum\gluestretchorder\rightskip>0\relax \def\cals@tohsize{to \hsize}\fi
 }
 
-\newcommand\cals@hbox{}
-\newcommand\cals@activate@rtl{\let\cals@hbox=\hboxR}
-\newcommand\cals@deactivate@rtl{\let\cals@hbox=\hbox}
-\cals@deactivate@rtl
-
 \newcommand\cals@issue@rowsep@alone{%
-\setbox0=\cals@hbox\cals@tohsize{%
+\setbox0=\hbox\cals@tohsize{%
  \hskip\leftskip
  \cals@rs@sofar@reset
  \cals@rs@joinOne\cals@framers@width\cals@current@rs@above
@@ -365,7 +360,7 @@
  \ifx \cals@last@context\cals@current@context
    \let\cals@tmpIII=\cals@rs@width     \else
    \let\cals@tmpIII=\cals@bodyrs@width \fi
- \setbox0=\cals@hbox\cals@tohsize{%
+ \setbox0=\hbox\cals@tohsize{%
   \hskip\leftskip
   \cals@rs@sofar@reset
   \cals@rs@joinTwo\cals@tmpIII\cals@last@rs@below\cals@current@rs@above
@@ -378,12 +373,12 @@
 
 \newcommand\cals@issue@row{%
 \nointerlineskip
-\setbox0=\vtop{\cals@hbox\cals@tohsize{\hskip\leftskip \box\cals@current@cs \hskip\rightskip}}%
+\setbox0=\vtop{\hbox\cals@tohsize{\hskip\leftskip \box\cals@current@cs \hskip\rightskip}}%
 \ht0=0pt\relax\box0
 \nointerlineskip
 \cals@issue@rowsep
 \nointerlineskip
-\cals@hbox\cals@tohsize{\hskip\leftskip \box\cals@current@row \hskip\rightskip}%
+\hbox\cals@tohsize{\hskip\leftskip \box\cals@current@row \hskip\rightskip}%
 \let\cals@last@rs@below=\cals@current@rs@below
 \let\cals@last@context=\cals@current@context}
 
