@@ -53,6 +53,8 @@ def collect_errors(rundir, tex_file):
       s_errors = s_errors + l[1+pos:]
       b_extract_command = 0
       continue
+    if 'LaTeX warning' in l:
+      continue
     if '! ' == l[:2]:
       s_errors = s_errors + l
       if '! Undefined control sequence' in l:
@@ -63,9 +65,6 @@ def collect_errors(rundir, tex_file):
       s_errors = s_errors + l[:15] + "\n"
       continue
     if 'Rerun to get' in l:
-      s_errors = s_errors + l
-      continue
-    if 'LaTeX Warning: ' in l:
       s_errors = s_errors + l
       continue
   h.close()

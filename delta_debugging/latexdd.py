@@ -1,6 +1,6 @@
 import os, sys, re
 import DD
-import runlatex
+import runlatex, decider
 
 delta_mode = 'lines'
 
@@ -15,6 +15,7 @@ delta_mode = 'lines'
 re_dclass = re.compile('\\\\documentclass(\\[([^]]*)\\])?\{([^}]*)\}\\s*')
 class LatexFile:
   def __init__(self, fname):
+    self.deltas = None
     if fname is None:
       return
     self.file_name = fname
@@ -76,7 +77,13 @@ class LatexFile:
     process_part('O', self.classoptions)
     process_part('P', self.preamble)
     process_part('D', self.document)
+    self.deltas = deltas
     return deltas
+
+  def get_deltas(self):
+    if self.deltas is None:
+      self.create_deltas()
+    return self.deltas
   
   #
   # Apply deltas
@@ -103,29 +110,41 @@ class LatexFile:
   #
   # Execute
   #
-  def run_latex_return_errors(self):
+  def run_latex(self):
     rundir = runlatex.create_run_dir()
     fname = os.path.basename(self.file_name)
     self.write_file(os.path.join(rundir, fname))
-    return runlatex.run_latex_collect_errors(rundir, fname)
+    self.errors = runlatex.run_latex_collect_errors(rundir, fname)
+
+  def get_errors(self):
+    return self.errors
 
 #
 # DD
 #
 class LatexDD(DD.DD):
-  def __init__(self, fname):
+  def __init__(self, fname, ok_is=decider.PASS_NO_ERRORS, fail_is=decider.FAIL_MASTER_ERRORS):
     DD.DD.__init__(self)
     self.lf = LatexFile(fname)
-    self.master_errors = self.lf.run_latex_return_errors()
+    self.last_run = None
+    self.decider = decider.decider(ok_is, fail_is)
+    self.decider.extract_master_errors(self.lf)
+    self.decider.sanity_check(self)
 
   def _test(self, deltas):
     lf = self.lf.apply_deltas(deltas)
-    errors = lf.run_latex_return_errors()
-    if '' == errors:
-      return self.PASS
-    if self.master_errors == errors:
-      return self.FAIL
-    return self.UNRESOLVED
+    lf.run_latex()
+    self.last_run = lf
+    return self.decider.get_result(lf)
+
+  def get_last_run(self):
+    return self.last_run
+
+  def test_with_no_deltas(self):
+    return self._test([])
+
+  def test_with_all_deltas(self):
+    return self._test(self.get_deltas())
 
   def create_deltas(self):
     return self.lf.create_deltas()
@@ -141,16 +160,27 @@ class LatexDD(DD.DD):
       s = str(c[:10]) + '........'
     return s
 
+  def get_deltas(self):
+    return self.lf.get_deltas()
+
+  def get_master_errors(self):
+    return self.decider.get_master_errors()
+
 # ---------------------------------------------------------
 
-if '__main__' == __name__:
+def main():
   fname = sys.argv[1]
   runlatex.guess_latex_tool(fname)
   dd = LatexDD(fname)
   print 'Master errors:'
-  print dd.master_errors
+  print dd.get_master_errors()
+  if '--stop-after-master' in sys.argv:
+    sys.exit()
   deltas = dd.create_deltas()
   c = dd.ddmin(deltas)
   print 'The 1-minimal failure-inducing input is:'
   print '----------------------------------------'
   dd.show_applied_delta(c, sys.stdout)
+
+if '__main__' == __name__:
+  main()
