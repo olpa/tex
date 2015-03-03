@@ -13,7 +13,7 @@ delta_mode = 'lines'
 # Parsing is fragile.
 #
 re_dclass = re.compile('\\\\documentclass(\\[([^]]*)\\])?\{([^}]*)\}\\s*')
-class LatexFile:
+class LatexFileDelta:
   def __init__(self, fname, digger=None):
     self.deltas = None
     self.digger = digger
@@ -33,6 +33,19 @@ class LatexFile:
     self.preamble = s[:pos].strip()
     pos2 = s.index('\\end{document}')
     self.document = s[16+pos:pos2].strip()
+
+  def start_new_doc(self, with_content):
+    lf = self.__class__(None, digger=self.digger)
+    lf.file_name = self.file_name
+    if with_content:
+      lf.classname    = self.classname
+      lf.classoptions = self.classoptions
+      lf.preamble     = self.preamble
+      lf.document     = self.document
+    else:
+      lf.classname = 'minimal'
+      lf.classoptions = lf.preamble = lf.document = ''
+    return lf
 
   #
   # Save file
@@ -55,32 +68,6 @@ class LatexFile:
     self.write_stream(h)
     h.close()
 
-  #
-  # Each delta is one character. Not effective, but straightforward.
-  # Technically, a delta is a three-item entry: (where, index, letter):
-  # * where  - O (options), N (name), P (preamble), D (document)
-  # * index&letter - which letter to change
-  #
-  def create_deltas(self):
-    deltas = []
-    if 'minimal' != self.classname:
-      deltas.append(('N', None, None))
-    def process_part(where, s):
-      index = 1
-      if s is not None:
-        if 'lines' == delta_mode:
-          s = s.split("\n")
-          s = [l+"\n" for l in s]
-          print >>sys.stderr, "!!!!! Lines mode"
-        for ch in s:
-          deltas.append((where, index, ch))
-          index = index + 1
-    process_part('O', self.classoptions)
-    process_part('P', self.preamble)
-    process_part('D', self.document)
-    self.deltas = deltas
-    return deltas
-
   def get_deltas(self):
     if self.deltas is None:
       self.create_deltas()
@@ -88,28 +75,6 @@ class LatexFile:
 
   def get_tex_file_name(self):
     return self.file_name
-
-  #
-  # Apply deltas
-  # According to DD documentation, the deltas are sorted
-  #
-  def apply_deltas(self, deltas):
-    lf = LatexFile(None, digger=self.digger)
-    lf.file_name = self.file_name
-    lf.classname = 'minimal'
-    lf.classoptions = lf.preamble = lf.document = ''
-    for (where, index, ch) in deltas:
-      if 'D' == where:
-        lf.document = lf.document + ch
-      elif 'P' == where:
-        lf.preamble = lf.preamble + ch
-      elif 'O' == where:
-        lf.classoptions = lf.classoptions + ch
-      elif 'N' == where:
-        lf.classname = self.classname
-      else:
-        raise Exception("Unsupported delta: " + where)
-    return lf
 
   #
   # Execute
@@ -128,13 +93,83 @@ class LatexFile:
       return ''
     return self.digger(self)
 
+class LatexFileDeltaLineChar(LatexFileDelta):
+  #
+  # Each delta is one character. Not effective, but straightforward.
+  # Technically, a delta is a three-item entry: (where, index, letter):
+  # * where  - O (options), N (name), P (preamble), D (document)
+  # * index&letter - which letter to change
+  #
+  def create_deltas(self):
+    deltas = []
+    if 'minimal' != self.classname:
+      deltas.append(('N', None, None))
+    def process_part(where, s):
+      index = 1
+      if s is not None:
+        if 'lines' == delta_mode:
+          s = s.split("\n")
+          s = [l+"\n" for l in s]
+        for ch in s:
+          deltas.append((where, index, ch))
+          index = index + 1
+    process_part('O', self.classoptions)
+    process_part('P', self.preamble)
+    process_part('D', self.document)
+    self.deltas = deltas
+    return deltas
+
+  #
+  # Apply deltas
+  # According to DD documentation, the deltas are sorted
+  #
+  def apply_deltas(self, deltas):
+    lf = self.start_new_doc(with_content=0)
+    for (where, index, ch) in deltas:
+      if 'D' == where:
+        lf.document = lf.document + ch
+      elif 'P' == where:
+        lf.preamble = lf.preamble + ch
+      elif 'O' == where:
+        lf.classoptions = lf.classoptions + ch
+      elif 'N' == where:
+        lf.classname = self.classname
+      else:
+        raise Exception("Unsupported delta: " + where)
+    return lf
+
+#
+class LatexFileDeltaBlock(LatexFileDelta):
+
+  def does_lines_start_chunk(self, l):
+    raise NotImplementedError
+
+  def create_deltas(self):
+    deltas = []
+    a = []
+    for l in self.document.split("\n"):
+      if self.does_lines_start_chunk(l):
+        if a:
+          deltas.append("\n".join(a))
+          a = []
+      a.append(l)
+    if a:
+      deltas.append("\n".join(a))
+    self.deltas = deltas
+    return deltas
+
+  def apply_deltas(self, deltas):
+    lf = self.start_new_doc(with_content=1)
+    lf.document = "\n".join(deltas)
+    return lf
+
 #
 # DD
 #
 class LatexDD(DD.DD):
-  def __init__(self, fname, digger=None):
+  def __init__(self, fname, digger=None, chunker=LatexFileDeltaLineChar):
     DD.DD.__init__(self)
-    self.lf = LatexFile(fname, digger=digger)
+    self.lf = chunker(fname, digger=digger)
     self.last_run = None
     self.decider = decider.decider()
     self.decider.extract_master_errors(self.lf)
@@ -177,10 +212,10 @@ class LatexDD(DD.DD):
 
 # ---------------------------------------------------------
 
-def main(digger=None):
+def main(digger=None, chunker=LatexFileDeltaLineChar):
   fname = sys.argv[1]
   runlatex.guess_latex_tool(fname)
-  dd = LatexDD(fname, digger)
+  dd = LatexDD(fname, digger, chunker)
   print 'Master errors:'
   print dd.get_master_errors()
   if '--stop-after-master' in sys.argv:
