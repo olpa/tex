@@ -14,8 +14,9 @@ delta_mode = 'lines'
 #
 re_dclass = re.compile('\\\\documentclass(\\[([^]]*)\\])?\{([^}]*)\}\\s*')
 class LatexFile:
-  def __init__(self, fname):
+  def __init__(self, fname, digger=None):
     self.deltas = None
+    self.digger = digger
     if fname is None:
       return
     self.file_name = fname
@@ -84,13 +85,16 @@ class LatexFile:
     if self.deltas is None:
       self.create_deltas()
     return self.deltas
-  
+
+  def get_tex_file_name(self):
+    return self.file_name
+
   #
   # Apply deltas
   # According to DD documentation, the deltas are sorted
   #
   def apply_deltas(self, deltas):
-    lf = LatexFile(None)
+    lf = LatexFile(None, digger=self.digger)
     lf.file_name = self.file_name
     lf.classname = 'minimal'
     lf.classoptions = lf.preamble = lf.document = ''
@@ -119,15 +123,20 @@ class LatexFile:
   def get_errors(self):
     return self.errors
 
+  def get_reference(self):
+    if not self.digger:
+      return ''
+    return self.digger(self)
+
 #
 # DD
 #
 class LatexDD(DD.DD):
-  def __init__(self, fname, ok_is=decider.PASS_NO_ERRORS, fail_is=decider.FAIL_MASTER_ERRORS):
+  def __init__(self, fname, digger=None):
     DD.DD.__init__(self)
-    self.lf = LatexFile(fname)
+    self.lf = LatexFile(fname, digger=digger)
     self.last_run = None
-    self.decider = decider.decider(ok_is, fail_is)
+    self.decider = decider.decider()
     self.decider.extract_master_errors(self.lf)
     self.decider.sanity_check(self)
 
@@ -168,10 +177,10 @@ class LatexDD(DD.DD):
 
 # ---------------------------------------------------------
 
-def main():
+def main(digger=None):
   fname = sys.argv[1]
   runlatex.guess_latex_tool(fname)
-  dd = LatexDD(fname)
+  dd = LatexDD(fname, digger)
   print 'Master errors:'
   print dd.get_master_errors()
   if '--stop-after-master' in sys.argv:

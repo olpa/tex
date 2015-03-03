@@ -4,7 +4,7 @@ latex_tool      = 'latex'
 latex_cmdline   = '(ulimit -t 30; echo -n '' | ${LATEX} -interaction batchmode -output-directory ${RUNDIR} ${FILENAME}) 2>&1 >${RUNDIR}/stdout.txt'
 latex_max_rerun = 3
 
-import os, tempfile, string, re
+import sys, os, tempfile, string, re
 
 if os.path.isdir('texinput'):
   dirname = os.path.abspath('texinput')
@@ -31,6 +31,8 @@ def run_latex(rundir, filename):
       'LATEX':    latex_tool
       }
   cmdline = string.Template(latex_cmdline).substitute(sub)
+  #print "!!!! going to run:", cmdline # FIXME
+  #s = sys.stdin.readline() # FIXME
   return os.system(cmdline)
 
 #
