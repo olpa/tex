@@ -172,8 +172,7 @@ class LatexDD(DD.DD):
     self.lf = chunker(fname, digger=digger)
     self.last_run = None
     self.decider = decider.decider()
-    self.decider.extract_master_errors(self.lf)
-    self.decider.sanity_check(self)
+    self.decider.extract_master_errors(self)
 
   def _test(self, deltas):
     lf = self.lf.apply_deltas(deltas)
@@ -216,8 +215,7 @@ def main(digger=None, chunker=LatexFileDeltaLineChar):
   fname = sys.argv[1]
   runlatex.guess_latex_tool(fname)
   dd = LatexDD(fname, digger, chunker)
-  print 'Master errors:'
-  print dd.get_master_errors()
+  dd.decider.print_master_errors()
   if '--stop-after-master' in sys.argv:
     sys.exit()
   deltas = dd.create_deltas()
