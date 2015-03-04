@@ -4,7 +4,7 @@ latex_tool      = 'latex'
 latex_cmdline   = '(ulimit -t 30; echo -n '' | ${LATEX} -interaction batchmode -output-directory ${RUNDIR} ${FILENAME}) 2>&1 >${RUNDIR}/stdout.txt'
 latex_max_rerun = 3
 
-import sys, os, tempfile, string, re
+import sys, os, tempfile, string, re, shutil
 
 if os.path.isdir('texinput'):
   dirname = os.path.abspath('texinput')
@@ -98,3 +98,40 @@ def guess_latex_tool(fname):
   m = re.search('%\\s*!TEX\\s+TS-program\\s*=\\s*(\w+)', s)
   if m:
     latex_tool = m.group(1).lower()
+
+#
+# Object-wrapper for functions above
+#
+class RunLatex:
+
+  def __init__(self, digger=None):
+    self.digger = digger
+    self.rundir = None
+    self.errors = ''
+    self.reference = ''
+    self.tex_file = None
+
+  def create_run_dir(self):
+    self.rundir = create_run_dir()
+    return self.rundir
+
+  def run_latex_collect_errors(self, tex_file):
+    d1 = os.path.normpath(os.path.abspath(self.rundir))
+    d2 = os.path.normpath(os.path.abspath(os.path.dirname(tex_file)))
+    if d1 != d2:
+      fname2 = os.path.join(d1, os.path.basename(tex_file))
+      shutil.copy(tex_file, fname2)
+      tex_file = fname2
+    self.tex_file = tex_file
+    self.errors = run_latex_collect_errors(self.rundir, tex_file)
+    if self.digger:
+      self.reference = self.digger(self)
+
+  def get_errors(self):
+    return self.errors
+
+  def get_reference(self):
+    return self.reference
+
+  def get_log_file_name(self):
+    return os.path.splitext(self.tex_file)[0] + '.log'
