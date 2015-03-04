@@ -1,6 +1,6 @@
 import os, sys
 import DD
-import runlatex
+import runlatex, decider
 
 class OneCharDeltaFile:
   def __init__(self, fname, mode):
@@ -31,25 +31,34 @@ class OneCharDeltaFile:
     h.close()
 
 class StyDD(DD.DD):
-  def __init__(self, tex_file, sty_file, mode):
+  def __init__(self, tex_file, sty_file, mode, digger=None):
     DD.DD.__init__(self)
-    self.tex_file = os.path.basename(tex_file)
+    self.digger = digger
+    self.tex_file = tex_file
     self.sty_file = os.path.basename(sty_file)
+    self.last_run = None
     self.ocdf = OneCharDeltaFile(sty_file, mode)
-    self.master_errors = self.run_latex_return_errors(self.ocdf.get_deltas())
+    self.decider = decider.decider()
+    self.decider.extract_master_errors(self)
 
   def run_latex_return_errors(self, deltas):
-    rundir = runlatex.create_run_dir()
+    self.last_run = runlatex.RunLatex(digger=self.digger)
+    rundir = self.last_run.create_run_dir()
     self.ocdf.write_file(os.path.join(rundir, self.sty_file), deltas)
-    return runlatex.run_latex_collect_errors(rundir, self.tex_file)
+    return self.last_run.run_latex_collect_errors(self.tex_file)
+
+  def get_last_run(self):
+    return self.last_run
 
   def _test(self, deltas):
     errors = self.run_latex_return_errors(deltas)
-    if '' == errors:
-      return self.PASS
-    if self.master_errors == errors:
-      return self.FAIL
-    return self.UNRESOLVED
+    return self.decider.get_result(self.last_run)
+
+  def test_with_no_deltas(self):
+    self.run_latex_return_errors([])
+
+  def test_with_all_deltas(self):
+    self.run_latex_return_errors(self.get_deltas())
 
   def coerce(self, c):
     if len(c) < 10:
@@ -64,7 +73,7 @@ class StyDD(DD.DD):
   def get_deltas(self):
     return self.ocdf.get_deltas()
 
-if '__main__' == __name__:
+def main(digger=None):
   mode     = 'char'
   out_file = None
   argv     = sys.argv[1:]
@@ -75,14 +84,15 @@ if '__main__' == __name__:
   if '--lines' in argv:
     mode = 'line'
     argv.remove('--lines')
+  stop_after_master = '--stop-after-master' in argv
+  if stop_after_master:
+    argv.remove('--stop-after-master')
   (tex_file, sty_file) = argv
   runlatex.guess_latex_tool(tex_file)
-  dd = StyDD(tex_file, sty_file, mode)
-  print 'Master errors:'
-  print dd.master_errors
-  if '' == dd.master_errors:
-    print 'No errors, exiting'
-    sys.exit(-1)
+  dd = StyDD(tex_file, sty_file, mode, digger=digger)
+  dd.decider.print_master_errors()
+  if stop_after_master:
+    sys.exit()
   deltas = dd.get_deltas()
   c = dd.ddmin(deltas)
   print 'The 1-minimal failure-inducing sty input is:'
@@ -95,3 +105,6 @@ if '__main__' == __name__:
   dd.show_applied_delta(h, c)
   if out_file is not None:
     h.close()
+
+if '__main__' == __name__:
+  main()
