@@ -1,4 +1,4 @@
-import getopt, sys
+import getopt, sys, os, shutil
 import runlatex
 
 def run_recording(tex_file, ti_pass):
@@ -7,8 +7,23 @@ def run_recording(tex_file, ti_pass):
   env.set_extra_latex_opt('-recorder')
   rl = runlatex.RunLatex(env)
   env.set_rundir('run_recording_pass')
-  rl.create_run_dir()
+  rundir = rl.create_run_dir()
   rl.run_latex_collect_errors(tex_file)
+  tbname = os.path.basename(tex_file)
+  fls_file = os.path.join(rundir, os.path.splitext(tbname)[0]+'.fls')
+  seen = [tbname]
+  for l in open(fls_file):
+    if 'INPUT ' != l[:6]:
+      continue
+    fname = l[6:].strip()
+    if not os.path.isabs(fname):
+      continue
+    bname = os.path.basename(fname)
+    if bname in seen:
+      continue
+    seen.append(bname)
+    tgt_fname = os.path.join(rundir, bname)
+    shutil.copy(fname, tgt_fname)
 
 ti_pass = None
 ti_fail = None
