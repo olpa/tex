@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, re
 import DD
 import runlatex, decider
 
@@ -20,6 +20,7 @@ class OneCharDeltaFile:
     s = ''
     for i in deltas:
       s = s + self.content[i]
+    s = s + "\n\n\\RequirePackage{ddstub}\n"
     return s
 
   def write_stream(self, h, deltas):
@@ -38,14 +39,22 @@ class StyDD(DD.DD):
     self.sty_file = os.path.basename(sty_file)
     self.last_run = None
     self.ocdf = OneCharDeltaFile(sty_file, mode)
+    self.s_stub = generate_stub_from_sty(sty_file)
     self.decider = decider.decider()
     self.decider.extract_master_errors(self)
 
   def run_latex_return_errors(self, deltas):
-    self.last_run = runlatex.RunLatex(digger=self.digger)
+    self.last_run = runlatex.RunLatex(digger=self.digger, hook_before_run=self.hook_before_run)
     rundir = self.last_run.create_run_dir()
     self.ocdf.write_file(os.path.join(rundir, self.sty_file), deltas)
     return self.last_run.run_latex_collect_errors(self.tex_file)
+
+  def hook_before_run(self, run_latex):
+    dname = self.last_run.get_run_dir()
+    fname = os.path.join(dname, 'ddstub.sty')
+    h = file(fname, 'w')
+    h.write(self.s_stub)
+    h.close()
 
   def get_last_run(self):
     return self.last_run
@@ -72,6 +81,21 @@ class StyDD(DD.DD):
 
   def get_deltas(self):
     return self.ocdf.get_deltas()
+
+re_def = re.compile(r'''(\\newcommand|\\newenvironment)\{?(\\?[^\{\}\[\]]+)\}?(\[\d+\])?''')
+
+def generate_stub_from_sty(fname):
+  h = open(fname)
+  s = h.read()
+  h.close()
+  s_sty = "\\ProvidesPackage{ddstub}[]\n\n"
+  for m in re_def.findall(s):
+    (what, cmd_name, args) = m
+    if 'command' in what:
+      s_sty = s_sty + ("\\providecommand%s%s{}\n" % (cmd_name, args))
+    else:
+      s_sty = s_sty + ("\\provideenvironment{%s}%s{}{}\n" % (cmd_name, args))
+  return s_sty
 
 def main(digger=None):
   mode     = 'char'

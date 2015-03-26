@@ -1,36 +1,50 @@
-tmpdir          = 'tmp'
-rundir_basename = 'run'
-latex_tool      = 'latex'
-latex_cmdline   = '(ulimit -t 30; echo -n '' | ${LATEX} -interaction batchmode -output-directory ${RUNDIR} ${FILENAME}) 2>&1 >${RUNDIR}/stdout.txt'
-latex_max_rerun = 3
+#tmpdir          = 'tmp'
+#rundir_basename = 'run'
+#latex_tool      = 'latex'
+#latex_cmdline   = '(ulimit -t 30; echo -n '' | ${LATEX} -interaction batchmode -output-directory ${RUNDIR} ${FILENAME}) 2>&1 >${RUNDIR}/stdout.txt'
+#latex_max_rerun = 3
+
+class RunEnv:
+  def __init__(self):
+    self.tool = 'pdflatex'
+    self.cmdline = '(ulimit -t 30; echo -n '' | ${LATEX} -interaction batchmode -output-directory ${RUNDIR} ${EXTRAOPT} ${FILENAME}) 2>&1 >${RUNDIR}/stdout.txt'
+    self.extra_latex_opt = ''
+    self.texinput_var = None
+    self.tmpdir = 'tmp'
+    self.rundir_basename = 'run'
+    self.rundir = None
+  def set_rundir(self, rundir):
+    self.rundir = rundir
+  def get_rundir(self):
+    return self.rundir
+  def set_latex_tool(self, tool):
+    self.tool = tool
 
 import sys, os, tempfile, string, re, shutil
-
-if os.path.isdir('texinput'):
-  dirname = os.path.abspath('texinput')
-  os.environ['TEXINPUTS'] = dirname + ':' + os.environ.get('TEXINPUTS', '')
 
 #
 # Create a directory to run TeX. Design decision name:
 #      ./tmp/run
 # If exist, first rename existing, then create new.
 #
-def create_run_dir(tmpdir=tmpdir, rundir_basename=rundir_basename):
-  rundir = os.path.join(tmpdir, rundir_basename)
+def create_run_dir(env):
+  rundir = os.path.join(env.tmpdir, env.rundir_basename)
   if os.path.isdir(rundir):
-    tempfile.tempdir = tmpdir
+    tempfile.tempdir = env.tmpdir
     newdir = tempfile.mktemp(prefix='run_')
     os.rename(rundir, newdir)
   os.makedirs(rundir)
+  env.set_rundir(rundir)
   return rundir
 
-def run_latex(rundir, filename):
+def run_latex(env, filename):
   sub = {
-      'RUNDIR':   rundir,
+      'RUNDIR':   env.rundir,
       'FILENAME': filename,
-      'LATEX':    latex_tool
+      'LATEX':    env.tool,
+      'EXTRAOPT': env.extra_latex_opt,
       }
-  cmdline = string.Template(latex_cmdline).substitute(sub)
+  cmdline = string.Template(env.cmdline).substitute(sub)
   #print "!!!! going to run:", cmdline # FIXME
   #s = sys.stdin.readline() # FIXME
   return os.system(cmdline)
@@ -41,8 +55,8 @@ def run_latex(rundir, filename):
 #
 re_page = re.compile('page\\s+\\d+')
 re_line = re.compile('line\\s+\\d+')
-def collect_errors(rundir, tex_file):
-  logfile = os.path.join(rundir, os.path.splitext(os.path.basename(tex_file))[0] + '.log')
+def collect_errors(env, tex_file):
+  logfile = os.path.join(env.get_rundir(), os.path.splitext(os.path.basename(tex_file))[0] + '.log')
   s_errors = ''
   try:
     h = open(logfile)
@@ -74,13 +88,13 @@ def collect_errors(rundir, tex_file):
   s_errors = re_line.sub('line NNN', s_errors)
   return s_errors
 
-def run_latex_collect_errors(rundir, fname):
+def run_latex_collect_errors(env, fname):
   i = 0
   while 1:
-    ccode = run_latex(rundir, fname)
+    ccode = run_latex(env, fname)
     if ccode > 256:
       return "! HANG\n"                                    # return
-    s = collect_errors(rundir, fname)
+    s = collect_errors(env, fname)
     i = i + 1
     if ('Rerun to get' in s) and (i < latex_max_rerun):
       continue
@@ -90,40 +104,46 @@ def run_latex_collect_errors(rundir, fname):
 # Read a few first lines and find:
 # % !TEX TS-program = latex_tool
 #
-def guess_latex_tool(fname):
-  global latex_tool
+def guess_latex_tool(env, fname):
   h = open(fname)
   s = h.read(1024)
   h.close()
   m = re.search('%\\s*!TEX\\s+TS-program\\s*=\\s*(\w+)', s)
   if m:
     latex_tool = m.group(1).lower()
+    env.set_latex_tool(latex_tool)
 
 #
 # Object-wrapper for functions above
 #
 class RunLatex:
 
-  def __init__(self, digger=None):
+  def __init__(self, env, digger=None, hook_before_run=None):
+    self.env = env
     self.digger = digger
-    self.rundir = None
+    self.hook_before_run = hook_before_run
     self.errors = ''
     self.reference = ''
     self.tex_file = None
 
   def create_run_dir(self):
-    self.rundir = create_run_dir()
-    return self.rundir
+    create_run_dir(self.env)
+    return self.env.get_rundir()
+
+  def get_run_dir(self):
+    return self.env.get_rundir()
 
   def run_latex_collect_errors(self, tex_file):
-    d1 = os.path.normpath(os.path.abspath(self.rundir))
+    d1 = os.path.normpath(os.path.abspath(self.env.get_rundir()))
     d2 = os.path.normpath(os.path.abspath(os.path.dirname(tex_file)))
     if d1 != d2:
       fname2 = os.path.join(d1, os.path.basename(tex_file))
       shutil.copy(tex_file, fname2)
       tex_file = fname2
     self.tex_file = tex_file
-    self.errors = run_latex_collect_errors(self.rundir, tex_file)
+    if self.hook_before_run:
+      self.hook_before_run(self)
+    self.errors = run_latex_collect_errors(self.env, tex_file)
     if self.digger:
       self.reference = self.digger(self)
 
