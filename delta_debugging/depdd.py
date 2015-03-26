@@ -4,7 +4,9 @@ import runlatex
 def run_recording(tex_file, ti_pass):
   env = runlatex.RunEnv()
   runlatex.guess_latex_tool(env, tex_file)
+  env.set_extra_latex_opt('-recorder')
   rl = runlatex.RunLatex(env)
+  env.set_rundir('run_recording_pass')
   rl.create_run_dir()
   rl.run_latex_collect_errors(tex_file)
 

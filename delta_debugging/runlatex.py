@@ -1,9 +1,3 @@
-#tmpdir          = 'tmp'
-#rundir_basename = 'run'
-#latex_tool      = 'latex'
-#latex_cmdline   = '(ulimit -t 30; echo -n '' | ${LATEX} -interaction batchmode -output-directory ${RUNDIR} ${FILENAME}) 2>&1 >${RUNDIR}/stdout.txt'
-#latex_max_rerun = 3
-
 class RunEnv:
   def __init__(self):
     self.tool = 'pdflatex'
@@ -11,14 +5,16 @@ class RunEnv:
     self.extra_latex_opt = ''
     self.texinput_var = None
     self.tmpdir = 'tmp'
-    self.rundir_basename = 'run'
-    self.rundir = None
+    self.rundir = 'run'
+    self.rundir_created = 0
   def set_rundir(self, rundir):
     self.rundir = rundir
   def get_rundir(self):
     return self.rundir
   def set_latex_tool(self, tool):
     self.tool = tool
+  def set_extra_latex_opt(self, opt):
+    self.extra_latex_opt = opt
 
 import sys, os, tempfile, string, re, shutil
 
@@ -28,13 +24,16 @@ import sys, os, tempfile, string, re, shutil
 # If exist, first rename existing, then create new.
 #
 def create_run_dir(env):
-  rundir = os.path.join(env.tmpdir, env.rundir_basename)
+  if env.rundir_created:
+    return self.rundir
+  rundir = os.path.join(env.tmpdir, env.rundir)
   if os.path.isdir(rundir):
     tempfile.tempdir = env.tmpdir
-    newdir = tempfile.mktemp(prefix='run_')
+    newdir = tempfile.mktemp(prefix=env.rundir+'_')
     os.rename(rundir, newdir)
   os.makedirs(rundir)
   env.set_rundir(rundir)
+  env.rundir_created = 1
   return rundir
 
 def run_latex(env, filename):
