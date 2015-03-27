@@ -1,10 +1,11 @@
 import getopt, sys, os, shutil
 import runlatex
 
-def run_recording(tex_file, ti_pass):
+def run_recording(tex_file, ti):
   env = runlatex.RunEnv()
   runlatex.guess_latex_tool(env, tex_file)
   env.set_extra_latex_opt('-recorder')
+  env.set_texinputs(ti)
   rl = runlatex.RunLatex(env)
   env.set_rundir('run_recording_pass')
   rundir = rl.create_run_dir()
@@ -25,17 +26,15 @@ def run_recording(tex_file, ti_pass):
     tgt_fname = os.path.join(rundir, bname)
     shutil.copy(fname, tgt_fname)
 
-ti_pass = None
-ti_fail = None
-main_file = None
-
 def usage():
   print "python depdd.py --main something.tex"
   print "  --tipass <TEXTINPUTS for PASS-compilation>"
   print "  --tifail <TEXTINPUTS for FAIL-compilation>"
 
 def main():
-  global main_file
+  ti_pass = None
+  ti_fail = None
+  main_file = None
   try:
     opts, args = getopt.getopt(sys.argv[1:], 'h', ['help', 'main=', 'tipass=', 'tifail=', 'help'])
   except getopt.GetoptError, err:
@@ -46,8 +45,12 @@ def main():
     if o in ('-h', '--help'):
       usage()
       sys.exit(0)
-    elif o in ('--main'):
+    elif '--main' == o:
       main_file = a
+    elif '--tipass' == o:
+      ti_pass = a
+    elif '--tifail' == o:
+      ti_fail = a
     else:
       assert 0, "unhandled option " + o
   assert main_file, "Main .tex-file is required"

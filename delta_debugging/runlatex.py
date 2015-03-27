@@ -3,9 +3,10 @@ class RunEnv:
     self.tool = 'pdflatex'
     self.cmdline = '(ulimit -t 30; echo -n '' | ${LATEX} -interaction batchmode -output-directory ${RUNDIR} ${EXTRAOPT} ${FILENAME}) 2>&1 >${RUNDIR}/stdout.txt'
     self.extra_latex_opt = ''
-    self.texinput_var = None
+    self.texinputs = None
     self.tmpdir = 'tmp'
     self.rundir = 'run'
+    self.max_reruns = 3
     self.rundir_created = 0
   def set_rundir(self, rundir):
     self.rundir = rundir
@@ -15,6 +16,8 @@ class RunEnv:
     self.tool = tool
   def set_extra_latex_opt(self, opt):
     self.extra_latex_opt = opt
+  def set_texinputs(self, ti):
+    self.texinputs = ti
 
 import sys, os, tempfile, string, re, shutil
 
@@ -44,9 +47,22 @@ def run_latex(env, filename):
       'EXTRAOPT': env.extra_latex_opt,
       }
   cmdline = string.Template(env.cmdline).substitute(sub)
-  #print "!!!! going to run:", cmdline # FIXME
-  #s = sys.stdin.readline() # FIXME
-  return os.system(cmdline)
+  orig_ti = os.environ.get('TEXINPUTS', None)
+  revert_ti = 0
+  if env.texinputs:
+    ti = orig_ti or ''
+    ti = '.' + os.pathsep + env.texinputs + os.pathsep + ti
+    os.environ['TEXINPUTS'] = ti
+    revert_ti = 1
+  #print "!!!! going to run:", cmdline, 'TEXINPUTS:', os.environ.get('TEXINPUTS', None)
+  #s = sys.stdin.readline()
+  ccode = os.system(cmdline)
+  if revert_ti:
+    if orig_ti is None:
+      del os.environ['TEXINPUTS']
+    else:
+      os.environ['TEXINPUTS'] = orig_ti
+  return ccode
 
 #
 # errors: everything what starts with '! ' in log
@@ -95,7 +111,7 @@ def run_latex_collect_errors(env, fname):
       return "! HANG\n"                                    # return
     s = collect_errors(env, fname)
     i = i + 1
-    if ('Rerun to get' in s) and (i < latex_max_rerun):
+    if ('Rerun to get' in s) and (i < env.max_reruns):
       continue
     return s                                               # return
 
