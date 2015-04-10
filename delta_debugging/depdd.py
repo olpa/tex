@@ -35,8 +35,11 @@ def main():
   ti_pass = None
   ti_fail = None
   main_file = None
+  args = sys.argv[1:]
+  if not args:
+    args = ['-h']
   try:
-    opts, args = getopt.getopt(sys.argv[1:], 'h', ['help', 'main=', 'tipass=', 'tifail=', 'help'])
+    opts, args = getopt.getopt(args, 'h', ['help', 'main=', 'tipass=', 'tifail=', 'help'])
   except getopt.GetoptError, err:
     print str(err)
     sys.exit(2)
