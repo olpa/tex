@@ -1,8 +1,6 @@
-import os, sys, re
+import os, sys, re, getopt
 import DD
 import runlatex, decider
-
-delta_mode = 'lines'
 
 #
 # LaTeX file consist of parts:
@@ -14,11 +12,12 @@ delta_mode = 'lines'
 #
 re_dclass = re.compile('\\\\documentclass(\\[([^]]*)\\])?\{([^}]*)\}\\s*')
 class LatexFileDelta:
-  def __init__(self, fname, digger=None):
+  def __init__(self, digger=None):
     self.deltas = None
     self.digger = digger
-    if fname is None:
-      return
+    self.file_name = None
+
+  def load_from_file(self, fname):
     self.file_name = fname
     h = open(fname)
     s = h.read()
@@ -79,11 +78,12 @@ class LatexFileDelta:
   #
   # Execute
   #
-  def run_latex(self):
-    rundir = runlatex.create_run_dir()
+  def run_latex(self, env):
+    rl = runlatex.RunLatex(env)
+    rundir = rl.create_run_dir()
     fname = os.path.basename(self.file_name)
     self.write_file(os.path.join(rundir, fname))
-    self.errors = runlatex.run_latex_collect_errors(rundir, fname)
+    self.errors = rl.run_latex_collect_errors(fname)
 
   def get_errors(self):
     return self.errors
@@ -94,6 +94,11 @@ class LatexFileDelta:
     return self.digger(self)
 
 class LatexFileDeltaLineChar(LatexFileDelta):
+
+  def __init__(self, delta_mode, *ls, **kw):
+    LatexFileDelta.__init__(self, *ls, **kw)
+    self.delta_mode = delta_mode
+
   #
   # Each delta is one character. Not effective, but straightforward.
   # Technically, a delta is a three-item entry: (where, index, letter):
@@ -107,7 +112,7 @@ class LatexFileDeltaLineChar(LatexFileDelta):
     def process_part(where, s):
       index = 1
       if s is not None:
-        if 'lines' == delta_mode:
+        if 'lines' == self.delta_mode:
           s = s.split("\n")
           s = [l+"\n" for l in s]
         for ch in s:
@@ -167,16 +172,19 @@ class LatexFileDeltaBlock(LatexFileDelta):
 # DD
 #
 class LatexDD(DD.DD):
-  def __init__(self, fname, digger=None, chunker=LatexFileDeltaLineChar):
+  def __init__(self, env, fname, digger, chunker):
     DD.DD.__init__(self)
-    self.lf = chunker(fname, digger=digger)
+    self.env = env
+    #self.lf = chunker(fname, digger=digger)
+    self.lf = chunker
+    chunker.load_from_file(fname)
     self.last_run = None
     self.decider = decider.decider()
     self.decider.extract_master_errors(self)
 
   def _test(self, deltas):
     lf = self.lf.apply_deltas(deltas)
-    lf.run_latex()
+    lf.run_latex(self.env)
     self.last_run = lf
     return self.decider.get_result(lf)
 
@@ -211,13 +219,55 @@ class LatexDD(DD.DD):
 
 # ---------------------------------------------------------
 
-def main(digger=None, chunker=LatexFileDeltaLineChar):
-  fname = sys.argv[1]
-  runlatex.guess_latex_tool(fname)
-  dd = LatexDD(fname, digger, chunker)
+def usage():
+  print "python latexdd.py --main something.tex --out new.tex"
+  print "  [--stop-after-master]"
+  print "  [--chunker char/line/section] [--chunker-ini settings]*"
+  print "The default chunker is \"line\"."
+  print "Only \"section\" chunker gets required initial settings."
+  print "Each chunker-ini is an regular expression for a start of a section."
+
+def main(digger=None, chunker=None):
+  main_file         = None
+  stop_after_master = 0
+  arg_chunker       = "line"
+  arg_chunker_ini   = []
+  out_file          = None
+  args = sys.argv[1:]
+  if not args:
+    args = ['-h']
+  try:
+    opts, args = getopt.getopt(args, 'h', ['help', 'main=', 'out=', 'chunker=', 'chunker-ini', 'stop-after-master', 'help'])
+  except getopt.GetoptError, err:
+    print str(err)
+    sys.exit(2)
+  assert not len(args), "Extra unparsed arguments: " + str(args)
+  for o, a in opts:
+    if o in ('-h', '--help'):
+      usage()
+      sys.exit(0)
+    elif '--main' == o:
+      main_file = a
+    elif '--stop-after-master' == o:
+      stop_after_master = 1
+    else:
+      assert 0, "unhandled option " + o
+  assert main_file, "Main .tex-file is required"
+  if not chunker:
+    if 'line' == arg_chunker:
+      chunker = LatexFileDeltaLineChar('line')
+    elif 'char' == arg_chunker:
+      chunker = LatexFileDeltaLineChar('char')
+    elif 'section' == arg_chunker:
+      chunker = LatexFileDeltaBlock(arg_chunker_ini)
+    else:
+      assert 0, "Unknown chunker name (expected line/char/section): ''" % arg_chunker
+  env = runlatex.RunEnv()
+  runlatex.guess_latex_tool(env, main_file)
+  dd = LatexDD(env, main_file, digger, chunker)
   dd.decider.print_master_errors()
-  if '--stop-after-master' in sys.argv:
-    sys.exit()
+  if stop_after_master:
+    sys.exit(0)
   deltas = dd.create_deltas()
   c = dd.ddmin(deltas)
   print 'The 1-minimal failure-inducing input is:'
