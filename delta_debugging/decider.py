@@ -9,10 +9,13 @@ class decider:
 
   def extract_master_errors(self, dd_obj):
     ccode = dd_obj.test_with_no_deltas()
+    # We don't have master errors yet
+    # assert 'PASS' == ccode, "No-delta run should bring 'PASS', got: " + ccode
     rl = dd_obj.get_last_run()
     self.pass_errors = rl.get_errors()
     self.pass_extra  = rl.get_reference()
     ccode = dd_obj.test_with_all_deltas()
+    #assert 'FAIL' == ccode, "All-delta run should bring 'FAIL', got: " + ccode
     rl = dd_obj.get_last_run()
     self.fail_errors = rl.get_errors()
     self.fail_extra  = rl.get_reference()

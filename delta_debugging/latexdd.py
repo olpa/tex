@@ -12,13 +12,10 @@ import runlatex, decider
 #
 re_dclass = re.compile('\\\\documentclass(\\[([^]]*)\\])?\{([^}]*)\}\\s*')
 class LatexFileDelta:
-  def __init__(self, digger=None):
+  def __init__(self):
     self.deltas = None
-    self.digger = digger
-    self.file_name = None
 
   def load_from_file(self, fname):
-    self.file_name = fname
     h = open(fname)
     s = h.read()
     h.close()
@@ -33,9 +30,13 @@ class LatexFileDelta:
     pos2 = s.index('\\end{document}')
     self.document = s[16+pos:pos2].strip()
 
+  def get_deltas(self):
+    if self.deltas is None:
+      self.create_deltas()
+    return self.deltas
+
   def start_new_doc(self, with_content):
-    lf = self.__class__(None, digger=self.digger)
-    lf.file_name = self.file_name
+    lf = LatexFileDelta()
     if with_content:
       lf.classname    = self.classname
       lf.classoptions = self.classoptions
@@ -63,35 +64,13 @@ class LatexFileDelta:
 
   def write_file(self, fname):
     h = open(fname, 'w')
-    self.file_name = fname
     self.write_stream(h)
     h.close()
 
-  def get_deltas(self):
-    if self.deltas is None:
-      self.create_deltas()
-    return self.deltas
-
-  def get_tex_file_name(self):
-    return self.file_name
-
-  #
-  # Execute
-  #
-  def run_latex(self, env):
-    rl = runlatex.RunLatex(env)
-    rundir = rl.create_run_dir()
-    fname = os.path.basename(self.file_name)
-    self.write_file(os.path.join(rundir, fname))
-    self.errors = rl.run_latex_collect_errors(fname)
-
-  def get_errors(self):
-    return self.errors
-
-  def get_reference(self):
-    if not self.digger:
-      return ''
-    return self.digger(self)
+  def write_file_for_deltas(self, fname, deltas):
+    lf = self.start_new_doc(with_content=0)
+    lf.deltas = deltas
+    lf.write_file(fname)
 
 class LatexFileDeltaLineChar(LatexFileDelta):
 
@@ -141,6 +120,8 @@ class LatexFileDeltaLineChar(LatexFileDelta):
         lf.classname = self.classname
       else:
         raise Exception("Unsupported delta: " + where)
+    if not lf.document:
+      lf.document = 'Some text to get pages'
     return lf
 
 #
@@ -175,18 +156,19 @@ class LatexDD(DD.DD):
   def __init__(self, env, fname, digger, chunker):
     DD.DD.__init__(self)
     self.env = env
-    #self.lf = chunker(fname, digger=digger)
-    self.lf = chunker
+    self.chunker = chunker
+    self.base_fname = os.path.basename(fname)
     chunker.load_from_file(fname)
     self.last_run = None
     self.decider = decider.decider()
     self.decider.extract_master_errors(self)
 
   def _test(self, deltas):
-    lf = self.lf.apply_deltas(deltas)
-    lf.run_latex(self.env)
-    self.last_run = lf
-    return self.decider.get_result(lf)
+    self.last_run = rl = runlatex.RunLatex(self.env)
+    rundir = rl.create_run_dir()
+    fname = os.path.join(rundir, self.base_fname)
+    self.chunker.write_file_for_deltas(fname, deltas)
+    rl.run_latex_collect_errors(fname)
 
   def get_last_run(self):
     return self.last_run
@@ -198,11 +180,7 @@ class LatexDD(DD.DD):
     return self._test(self.get_deltas())
 
   def create_deltas(self):
-    return self.lf.create_deltas()
-
-  def show_applied_delta(self, deltas, h):
-    lf = self.lf.apply_deltas(deltas)
-    lf.write_stream(h)
+    return self.chunker.create_deltas()
 
   def coerce(self, c):
     if len(c) < 10:
@@ -212,10 +190,7 @@ class LatexDD(DD.DD):
     return s
 
   def get_deltas(self):
-    return self.lf.get_deltas()
-
-  def get_master_errors(self):
-    return self.decider.get_master_errors()
+    return self.chunker.get_deltas()
 
 # ---------------------------------------------------------
 

@@ -1,3 +1,5 @@
+s_cant_run = '! HANG\n'
+
 class RunEnv:
   def __init__(self):
     self.tool = 'pdflatex'
@@ -28,7 +30,7 @@ import sys, os, tempfile, string, re, shutil
 #
 def create_run_dir(env):
   if env.rundir_created:
-    return self.rundir
+    return env.rundir
   rundir = os.path.join(env.tmpdir, env.rundir)
   if os.path.isdir(rundir):
     tempfile.tempdir = env.tmpdir
@@ -108,7 +110,7 @@ def run_latex_collect_errors(env, fname):
   while 1:
     ccode = run_latex(env, fname)
     if ccode > 256:
-      return "! HANG\n"                                    # return
+      return s_cant_run                                    # return
     s = collect_errors(env, fname)
     i = i + 1
     if ('Rerun to get' in s) and (i < env.max_reruns):
@@ -159,7 +161,7 @@ class RunLatex:
     if self.hook_before_run:
       self.hook_before_run(self)
     self.errors = run_latex_collect_errors(self.env, tex_file)
-    if self.digger:
+    if self.digger and (s_cant_run != self.errors):
       self.reference = self.digger(self)
 
   def get_errors(self):
