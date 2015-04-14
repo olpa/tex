@@ -7,12 +7,15 @@ class RunEnv:
     self.extra_latex_opt = ''
     self.texinputs = None
     self.tmpdir = 'tmp'
-    self.rundir = 'run'
+    self.rundir_base = 'run'
+    self.rundir = None
     self.max_reruns = 3
     self.rundir_created = 0
   def set_rundir(self, rundir):
     self.rundir = rundir
   def get_rundir(self):
+    if not self.rundir:
+      self.rundir = os.path.join(self.tmpdir, self.rundir_base)
     return self.rundir
   def set_latex_tool(self, tool):
     self.tool = tool
@@ -29,16 +32,12 @@ import sys, os, tempfile, string, re, shutil
 # If exist, first rename existing, then create new.
 #
 def create_run_dir(env):
-  if env.rundir_created:
-    return env.rundir
-  rundir = os.path.join(env.tmpdir, env.rundir)
+  rundir = env.get_rundir()
   if os.path.isdir(rundir):
     tempfile.tempdir = env.tmpdir
-    newdir = tempfile.mktemp(prefix=env.rundir+'_')
+    newdir = tempfile.mktemp(prefix=env.rundir_base+'_')
     os.rename(rundir, newdir)
   os.makedirs(rundir)
-  env.set_rundir(rundir)
-  env.rundir_created = 1
   return rundir
 
 def run_latex(env, filename):

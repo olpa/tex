@@ -15,7 +15,6 @@ class decider:
     self.pass_errors = rl.get_errors()
     self.pass_extra  = rl.get_reference()
     ccode = dd_obj.test_with_all_deltas()
-    #assert 'FAIL' == ccode, "All-delta run should bring 'FAIL', got: " + ccode
     rl = dd_obj.get_last_run()
     self.fail_errors = rl.get_errors()
     self.fail_extra  = rl.get_reference()

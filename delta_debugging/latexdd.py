@@ -68,8 +68,7 @@ class LatexFileDelta:
     h.close()
 
   def write_file_for_deltas(self, fname, deltas):
-    lf = self.start_new_doc(with_content=0)
-    lf.deltas = deltas
+    lf = self.apply_deltas(deltas)
     lf.write_file(fname)
 
 class LatexFileDeltaLineChar(LatexFileDelta):
