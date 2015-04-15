@@ -168,6 +168,8 @@ class LatexDD(DD.DD):
     fname = os.path.join(rundir, self.base_fname)
     self.chunker.write_file_for_deltas(fname, deltas)
     rl.run_latex_collect_errors(fname)
+    ccode = self.decider.get_result(rl)
+    return ccode
 
   def get_last_run(self):
     return self.last_run
@@ -224,9 +226,13 @@ def main(digger=None, chunker=None):
       main_file = a
     elif '--stop-after-master' == o:
       stop_after_master = 1
+    elif '--out' == o:
+      out_file = a
     else:
       assert 0, "unhandled option " + o
   assert main_file, "Main .tex-file is required"
+  if not stop_after_master:
+    assert out_file, "Output .tex-file is required"
   if not chunker:
     if 'line' == arg_chunker:
       chunker = LatexFileDeltaLineChar('line')
@@ -244,9 +250,7 @@ def main(digger=None, chunker=None):
     sys.exit(0)
   deltas = dd.create_deltas()
   c = dd.ddmin(deltas)
-  print 'The 1-minimal failure-inducing input is:'
-  print '----------------------------------------'
-  dd.show_applied_delta(c, sys.stdout)
+  chunker.write_file_for_deltas(out_file, c)
 
 if '__main__' == __name__:
   main()
