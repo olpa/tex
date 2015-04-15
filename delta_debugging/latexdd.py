@@ -90,7 +90,7 @@ class LatexFileDeltaLineChar(LatexFileDelta):
     def process_part(where, s):
       index = 1
       if s is not None:
-        if 'lines' == self.delta_mode:
+        if 'line' == self.delta_mode:
           s = s.split("\n")
           s = [l+"\n" for l in s]
         for ch in s:
@@ -198,7 +198,7 @@ class LatexDD(DD.DD):
 def usage():
   print "python latexdd.py --main something.tex --out new.tex"
   print "  [--stop-after-master]"
-  print "  [--chunker char/line/section] [--chunker-ini settings]*"
+  print "  [--chunker char/line/cmd[2]/section] [--chunker-ini settings]*"
   print "The default chunker is \"line\"."
   print "Only \"section\" chunker gets required initial settings."
   print "Each chunker-ini is an regular expression for a start of a section."
@@ -228,6 +228,10 @@ def main(digger=None, chunker=None):
       stop_after_master = 1
     elif '--out' == o:
       out_file = a
+    elif '--chunker' == o:
+      arg_chunker = a
+    elif '--chunker-ini' == o:
+      arg_chunker_ini.append(o)
     else:
       assert 0, "unhandled option " + o
   assert main_file, "Main .tex-file is required"
