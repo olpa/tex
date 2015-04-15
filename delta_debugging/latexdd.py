@@ -60,6 +60,8 @@ class LatexFileDelta:
       h.write(self.preamble)
     h.write("\n\\begin{document}\n")
     h.write(self.document)
+    if not self.document:
+      h.write('Some text to get pages')
     h.write("\n\\end{document}\n")
 
   def write_file(self, fname):
@@ -119,21 +121,34 @@ class LatexFileDeltaLineChar(LatexFileDelta):
         lf.classname = self.classname
       else:
         raise Exception("Unsupported delta: " + where)
-    if not lf.document:
-      lf.document = 'Some text to get pages'
     return lf
 
 #
 class LatexFileDeltaBlock(LatexFileDelta):
 
-  def does_lines_start_chunk(self, l):
-    raise NotImplementedError
+  def __init__(self, re_list):
+    LatexFileDelta.__init__(self)
+    self.re_list = []
+    for r in re_list:
+      c = re.compile(r)
+      self.re_list.append(c)
+
+  def where_does_line_start_chunk(self, l):
+    for r in self.re_list:
+      m = r.search(l)
+      if m:
+        return m.start()
+    return None
 
   def create_deltas(self):
     deltas = []
     a = []
     for l in self.document.split("\n"):
-      if self.does_lines_start_chunk(l):
+      i = self.where_does_line_start_chunk(l)
+      if i is not None:
+        if i > 0:
+          a.append(l[:i])
+          l = l[i:]
         if a:
           deltas.append("\n".join(a))
           a = []
@@ -213,7 +228,7 @@ def main(digger=None, chunker=None):
   if not args:
     args = ['-h']
   try:
-    opts, args = getopt.getopt(args, 'h', ['help', 'main=', 'out=', 'chunker=', 'chunker-ini', 'stop-after-master', 'help'])
+    opts, args = getopt.getopt(args, 'h', ['help', 'main=', 'out=', 'chunker=', 'chunker-ini=', 'stop-after-master', 'help'])
   except getopt.GetoptError, err:
     print str(err)
     sys.exit(2)
@@ -231,7 +246,8 @@ def main(digger=None, chunker=None):
     elif '--chunker' == o:
       arg_chunker = a
     elif '--chunker-ini' == o:
-      arg_chunker_ini.append(o)
+      print '!!!', a # FIXME
+      arg_chunker_ini.append(a)
     else:
       assert 0, "unhandled option " + o
   assert main_file, "Main .tex-file is required"
