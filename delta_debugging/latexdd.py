@@ -1,6 +1,8 @@
-import os, sys, re, getopt
+import os, sys, re, getopt, logging
 import DD
 import runlatex, decider
+
+logger_deltas = logging.getLogger('deltas')
 
 #
 # LaTeX file consist of parts:
@@ -31,9 +33,11 @@ class LatexFileDelta:
     self.document = s[16+pos:pos2].strip()
 
   def get_deltas(self):
+    def nop(*ls):
+      pass
     if self.deltas is None:
       self.create_deltas()
-    return self.deltas
+    return range(len(self.deltas))
 
   def start_new_doc(self, with_content):
     lf = LatexFileDelta()
@@ -69,9 +73,13 @@ class LatexFileDelta:
     self.write_stream(h)
     h.close()
 
-  def write_file_for_deltas(self, fname, deltas):
-    lf = self.apply_deltas(deltas)
+  def write_file_for_deltas(self, fname, idx_deltas):
+    lf = self.apply_idx_deltas(idx_deltas)
     lf.write_file(fname)
+
+  def apply_idx_deltas(self, idx_deltas):
+    deltas = [self.deltas[i] for i in idx_deltas]
+    return self.apply_deltas(deltas)
 
 class LatexFileDeltaLineChar(LatexFileDelta):
 
@@ -163,6 +171,11 @@ class LatexFileDeltaBlock(LatexFileDelta):
     lf.document = "\n".join(deltas)
     return lf
 
+def debug_prepare_deltas_for_print(idces, chunker):
+  d = [chunker.deltas[i] for i in idces]
+  d = [s if len(s)<=16 else s[:13]+'...' for s in d]
+  return d
+
 #
 # DD
 #
@@ -173,11 +186,15 @@ class LatexDD(DD.DD):
     self.chunker = chunker
     self.base_fname = os.path.basename(fname)
     chunker.load_from_file(fname)
+    if logger_deltas.isEnabledFor(logging.DEBUG):
+      logger_deltas.debug("LatexDD:__init__: " + str(debug_prepare_deltas_for_print(chunker.get_deltas(), chunker)))
     self.last_run = None
     self.decider = decider.decider()
     self.decider.extract_master_errors(self)
 
   def _test(self, deltas):
+    if logger_deltas.isEnabledFor(logging.DEBUG):
+      logger_deltas.debug("LatexDD:_test: " + str(debug_prepare_deltas_for_print(deltas, self.chunker)))
     self.last_run = rl = runlatex.RunLatex(self.env)
     rundir = rl.create_run_dir()
     fname = os.path.join(rundir, self.base_fname)
@@ -195,9 +212,6 @@ class LatexDD(DD.DD):
   def test_with_all_deltas(self):
     return self._test(self.get_deltas())
 
-  def create_deltas(self):
-    return self.chunker.create_deltas()
-
   def coerce(self, c):
     if len(c) < 10:
       s = str(c)
@@ -206,7 +220,10 @@ class LatexDD(DD.DD):
     return s
 
   def get_deltas(self):
-    return self.chunker.get_deltas()
+    deltas = self.chunker.get_deltas()
+    if logger_deltas.isEnabledFor(logging.DEBUG):
+      logger_deltas.debug("LatexDD:get_deltas: " + str(debug_prepare_deltas_for_print(deltas, self.chunker)))
+    return deltas
 
 # ---------------------------------------------------------
 
@@ -246,7 +263,6 @@ def main(digger=None, chunker=None):
     elif '--chunker' == o:
       arg_chunker = a
     elif '--chunker-ini' == o:
-      print '!!!', a # FIXME
       arg_chunker_ini.append(a)
     else:
       assert 0, "unhandled option " + o
@@ -268,9 +284,10 @@ def main(digger=None, chunker=None):
   dd.decider.print_master_errors()
   if stop_after_master:
     sys.exit(0)
-  deltas = dd.create_deltas()
+  deltas = dd.get_deltas()
   c = dd.ddmin(deltas)
   chunker.write_file_for_deltas(out_file, c)
 
 if '__main__' == __name__:
+  logging.basicConfig(filename='latex_dd_log', level=logging.DEBUG)
   main()
