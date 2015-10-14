@@ -59,8 +59,12 @@
  \let\cals@current@context=\cals@backup@context
 \fi\fi\fi
 %    \end{macrocode}
-% Typeset the row.
+% Typeset the row. If the width of the row is more than hsize, then
+% the issue-code should not fit the row to hsize.
 %    \begin{macrocode}
+\ifdim\wd\cals@current@row>\hsize\relax
+\def\cals@tohsize{}%
+\fi
 \cals@issue@row
 %    \end{macrocode}
 % Consider a table such that thead+row1 do not fit to a page
@@ -347,7 +351,8 @@
 \cals@hbox\cals@tohsize{\cals@hskip@lr\leftskip\rightskip
 \box\cals@current@row \cals@hskip@lr\rightskip\leftskip}%
 \let\cals@last@rs@below=\cals@current@rs@below
-\let\cals@last@context=\cals@current@context}
+\let\cals@last@context=\cals@current@context
+\nobreak}
 %    \end{macrocode}
 % \end{macro}
 
