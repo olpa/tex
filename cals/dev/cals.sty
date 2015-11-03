@@ -30,7 +30,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesPackage{cals}
-    [2014/11/12 CALS tables v.2.3]
+    [2015/11/03 CALS tables v.2.3.2]
 
 
 
@@ -267,10 +267,19 @@
  \let\cals@current@rs@below=\cals@backup@rs@below
  \let\cals@current@context=\cals@backup@context
 \fi\fi\fi
+\ifdim\wd\cals@current@row>\hsize\relax
+\def\cals@tohsize{}%
+\fi
 \cals@issue@row
 \ifx b\cals@last@context
- \ifx h\cals@last@context@bak \vskip0pt \penalty10000 \fi
- \ifx n\cals@last@context@bak \vskip0pt \penalty10000 \fi
+  {\dimen0=\pagetotal\relax
+  \advance\dimen0 by \cals@tfoot@height\relax
+  \advance\dimen0 by -\pagegoal
+  \ifdim\dimen0>0pt\relax
+    \vskip\dimen0
+    \penalty9999 % with 10000, the output page builder is not called
+    \vskip-\dimen0\relax
+  }%
 \fi
 }
 
@@ -387,7 +396,8 @@
 \cals@hbox\cals@tohsize{\cals@hskip@lr\leftskip\rightskip
 \box\cals@current@row \cals@hskip@lr\rightskip\leftskip}%
 \let\cals@last@rs@below=\cals@current@rs@below
-\let\cals@last@context=\cals@current@context}
+\let\cals@last@context=\cals@current@context
+\nobreak}
 
 
 \newenvironment{calstable}[1][\cals@table@alignment]{%

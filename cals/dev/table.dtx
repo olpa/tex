@@ -80,8 +80,15 @@
 % the first row of a table chunk.
 %    \begin{macrocode}
 \ifx b\cals@last@context
- \ifx h\cals@last@context@bak \vskip0pt \penalty10000 \fi
- \ifx n\cals@last@context@bak \vskip0pt \penalty10000 \fi
+  {\dimen0=\pagetotal\relax
+  \advance\dimen0 by \cals@tfoot@height\relax
+  \advance\dimen0 by -\pagegoal
+  \ifdim\dimen0>0pt\relax
+    \vskip\dimen0
+    \penalty9999 % with 10000, the output page builder is not called
+    \vskip-\dimen0\relax
+  \fi
+  }%
 \fi
 }
 %    \end{macrocode}
