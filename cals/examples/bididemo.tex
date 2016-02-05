@@ -1,0 +1,59 @@
+\documentclass[twocolumn]{minimal}
+\usepackage[paper=a5paper,landscape=true,margin=1cm,
+  twocolumn=true,columnsep=1cm]{geometry}
+\usepackage{helvet}
+\usepackage{times}
+\usepackage{color}
+\usepackage{fancyvrb}
+\usepackage{multicol}
+
+\usepackage[RTLdocument]{bidi}
+\usepackage{cals}
+
+\newcommand\newcolumn{\vfil\penalty-10000 }
+\newcommand\small{\fontsize{9pt}{11pt}\selectfont}
+\newcommand\Small{\fontsize{8pt}{9pt}\selectfont}
+\newcommand\Large{\fontsize{12pt}{14pt}\selectfont}
+
+\newcommand\header[1]{\noindent{\Large\bfseries#1\strut}\par\bigskip}
+
+\showboxdepth=100
+\showboxbreadth=100
+
+\begin{document}
+\makeatletter
+
+\header{CALS tables demo}
+\newcolumn
+\parindent=0pt
+by Oleg Parashchenko\par
+\textless{}olpa uucode com\textgreater\par
+\par
+24 May 2013\par
+\clearpage
+
+\header{Simple table}
+\input biditable1
+\newcolumn
+\VerbatimInput{table1.tex}
+\clearpage
+
+\header{Decorations}
+\input biditable2
+\newcolumn
+\VerbatimInput[fontsize=\small]{table2.tex}
+\clearpage
+
+\header{Cell spanning}
+\input table3
+\newcolumn
+\VerbatimInput[fontsize=\small]{table3.tex}
+\clearpage
+
+\header{Multipage table (in a multicols in a table)}
+\input table4
+\newcolumn
+\VerbatimInput[fontsize=\small]{table4.tex}
+\clearpage
+
+\end{document}
