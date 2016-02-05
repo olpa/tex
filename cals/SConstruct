@@ -1,6 +1,6 @@
 import glob, os
 
-version = '20101008'
+version = '20130527'
 out_dir = 'cals-' + version
 
 def add_to_install(file):

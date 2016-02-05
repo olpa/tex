@@ -28,10 +28,11 @@ examples/
   The file "demo.pdf", produced from "demo.tex" and several
   include files, demonstrates features of the cals package.
   To re-generate demo.pdf, after you got cals.ins:
-  $ export TEXINPUTS=../cals:
+  $ ln -s ../dev/cals.sty
   $ pdflatex demo.tex
+  $ xelatex bididemo.tex
 
-tests/
+test/
   Unit tests. See "README" inside.
 
 
