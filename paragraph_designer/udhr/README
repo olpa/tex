@@ -3,6 +3,9 @@ http://www.unicode.org/udhr/
 http://www.unicode.org/udhr/d/udhr_eng.xml
 UDHR = Universal Declaration of Human Rights
 
+paras.py:  The Python paragraph styles
+paras.sty: The generated LaTeX paragraph styles
+udhr.tex:  UDHR in LaTeX
 
 The commands to build PDF:
 
@@ -10,8 +13,10 @@ The commands to build PDF:
 xsltproc -o udhr.texml udhr.xsl udhr_eng.xml
 texml udhr.texml udhr.tex
 # Paragraph styles
+export PYTHONPATH=..:$PYTHONPATH
 python paras.py paras.sty
 # PDF
+export TEXINPUTS=..:$TEXINPUTS
 pdflatex udhr.tex
 
 The commands can be executed running "scons". Clean-up:
