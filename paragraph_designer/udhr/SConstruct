@@ -9,6 +9,8 @@ env = DefaultEnvironment(
     )
 # scons uses system-default PATH, but our TeX is in user-specific PATH
 env['ENV']['PATH'] = os.environ['PATH']
+env['ENV']['PYTHONPATH'] = '..:' + os.environ.get('PATH', '')
+env['ENV']['TEXINPUTS']  = '..:' + os.environ.get('TEXINPUTS', '')
 
 # Python to sty (paragraph designer)
 node_sty = Command('paras.sty', 'paras.py', '$TOOL_PYTHON paras.py paras.sty')
