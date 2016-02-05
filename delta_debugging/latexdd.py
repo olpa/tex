@@ -81,6 +81,11 @@ class LatexFileDelta:
     deltas = [self.deltas[i] for i in idx_deltas]
     return self.apply_deltas(deltas)
 
+def debug_prepare_deltas_for_print(idces, chunker):
+  d = [chunker.deltas[i] for i in idces]
+  d = [s if len(s)<=16 else s[:13]+'...' for s in d]
+  return d
+
 class LatexFileDeltaLineChar(LatexFileDelta):
 
   def __init__(self, delta_mode, *ls, **kw):
@@ -171,12 +176,33 @@ class LatexFileDeltaBlock(LatexFileDelta):
     lf.document = "\n".join(deltas)
     return lf
 
-def debug_prepare_deltas_for_print(idces, chunker):
-  d = [chunker.deltas[i] for i in idces]
-  d = [s if len(s)<=16 else s[:13]+'...' for s in d]
-  return d
-
 #
+class LatexFileDeltaCmd(LatexFileDelta):
+
+  def create_deltas(self):
+    re_cmd = re.compile('\\\\[A-Za-z@]+')
+    self.deltas = deltas = []
+    s = self.document
+    while 1:
+      m = re_cmd.search(s)
+      if not m:
+        break
+      i = m.start()
+      if i > 0:
+        deltas.append(s[:i])
+      j = m.end()
+      deltas.append(s[i:j])
+      s = s[j:]
+    if s:
+      deltas.append(s)
+    return deltas
+
+  def apply_deltas(self, deltas):
+    lf = self.start_new_doc(with_content=1)
+    lf.document = "".join(deltas)
+    return lf
+
+# =========================================================
 # DD
 #
 class LatexDD(DD.DD):
@@ -276,8 +302,10 @@ def main(digger=None, chunker=None):
       chunker = LatexFileDeltaLineChar('char')
     elif 'section' == arg_chunker:
       chunker = LatexFileDeltaBlock(arg_chunker_ini)
+    elif 'cmd' == arg_chunker:
+      chunker = LatexFileDeltaCmd()
     else:
-      assert 0, "Unknown chunker name (expected line/char/section): ''" % arg_chunker
+      assert 0, "Unknown chunker name (expected line/char/section): '%s'" % arg_chunker
   env = runlatex.RunEnv()
   runlatex.guess_latex_tool(env, main_file)
   dd = LatexDD(env, main_file, digger, chunker)
