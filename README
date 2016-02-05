@@ -1,1 +1,21 @@
 A collection of TeX tools and experiments.
+
+======== cals
+
+Multipage tables with wide range of features. Must-use for XML (or anything) to LaTeX conversion. Released on CTAN:
+
+https://www.ctan.org/pkg/cals
+
+======== delta_debugging
+
+Find what causes an error automatically. See https://www.st.cs.uni-saarland.de/dd/
+
+A lot of work is done, but still a lot to do to document and release it. Please resurrect if you can.
+
+======== lyxml
+
+LyX <-> XML roundtrip. Abandoned on a very early stage. Ignore it.
+
+======== viewboxes
+
+wxPython tool to visualise as tree the content of TeX boxes. Use it.
