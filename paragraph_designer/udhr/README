@@ -1,0 +1,19 @@
+UDHR in Unicode
+http://www.unicode.org/udhr/
+http://www.unicode.org/udhr/d/udhr_eng.xml
+UDHR = Universal Declaration of Human Rights
+
+
+The commands to build PDF:
+
+# From XML to TeX
+xsltproc -o udhr.texml udhr.xsl udhr_eng.xml
+texml udhr.texml udhr.tex
+# Paragraph styles
+python paras.py paras.sty
+# PDF
+pdflatex udhr.tex
+
+The commands can be executed running "scons". Clean-up:
+"scons -c". For details, see the build script SConstruct
+and www.scons.org.

@@ -1,0 +1,26 @@
+# Build chain for SCons (www.scons.org)
+import os
+
+env = DefaultEnvironment(
+    TOOL_XSLTPROC = 'xsltproc',
+    TOOL_TEXML    = 'texml',
+    TOOL_LATEX    = 'pdflatex',
+    TOOL_PYTHON   = 'python',
+    )
+# scons uses system-default PATH, but our TeX is in user-specific PATH
+env['ENV']['PATH'] = os.environ['PATH']
+
+# Python to sty (paragraph designer)
+node_sty = Command('paras.sty', 'paras.py', '$TOOL_PYTHON paras.py paras.sty')
+
+# XML to TeX
+node_texml = Command('udhr.texml', 'udhr_eng.xml', '$TOOL_XSLTPROC -o $TARGET udhr.xsl $SOURCE')
+Depends(node_texml, 'udhr.xsl')
+
+node_tex = Command('udhr.tex', node_texml, '$TOOL_TEXML $SOURCE $TARGET')
+
+# PDF
+node_pdf = Command('udhr.pdf', node_tex, '$TOOL_LATEX $SOURCE')
+Depends(node_pdf, node_sty)
+Clean(node_pdf, ['udhr.aux', 'udhr.log', 'udhr.out'])
+Default(node_pdf)

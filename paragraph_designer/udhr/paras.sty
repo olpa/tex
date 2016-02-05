@@ -1,0 +1,42 @@
+\ProvidesPackage{paras}[2016/01/25 Automatically generated paragraph styles for: paras]
+% RTL hook
+\let\pd@leftskip=\leftskip
+
+\newcommand{\UseParaDefault}{\fontsize{10pt}{12pt plus.5pt minus.5pt}\selectfont}%
+
+\newcommand{\paracmd}[1]{{%
+%
+\ParaSpaceAbove{10pt plus1pt minus1pt}%
+\noindent #1\par}\ParaSpaceBelow{0pt}}
+\newenvironment{para}{%
+\ParaSpaceAbove{10pt plus1pt minus1pt}%
+\noindent \ignorespaces}
+{\par\global\def\pd@after@para{\ParaSpaceBelow{0pt}}\aftergroup\pd@after@para}
+
+\newcommand{\HeadI}[1]{{%
+\fontsize{12pt}{14pt}\fontseries{b}\selectfont%
+\ParaSpaceAbove{20pt}%
+\noindent #1\par}\nobreak\ParaSpaceBelow{20pt}}
+
+\newcommand{\HeadII}[1]{{%
+\fontsize{11pt}{13pt}\fontseries{b}\selectfont%
+\ParaSpaceAbove{15pt}%
+\noindent #1\par}\nobreak\ParaSpaceBelow{15pt}}
+
+\newcommand{\UseParaUdhrList}[1]{{%
+%
+\ParaSpaceAbove{10pt plus1pt minus1pt}%
+\noindent #1\par}\ParaSpaceBelow{10pt plus1pt minus1pt}}
+\newenvironment{udhrlist}{%
+\ParaSpaceAbove{10pt plus1pt minus1pt}%
+\noindent \ignorespaces}
+{\par\global\def\pd@after@para{\ParaSpaceBelow{10pt plus1pt minus1pt}}\aftergroup\pd@after@para}
+
+\newcommand{\listitem}[2]{{%
+%
+\ParaSpaceAbove{8pt}%
+\interlinepenalty=150\relax%
+\noindent \advance\pd@leftskip by 0.5cm %
+\hbox to 0pt{\hss\hbox to 0.5cm{#1\hss}\dimen0=0.5cm %
+\advance\dimen0 by -0cm \advance\dimen0 by -0.5cm \hskip\dimen0}%
+\the\everypar #2\par}\ParaSpaceBelow{0pt}}
