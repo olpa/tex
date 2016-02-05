@@ -1,0 +1,18 @@
+import os
+
+version = '160205'
+out_dir = 'parades-' + version
+
+def add_install(fname):
+  node = InstallAs(os.path.join(out_dir, fname), fname)
+  Alias('copy', node)
+
+for fname in "parades.py paravesp.sty README".split():
+  add_install(fname)
+node = Install(out_dir, "doc/parades.pdf")
+for fname in "README SConstruct paras.py paras.sty udhr_eng.xml udhr.pdf udhr.tex udhr.xsl".split():
+  fname = os.path.join("udhr", fname)
+  add_install(fname)
+
+node = Zip(out_dir + '.zip', out_dir)
+Alias('dist', node)
