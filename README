@@ -16,6 +16,14 @@ A lot of work is done, but still a lot to do to document and release it. Please 
 
 LyX <-> XML roundtrip. Abandoned on a very early stage. Ignore it.
 
+======== paragraph_designer
+
+The LaTeX package paravesp controls the spaces above and below paragraphs.
+
+The python script parades.py generates paragraph styles with support of space above, space below and tabulators.
+
+Recommended for XML to LaTeX conversion.
+
 ======== viewboxes
 
 wxPython tool to visualise as tree the content of TeX boxes. Use it.
