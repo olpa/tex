@@ -2,3 +2,4 @@
 *.out
 *.log
 udhr.texml
+*.pyc
