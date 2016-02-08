@@ -1,6 +1,6 @@
 import os
 
-version = '160205'
+version = '160208'
 out_dir = 'parades-' + version
 
 def add_install(fname):

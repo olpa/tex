@@ -3,3 +3,5 @@ The LaTeX package paravesp controls the spaces above and below paragraphs.
 The python script parades.py generates paragraph styles with support of space above, space below and tabulators.
 
 Author: Oleg Parashchenko  olpa @ http://uucode.com/
+License: The LaTeX Project Public License
+http://www.ctan.org/license/lppl1.3
