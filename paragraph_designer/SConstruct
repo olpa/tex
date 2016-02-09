@@ -1,10 +1,15 @@
 import os
 
-version = '160208'
+version = '160209'
 out_dir = 'parades-' + version
 
 def add_install(fname):
-  node = InstallAs(os.path.join(out_dir, fname), fname)
+  out_fname = fname
+  if 'udhr' in fname:
+    out_fname = fname.replace('udhr/', 'example/')
+    if 'README' in fname:
+      out_fname = out_fname + '.example'
+  node = InstallAs(os.path.join(out_dir, out_fname), fname)
   Alias('copy', node)
 
 for fname in "parades.py paravesp.sty README".split():
@@ -14,5 +19,11 @@ for fname in "README SConstruct paras.py paras.sty udhr_eng.xml udhr.pdf udhr.te
   fname = os.path.join("udhr", fname)
   add_install(fname)
 
-node = Zip(out_dir + '.zip', out_dir)
+# The internal Python zipper probably sets the "binary" flag for the files.
+# Let's switch to the external command (copied from SCons/Tool/zip.py).
+zip_cmd = "$ZIP $ZIPFLAGS ${TARGET.abspath} $SOURCES"
+zip_action = Action(zip_cmd, varlist=['ZIPCOMPRESSION'])
+DefaultEnvironment()['ZIPCOM'] = zip_action
+
+node = Zip(out_dir + '.zip', out_dir, ZIPFLAGS='-r')
 Alias('dist', node)
