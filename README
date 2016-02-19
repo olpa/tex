@@ -16,6 +16,10 @@ A lot of work is done, but still a lot to do to document and release it. Please 
 
 LyX <-> XML roundtrip. Abandoned on a very early stage. Ignore it.
 
+======== page_designer
+
+GUI to create a page layout for LaTeX.
+
 ======== paragraph_designer
 
 The LaTeX package paravesp controls the spaces above and below paragraphs.
