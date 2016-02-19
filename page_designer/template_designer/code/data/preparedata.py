@@ -29,7 +29,7 @@ class PrepareData():
         if not self.item.IsOk():
             return
         self.xml = parent.document.GetItemPyData(self.item)
-        if not self.xml:
+        if self.xml is None:
             return
 
         self.tempItemData = parent.tempItemData
@@ -254,7 +254,7 @@ class PrepareData():
         
         """
         xmlVal = xml.find("{http://www.bitplant.de/template}parameter")
-        if xmlVal:
+        if xmlVal is not None:
             for val in xmlVal:
                 if "value" in val.keys():
                     if val.attrib["value"].count(".") > 0:
@@ -265,7 +265,7 @@ class PrepareData():
         
         """
         xmlParam = xml.find("{http://www.bitplant.de/template}parameter")
-        if xmlParam:
+        if xmlParam is not None:
             order = ("description", "dimension", "position", "paper")
             sort = []
             for tag in order:
