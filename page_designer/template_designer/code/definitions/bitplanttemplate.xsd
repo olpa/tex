@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.bitplant.de/template"
+	xmlns="http://www.bitplant.de/template"
+	elementFormDefault="unqualified"
+	attributeFormDefault="unqualified">
+
+<xs:element name="designer" type="designerType"/>
+
+<xs:complexType name="designerType">
+	<xs:sequence>
+		<xs:element name="template" type="templateType" minOccurs="0" maxOccurs="unbounded"/>
+	</xs:sequence>
+	<xs:attributeGroup ref="identifyGroup"/>
+</xs:complexType>
+
+<xs:element name="template" type="templateType"/>
+
+<xs:complexType name="templateType">
+	<xs:sequence>
+		<xs:element name="parameter" type="parameterType" minOccurs="1" maxOccurs="1"/>
+		<xs:element name="page" type="pageType" minOccurs="0" maxOccurs="unbounded"/>
+	</xs:sequence>
+	<xs:attributeGroup ref="identifyGroup"/>
+</xs:complexType>
+
+<xs:complexType name="pageType">
+	<xs:sequence>
+		<xs:element name="parameter" type="parameterType" minOccurs="1" maxOccurs="1"/>
+		<xs:element name="frame" type="frameType" minOccurs="0" maxOccurs="unbounded"/>
+	</xs:sequence>
+	<xs:attributeGroup ref="identifyGroup"/>
+	<xs:attribute name="inherit" type="inheritAttrType" default="enable"/>
+</xs:complexType>
+
+<xs:complexType name="frameType">
+	<xs:sequence>
+		<xs:element name="parameter" type="parameterFrameType" minOccurs="1" maxOccurs="1"/>
+		<xs:element name="content" type="contentType" minOccurs="1" maxOccurs="1"/>
+	</xs:sequence>
+	<xs:attributeGroup ref="identifyGroup"/>
+</xs:complexType>
+
+<xs:complexType name="parameterType">
+	<xs:sequence>
+		<xs:element name="description" type="descriptionType" minOccurs="0" maxOccurs="1"/>
+		<xs:element name="dimension" type="dimensionType" minOccurs="0" maxOccurs="2" />
+		<xs:element name="position" type="positionType" minOccurs="0" maxOccurs="4"/>
+		<xs:element name="paper" type="paperType" minOccurs="0" maxOccurs="3"/>
+	</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="parameterFrameType">
+	<xs:sequence>
+		<xs:element name="description" type="descriptionType" minOccurs="0" maxOccurs="1"/>
+		<xs:element name="dimension" type="dimensionType" minOccurs="0" maxOccurs="2" />
+		<xs:element name="position" type="positionType" minOccurs="0" maxOccurs="4"/>
+	</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="descriptionType">
+	<xs:restriction base="xs:string" />
+</xs:simpleType>
+
+<xs:complexType name="dimensionType">
+	<xs:attribute name="type" type="dimensionAttrType" use="required"/>
+	<xs:attribute name="unit" type="unitType" default="mm"/>
+	<xs:attribute name="value" type="valueDecimalType" use="required"/>
+</xs:complexType>
+
+<xs:complexType name="positionType">
+	<!-- Same thing as above. XML Schema would be nice here-->
+	<xs:attribute name="type" type="positionAttrType" use="required"/>
+	<xs:attribute name="unit" type="unitType" default="mm"/>
+	<xs:attribute name="value" type="valueDecimalType" use="required"/>
+</xs:complexType>
+
+<xs:complexType name="paperType">
+	<!-- Same thing as above. XML Schema would be nice here-->
+	<xs:attribute name="type" type="paperAttrType" use="required"/>
+	<xs:attribute name="value" type="valuePaperType" use="required"/>
+</xs:complexType>
+
+<xs:complexType name="contentType">
+	<xs:simpleContent>
+		<xs:extension base="xs:string">
+			<xs:attribute name="type" type="contentAttrType" use="required"/>
+			<xs:attribute name="angle" type="angleAttrType" default="0"/>
+		</xs:extension>
+	</xs:simpleContent>
+</xs:complexType>
+
+<xs:simpleType name="dimensionAttrType">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="height"/>
+		<xs:enumeration value="width"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="positionAttrType">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="left"/>
+		<xs:enumeration value="right"/>
+		<xs:enumeration value="top"/>
+		<xs:enumeration value="bottom"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="paperAttrType">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="orientation"/>
+		<xs:enumeration value="layout"/>
+		<xs:enumeration value="format"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="valuePaperType">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="portrait"/>
+		<xs:enumeration value="landscape"/>
+		<xs:enumeration value="oneside"/>
+		<xs:enumeration value="twoside"/>
+		<xs:enumeration value="a3"/>
+		<xs:enumeration value="a4"/>
+		<xs:enumeration value="a5"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="unitType">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="mm"/>
+		<xs:enumeration value="cm"/>
+		<xs:enumeration value="inch"/>
+		<xs:enumeration value="pt"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="valueDecimalType">
+	<xs:restriction base="xs:decimal"/>
+</xs:simpleType>
+
+<xs:simpleType name="inheritAttrType">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="enable"/>
+		<xs:enumeration value="disable"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="contentAttrType">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="color"/>
+		<xs:enumeration value="image"/>
+		<xs:enumeration value="text"/>
+		<xs:enumeration value="vartext"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="angleAttrType">
+	<xs:restriction base="xs:integer">
+		<xs:enumeration value="0"/>
+		<xs:enumeration value="90"/>
+		<xs:enumeration value="180"/>
+		<xs:enumeration value="270"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:attributeGroup name="identifyGroup">
+	<xs:attribute name="name" type="xs:string" use="required"/>
+	<xs:attribute name="id" type="xs:ID" use="optional"/>
+	<xs:attribute name="lang" type="xs:language" use="optional"/>
+</xs:attributeGroup>
+
+</xs:schema>

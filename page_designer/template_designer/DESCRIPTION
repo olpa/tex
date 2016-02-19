@@ -1,0 +1,16 @@
+Template-Designer is a utility to create template definitions 
+which are ready to convert to XSL-FO or TeXML
+
+----------------------------------------------------------------------
+
+olpa notes.
+
+Design of the program:
+
+Main frame is extended by function from helper classes.
+
+The information panel isn't re-used. Each time user selects a new branch in the tree, the new panel is created and the old one is deleted.
+
+With each item in the tree, a corresponding XML chunk is associated. Information panels are filled in from this XML, and this XML is updated when leaving the panel.
+
+Also, for some reason, the global dictionary tempItemData is used. This might be a source for bugs, and actually I had to fix one (see svn logs for 03.06.2010 and 04.06.2010).

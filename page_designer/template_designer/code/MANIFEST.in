@@ -1,0 +1,4 @@
+recursive-include help *.html *.css *.png
+recursive-include definitions *.xml *.dtd *.xsd *.xsl
+recursive-include graphics *.png
+include AUTHOR COPYING DESCRIPTION INSTALLATION templatedesigner.conf logo.png  splash.png templatedesigner.command

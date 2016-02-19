@@ -1,0 +1,2638 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ISO_639_List xml:lang="en">
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>﻿aar</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>aa</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Afar</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>afar</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>abk</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ab</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Abkhazian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>abkhaze</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ace</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Achinese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>aceh</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ach</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Acoli</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>acoli</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ada</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Adangme</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>adangme</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ady</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Adyghe; Adygei</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>adyghé</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>afa</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Afro-Asiatic (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>afro-asiatiques, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>afh</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Afrihili</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>afrihili</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>afr</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>af</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Afrikaans</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>afrikaans</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ain</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Ainu</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>aïnou</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>aka</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ak</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Akan</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>akan</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>akk</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Akkadian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>akkadien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>alb</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>sqi</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>sq</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Albanian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>albanais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ale</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Aleut</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>aléoute</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>alg</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Algonquian languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>algonquines, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>alt</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Southern Altai</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>altai du Sud</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>amh</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>am</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Amharic</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>amharique</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ang</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>English, Old (ca.450-1100)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>anglo-saxon (ca.450-1100)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>anp</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Angika</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>angika</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>apa</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Apache languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>apache</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ara</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ar</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Arabic</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>arabe</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>arc</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Official Aramaic (700-300 BCE); Imperial Aramaic (700-300 BCE)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>araméen d'empire (700-300 BCE)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>arg</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>an</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Aragonese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>aragonais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>arm</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>hye</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>hy</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Armenian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>arménien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>arn</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Mapudungun; Mapuche</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>mapudungun; mapuche; mapuce</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>arp</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Arapaho</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>arapaho</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>art</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Artificial (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>artificielles, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>arw</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Arawak</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>arawak</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>asm</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>as</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Assamese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>assamais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ast</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Asturian; Bable; Leonese; Asturleonese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>asturien; bable; léonais; asturoléonais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ath</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Athapascan languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>athapascanes, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>aus</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Australian languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>australiennes, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ava</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>av</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Avaric</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>avar</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ave</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ae</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Avestan</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>avestique</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>awa</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Awadhi</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>awadhi</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>aym</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ay</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Aymara</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>aymara</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>aze</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>az</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Azerbaijani</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>azéri</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bad</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Banda languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>banda, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bai</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Bamileke languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>bamilékés, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bak</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ba</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Bashkir</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>bachkir</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bal</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Baluchi</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>baloutchi</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bam</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>bm</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Bambara</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>bambara</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ban</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Balinese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>balinais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>baq</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>eus</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>eu</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Basque</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>basque</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bas</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Basa</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>basa</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bat</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Baltic (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>baltiques, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bej</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Beja; Bedawiyet</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>bedja</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bel</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>be</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Belarusian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>biélorusse</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bem</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Bemba</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>bemba</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ben</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>bn</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Bengali</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>bengali</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ber</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Berber (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>berbères, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bho</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Bhojpuri</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>bhojpuri</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bih</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>bh</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Bihari</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>bihari</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bik</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Bikol</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>bikol</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bin</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Bini; Edo</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>bini; edo</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bis</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>bi</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Bislama</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>bichlamar</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bla</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Siksika</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>blackfoot</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bnt</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Bantu (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>bantoues, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bos</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>bs</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Bosnian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>bosniaque</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bra</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Braj</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>braj</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bre</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>br</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Breton</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>breton</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>btk</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Batak languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>batak, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bua</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Buriat</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>bouriate</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bug</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Buginese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>bugi</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bul</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>bg</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Bulgarian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>bulgare</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>bur</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>mya</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>my</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Burmese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>birman</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>byn</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Blin; Bilin</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>blin; bilen</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>cad</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Caddo</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>caddo</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>cai</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Central American Indian (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>indiennes d'Amérique centrale, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>car</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Galibi Carib</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>karib; galibi; carib</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>cat</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ca</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Catalan; Valencian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>catalan; valencien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>cau</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Caucasian (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>caucasiennes, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ceb</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Cebuano</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>cebuano</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>cel</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Celtic (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>celtiques, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>cha</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ch</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Chamorro</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>chamorro</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>chb</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Chibcha</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>chibcha</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>che</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ce</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Chechen</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tchétchène</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>chg</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Chagatai</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>djaghataï</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>chi</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>zho</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>zh</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Chinese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>chinois</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>chk</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Chuukese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>chuuk</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>chm</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Mari</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>mari</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>chn</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Chinook jargon</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>chinook, jargon</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>cho</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Choctaw</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>choctaw</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>chp</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Chipewyan; Dene Suline</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>chipewyan</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>chr</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Cherokee</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>cherokee</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>chu</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>cu</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Church Slavic; Old Slavonic; Church Slavonic; Old Bulgarian; Old Church Slavonic</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>slavon d'église; vieux slave; slavon liturgique; vieux bulgare</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>chv</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>cv</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Chuvash</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tchouvache</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>chy</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Cheyenne</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>cheyenne</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>cmc</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Chamic languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>chames, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>cop</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Coptic</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>copte</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>cor</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>kw</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Cornish</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>cornique</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>cos</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>co</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Corsican</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>corse</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>cpe</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Creoles and pidgins, English based (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>créoles et pidgins anglais, autres</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>cpf</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Creoles and pidgins, French-based (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>créoles et pidgins français, autres</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>cpp</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Creoles and pidgins, Portuguese-based (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>créoles et pidgins portugais, autres</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>cre</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>cr</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Cree</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>cree</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>crh</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Crimean Tatar; Crimean Turkish</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tatar de Crimé</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>crp</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Creoles and pidgins (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>créoles et pidgins divers</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>csb</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Kashubian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kachoube</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>cus</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Cushitic (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>couchitiques, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>cze</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>ces</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>cs</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Czech</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tchèque</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>dak</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Dakota</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>dakota</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>dan</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>da</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Danish</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>danois</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>dar</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Dargwa</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>dargwa</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>day</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Land Dayak languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>dayak, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>del</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Delaware</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>delaware</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>den</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Slave (Athapascan)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>esclave (athapascan)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>dgr</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Dogrib</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>dogrib</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>din</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Dinka</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>dinka</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>div</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>dv</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Divehi; Dhivehi; Maldivian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>maldivien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>doi</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Dogri</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>dogri</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>dra</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Dravidian (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>dravidiennes, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>dsb</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Lower Sorbian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>bas-sorabe</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>dua</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Duala</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>douala</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>dum</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Dutch, Middle (ca.1050-1350)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>néerlandais moyen (ca. 1050-1350)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>dut</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>nld</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>nl</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Dutch; Flemish</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>néerlandais; flamand</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>dyu</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Dyula</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>dioula</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>dzo</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>dz</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Dzongkha</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>dzongkha</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>efi</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Efik</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>efik</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>egy</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Egyptian (Ancient)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>égyptien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>eka</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Ekajuk</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>ekajuk</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>elx</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Elamite</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>élamite</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>eng</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>en</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>English</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>anglais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>enm</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>English, Middle (1100-1500)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>anglais moyen (1100-1500)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>epo</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>eo</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Esperanto</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>espéranto</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>est</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>et</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Estonian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>estonien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ewe</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ee</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Ewe</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>éwé</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ewo</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Ewondo</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>éwondo</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>fan</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Fang</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>fang</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>fao</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>fo</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Faroese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>féroïen</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>fat</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Fanti</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>fanti</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>fij</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>fj</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Fijian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>fidjien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>fil</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Filipino; Pilipino</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>filipino; pilipino</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>fin</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>fi</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Finnish</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>finnois</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>fiu</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Finno-Ugrian (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>finno-ougriennes, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>fon</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Fon</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>fon</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>fre</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>fra</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>fr</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>French</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>français</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>frm</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>French, Middle (ca.1400-1600)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>français moyen (1400-1600)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>fro</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>French, Old (842-ca.1400)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>français ancien (842-ca.1400)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>frr</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Northern Frisian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>frison septentrional</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>frs</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Eastern Frisian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>frison oriental</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>fry</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>fy</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Western Frisian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>frison occidental</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ful</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ff</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Fulah</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>peul</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>fur</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Friulian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>frioulan</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>gaa</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Ga</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>ga</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>gay</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Gayo</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>gayo</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>gba</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Gbaya</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>gbaya</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>gem</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Germanic (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>germaniques, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>geo</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>kat</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ka</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Georgian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>géorgien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ger</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>deu</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>de</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>German</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>allemand</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>gez</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Geez</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>guèze</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>gil</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Gilbertese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kiribati</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>gla</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>gd</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Gaelic; Scottish Gaelic</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>gaélique; gaélique écossais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>gle</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ga</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Irish</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>irlandais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>glg</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>gl</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Galician</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>galicien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>glv</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>gv</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Manx</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>manx; mannois</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>gmh</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>German, Middle High (ca.1050-1500)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>allemand, moyen haut (ca. 1050-1500)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>goh</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>German, Old High (ca.750-1050)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>allemand, vieux haut (ca. 750-1050)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>gon</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Gondi</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>gond</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>gor</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Gorontalo</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>gorontalo</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>got</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Gothic</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>gothique</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>grb</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Grebo</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>grebo</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>grc</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Greek, Ancient (to 1453)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>grec ancien (jusqu'à 1453)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>gre</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>ell</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>el</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Greek, Modern (1453-)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>grec moderne (après 1453)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>grn</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>gn</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Guarani</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>guarani</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>gsw</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Swiss German; Alemannic; Alsatian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>suisse alémanique; alémanique; alsacien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>guj</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>gu</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Gujarati</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>goudjrati</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>gwi</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Gwich'in</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>gwich'in</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>hai</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Haida</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>haida</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>hat</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ht</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Haitian; Haitian Creole</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>haïtien; créole haïtien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>hau</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ha</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Hausa</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>haoussa</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>haw</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Hawaiian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>hawaïen</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>heb</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>he</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Hebrew</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>hébreu</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>her</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>hz</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Herero</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>herero</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>hil</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Hiligaynon</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>hiligaynon</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>him</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Himachali</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>himachali</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>hin</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>hi</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Hindi</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>hindi</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>hit</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Hittite</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>hittite</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>hmn</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Hmong</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>hmong</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>hmo</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ho</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Hiri Motu</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>hiri motu</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>hrv</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>hr</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Croatian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>croate</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>hsb</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Upper Sorbian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>haut-sorabe</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>hun</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>hu</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Hungarian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>hongrois</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>hup</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Hupa</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>hupa</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>iba</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Iban</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>iban</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ibo</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ig</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Igbo</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>igbo</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ice</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>isl</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>is</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Icelandic</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>islandais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ido</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>io</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Ido</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>ido</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>iii</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ii</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Sichuan Yi; Nuosu</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>yi de Sichuan</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ijo</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Ijo languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>ijo, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>iku</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>iu</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Inuktitut</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>inuktitut</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ile</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ie</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Interlingue; Occidental</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>interlingue</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ilo</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Iloko</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>ilocano</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ina</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ia</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Interlingua (International Auxiliary Language Association)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>interlingua (langue auxiliaire internationale)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>inc</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Indic (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>indo-aryennes, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ind</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>id</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Indonesian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>indonésien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ine</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Indo-European (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>indo-européennes, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>inh</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Ingush</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>ingouche</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ipk</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ik</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Inupiaq</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>inupiaq</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ira</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Iranian (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>iraniennes, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>iro</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Iroquoian languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>iroquoises, langues (famille)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ita</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>it</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Italian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>italien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>jav</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>jv</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Javanese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>javanais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>jbo</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Lojban</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>lojban</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>jpn</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ja</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Japanese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>japonais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>jpr</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Judeo-Persian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>judéo-persan</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>jrb</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Judeo-Arabic</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>judéo-arabe</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kaa</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Kara-Kalpak</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>karakalpak</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kab</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Kabyle</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kabyle</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kac</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Kachin; Jingpho</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kachin; jingpho</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kal</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>kl</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Kalaallisut; Greenlandic</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>groenlandais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kam</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Kamba</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kamba</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kan</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>kn</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Kannada</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kannada</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kar</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Karen languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>karen, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kas</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ks</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Kashmiri</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kashmiri</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kau</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>kr</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Kanuri</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kanouri</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kaw</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Kawi</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kawi</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kaz</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>kk</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Kazakh</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kazakh</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kbd</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Kabardian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kabardien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kha</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Khasi</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>khasi</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>khi</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Khoisan (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>khoisan, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>khm</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>km</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Central Khmer</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>khmer central</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kho</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Khotanese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>khotanais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kik</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ki</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Kikuyu; Gikuyu</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kikuyu</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kin</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>rw</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Kinyarwanda</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>rwanda</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kir</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ky</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Kirghiz; Kyrgyz</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kirghiz</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kmb</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Kimbundu</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kimbundu</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kok</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Konkani</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>konkani</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kom</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>kv</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Komi</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kom</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kon</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>kg</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Kongo</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kongo</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kor</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ko</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Korean</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>coréen</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kos</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Kosraean</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kosrae</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kpe</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Kpelle</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kpellé</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>krc</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Karachay-Balkar</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>karatchai balkar</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>krl</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Karelian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>carélien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kro</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Kru languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>krou, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kru</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Kurukh</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kurukh</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kua</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>kj</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Kuanyama; Kwanyama</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kuanyama; kwanyama</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kum</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Kumyk</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>koumyk</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kur</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ku</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Kurdish</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kurde</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>kut</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Kutenai</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kutenai</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>lad</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Ladino</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>judéo-espagnol</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>lah</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Lahnda</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>lahnda</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>lam</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Lamba</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>lamba</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>lao</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>lo</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Lao</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>lao</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>lat</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>la</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Latin</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>latin</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>lav</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>lv</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Latvian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>letton</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>lez</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Lezghian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>lezghien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>lim</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>li</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Limburgan; Limburger; Limburgish</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>limbourgeois</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>lin</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ln</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Lingala</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>lingala</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>lit</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>lt</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Lithuanian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>lituanien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>lol</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Mongo</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>mongo</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>loz</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Lozi</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>lozi</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ltz</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>lb</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Luxembourgish; Letzeburgesch</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>luxembourgeois</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>lua</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Luba-Lulua</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>luba-lulua</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>lub</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>lu</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Luba-Katanga</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>luba-katanga</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>lug</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>lg</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Ganda</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>ganda</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>lui</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Luiseno</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>luiseno</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>lun</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Lunda</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>lunda</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>luo</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Luo (Kenya and Tanzania)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>luo (Kenya et Tanzanie)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>lus</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Lushai</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>lushai</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mac</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>mkd</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>mk</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Macedonian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>macédonien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mad</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Madurese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>madourais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mag</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Magahi</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>magahi</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mah</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>mh</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Marshallese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>marshall</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mai</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Maithili</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>maithili</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mak</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Makasar</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>makassar</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mal</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ml</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Malayalam</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>malayalam</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>man</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Mandingo</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>mandingue</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mao</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>mri</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>mi</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Maori</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>maori</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>map</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Austronesian (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>malayo-polynésiennes, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mar</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>mr</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Marathi</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>marathe</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mas</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Masai</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>massaï</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>may</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>msa</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ms</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Malay</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>malais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mdf</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Moksha</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>moksa</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mdr</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Mandar</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>mandar</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>men</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Mende</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>mendé</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mga</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Irish, Middle (900-1200)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>irlandais moyen (900-1200)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mic</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Mi'kmaq; Micmac</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>mi'kmaq; micmac</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>min</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Minangkabau</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>minangkabau</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mis</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Uncoded languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>langues non codées</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mkh</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Mon-Khmer (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>môn-khmer, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mlg</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>mg</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Malagasy</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>malgache</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mlt</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>mt</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Maltese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>maltais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mnc</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Manchu</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>mandchou</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mni</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Manipuri</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>manipuri</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mno</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Manobo languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>manobo, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>moh</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Mohawk</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>mohawk</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mol</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>mo</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Moldavian; Moldovan</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>moldave</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mon</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>mn</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Mongolian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>mongol</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mos</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Mossi</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>moré</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mul</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Multiple languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>multilingue</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mun</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Munda languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>mounda, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mus</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Creek</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>muskogee</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mwl</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Mirandese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>mirandais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>mwr</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Marwari</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>marvari</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>myn</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Mayan languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>maya, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>myv</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Erzya</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>erza</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nah</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Nahuatl languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>nahuatl, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nai</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>North American Indian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>indiennes d'Amérique du Nord, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nap</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Neapolitan</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>napolitain</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nau</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>na</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Nauru</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>nauruan</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nav</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>nv</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Navajo; Navaho</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>navaho</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nbl</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>nr</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Ndebele, South; South Ndebele</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>ndébélé du Sud</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nde</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>nd</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Ndebele, North; North Ndebele</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>ndébélé du Nord</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ndo</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ng</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Ndonga</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>ndonga</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nds</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Low German; Low Saxon; German, Low; Saxon, Low</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>bas allemand; bas saxon; allemand, bas; saxon, bas</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nep</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ne</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Nepali</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>népalais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>new</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Nepal Bhasa; Newari</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>nepal bhasa; newari</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nia</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Nias</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>nias</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nic</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Niger-Kordofanian (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>nigéro-congolaises, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>niu</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Niuean</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>niué</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nno</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>nn</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Norwegian Nynorsk; Nynorsk, Norwegian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>norvégien nynorsk; nynorsk, norvégien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nob</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>nb</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Bokmål, Norwegian; Norwegian Bokmål</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>norvégien bokmål</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nog</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Nogai</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>nogaï; nogay</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>non</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Norse, Old</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>norrois, vieux</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nor</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>no</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Norwegian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>norvégien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nqo</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>N'Ko</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>n'ko</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nso</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Pedi; Sepedi; Northern Sotho</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>pedi; sepedi; sotho du Nord</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nub</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Nubian languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>nubiennes, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nwc</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Classical Newari; Old Newari; Classical Nepal Bhasa</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>newari classique</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nya</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ny</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Chichewa; Chewa; Nyanja</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>chichewa; chewa; nyanja</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nym</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Nyamwezi</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>nyamwezi</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nyn</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Nyankole</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>nyankolé</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nyo</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Nyoro</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>nyoro</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>nzi</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Nzima</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>nzema</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>oci</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>oc</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Occitan (post 1500); Provençal</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>occitan (après 1500); provençal</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>oji</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>oj</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Ojibwa</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>ojibwa</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ori</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>or</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Oriya</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>oriya</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>orm</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>om</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Oromo</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>galla</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>osa</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Osage</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>osage</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>oss</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>os</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Ossetian; Ossetic</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>ossète</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ota</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Turkish, Ottoman (1500-1928)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>turc ottoman (1500-1928)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>oto</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Otomian languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>otomangue, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>paa</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Papuan (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>papoues, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>pag</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Pangasinan</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>pangasinan</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>pal</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Pahlavi</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>pahlavi</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>pam</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Pampanga; Kapampangan</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>pampangan</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>pan</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>pa</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Panjabi; Punjabi</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>pendjabi</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>pap</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Papiamento</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>papiamento</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>pau</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Palauan</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>palau</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>peo</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Persian, Old (ca.600-400 B.C.)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>perse, vieux (ca. 600-400 av. J.-C.)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>per</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>fas</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>fa</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Persian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>persan</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>phi</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Philippine (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>philippines, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>phn</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Phoenician</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>phénicien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>pli</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>pi</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Pali</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>pali</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>pol</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>pl</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Polish</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>polonais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>pon</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Pohnpeian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>pohnpei</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>por</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>pt</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Portuguese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>portugais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>pra</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Prakrit languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>prâkrit</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>pro</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Provençal, Old (to 1500)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>provençal ancien (jusqu'à 1500)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>pus</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ps</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Pushto; Pashto</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>pachto</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>qaa-qtz</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Reserved for local use</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>réservée à l'usage local</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>que</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>qu</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Quechua</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>quechua</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>raj</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Rajasthani</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>rajasthani</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>rap</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Rapanui</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>rapanui</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>rar</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Rarotongan; Cook Islands Maori</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>rarotonga; maori des îles Cook</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>roa</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Romance (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>romanes, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>roh</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>rm</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Romansh</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>romanche</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>rom</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Romany</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tsigane</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>rum</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>ron</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ro</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Romanian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>roumain</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>run</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>rn</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Rundi</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>rundi</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>rup</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Aromanian; Arumanian; Macedo-Romanian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>aroumain; macédo-roumain</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>rus</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ru</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Russian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>russe</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sad</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Sandawe</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sandawe</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sag</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>sg</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Sango</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sango</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sah</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Yakut</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>iakoute</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sai</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>South American Indian (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>indiennes d'Amérique du Sud, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sal</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Salishan languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>salish, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sam</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Samaritan Aramaic</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>samaritain</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>san</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>sa</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Sanskrit</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sanskrit</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sas</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Sasak</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sasak</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sat</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Santali</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>santal</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>scn</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Sicilian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sicilien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sco</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Scots</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>écossais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sel</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Selkup</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>selkoupe</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sem</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Semitic (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sémitiques, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sga</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Irish, Old (to 900)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>irlandais ancien (jusqu'à 900)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sgn</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Sign Languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>langues des signes</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>shn</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Shan</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>chan</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sid</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Sidamo</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sidamo</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sin</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>si</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Sinhala; Sinhalese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>singhalais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sio</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Siouan languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sioux, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sit</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Sino-Tibetan (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sino-tibétaines, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sla</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Slavic (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>slaves, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>slo</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>slk</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>sk</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Slovak</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>slovaque</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>slv</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>sl</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Slovenian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>slovène</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sma</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Southern Sami</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sami du Sud</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sme</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>se</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Northern Sami</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sami du Nord</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>smi</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Sami languages (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sami, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>smj</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Lule Sami</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sami de Lule</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>smn</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Inari Sami</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sami d'Inari</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>smo</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>sm</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Samoan</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>samoan</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sms</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Skolt Sami</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sami skolt</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sna</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>sn</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Shona</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>shona</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>snd</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>sd</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Sindhi</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sindhi</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>snk</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Soninke</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>soninké</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sog</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Sogdian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sogdien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>som</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>so</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Somali</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>somali</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>son</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Songhai languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>songhai, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sot</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>st</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Sotho, Southern</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sotho du Sud</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>spa</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>es</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Spanish; Castilian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>espagnol; castillan</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>srd</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>sc</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Sardinian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sarde</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>srn</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Sranan Tongo</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sranan tongo</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>srp</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>sr</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Serbian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>serbe</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>srr</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Serer</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sérère</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ssa</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Nilo-Saharan (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>nilo-sahariennes, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ssw</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ss</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Swati</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>swati</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>suk</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Sukuma</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sukuma</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sun</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>su</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Sundanese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>soundanais</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sus</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Susu</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>soussou</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>sux</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Sumerian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sumérien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>swa</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>sw</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Swahili</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>swahili</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>swe</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>sv</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Swedish</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>suédois</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>syc</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Classical Syriac</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>syriaque classique</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>syr</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Syriac</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>syriaque</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tah</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ty</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Tahitian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tahitien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tai</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Tai (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>thaïes, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tam</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ta</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Tamil</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tamoul</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tat</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>tt</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Tatar</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tatar</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tel</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>te</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Telugu</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>télougou</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tem</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Timne</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>temne</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ter</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Tereno</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tereno</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tet</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Tetum</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tetum</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tgk</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>tg</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Tajik</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tadjik</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tgl</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>tl</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Tagalog</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tagalog</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tha</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>th</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Thai</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>thaï</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tib</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>bod</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>bo</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Tibetan</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tibétain</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tig</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Tigre</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tigré</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tir</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ti</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Tigrinya</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tigrigna</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tiv</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Tiv</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tiv</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tkl</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Tokelau</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tokelau</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tlh</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Klingon; tlhIngan-Hol</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>klingon</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tli</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Tlingit</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tlingit</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tmh</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Tamashek</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tamacheq</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tog</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Tonga (Nyasa)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tonga (Nyasa)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ton</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>to</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Tonga (Tonga Islands)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tongan (Îles Tonga)</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tpi</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Tok Pisin</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tok pisin</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tsi</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Tsimshian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tsimshian</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tsn</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>tn</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Tswana</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tswana</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tso</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ts</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Tsonga</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tsonga</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tuk</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>tk</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Turkmen</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>turkmène</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tum</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Tumbuka</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tumbuka</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tup</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Tupi languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tupi, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tur</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>tr</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Turkish</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>turc</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tut</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Altaic (Other)</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>altaïques, autres langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tvl</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Tuvalu</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>tuvalu</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>twi</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>tw</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Twi</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>twi</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>tyv</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Tuvinian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>touva</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>udm</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Udmurt</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>oudmourte</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>uga</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Ugaritic</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>ougaritique</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>uig</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ug</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Uighur; Uyghur</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>ouïgour</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ukr</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>uk</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Ukrainian</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>ukrainien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>umb</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Umbundu</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>umbundu</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>und</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Undetermined</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>indéterminée</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>urd</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ur</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Urdu</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>ourdou</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>uzb</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>uz</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Uzbek</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>ouszbek</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>vai</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Vai</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>vaï</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ven</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>ve</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Venda</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>venda</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>vie</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>vi</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Vietnamese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>vietnamien</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>vol</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>vo</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Volapük</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>volapük</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>vot</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Votic</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>vote</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>wak</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Wakashan languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>wakashennes, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>wal</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Walamo</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>walamo</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>war</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Waray</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>waray</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>was</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Washo</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>washo</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>wel</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Alpha-3_Terminologic_Code_element>cym</ISO_639-2_Alpha-3_Terminologic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>cy</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Welsh</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>gallois</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>wen</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Sorbian languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>sorabes, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>wln</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>wa</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Walloon</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>wallon</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>wol</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>wo</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Wolof</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>wolof</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>xal</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Kalmyk; Oirat</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>kalmouk; oïrat</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>xho</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>xh</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Xhosa</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>xhosa</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>yao</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Yao</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>yao</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>yap</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Yapese</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>yapois</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>yid</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>yi</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Yiddish</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>yiddish</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>yor</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>yo</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Yoruba</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>yoruba</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>ypk</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Yupik languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>yupik, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>zap</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Zapotec</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>zapotèque</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>zbl</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Blissymbols; Blissymbolics; Bliss</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>symboles Bliss; Bliss</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>zen</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Zenaga</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>zenaga</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>zha</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>za</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Zhuang; Chuang</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>zhuang; chuang</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>znd</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Zande languages</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>zandé, langues</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>zul</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-1_Alpha-2_Code_element>zu</ISO_639-1_Alpha-2_Code_element>
+		<ISO_639-2_Language_name_en>Zulu</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>zoulou</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>zun</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Zuni</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>zuni</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>zxx</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>No linguistic content; Not applicable</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>pas de contenu linguistique; non applicable</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+	<ISO_639_Entry>
+		<ISO_639-2_Alpha-3_Bibliographic_Code_element>zza</ISO_639-2_Alpha-3_Bibliographic_Code_element>
+		<ISO_639-2_Language_name_en>Zaza; Dimili; Dimli; Kirdki; Kirmanjki; Zazaki</ISO_639-2_Language_name_en>
+		<ISO_639-2_Language_name_fr>zaza; dimili; dimli; kirdki; kirmanjki; zazaki</ISO_639-2_Language_name_fr>
+	</ISO_639_Entry>
+</ISO_639_List>

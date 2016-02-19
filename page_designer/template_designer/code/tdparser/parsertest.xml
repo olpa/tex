@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<designer xmlns="http://www.bitplant.de/template" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="default Compilation" id="blaBla" lang="x-ert">
+    <template lang="EN" name="default Template">
+        <parameter>
+            <description>His many legs, pitifully thin compared with the size of the rest of him, waved about helplessly as he looked. </description>
+            <dimension type="width" unit="mm" value="175" />
+            <dimension type="height" unit="mm" value="240" />
+            <position type="top" unit="mm" value="35" />
+            <position type="left" unit="mm" value="25" />
+            <paper type="orientation" value="portrait" />
+            <paper type="layout" value="oneside" />
+            <paper type="format" value="a0" />
+        </parameter>
+        <page inherit="enable" name="default MasterPage">
+            <parameter>
+                <description>The bedding was hardly able to cover it and seemed ready to slide off any moment. </description>
+                <dimension type="width" unit="mm" value="175" />
+                <dimension type="height" unit="mm" value="240" />
+                <position type="top" unit="mm" value="35" />
+                <position type="left" unit="mm" value="25" />
+                <paper type="orientation" value="portrait" />
+                <paper type="layout" value="oneside" />
+                <paper type="format" value="a3" />
+            </parameter>
+            <frame name="default Frame">
+                <parameter>
+                    <description>He lay on his armour-like back, and if he lifted his head a little he could see his brown belly, slightly domed and divided by arches into stiff sections.</description>
+                    <dimension type="width" unit="mm" value="100" />
+                    <dimension type="height" unit="mm" value="25" />
+                    <position type="top" unit="mm" value="20" />
+                    <position type="left" unit="mm" value="15" />
+                </parameter>
+                <content angle="0" type="text">One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin. </content>
+            </frame>
+        </page>
+    </template>
+</designer>

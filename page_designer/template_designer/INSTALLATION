@@ -1,0 +1,230 @@
+Template-Designer Installation File
+
+Requirements:
+
+Python      tested with 2.5.2 and 2.6, older release may work but are 
+            untested, newer releases won't work because changes in the
+            language definition of python3k
+            Python is used to write the source code of Template-Designer
+            Python is available at http://www.python.org/
+            The Python implementation is under an open source license 
+            that makes it freely usable and distributable, even for 
+            commercial use. The Python license is administered by the 
+            Python Software Foundation.
+
+wxPython    tested with 2.8.8.1, older or newer releases may work but are 
+            untested, wxPthon is used to generate the GUI-Elements
+            wxPython is avaiable at http://www.wxpython.org/ in form of 
+            a source and binary distributions
+            wxPython is licensed under GNU Lesser General Public License
+
+GhostScript tested with version 8.57 and 8.63, older and newer releases 
+            should work, too
+            Template-Designer requires the binary file gs-noX11. If this
+            file is not present in your system, create a symlink to
+            the gs binary via for inside a directory, that is included
+            in PATH variable of your shell, for e.g 
+            ln -s $(find / -name "gs" 2> /dev/null) /usr/local/bin/gs-noX11
+            Template-Designer uses GhostScript to convert pdf and eps 
+            files into a format that is accessible to Template-Designers
+            preview system
+            GhostScript is available at http://pages.cs.wisc.edu/~ghost/
+            or via the macPorts command:
+            sudo port install ghostscript
+            GhostScript is licensed under GNU General Public License
+
+Pil         tested with Version 1.1.6. older Versions should not work 
+            as known, newer releases should work, if Pil's api keeps 
+            unchanged
+            The Python Image Library is required to to conert some 
+            pixel graphics formats into a format that is accessible to
+            Template-Designers preview system
+            Pil is available at http://www.effbot.org/zone/pil-index.htm
+            Pil is licensed under a modified X11 license available at
+            http://www.pythonware.com/products/pil/license.htm
+
+Shipped Third Party Software:
+
+Oxygen      Template-Designer uses icons which are part of the Oxygen 
+            icon set. This icons are licensed under GNU Lesser General 
+            Public License
+            The authors homepage is http://www.oxygen-icons.org/
+            The Oxygen icon set is available at 
+            http://www.kde-look.org/content/show.php?content=74184
+
+keychain.py Template-Designer uses a modified version of Keychain.py
+            Keychain.py is a small library to access the Keychain of 
+            Mac OS X. Keychain is licensed under Berkeley Software 
+            Distribution (BSD) License (revised)
+            The authors homepage is http://muffinresearch.co.uk
+            Keychain is available at https://launchpad.net/keychain.py/
+
+Installation:
+
+* Unpack the sources if required
+* Copy the complete sources into a suitable directory.
+* Copy the file $sources/templatedesigner.[linux|mac].conf to $sources/templatedesigner.conf
+* Open the newly created file $sources/templatedesigner.conf and adapt 
+  it, as you think its good for you.
+* If required, to your modifications of the $sources/templatedesigner.conf, 
+  create the paths you edited in the template section of the file
+  You have to take care, that your user as sufficient rights (rwx) to 
+  access the given directories
+* Start on Mac OS X with the templatedesinger.command, 
+  after you made this file executable via chmod +x templatedesigner.command
+* Start on Linux with templatedesigner.sh, 
+  after you made this file executable via chmod +x templatedesigner.sh 
+
+First steps:
+
+* The Template-Designer starts with an welcome dialog, that gives you the 
+  login in the application with one currently three available profiles.
+* If you are running the Template-Designer the first time, select the 
+  first option "Full Access" and click OK.
+* Now you see the Template-Designer. The first step should be to enter
+  the settings dialog. You go there clicking the "Settings" icon in
+  the toolbar or pressing F9.
+* After the dialog has opened, check if all paths are entered correctly
+  and correct them, if something is wrong.
+* If you are using Mac OS X, you could now also setup the simple password
+  protection, Template-Designer ships with. The meanings of the different
+  access methods are explained in "Usage" here.
+* If you are using Linux, the items inside the "Passwords" notebook
+  are functional disabled.
+
+
+Changelog:
+* Version 0.4: Initial release
+
+ToDo:
+
+* Print preview
+* Import/Export
+* Copy operations inside the tree
+* Keychain support under Linux
+
+Known bugs:
+
+* After applying a color, it is not shown correctly, but after the
+  corresponding frame was clicked again inside the tree. (This is coursed
+  by a crucial mix of the wx.CallAfter() in OnView() method and the 
+  validator of the color panel. The wx.CallAfter() method was not 
+  required in python2.5, so if you are using that release, help is near)
+
+Usage:
+
+The Template-Designer is a front-end to create Bitplant-TemplateXML.
+The left side of the application shows the contents of a client and
+a server repository. The right side of the application is reserved for
+the items to manipulate the Bitplant-TemplateXML.
+
+To add a new Bitplant-TemplateXML Document click on the repository in 
+which you like to store the Document and click the "New" icon inside the
+toolbar or under the repository tree. This adds a new so called 
+Compilation to the repository. A Compilation is a container for several
+templates. 
+If you click again on the "New" icon, you create the first template 
+within the formerly created Compilation. It is advisable to give every
+created element, so until now the compilation and your first template,
+an unique name. This helps a lot while identifying the different 
+compilations and templates. You can recognize a compilation, addition
+to its position in the repository, by its round icon.
+
+After you created your first template, the right side of the application
+got a lot of new items you can use to set up your template. The most
+import is, as already said, the name. It is well to enter a usefull
+description. This becomes handy if another person has to use your Templates
+and has no idea what your template names the hell mean. Templates use
+the icon, that looks like a white paper.
+At this point the Template-Designer lets you decide, what default settings
+should be assumed for the later created pages.
+As you already mention, the Page format defines the page format of
+the final document and the orientation should be clear too. The layout
+instead needs some explanation.You are able to choose a oneside layout
+and a twoside layout. The oneside layout leads to a final document, where
+only one side of the paper is printed. The twoside layout enables a final
+document, that is print on front and back of the paper.
+If paper is printed on front and back and is bound to a book, there
+is no more a left and right position, but an inner and outer position.
+So if you decide to use the twoside layout, you should keep in mind, that
+left means inner position and right means outer position.
+The dimension is not, as you perhaps believe, the size of the paper. 
+Remember you already defined the page format. 
+The dimension defines the width and height of the main text body 
+with "the real" contents. With the position items you define the 
+position of the main text body on the paper. At this point is important
+what we said before. If page layout is twoside, left means inner and 
+right means outer.
+It is enough to define both in the horizontal and the vertical axis
+just two values. For e.g. a definition of the top position and the height
+of the the text body is useful, but a definition of top, height and button,
+is not recommend, because, there can be rounding errors or similar
+things.
+Last but not least the apply button takes your settings, but it does not
+store them. This button currently not really required but can give you
+a good feeling. The restore button, restores the settings, that were active
+after you selected the specific repository item.
+If you now click again on the "New" button, or alternativly press
+[ctrl|cmd] + n, you get a new so called page.
+A page functions similiar to a simple-master-page in FO or a section
+in Word-Documents. A document uses normally not only one page (in the
+sense of page element). A document has a cover page, a table of contents,
+the contents, an index and perhaps a back page. A page can be identified 
+by its white blue icon and the position as child of a template item.
+Each of this document segments defines other rules for headers and 
+footers or the size of the text body. To enable the functionality to
+do this, pages are used. They can be configured like templates with the
+exception, that it is not required to set them up, expect of their 
+name. The name is really important, because the script, that converts
+your xml to a fine-looking pdf recognizes the formatting details with
+the help of this name.
+If you decide, not to use the templates default settings for page format,
+layout and that stuff, you have to enable the "Disable inheritance of
+the template settings" checkbox. This lets you define individual settings
+for the page.
+
+Now it becomes really interesting. If you decide to click again on 
+the "New" button, you get a so called frame. A frame is, as the name says,
+a rectangle with some content. Such a frame can be positioned like the
+text body, that you already defined for the template and perhaps for
+your page. 
+I'd like to repeat once more, that the name of the frame is very import 
+because the same reasons it is important for a page. The, let's name it
+xml2pdf script, recognizes the frames name and applies some formatting
+details, which are currently not directly editable via the 
+Template-Designer. Every frame can use a kind of four allowed contents.
+The kinds are image, color, static text and variable text. Static text 
+and color should be nearly fully self-explaining. A frame of type static 
+text presents the entered text at the position you defined and the a 
+frame of type color shows the selected color at the given position. 
+You have the opportunity to use the rgb or cmyk colorspace. 
+Your selection will be accounted while converting the xml to pdf. 
+The hex code is useful in the case your styleguide (or what ever you 
+are using as orientation) makes only declarations of hex codes and 
+the selection box lets you play with the RGB color values.
+Image frames include an image. It is recommend to choose eps, pdf
+or png images because this formats are most practical by the conversion 
+to a final pdf.
+Last but not least the frames of type vartext are a variety of the
+the static text frames. These frames are able to include dynamic text 
+like the current time or the current chapter number. 
+If you decide to use a variable text frame, you get to more buttons on 
+the panel. The first Date/Time  button opens a new window which 
+presents you all available time values defined by ISO-8601. The Document 
+button opens a window with values to define document specific values like
+the current page number or chapter. All you need to do, is to double 
+click the desired variable value from inside the tree in the new window
+and the variable appears in the textbox of the main window at the position
+your cursor stands at last.
+The text frames allow you also to rotate your text, if this is required.
+For example for a kustode or somethin similar.
+
+Some words to the access restrictions: The Template-Designer makes 
+currently use of three access modes. The full access mode lets
+you create or edit and delete compilations, templates, pages and frames.
+If you are on the way with the restricted access mode you are not allowed
+to create or delete things from the list I even wrote down. This
+should be the normal use because modifying or only selecting a template
+happens a lot times more, than creating a fully new template.
+The View Access is, as the name says, only usable to view the currently 
+available templates.

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ENTITY lt     "&#38;#60;">
+<!ENTITY gt     "&#62;">
+<!ENTITY amp    "&#38;#38;">
+<!ENTITY apos   "&#39;">
+<!ENTITY quot   "&#34;">
+
+<!ENTITY % identify "
+	name CDATA #REQUIRED
+	id ID #IMPLIED
+	lang CDATA #IMPLIED">
+
+<!ENTITY % unit "
+	unit (mm | cm | inch | pt) &#34;mm&#34;">
+<!ENTITY % valueRequired "
+	value CDATA #REQUIRED">
+<!ENTITY % valueImplied "
+	value CDATA #IMPLIED">
+
+<!ENTITY % dimensionType "
+	type (width | height) #REQUIRED">
+<!ENTITY % dimension "
+	%dimensionType;
+	%unit;
+	%value;">
+
+<!ENTITY % positionType "
+	type (top | right | bottom | left) #REQUIRED">
+<!ENTITY % position "
+	%positionType;
+	%unit;
+	%value;">
+
+<!ENTITY % paperType "
+	type (orientation | layout | format) #REQUIRED">
+<!ENTITY % paperValue "
+	value (portrait | landscape | oneside | twoside | a5 | a4 | a3 | letter) #REQUIRED">
+<!ENTITY % paper "
+	%paperType;
+	%paperValue;
+	%paperInherit">
+
+<!ENTITY % paperInherit "
+	inherit (enable | disable) &#34;disable&#34;">
+
+<!ENTITY % contentType "
+	type (color | image | text | vartext) #REQUIRED">
+<!ENTITY % contentAngle "
+	angle (0 | 90 | 180 | 270) &#34;0&#34;">
+<!ENTITY % content "
+	%contentType;
+	%contentAngle;">
+
+
+<!ELEMENT designer (template | EMPTY)*>
+<!ATTLIST designer %identify;>
+
+<!ELEMENT template (parameter, page*)>
+<!ATTLIST template %identify;>
+
+<!ELEMENT page (parameter, frame*)>
+<!ATTLIST page %identify;>
+
+<!ELEMENT frame (parameter, content)>
+<!ATTLIST frame %identify;>
+
+<!ELEMENT content (#PCDATA)>
+<!ATTLIST content %content;>
+
+<!ELEMENT parameter (description?, dimension*, position*, paper*)>
+
+<!ELEMENT description (#PCDATA)>
+
+<!ELEMENT dimension EMPTY>
+<!ATTLIST dimension %dimension;>
+
+<!ELEMENT position EMPTY>
+<!ATTLIST position %position;>
+
+<!ELEMENT paper EMPTY>
+<!ATTLIST paper %paper;>

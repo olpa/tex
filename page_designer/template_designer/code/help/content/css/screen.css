@@ -1,0 +1,26 @@
+body,td,li,h2 {
+	font-size: 10pt;
+	font-family: Verdana, Arial;
+	background-color: #f0f0f0
+}
+
+.headerarea {
+	border-bottom: 1px solid #c0c0c0;
+}
+
+.footerarea {
+	border-top: 1px solid #c0c0c0;
+	margin-top: 8px;
+	font-size: 8pt;
+}
+
+#logo {
+	width: 193px;
+	border-style: none;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0em;
+	padding: 0em 0em .5em 0em;
+}
