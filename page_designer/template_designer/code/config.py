@@ -7,6 +7,28 @@ import os.path
 
 import ConfigParser
 
+# The initial code, not as function, was just normpath(expanduser(path)).
+# Porting to Windows, I've found that "~" is expanded to "c:\document
+# and Settings\User", without "My Documents". The program doesn't have
+# rights to write there. Therefore, having the default settings in mind
+# (~/Library), I rewrite Library-chunk to "My Documents".
+# http://stackoverflow.com/q/6227590
+rewrite_home_dir = None
+if 'win32' == sys.platform:
+  import ctypes.wintypes
+  CSIDL_PERSONAL = 5       # My Documents
+  SHGFP_TYPE_CURRENT = 0   # Get current, not default value
+  buf = ctypes.create_unicode_buffer(ctypes.wintypes.MAX_PATH)
+  ctypes.windll.shell32.SHGetFolderPathW(None, CSIDL_PERSONAL, None, SHGFP_TYPE_CURRENT, buf)
+  rewrite_home_dir = str(buf.value)
+  del buf
+  buf = None
+
+def norm_path(path):
+  if rewrite_home_dir:
+    path = path.replace("~/Library", rewrite_home_dir)
+  return os.path.normpath(os.path.expanduser(path))
+
 class ConfigData:
     """ConfigData adds support of a very simple transparent 
     configuration storage.
@@ -38,7 +60,7 @@ class ConfigData:
         #Load user configuration file
         userConfigFile = self.userDir() + "/" + configFile
         self.userConfig = os.path.expanduser(userConfigFile)
-        self.setConfigFile(self.userConfig, "rw")
+        self.setConfigFile(self.userConfig, "r")
 
         #Prepare Paths
         self.checkDir(self.userDir(), 0744)
@@ -124,12 +146,13 @@ class ConfigData:
         if os.path.isdir(path) == False:
             if makeDir(path) == False:
                 exit(_(u"Could not access required directory " + path))
-        if oct(os.stat(path).st_uid) == os.getuid():
-            checkRights(3)
-        elif oct(os.stat(path).st_gid) == os.getgid():
-            checkRights(4)
-        else:
-            checkRights(5)
+        if 'win32' != sys.platform:
+          if oct(os.stat(path).st_uid) == os.getuid():
+              checkRights(3)
+          elif oct(os.stat(path).st_gid) == os.getgid():
+              checkRights(4)
+          else:
+              checkRights(5)
 
     def getExamples(self):
         """getExampled copies all files from the example directory
@@ -158,46 +181,46 @@ class ConfigData:
             exit(_(u"Invalid configuration: Please check your configuration files: section %s , %option %s") % (section, option))
 
     def baseDir(self):
-        return os.path.normpath(os.path.expanduser(self.getValue("paths", "baseDir")))
+        return norm_path(self.getValue("paths", "baseDir"))
 
     def userDir(self):
-        return os.path.normpath(os.path.expanduser(self.getValue("paths", "userDir")))
+        return norm_path(self.getValue("paths", "userDir"))
 
     def systemDir(self):
-        return os.path.normpath(os.path.expanduser(self.getValue("paths", "systemDir")))
+        return norm_path(self.getValue("paths", "systemDir"))
 
     def exampleDir(self):
-        return os.path.normpath(os.path.expanduser(self.getValue("paths", "exampleDir")))
+        return norm_path(self.getValue("paths", "exampleDir"))
 
     def baseGraphics(self):
-        return os.path.normpath(os.path.expanduser(self.getValue("graphics", "baseGraphics")))
+        return norm_path(self.getValue("graphics", "baseGraphics"))
 
     def menuBarGraphics(self):
-        return os.path.normpath(os.path.expanduser(self.getValue("graphics", "menuBarGraphics")))
+        return norm_path(self.getValue("graphics", "menuBarGraphics"))
 
     def toolBarGraphics(self):
-        return os.path.normpath(os.path.expanduser(self.getValue("graphics", "toolBarGraphics")))
+        return norm_path(self.getValue("graphics", "toolBarGraphics"))
 
     def documentTreeGraphics(self):
-        return os.path.normpath(os.path.expanduser(self.getValue("graphics", "documentTreeGraphics")))
+        return norm_path(self.getValue("graphics", "documentTreeGraphics"))
 
     def programGraphics(self):
-        return os.path.normpath(os.path.expanduser(self.getValue("graphics", "programGraphics")))
+        return norm_path(self.getValue("graphics", "programGraphics"))
 
     def contextMenuGraphics(self):
-        return os.path.normpath(os.path.expanduser(self.getValue("graphics", "contextMenuGraphics")))
+        return norm_path(self.getValue("graphics", "contextMenuGraphics"))
 
     def skinGraphics(self):
-        return os.path.normpath(os.path.expanduser(self.getValue("graphics", "skinGraphics")))
+        return norm_path(self.getValue("graphics", "skinGraphics"))
 
     def clientTemplates(self):
-        return os.path.normpath(os.path.expanduser(self.getValue("templates", "clientTemplates")))
+        return norm_path(self.getValue("templates", "clientTemplates"))
 
     def serverTemplates(self):
-        return os.path.normpath(os.path.expanduser(self.getValue("templates", "serverTemplates")))
+        return norm_path(self.getValue("templates", "serverTemplates"))
 
     def clientImages(self):
-        return os.path.normpath(os.path.expanduser(self.getValue("templates", "clientImages")))
+        return norm_path(self.getValue("templates", "clientImages"))
 
     def serverImages(self):
-        return os.path.normpath(os.path.expanduser(self.getValue("templates", "serverImages")))
+        return norm_path(self.getValue("templates", "serverImages"))
