@@ -1,0 +1,23 @@
+version = '2016024'
+import os
+
+out_dir = 'template-designer-' + version
+print "Output directory:", out_dir
+
+def add_install(fname):
+  node = InstallAs(os.path.join(out_dir, fname), fname)
+  Alias('copy', node)
+
+for (root, dnames, fnames) in os.walk('code'):
+  for fname in fnames:
+    if '~' == fname[-1]:
+      continue
+    if '.pyc' == fname[-4:]:
+      continue
+    add_install(os.path.join(root, fname))
+for fname in ('AUTHOR', 'INSTALLATION', 'templatedesigner.sh', 'templatedesigner.bat'):
+  add_install(fname)
+
+node = Zip(out_dir + '.zip', out_dir)
+Alias('dist', node)
+Default(node)
