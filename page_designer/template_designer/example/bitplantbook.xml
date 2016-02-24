@@ -1,0 +1,128 @@
+<bit:designer xmlns:bit="http://www.bitplant.de/template" name="Bitplant Compilation">
+  <bit:template lang="EN" name="Bitplant Template">
+    <bit:parameter>
+      <bit:description>.</bit:description>
+      <bit:dimension type="width" unit="mm" value="135" />
+      <bit:dimension type="height" unit="mm" value="240" />
+      <bit:position type="top" unit="mm" value="35" />
+      <bit:position type="left" unit="mm" value="27" />
+      <bit:paper type="orientation" value="portrait" />
+      <bit:paper type="layout" value="oneside" />
+      <bit:paper type="format" value="a4" />
+    </bit:parameter>
+    <bit:page inherit="disable" name="Body">
+      <bit:parameter>
+        <bit:description>.</bit:description>
+        <bit:dimension type="width" unit="mm" value="135" />
+        <bit:dimension type="height" unit="mm" value="250" />
+        <bit:position type="top" unit="mm" value="25" />
+        <bit:position type="left" unit="mm" value="25" />
+        <bit:paper type="orientation" value="portrait" />
+        <bit:paper type="layout" value="twoside" />
+        <bit:paper type="format" value="a4" />
+      </bit:parameter>
+      <bit:frame name="Running Header Logo">
+        <bit:parameter>
+          <bit:description>.</bit:description>
+          <bit:dimension type="width" unit="mm" value="50" />
+          <bit:dimension type="height" unit="mm" value="13.6" />
+          <bit:position type="top" unit="mm" value="4.74" />
+          <bit:position type="left" unit="mm" value="152" />
+        </bit:parameter>
+        <bit:content angle="0" type="image">clientImages:1259743528.png:bitplant_ATD.png</bit:content>
+      </bit:frame>
+      <bit:frame name="Running Header Row 1">
+        <bit:parameter>
+          <bit:description>.</bit:description>
+          <bit:dimension type="width" unit="mm" value="120" />
+          <bit:dimension type="height" unit="mm" value="3.34" />
+          <bit:position type="top" unit="mm" value="11.82" />
+          <bit:position type="left" unit="mm" value="25" />
+        </bit:parameter>
+        <bit:content angle="0" type="vartext">\RunningHeaderRowI</bit:content>
+      </bit:frame>
+      <bit:frame name="Running Header Row 2">
+        <bit:parameter>
+          <bit:description>.</bit:description>
+          <bit:dimension type="width" unit="mm" value="120" />
+          <bit:dimension type="height" unit="mm" value="3.34" />
+          <bit:position type="top" unit="mm" value="15" />
+          <bit:position type="left" unit="mm" value="25" />
+        </bit:parameter>
+        <bit:content angle="0" type="vartext">\RunningHeaderRowII</bit:content>
+      </bit:frame>
+      <bit:frame name="Footer">
+        <bit:parameter>
+          <bit:description>.</bit:description>
+          <bit:dimension type="width" unit="mm" value="175" />
+          <bit:dimension type="height" unit="mm" value="3.5" />
+          <bit:position type="top" unit="mm" value="282" />
+          <bit:position type="left" unit="mm" value="25" />
+        </bit:parameter>
+        <bit:content angle="0" type="vartext">\BgtextFooter</bit:content>
+      </bit:frame>
+      <bit:frame name="KustodeRow">
+        <bit:parameter>
+          <bit:description>.</bit:description>
+          <bit:dimension type="width" unit="mm" value="175" />
+          <bit:dimension type="height" unit="mm" value="2.47" />
+          <bit:position type="top" unit="mm" value="110" />
+          <bit:position type="left" unit="mm" value="15" />
+        </bit:parameter>
+        <bit:content angle="270" type="vartext">\BgtextKustodeRow</bit:content>
+      </bit:frame>
+    </bit:page>
+    <bit:page inherit="disable" name="Frontpage">
+      <bit:parameter>
+        <bit:description>Front page.</bit:description>
+        <bit:dimension type="width" unit="mm" value="175" />
+        <bit:dimension type="height" unit="mm" value="200" />
+        <bit:position type="top" unit="mm" value="75" />
+        <bit:position type="left" unit="mm" value="25" />
+        <bit:paper type="orientation" value="portrait" />
+        <bit:paper type="layout" value="oneside" />
+        <bit:paper type="format" value="a4" />
+      </bit:parameter>
+      <bit:frame name="Logo">
+        <bit:parameter>
+          <bit:description>Logo.</bit:description>
+          <bit:dimension type="width" unit="mm" value="50" />
+          <bit:dimension type="height" unit="mm" value="13.6" />
+          <bit:position type="top" unit="mm" value="8.74" />
+          <bit:position type="left" unit="mm" value="152" />
+        </bit:parameter>
+        <bit:content angle="0" type="image">clientImages:1252068466.png:bitplant_ATD.png</bit:content>
+      </bit:frame>
+      <bit:frame name="PoweredBy">
+        <bit:parameter>
+          <bit:description>"Powered by" label</bit:description>
+          <bit:dimension type="width" unit="mm" value="27" />
+          <bit:dimension type="height" unit="mm" value="20.9" />
+          <bit:position type="top" unit="mm" value="32" />
+          <bit:position type="left" unit="mm" value="165" />
+        </bit:parameter>
+        <bit:content angle="0" type="image">clientImages:TeXML_powered_by.png:TeXML_powered_by.png</bit:content>
+      </bit:frame>
+      <bit:frame name="Line">
+        <bit:parameter>
+          <bit:description>Yellow line at left.</bit:description>
+          <bit:dimension type="width" unit="mm" value="0.12" />
+          <bit:dimension type="height" unit="mm" value="290" />
+          <bit:position type="top" unit="mm" value="5" />
+          <bit:position type="left" unit="mm" value="11.25" />
+        </bit:parameter>
+        <bit:content angle="0" type="vartext">\color{BitplantBlueFrontpage}\vrule height290mm depth0mm width0.12mm</bit:content>
+      </bit:frame>
+      <bit:frame name="Footer">
+        <bit:parameter>
+          <bit:description>Yellow something in the bottom right corner.</bit:description>
+          <bit:dimension type="width" unit="mm" value="310" />
+          <bit:dimension type="height" unit="mm" value="13" />
+          <bit:position type="top" unit="mm" value="280" />
+          <bit:position type="left" unit="mm" value="80" />
+        </bit:parameter>
+        <bit:content angle="0" type="image">clientImages:1236163467.png:000nn000.png</bit:content>
+      </bit:frame>
+    </bit:page>
+  </bit:template>
+</bit:designer>
