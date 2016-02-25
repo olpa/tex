@@ -103,14 +103,14 @@ class PrepareData():
         #It is currently not intended to rotate color and image contents.
         #Because that, angle is reseted for now, while these contents are active
         xmlCont = xml.find("{http://www.bitplant.de/template}content")
-        if xmlCont:
+        if xmlCont is not None:
             if xmlCont.get("type", "text") == "color" or xmlCont.get("type", "text") == "image":
                 xmlCont.attrib["angle"] = "0"
 
     def contentColorTest(self, xml):
         #This is a test, if a color value is valid.
         xmlCont = xml.find("{http://www.bitplant.de/template}content")
-        if xmlCont:
+        if xmlCont is not None:
             if xmlCont.get("type", "text") == "color":
                 cmykRe = re.compile( ur"\A(\s*)cmyk(\s*)(\(?)(\s*)([\d]{,3}\s*%?)(\s*,?\s*)([\d]{,3}\s*%?)(\s*,?\s*)([\d]{,3}\s*%?)(\s*,?\s*)([\d]{,3}\s*%?)(\s*)(\)?)(\s*)\Z", re.UNICODE|re.IGNORECASE)
                 hexRe = re.compile( ur"\A(\s*)#(\s*)(\(?)(\s*)([\da-f]{2}\s*)(\s*,?\s*)([\da-f]{2}\s*)(\s*,?\s*)([\da-f]{2}\s*)(\s*)(\)?)(\s*)\Z", re.UNICODE|re.IGNORECASE)
@@ -159,7 +159,6 @@ class PrepareData():
                                 cmd = ["open", "-a", "/Applications/Preview.app", oldFilename] 
                                 subprocess.Popen(cmd)
                 else:
-                    print "sdfsdf"
                     #To be standard conform: Content must not be empty
                     xmlCont.text = _(u"no image selected")
 
@@ -216,7 +215,7 @@ class PrepareData():
             if str(self.tempItemData[kind + type.capitalize()]) == "auto" \
             or str(self.tempItemData[kind + type.capitalize()]) == "":
                 xmlPosDim = xml.find("{http://www.bitplant.de/template}parameter")
-                if xmlPosDim:
+                if xmlPosDim is not None:
                     for child in xmlPosDim.getiterator("{http://www.bitplant.de/template}" + kind):
                         if child.attrib["type"] == type:
                             xmlPosDim.remove(child)
