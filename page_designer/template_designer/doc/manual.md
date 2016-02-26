@@ -49,6 +49,40 @@ The name of the file changes on each save. For me it is inconvenient and therefo
 
 At the moment, only the page sizes `A4`, `A5` and `letter` are supported by Template Converter. Fortunately, it is easy to add support for other sizes.
 
+The setting is ignored: "Disable inheritance of the template settings".
+
+The types of a frame:
+
+* color frame (unsupported),
+* image frame,
+* static text frame,
+* variable text frame.
+
+In a static frame, the TeX special symbols are escaped. In a variable text frame, you can mix TeX commands with the text.
+
+The image frame is a candidate for troubles. Template Designer wants to convert the image into png and often can not do it. My solution is:
+
+1. Use a fake image to create the frame;
+2. close Template Designer;
+3. convert the image manually;
+4. put the image into the template images directory;
+5. edit the template XML: correct the generated path;
+6. save-close XML and
+7. start Template Designer again.
+
+Frame rotation:
+
+* Supported: non-rotated
+* Supported: counter rotated
+* Not supported: rotated
+* Not supported: clockwise rotated
+
+The position of a frame should be specified by the left-top point. The parameters `right` and `bottom` should be set to `auto`.
+
+For a counter-rotated frame, the parameters `width` and `height` refer to the dimensions in the non-rotated state. However, the left-top point applies to the already rotated frame.
+
+![Rotated frame](rotated.png)
+
 ----------
 
 Oleg Parashchenko,
