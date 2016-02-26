@@ -1,12 +1,15 @@
-version = '2016024'
+version = '2016026'
 import os
 
 out_dir = 'template-designer-' + version
 print "Output directory:", out_dir
 
 def add_install(fname):
-  node = InstallAs(os.path.join(out_dir, fname), fname)
+  node = InstallAs(os.path.join(out_dir, str(fname)), fname)
   Alias('copy', node)
+
+bld = Builder(action = 'pandoc $SOURCE -o $TARGET')
+env = Environment(BUILDERS = {'Pandoc' : bld})
 
 for (root, dnames, fnames) in os.walk('code'):
   for fname in fnames:
@@ -17,6 +20,13 @@ for (root, dnames, fnames) in os.walk('code'):
     add_install(os.path.join(root, fname))
 for fname in ('AUTHOR', 'INSTALLATION', 'templatedesigner.sh', 'templatedesigner.bat'):
   add_install(fname)
+
+for fname in Glob('doc/*.png'):
+  add_install(fname)
+add_install('doc/bitplanttemplate.xsd')
+for fname in ('README', 'doc/manual'):
+  node = env.Pandoc(os.path.join(out_dir, fname+'.html'), fname+'.md')
+  Alias('copy', node)
 
 node = Zip(out_dir + '.zip', out_dir)
 Alias('dist', node)
