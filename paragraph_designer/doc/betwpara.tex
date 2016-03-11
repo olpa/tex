@@ -1,0 +1,43 @@
+\documentclass{standalone}
+\usepackage{fontspec}
+\setmainfont{Arial}
+\usepackage{tikz}
+\begin{document}
+
+\newbox\apq
+\setbox\apq\hbox{\fontsize{40pt}{21pt}\selectfont Apq}
+\newlength\apqd
+\setlength\apqd{\dp\apq}
+\newlength\apqw
+\setlength\apqw{\wd\apq}
+
+\def\outbase{0.5}
+\def\leftout{+(-\outbase,0)}
+\def\linelength{+(5,0)}
+\def\rightout{++(\apqw,0) ++(\outbase,0) ++(\outbase,0)}
+
+\begin{tikzpicture}
+% Text
+\draw (0,0) node(apqbelow)[inner sep=0pt, outer sep=0pt]{\copy\apq };
+\draw (0,3) node(apqabove)[inner sep=0pt, outer sep=0pt]{\copy\apq };
+% Horizontal lines
+\path (apqabove.south west) \leftout coordinate(cprevdepth);
+\path (cprevdepth) -- +(0,\apqd) coordinate(cbaseline);
+\draw (cbaseline) -- \linelength;
+\path (cprevdepth) -- \rightout -- +(0.25, 0) coordinate(cprevdepthrigth);
+\draw (cprevdepth) -- (cprevdepthrigth);
+\path (apqbelow.north west) \leftout coordinate(cbsextra);
+\path (cbsextra) -- +(0,\apqd) coordinate(cparskip);
+\path (cparskip) -- \rightout -- +(0.25, 0) coordinate(cparskiprigth);
+\draw (cparskip) -- (cparskiprigth);
+\draw (cbsextra) -- \linelength;
+% Arrows
+\path (cprevdepth) \rightout coordinate(cparskipabove);
+\path (cparskip) \rightout coordinate(cparskipbelow);
+\draw[<->] (cparskipabove) -- (cparskipbelow) node[midway,anchor=east]{\textbackslash parskip};
+\path (cbaseline) \rightout +(\outbase,0) coordinate(cvespabove);
+\path (cbsextra) \rightout +(\outbase,0) coordinate(cvespbelow);
+\draw[<->] (cvespabove) -- (cvespbelow) node[midway,anchor=west,text width=2.0cm]{space as defined by paravesp};
+\end{tikzpicture}
+
+\end{document}
