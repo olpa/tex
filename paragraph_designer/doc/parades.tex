@@ -135,6 +135,8 @@ After \cs{IssueParaSpace}:
 
 You need the command \cs{IssueParaSpace} if \TeX{} isn't going to insert \cs{parskip} automatically, for example, before a box.
 
+The command expects that it is called after \cs{ParaSpaceAbove}.
+
 \medskip
 
 After \cs{IgnoreSpaceAboveNextPara}:
@@ -161,7 +163,7 @@ The system proposes that every block-level element of a document should be wrapp
 \item short paragraphs with tabstops, also wrapped by a command.
 \end{itemize}
 
-The document, made using this approach, looks structured. Here is an example.
+A document, made using this approach, looks structured. Here is an example.
 
 \begin{verbatim}
 \HeadI{Universal Declaration of Human Rights}
@@ -177,7 +179,7 @@ The document, made using this approach, looks structured. Here is an example.
 \end{udhrlist}
 \end{verbatim}
 
-The sample is generated automatically from the \XML{} source. The generation script, the paragraph styles as Python definition and \verb|.sty| result, the result are included by the package in the directory \verb|udhr|.
+The sample is generated automatically from the \XML{} source. The generation script, the paragraph styles as Python definition, the \verb|.sty| code, and the \acro{PDF}-result are included in the package in the directory \verb|udhr|.
 
 \subsection{Example: the command "HeadI"}
 
@@ -201,7 +203,7 @@ add_style(ParagraphOptions(cmd='HeadI',
 
 The properties of the paragraph are stored inside the object \verb|ParagraphOptions|. Like in many other programming languages, the backslash-symbol (\verb|\|) is a control symbol and should appear in strings escaped (\verb|\\|). An alternative as used in the example is to prefix the string with \verb|"r"|, which disables the control character.
 
-The function \verb|add_style| remembers the object in the styles-list. At the end of the python script, the objects in the list are converted to \TeX{} code.
+The function \verb|add_style| remembers the object in the global styles-list. At the end of the python script, the objects in the list are converted to \TeX{} code.
 
 The result of the conversion:
 
@@ -217,7 +219,7 @@ The pecularities are:
 
 \begin{itemize}
 \item The paragraph is created explicit with\\\verb|\noindent #1\par|.
-\item The text and the pre-paragraph settings are inside a group. This way the settings such as font change work only for the given paragraph and do not affect the rest of the text.
+\item The text and the pre-paragraph settings are inside a group. This way the settings such as font change work only for the given paragraph and do not affect the rest of the document.
 \end{itemize}
 
 \subsection{Example: the environment "para"}
@@ -276,7 +278,7 @@ add_style(ParagraphOptions(cmd='listitem',
 
 The argument \verb|boxes| is a list of pairs. Each pair gives the offset of the tabstop from left and the width of the box. Due to pecularities of Python, one-element lists of pairs should have an extra comma inside.
 
-The text of paragraphs should be tuned manually to avoid overlapping with the tabstop boxes. In this example the left margin is set to 0.5cm using \cs{leftskip}. To get the margin right, I use \cs{hsize}.
+The position of the paragraph text should be tuned manually to avoid overlapping with the tabstop boxes. In the example above, the left margin is set to \verb|0.5cm| using \cs{leftskip}.
 
 The result of the conversion in a sty-file is complicated:
 
@@ -309,7 +311,7 @@ A tabstop is constructed from two nested boxes. The inner box gives the width of
 \hbox to WIDTH{CONTENT \hss}
 \end{verbatim}
 
-The outer box puts the inner box at the right offset
+The outer box puts the inner box at the specified offset.
 
 \begin{verbatim}
 \hbox to 0pt{\hss INNER_BOX%
@@ -363,7 +365,7 @@ ParagraphOptions(...,
 
 The names are self-explaining.
 
-The default value for \verb|space_above| and also for \verb|space_below| is 0pt. It means that if you haven't given a value, then two consequent paragraphs will touch each other, like if \cs{nointerlineskip} were given between them.
+The default value for \verb|space_above| and also for \verb|space_below| is \verb|0pt|. It means that if you haven't given a value, then two consequent paragraphs will touch each other, like if \cs{nointerlineskip} were given between them.
 
 Use the special value \verb|#natural| to disable the use of \cs{ParaSpaceAbove} or \cs{ParaSpaceBelow} and activate instead the default \TeX{} behaviour.
 
@@ -392,7 +394,7 @@ The content of \verb|preamble_argN| is copied literally into the style definitio
 \item For list item paragraphs, \cs{hfil} centers the tabulator box content, \cs{hfill} aligns to the right.
 \end{itemize}
 
-\paragraph{Tabstops.} Tabstops are hboxes of a given width at given offset.
+\paragraph{Tabstops.} Tabstops are hboxes of a given width at given offset. All the offsets are relative to the left border of the text flow.
 
 \begin{verbatim}
 ParagraphOptions(...,
@@ -411,8 +413,6 @@ ParagraphOptions(...,
   boxes=((OFFSET,WIDTH),), # Comma inside
   ...)
 \end{verbatim}
-
-All the offsets are relative to the left border of the text flow.
 
 The content of the boxes is left-aligned. To center or right-align the content, add \cs{hfil} or \cs{hfill} through the parameter \verb|preamble_argN|.
 
@@ -433,17 +433,17 @@ ParagraphOptions(cmd='HeadII',
 
 In the example, the paragraph \verb|HeadII| inherits \verb|fontcmd| from \verb|HeadI|, but uses the custom font size and baseline.
 
-\paragraph{The infrastructure.} A python file with definitions (1) starts by importing the support code, (2) continues with collecting the definitions and (3) finishes by the command to dump the \TeX{} result.
+\paragraph{The infrastructure.} A python file with definitions: (1) starts by importing the support code; (2) continues with collecting the definitions; and (3) finishes by the command to dump the \TeX{} result.
 
 \begin{verbatim}
-from parades import * # 1
+from parades import * # (1)
 
-add_style(ParagraphOptions(...)) # 2
+add_style(ParagraphOptions(...)) # (2)
 add_style(ParagraphOptions(...))
 ...
 add_style(ParagraphOptions(...))
 
-main('paras') # 3
+main('paras') # (3)
 \end{verbatim}
 
 The parameter of the function \verb|main| (in this example \verb|paras|) is the name of the generated sty-package as given by \cs{ProvidesPackage}.
@@ -452,7 +452,7 @@ The parameter of the function \verb|main| (in this example \verb|paras|) is the 
 
 \section{Getting and running the code}
 
-All the files, including the example, are contained in the \acro{CTAN} package \verb|parades|. Alternatevely, one can download it on github or get the sources in the git repository: \url{https://github.com/olpa/tex}, in the folder \verb|parades|.
+All the files, including the example, are contained in the \acro{CTAN} package \verb|parades|. Alternatevely, one gets the source code from \verb|github| in the repository \url{http://github.com/olpa/tex}, in the folder \verb|paragraph_designer|.
 
 Put the file \verb|paravesp.sty| into a directory in which \TeX{} will find it. Put the file \verb|parades.py| into a directory in which Python will find it.
 
@@ -470,7 +470,7 @@ The directory \verb|udhr| contains a sample project. Refer to the file \verb|REA
 \section{Conclusion}
 
 The paragraph designer helps both on the technical and organization levels.
-On the technical level, it helps generating code for paragraph styles. Writing this code manually were an unpleasant error-prone task:
+On the technical level, it helps generating code for paragraph styles. It would be an unpleasant error-prone task to write this code manually:
 
 \begin{itemize}
 \item Space above and below a paragraph.
