@@ -43,15 +43,12 @@ The article concludes with information on how to get the code and run it.
 
 The notion "space between paragraphs" can be defined differently.
 
-\includegraphics[width=6cm]{betwpara.png}
-
-In one definition, the space between paragraphs is the amount of additional space comparing to what happens inside a paragraph. This is what the most typesetting engines implement, and what is named \verb|parskip| in \TeX{}. If the space between paragraphs is set to zero, \TeX{} still adds space \verb|baselineskip| minus \verb|prevdepth| minus the height of the letters.
+In one definition, the space between paragraphs is the amount of additional space comparing to what happens inside a paragraph. This is what the most typesetting engines implement, and what is named \verb|parskip| in \TeX{}.
 
 The definition of the package \verb|paravesp| is: the space between paragraphs is the distance between the baseline of the preceeding paragraph and the top of the next paragraph. The code cares that this distance is larger than \verb|prevdepth|.
 
-The command \cs{ParaSpaceAbove}, which preceedes a paragraph, can't know how much glue induced by \verb|baselineskip| will be added. Therefore, the command disables this glue completely by setting \verb|prevdepth| to infinity.
-
-The commands rely on automatic insertion of \verb|parskip| glue by \TeX. This insertion doesn't happen if the next element in the vertical list is not a paragraph but some box. In this case, make the space manually using the command \verb|IssueParaSpace|.
+\smallskip
+\includegraphics[width=6cm]{betwpara.pdf}
 
 \subsection{Usage}
 
@@ -60,9 +57,10 @@ The package \verb|paravesp| imposes restrictions on how to construct a document.
 \begin{itemize}
 \item Switches between the vertical and horizontal modes be controlled. \TeX{} automation is partially forbidden.
 \item The register \cs{parskip} belongs to the controlling code.
+\item The commands rely on automatic insertion of \verb|parskip| glue by \TeX.
 \end{itemize}
 
-The guidelines for the controlling code are:
+\noindent The guidelines for the controlling code are:
 
 \begin{itemize}
 \item At the end of a paragraph (after \cs{par}) use the command \cs{ParaSpaceBelow}.
@@ -71,6 +69,14 @@ The guidelines for the controlling code are:
 \end{itemize}
 
 An example:
+
+\iffalse
+Please distinguish, probably with \it:
+Heading
+An usual paragraph of text...
+Yet another usual paragraph of text...
+Some info-box
+\fi
 
 \begin{verbatim}
 ...
@@ -115,6 +121,8 @@ After \cs{ParaSpaceAbove\{length\}}:
 \item \verb|prevdepth| := -1000pt
 \end{itemize}
 
+The command \cs{ParaSpaceAbove}, which preceedes a paragraph, can't know how much interline glue induced by \verb|baselineskip| will be added. As a solution, the command disables this glue completely by setting \verb|prevdepth| to minus infinity.
+
 \medskip
 
 After \cs{IssueParaSpace}:
@@ -124,6 +132,8 @@ After \cs{IssueParaSpace}:
 \item \verb|parskip| := 0pt
 \item \verb|prevdepth| := -1000pt
 \end{itemize}
+
+You need the command \cs{IssueParaSpace} if \TeX{} isn't going to insert \cs{parskip} automatically, for example, before a box.
 
 \medskip
 
