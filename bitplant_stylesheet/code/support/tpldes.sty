@@ -1,0 +1,71 @@
+\ProvidesPackage{tpldes}[2011/06/14 Helpers for template designer]
+
+\newlength\td@b@width
+\newlength\td@b@height
+
+% Input: (#1,#2) is (x,y), #3 is the box number (v-box).
+% Returns: v-box
+\newcommand\td@movebox[3]{%
+\setbox#3=\vtop{\moveright#1\box#3}%
+%\showbox#3
+\wd#3=0pt
+\ht#3=0pt
+\dp#3=0pt
+\lower#2\box#3
+}
+
+%
+%
+% Making a box
+%
+% #2, #3, #4, #5, #6: width, height, x, y, text
+% One optinal argument: rotate degree. When active, #2 becomes
+% the width of visible rotated box (=height of the 90-rotated box)
+\newcommand\td@mkbox[6]{%
+\begingroup
+\hsize=#2
+\leftskip=0pt
+\rightskip=0pt
+\parindent=0pt
+\setlength{\td@b@width}{#2}%
+\setlength{\td@b@height}{#3}%
+%
+% Box itself
+%
+\setbox0=\vtop to#3{%
+\leavevmode#6
+\vss
+}%
+\ifx 0 #1 \else
+\setbox0=\vtop to#3{\rotatebox{#1}{\box0}\vss}%
+\fi
+%
+% Move right, set zero dimensions, move lower
+%
+\td@movebox{#4}{#5}{0}%
+\endgroup
+}
+
+% ---------------------------------------------------------
+
+%
+% Group static frames to a (later) anchored frame
+%
+\newcommand\td@anchoredFrame[1]{%
+\setbox0=\hbox{#1}%
+\wd0=0pt
+\ht0=0pt
+\dp0=0pt
+\box0
+}
+
+% ---------------------------------------------------------
+
+\newcommand\td@master@frames[3]{%
+\setbox0=\hbox{#3}%
+\setbox0=\hbox{\td@movebox{-#1}{-#2}{0}}%
+\dp0=0pt
+\ht0=0pt
+%\showbox0
+\box0
+}

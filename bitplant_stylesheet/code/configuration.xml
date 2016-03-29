@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<configuration>
+  <explain>INFORMATION REQUEST MANAGER</explain>
+  <explain role="external">Change only the values in the second column!</explain>
+  <section>
+    <explain>Sprachtemplates / Seitenaufteilung</explain>
+    <item id="language" validator="language_code">
+      <value>de</value>
+      <explain>Sprachwahl, "de", "en", "ru" etc.</explain>
+    </item>
+    <item id="show_variant_borders" validator="boolean">
+      <value>no</value>
+      <explain>Display ("yes") or not ("no") variant borders.</explain>
+    </item>
+    <item id="use_twoside_layout" validator="boolean">
+      <value>yes</value>
+      <explain>If yes, switch to two-side layout.</explain>
+    </item>
+    <item id="use_color" validator="boolean">
+      <value>yes</value>
+      <explain>Use color ("yes") or black-white ("no") pages.</explain>
+    </item>
+    <item id="ansizDXXXV" validator="boolean">
+      <value>yes</value>
+      <explain>Use ANSI admonitions ("yes") or bitplant traditional ("no").</explain>
+    </item>
+    <item id="use_thomas_admonitions" validator="">
+      <value>no</value>
+      <explain>Thomas-design for admonitions</explain>
+    </item>
+    <item id="kustode_text" validator="">
+      <value></value>
+      <explain>Overrides the Kustode text.</explain>
+    </item>
+    <item id="enlarge_fonts" validator="">
+      <value>0</value>
+      <explain>1, 2, 3 or 4: to enlarge fonts.</explain>
+    </item>
+    <item id="use_timeline_layout" validator="boolean">
+      <value>no</value>
+      <explain>yes or no.</explain>
+    </item>
+  </section>
+  <section>
+    <explain>Angaben zum Projekt</explain>
+    <item id="pgid" validator="">
+      <value>[PGID]</value>
+      <explain>PGid für Kustode.</explain>
+    </item>
+    <item id="codeword" validator="">
+      <value>[Kennwort]</value>
+      <explain>Kennwort.</explain>
+    </item>
+    <item id="doctype" validator="">
+      <value>[OpMan]</value>
+      <explain>Operation Manual oder Service Manual</explain>
+    </item>
+    <item id="docnumber" validator="">
+      <value>[NNNNNNNNNN AAA BBB 00]</value>
+      <explain>SAP-number.</explain>
+    </item>
+    <item id="fgname" validator="">
+      <value>[fgname]</value>
+      <explain>Maschinentyp.</explain>
+    </item>
+    <item id="author" validator="">
+      <value>HePo</value>
+      <explain>Autor oder verantwortlicher Produktmanager</explain>
+    </item>
+    <item id="manual" validator="">
+      <value>[ManCo]</value>
+      <explain>Manual code..</explain>
+    </item>
+    <item id="revision" validator="">
+      <value>-</value>
+      <explain>Revisionsstand beim Kunden</explain>
+    </item>
+    <item id="asof" validator="">
+      <value>JJJJ-MM-TT (Release X.Y)</value>
+      <explain>Stand der Informationen</explain>
+    </item>
+    <item id="editor" validator="">
+      <value>bitplant.de GmbH HePo</value>
+      <explain>Verantwortlicher Redakteur</explain>
+    </item>
+  </section>
+</configuration>

@@ -1,0 +1,12 @@
+\ProvidesFile{eu1ipag}[2014/11/04 Japanese font IPA Gothic]
+
+\DeclareFontFamily{EU1}{ipag}{}
+\DeclareFontShape{EU1}{ipag}{m}{n}{ <-> "[ipag.ttf]"}{}
+\DeclareFontShape{EU1}{ipag}{c}{n}{ <-> "[ipag.ttf]:extend=0.8"}{}
+\DeclareFontShape{EU1}{ipag}{m}{it}{ <-> "[ipag.ttf]:slant=0.2"}{}
+\DeclareFontShape{EU1}{ipag}{b}{n}{ <-> "[ipag.ttf]"}{}
+\DeclareFontShape{EU1}{ipag}{bc}{n}{ <-> "[ipag.ttf]:extend=0.8"}{}
+\DeclareFontShape{EU1}{ipag}{b}{it}{ <-> "[ipag.ttf]:slant=0.2"}{}
+\DeclareFontShape{EU1}{ipag}{bx}{n}{ <-> "[ipag.ttf]"}{}
+\DeclareFontShape{EU1}{ipag}{bx}{it}{ <-> "[ipag.ttf]:slant=0.2"}{}
+\DeclareFontShape{EU1}{ipag}{bl}{n}{ <-> "[ipag.ttf]"}{}

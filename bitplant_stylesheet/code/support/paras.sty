@@ -1,0 +1,221 @@
+\ProvidesPackage{paras}[2015/04/24 Automatically generated paragraph styles for: paras]
+% RTL hook
+\let\pd@leftskip=\leftskip
+
+\newcommand{\UseParaBodytext}{}%
+\newenvironment{BodyText}{%
+\ParaSpaceAbove{10pt plus2pt minus2pt}%
+\noindent \ignorespaces}
+{\par\global\def\pd@after@para{\ParaSpaceBelow{0pt}}\aftergroup\pd@after@para}
+
+\newcommand{\UseParaOrienttext}{}%
+\newenvironment{OrientationBodyText}{%
+\ParaSpaceAbove{10pt plus2pt minus2pt}%
+\noindent \ignorespaces}
+{\par\global\def\pd@after@para{\ParaSpaceBelow{0pt}}\aftergroup\pd@after@para}
+
+\newcommand{\UseParaCellBody}{\fontsize{\fontsizeX}{\fontsizeXII}\selectfont}%
+\newenvironment{TablePara}{\fontsize{\fontsizeX}{\fontsizeXII}\selectfont%
+\ParaSpaceAbove{7pt}%
+\noindent \ignorespaces}
+{\par\global\def\pd@after@para{\ParaSpaceBelow{0pt}}\aftergroup\pd@after@para}
+
+\newcommand{\HeadINoNum}[1]{{%
+\fontsize{\fontsizeXX}{\fontsizeXXV}\fontseries{bc}\selectfont%
+\ParaSpaceAbove{0pt}%
+\noindent #1\par}\nobreak\ParaSpaceBelow{10pt}}
+
+\newcommand{\HeadI}[2]{{%
+\fontsize{\fontsizeXX}{\fontsizeXXV}\fontseries{bc}\selectfont%
+\ParaSpaceAbove{0pt}%
+\if@RTL\else\hsize=175mm\relax\fi \headbreaker{-800}{15cm}%
+\noindent \advance\pd@leftskip by 1.2cm %
+\hbox to 0pt{\hss\hbox to 1.2cm{#1\hss}\dimen0=1.2cm %
+\advance\dimen0 by -0mm \advance\dimen0 by -1.2cm \hskip\dimen0}%
+\the\everypar #2\par}\nobreak\ParaSpaceBelow{10pt}}
+
+\newcommand{\HeadII}[2]{{%
+\fontsize{\fontsizeXII}{\fontsizeXV}\fontseries{b}\selectfont%
+\ParaSpaceAbove{24pt}%
+\headbreaker{-750}{10cm}%
+\noindent \advance\pd@leftskip by 1.4cm %
+\hbox to 0pt{\hss\hbox to 1.4cm{#1\hss}\dimen0=1.4cm %
+\advance\dimen0 by -0mm \advance\dimen0 by -1.4cm \hskip\dimen0}%
+\the\everypar #2\par}\nobreak\ParaSpaceBelow{7pt}}
+
+\newcommand{\HeadIII}[2]{{%
+\fontsize{\fontsizeX}{\fontsizeXII}\fontseries{b}\selectfont%
+\ParaSpaceAbove{20pt}%
+\headbreaker{-700}{5cm}%
+\noindent \advance\pd@leftskip by 1.8cm %
+\hbox to 0pt{\hss\hbox to 1.8cm{#1\hss}\dimen0=1.8cm %
+\advance\dimen0 by -0mm \advance\dimen0 by -1.8cm \hskip\dimen0}%
+\the\everypar #2\par}\nobreak\ParaSpaceBelow{8pt}}
+
+\newcommand{\HeadIV}[2]{{%
+\fontsize{\fontsizeX}{\fontsizeXIV}\fontseries{b}\selectfont%
+\ParaSpaceAbove{20pt}%
+\headbreaker{-650}{4cm}%
+\noindent \advance\pd@leftskip by 2cm %
+\hbox to 0pt{\hss\hbox to 2cm{#1\hss}\dimen0=2cm %
+\advance\dimen0 by -0mm \advance\dimen0 by -2cm \hskip\dimen0}%
+\the\everypar #2\par}\nobreak\ParaSpaceBelow{10pt}}
+
+\newcommand{\HeadV}[2]{{%
+\fontsize{\fontsizeX}{\fontsizeXII}\fontseries{b}\selectfont%
+\ParaSpaceAbove{15pt}%
+\headbreaker{-600}{4cm}%
+\noindent \advance\pd@leftskip by 2.25cm %
+\hbox to 0pt{\hss\hbox to 2.25cm{#1\hss}\dimen0=2.25cm %
+\advance\dimen0 by -0mm \advance\dimen0 by -2.25cm \hskip\dimen0}%
+\the\everypar #2\par}\nobreak\ParaSpaceBelow{0pt}}
+
+\newcommand{\IHead}[1]{{%
+\fontsize{\fontsizeX}{\fontsizeXII}\fontseries{b}\selectfont%
+\ParaSpaceAbove{12pt}%
+\if@RTL\else\hsize=175mm\relax\fi \headbreaker{-550}{4cm}%
+\noindent #1\par}\nobreak\ParaSpaceBelow{10pt}}
+
+\newcommand{\IHeadSchiffs}[1]{{%
+\fontsize{\fontsizeX}{\fontsizeXII}\fontseries{b}\selectfont%
+\ParaSpaceAbove{14.1pt}%
+\headbreaker{-550}{4cm}%
+\noindent #1\par}\nobreak\ParaSpaceBelow{0pt}}
+
+\newcommand{\Caption}[2]{{%
+\fontsize{\fontsizeVIII}{\fontsizeX}\fontshape{it}\selectfont%
+\ParaSpaceAbove{5pt}%
+\noindent \advance\pd@leftskip by 1.5cm %
+\hbox to 0pt{\hss\hbox to 1.5cm{#1\hss}\dimen0=1.5cm %
+\advance\dimen0 by -0cm \advance\dimen0 by -1.5cm \hskip\dimen0}%
+\the\everypar #2\par}\ParaSpaceBelow{8pt}}
+
+\newcommand{\UseParaAdmonTitle}{\fontsize{\fontsizeXV}{\fontsizeXVIII}\fontseries{b}\selectfont}%
+
+\newcommand{\ParaListAction@}[2]{{%
+\fontsize{\fontsizeX}{\fontsizeXII}\selectfont%
+\ParaSpaceAbove{9.4pt plus1pt minus1pt}%
+\noindent \advance\pd@leftskip by 0.6cm %
+\hbox to 0pt{\hss\hbox to 0.6cm{#1\hss}\dimen0=0.6cm %
+\advance\dimen0 by -0cm \advance\dimen0 by -0.6cm \hskip\dimen0}%
+\the\everypar #2\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\ParaListBullet@}[2]{{%
+\fontsize{\fontsizeX}{\fontsizeXII}\selectfont%
+\ParaSpaceAbove{9.4pt plus1pt minus1pt}%
+\noindent \advance\pd@leftskip by 0.6cm %
+\hbox to 0pt{\hss\hbox to 0.6cm{#1\hss}\dimen0=0.6cm %
+\advance\dimen0 by -0cm \advance\dimen0 by -0.6cm \hskip\dimen0}%
+\the\everypar #2\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\ParaListNested@}[2]{{%
+\fontsize{\fontsizeX}{\fontsizeXII}\selectfont%
+\ParaSpaceAbove{9.4pt plus1pt minus1pt}%
+\noindent \advance\pd@leftskip by 0.6cm %
+\hbox to 0pt{\hss\hbox to 0.6cm{#1\hss}\dimen0=0.6cm %
+\advance\dimen0 by -0cm \advance\dimen0 by -0.6cm \hskip\dimen0}%
+\the\everypar #2\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\ParaListAlike}[1]{{%
+\fontsize{\fontsizeX}{\fontsizeXII}\selectfont%
+\ParaSpaceAbove{9.4pt plus1pt minus1pt}%
+\noindent #1\par}\ParaSpaceBelow{0pt}}
+\newenvironment{ListHead}{\fontsize{\fontsizeX}{\fontsizeXII}\selectfont%
+\ParaSpaceAbove{9.4pt plus1pt minus1pt}%
+\noindent \ignorespaces}
+{\par\global\def\pd@after@para{\ParaSpaceBelow{0pt}}\aftergroup\pd@after@para}
+
+\newcommand{\UseParaLayoutFooter}{\fontsize{\fontsizeIX}{\fontsizeXI}\selectfont}%
+
+\newcommand{\UseParaLayoutHeader}{\fontsize{\fontsizeIX}{\fontsizeXI}\selectfont}%
+
+\newcommand{\UseParaIdentification}{\fontsize{\fontsizeVI}{\fontsizeVII}\selectfont}%
+
+\newcommand{\ParaStepITitle}[1]{{%
+\fontsize{\fontsizeXX}{\fontsizeXXIV}\fontseries{bc}\selectfont%
+\ParaSpaceAbove{0pt}%
+\noindent #1\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\FrontpageHeadII}[1]{{%
+\fontsize{\fontsizeXII}{\fontsizeXIV}\fontseries{b}\selectfont%
+\ParaSpaceAbove{0pt}%
+\noindent #1\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\FrontpageHeadIII}[1]{{%
+\fontsize{\fontsizeX}{\fontsizeXII}\selectfont%
+\ParaSpaceAbove{0pt}%
+\noindent #1\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\UseParaTitel}{\fontsize{\fontsizeXVIII}{\fontsizeXX}\fontseries{c}\selectfont}%
+
+\newcommand{\ParaTocLineI}[3]{{%
+\fontsize{\fontsizeX}{\fontsizeXII}\fontseries{b}\selectfont%
+\ParaSpaceAbove{7mm minus2mm}%
+\headbreaker{-100}{3cm}%
+\noindent \advance\pd@leftskip by 2.5cm %
+\hbox to 0pt{\hss\hbox to 2.5cm{#1\hss}\dimen0=2.5cm %
+\advance\dimen0 by -0mm \advance\dimen0 by -2.5cm \hskip\dimen0}%
+\hbox to 0pt{\hss\hbox to 1cm{#2\hss}\dimen0=2.5cm %
+\advance\dimen0 by -16.5cm \advance\dimen0 by -1cm \hskip\dimen0}%
+\the\everypar #3\par}\penalty5000\ParaSpaceBelow{0pt}}
+
+\newcommand{\ParaTocLineIb}[2]{{%
+\fontsize{\fontsizeX}{\fontsizeXII}\fontseries{b}\selectfont%
+\ParaSpaceAbove{7mm minus2mm}%
+\hsize=16cm\relax%
+\noindent \advance\pd@leftskip by 0pt %
+\hbox to 0pt{\hss\hbox to 1cm{#1\hss}\dimen0=0pt %
+\advance\dimen0 by -16.5cm \advance\dimen0 by -1cm \hskip\dimen0}%
+\the\everypar #2\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\ParaTocLineII}[3]{{%
+\fontsize{\fontsizeX}{\fontsizeXII}\fontseries{b}\selectfont%
+\ParaSpaceAbove{7mm minus2mm}%
+\hsize=16cm\relax
+\headbreaker{-50}{3cm}%
+\noindent \advance\pd@leftskip by 2.5cm %
+\hbox to 0pt{\hss\hbox to 2.5cm{#1\hss}\dimen0=2.5cm %
+\advance\dimen0 by -0mm \advance\dimen0 by -2.5cm \hskip\dimen0}%
+\hbox to 0pt{\hss\hbox to 1cm{#2\hss}\dimen0=2.5cm %
+\advance\dimen0 by -16.5cm \advance\dimen0 by -1cm \hskip\dimen0}%
+\the\everypar #3\par}\penalty5000\ParaSpaceBelow{0pt}}
+
+\newcommand{\ParaTocLineIII}[3]{{%
+\fontsize{\fontsizeX}{\fontsizeXII}\selectfont%
+\ParaSpaceAbove{12pt minus3pt}%
+\hsize=16cm\relax%
+\noindent \advance\pd@leftskip by 3cm %
+\hbox to 0pt{\hss\hbox to 3cm{#1\hss}\dimen0=3cm %
+\advance\dimen0 by -0mm \advance\dimen0 by -3cm \hskip\dimen0}%
+\hbox to 0pt{\hss\hbox to 1cm{#2\hss}\dimen0=3cm %
+\advance\dimen0 by -16.5cm \advance\dimen0 by -1cm \hskip\dimen0}%
+\the\everypar #3\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\ParaTocLineIV}[3]{{%
+\fontsize{\fontsizeX}{\fontsizeXII}\selectfont%
+\ParaSpaceAbove{6pt minus1pt}%
+\hsize=16cm\relax%
+\noindent \advance\pd@leftskip by 3.6cm %
+\hbox to 0pt{\hss\hbox to 3.6cm{#1\hss}\dimen0=3.6cm %
+\advance\dimen0 by -0mm \advance\dimen0 by -3.6cm \hskip\dimen0}%
+\hbox to 0pt{\hss\hbox to 1cm{#2\hss}\dimen0=3.6cm %
+\advance\dimen0 by -16.5cm \advance\dimen0 by -1cm \hskip\dimen0}%
+\the\everypar #3\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\ParaTocLineV}[3]{{%
+\fontsize{\fontsizeX}{\fontsizeXII}\selectfont%
+\ParaSpaceAbove{6pt minus1pt}%
+\hsize=16cm\relax%
+\noindent \advance\pd@leftskip by 4cm %
+\hbox to 0pt{\hss\hbox to 4cm{#1\hss}\dimen0=4cm %
+\advance\dimen0 by -0mm \advance\dimen0 by -4cm \hskip\dimen0}%
+\hbox to 0pt{\hss\hbox to 1cm{#2\hss}\dimen0=4cm %
+\advance\dimen0 by -16.5cm \advance\dimen0 by -1cm \hskip\dimen0}%
+\the\everypar #3\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\ParaLegend}[2]{{%
+\fontsize{\fontsizeIX}{\fontsizeXb}\selectfont%
+\noindent \advance\pd@leftskip by .5cm %
+\hbox to 0pt{\hss\hbox to .5cm{#1\hss}\dimen0=.5cm %
+\advance\dimen0 by -0pt \advance\dimen0 by -.5cm \hskip\dimen0}%
+\the\everypar #2\par}}

@@ -1,0 +1,41 @@
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\ProvidesPackage{partkofn}[2011/09/01 Part K on N]
+
+\newcounter{kn@Cur}  % the current value of the current counter
+\mathchardef\kn@N=99 % the current (expected N)
+\newif\ifkn@needsRerun \kn@needsRerunfalse
+
+\def\kn@data{}
+\def\kn@data@aux{}
+
+\newcommand\knReset{%
+\global\c@kn@Cur=0\relax
+\expandafter\ifx\csname kn@data@aux\endcsname\relax
+  \def\kn@data@aux{}%
+\fi
+\ifx\kn@data@aux\empty
+  \global\kn@needsReruntrue
+\else
+  \def\next##1,##2\relax{\global\mathchardef\kn@N=##1\relax
+       \global\def\kn@data@aux{##2}}%
+  \expandafter\next\kn@data@aux\relax
+\fi}
+
+\newcommand\knInc{\global\advance\c@kn@Cur by 1\relax}
+\newcommand\knK{\the\c@kn@Cur\relax}
+\newcommand\knN{\the\kn@N\relax}
+
+\newcommand\knCommit{\xdef\kn@data{\kn@data\the\c@kn@Cur,}%
+\ifnum\the\c@kn@Cur=\the\kn@N \else \global\kn@needsReruntrue \fi}
+
+\let\oldhook=\@enddocumenthook
+\def\@enddocumenthook{\oldhook
+\ifx\kn@data@aux\empty \else \kn@needsReruntrue \fi
+\ifkn@needsRerun
+  \@latex@warning@no@line{Part K of N may have changed.
+               Rerun to get cross-references right}%
+\fi
+\immediate\write\@mainaux{\noexpand\set@kn@data@aux{\kn@data}}%
+}
+
+\def\set@kn@data@aux#1{\global\def\kn@data@aux{#1}}

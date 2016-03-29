@@ -1,0 +1,505 @@
+\ProvidesFile{pagesiiturbo}[2010/02/16 Turbo master pages additions]
+
+\ifdefined\@schiffstechniktrue
+  \relax
+\else
+  % http://tex.stackexchange.com/q/96665/22204
+  \expandafter\newif\csname if@schiffstechnik\endcsname
+\fi
+
+\newcommand\VoithBasename{Voith Turbo}
+\newcommand\BgtextVoithName{\VoithBasename{} GmbH \& Co. KG}
+
+\newcommand\BgtextRunningHeaderStatic{\VoithBasename{}}
+
+\providecommand{\ConfigurationFgname}{Fgname}
+\providecommand{\ConfigurationFgnumber}{Fgnumber}
+\providecommand{\ConfigurationCodeword}{Codeword}
+\providecommand{\ConfigurationSerialno}{Serialno}
+\providecommand{\ConfigurationAuthor}{Author}
+\providecommand{\ConfigurationManual}{Manual}
+\providecommand{\ConfigurationSafetyClass}{SafetyClass}
+\providecommand{\ConfigurationRevision}{Revision}
+\providecommand{\ConfigurationAsof}{Asof}
+\providecommand{\ConfigurationEditor}{Editor}
+\providecommand{\ConfigurationTranslator}{Translator}
+\providecommand{\ConfigurationLanguage}{LG}
+\providecommand{\ConfigurationContext}{Kontext}
+
+%
+% Kustode
+%
+\def\BgtextKustodeRowI{\BgtextKustodeRowIPartI \b@space - \BgtextKustodeRowIPartII}
+\def\BgtextKustodeRowII{\BgtextKustodeRowIIPartI \b@space - \b@current@date}
+\def\BgtextKustodeRowIII{\b@copyright@symbol \b@space \b@current@year \b@space \BgtextVoithName}
+
+%
+% Color support
+%
+\newif\ifb@color
+
+\RequirePackage{color}
+\definecolor{b@frontpage@bwcolor@I}{cmyk}{  0.00, 0.00, 0.00, 0.45}
+\definecolor{b@frontpage@bwcolor@II}{cmyk}{ 0.00, 0.00, 0.00, 0.70}
+\definecolor{b@frontpage@bwcolor@III}{cmyk}{0.00, 0.00, 0.00, 0.25}
+\definecolor{b@bwcolor@cover}{cmyk}{        0.00, 0.00, 0.00, 0.00}
+\definecolor{b@bwcolor@covertext}{cmyk}{    0.00, 0.00, 0.00, 1.00}
+\def\logo@voith@reliability{}
+
+\newcommand\SwitchToColorFrontpage{%
+\definecolor{b@frontpage@bwcolor@I}{cmyk}{  0.50, 0.25, 0.00, 0.10}%
+\definecolor{b@frontpage@bwcolor@II}{cmyk}{ 0.00, 1.00, 0.60, 0.30}%
+\definecolor{b@frontpage@bwcolor@III}{cmyk}{0.25, 0.10, 0.00, 0.00}%
+}
+
+\newcommand\SwitchToColor{%
+\b@colortrue
+\SwitchToColorFrontpage
+\definecolor{b@bwcolor@cover}{cmyk}{        1.00, 0.80, 0.00, 0.00}
+\definecolor{b@bwcolor@covertext}{cmyk}{    0.00, 0.00, 0.00, 0.00}
+\let\td@Backpage@master=\td@BackpageColor@master
+\let\td@frame@Body@Left@RunningHeaderLogo=\relax
+\let\td@frame@Body@Right@RunningHeaderLogo=\relax
+\b@PrependColorFrames{\td@BodyColor@Left@master}{\td@Body@Left@master}
+\b@PrependColorFrames{\td@BodyColor@Right@master}{\td@Body@Right@master}
+\let\td@frame@Frontpage@ColorBoxA=\relax
+\let\td@frame@Frontpage@ColorBoxB=\relax
+\let\td@frame@Frontpage@ColorBoxC=\relax
+\let\td@frame@Frontpage@Logo=\relax
+\b@PrependColorFrames{\td@FrontpageColor@master}{\td@Frontpage@master}
+}
+
+% =========================================================
+% Body page
+%
+
+\newcommand{\RunningHeaderRowI}{RunningHeaderRowI}
+\newcommand{\RunningHeaderRowII}{RunningHeaderRowII}
+\newcommand{\BgtextKustodeRowIPartI}{BgtextKustodeRowIPartI}
+\newcommand{\BgtextKustodeRowIPartII}{BgtextKustodeRowIPartII}
+\newcommand{\BgtextKustodeRowIIPartI}{BgtextKustodeRowIIPartI}
+
+\newcommand{\b@copyright@symbol}{\char"00A9}
+\edef\b@current@year{\the\year}
+\edef\b@space{ }
+\let\b@current@date=\DateYYYYmMMmmDD
+\def\BgtextFooter{\LeftOrRight{\thepage\hfill\b@current@date}{\b@current@date\hfill\thepage}}
+
+\newcommand{\td@setup@Body@Left@RunningHeaderRowA}{\UseParaLayoutHeader\hfill}
+\newcommand{\td@setup@Body@Left@RunningHeaderRowB}{\UseParaLayoutFooter\hfill}
+\let\td@setup@Body@Left@RunningHeaderStatic=\UseParaLayoutFooter
+\let\td@setup@Body@Left@Footer=\UseParaLayoutFooter
+\let\td@setup@Body@Left@KustodeRowA=\UseParaIdentification
+\let\td@setup@Body@Left@KustodeRowB=\UseParaIdentification
+\let\td@setup@Body@Left@KustodeRowC=\UseParaIdentification
+
+\def\td@setup@BodyMarketingMmxiv@Left@Footer{\UseParaLayoutFooter}
+\def\td@setup@BodyMarketingMmxiv@Left@Kustode{\UseParaIdentification}
+\def\td@setup@BodyMarketingMmxiv@Left@RunningHeader{\UseParaLayoutHeader}
+\def\td@setup@BodyMarketingMmxiv@Right@Footer{\UseParaLayoutFooter}
+\def\td@setup@BodyMarketingMmxiv@Right@Kustode{\UseParaIdentification}
+\def\td@setup@BodyMarketingMmxiv@Right@RunningHeader{\UseParaLayoutHeader}
+
+\newcommand{\td@setup@Body@Right@RunningHeaderRowA}{\UseParaLayoutHeader}
+\newcommand{\td@setup@Body@Right@RunningHeaderRowB}{\UseParaLayoutFooter}
+\newcommand{\td@setup@Body@Right@RunningHeaderStatic}{\hfill\UseParaLayoutFooter}
+\let\td@setup@Body@Right@Footer=\td@setup@Body@Left@Footer
+\let\td@setup@Body@Right@KustodeRowA=\td@setup@Body@Left@KustodeRowA
+\let\td@setup@Body@Right@KustodeRowB=\td@setup@Body@Left@KustodeRowB
+\let\td@setup@Body@Right@KustodeRowC=\td@setup@Body@Left@KustodeRowC
+
+\def\td@setup@AEBody@Left@RunningHeader{\td@setup@BodyMarketingMmxiv@Left@RunningHeader}
+\def\td@setup@AEBody@Left@Footer{\td@setup@BodyMarketingMmxiv@Left@Footer}
+\def\td@setup@AEBody@Left@Kustode{\td@setup@BodyMarketingMmxiv@Left@Kustode}
+\def\td@setup@AEBody@Right@RunningHeader{\td@setup@BodyMarketingMmxiv@Right@RunningHeader}
+\def\td@setup@AEBody@Right@Footer{\td@setup@BodyMarketingMmxiv@Right@Footer}
+\def\td@setup@AEBody@Right@Kustode{\td@setup@BodyMarketingMmxiv@Right@Kustode}
+
+%
+
+\renewcommand\DropPageKustode{%
+\let\td@frame@Body@Left@KustodeRowA=\relax
+\let\td@frame@Body@Left@KustodeRowB=\relax
+\let\td@frame@Body@Left@KustodeRowC=\relax
+\let\td@frame@Body@Right@KustodeRowA=\relax
+\let\td@frame@Body@Right@KustodeRowB=\relax
+\let\td@frame@Body@Right@KustodeRowC=\relax
+\let\td@frame@AEBody@Left@KustodeRowA=\relax
+\let\td@frame@AEBody@Left@KustodeRowB=\relax
+\let\td@frame@AEBody@Left@KustodeRowC=\relax
+\let\td@frame@AEBody@Right@KustodeRowA=\relax
+\let\td@frame@AEBody@Right@KustodeRowB=\relax
+\let\td@frame@AEBody@Right@KustodeRowC=\relax
+}
+
+\renewcommand\DropPageFooter{%
+\let\td@frame@Body@Left@Footer=\relax
+\let\td@frame@Body@Right@Footer=\relax
+}
+
+% =========================================================
+% Register page
+%
+\newcommand{\RegisterPage}[1]{{\MasterPageIsRegister
+#1\clearpage}}
+
+\newcommand{\RegisterPageItem}[1]{\vbox to 2.333cm{%
+\vfil\ParaStepITitle{\raggedright #1}\vfil}}
+
+\def\td@setup@Register@HorizontalLines{%
+\def\next##1{\ifx\relax##1 \let\next=\relax \else
+\vskip 2.333cm \vskip-.5pt \hrule width73mm height.5pt depth0pt \fi\next}%
+\hsize=7cm \next 0123456789a\relax}
+
+\def\td@setup@Register@Numbering{%
+\def\next##1{\ifx\relax##1 \let\next=\relax \else
+\RegisterPageItem{\hfill##1}\fi\next}%
+\endgraf\hsize=1cm \next 123456789{10}{11}{12}\relax}
+
+% =========================================================
+% Front page
+%
+\newenvironment{Frontpage}{\MasterPageIsFrontpage\parskip=0pt
+\ifb@color \color{b@bwcolor@covertext}
+ \ifb@layout@av \relax \else \vbox{}\vskip-3cm \fi\fi }%
+{\clearpage}
+
+\let\FrontpageHead=\ParaStepITitle
+\let\FrontpageSubHead=\FrontpageHeadII
+
+\let\td@setup@Frontpage@Header=\UseParaTitel
+
+\newcommand\FrontpageAfterhead{%
+\ifb@color \ifb@layout@av \vskip2cm \else \vskip1cm \fi \color{black}
+\else\FrontpageHead{}\fi}
+
+\newcommand\FrontpageKeepit[2]{%
+  \vfill
+  \FrontpageHeadIII{#1}%
+  \FrontpageHeadIII{#2}}
+
+% =========================================================
+% TOC
+%
+\newcommand\FullWidthEvenPageCorrection{%
+\let\b@orig@evenhead=\@evenhead
+\ifb@layout@av
+  \def\@evenhead{\hskip20mm \b@orig@evenhead}%
+  \advance\evensidemargin by -20mm\relax
+  \advance\evensidemargin-\hoffset
+\else
+  \def\@evenhead{\hskip40mm \b@orig@evenhead}%
+  \advance\evensidemargin by -40mm\relax
+  \advance\evensidemargin-\hoffset
+\fi
+}
+
+\newcommand\MasterPageIsBodyFullWidth{%
+\MasterPageIsBody\FullWidthEvenPageCorrection}
+
+\newcounter{b@pagenum@backup}
+
+\newif\if@b@toc@with@kustode
+
+\newcommand\b@hide@first@running@header@set@second[1]{%
+\let\b@orig@left@HeaderRowA=\td@frame@Body@Left@RunningHeaderRowA
+\let\b@orig@right@HeaderRowA=\td@frame@Body@Right@RunningHeaderRowA
+\let\td@frame@Body@Left@RunningHeaderRowA=\relax
+\let\td@frame@Body@Right@RunningHeaderRowA=\relax
+\let\td@frame@AEBody@Left@RunningHeaderRowA=\relax
+\let\td@frame@AEBody@Right@RunningHeaderRowA=\relax
+\def\RunningHeaderRowII{#1}}
+
+\def\b@TOC@ToFullWidth{%
+\MasterPageIsBodyFullWidth\hsize=\FullBodyWidth\relax%
+\linewidth=\hsize\relax \textwidth=\hsize\relax}
+
+\newenvironment{TOCpagesII}[3]{%
+\cleardoublepage
+\setcounter{b@pagenum@backup}{\c@page}%
+\b@TOC@ToFullWidth
+\pagenumbering{Roman}%
+#3%
+\ifx\relax#1 \else
+\HeadTOC{#2#1}%
+\fi
+\if@b@toc@with@kustode \relax \else \DropPageKustode \fi
+\b@hide@first@running@header@set@second{#1}%
+}%
+{\clearpage
+\advance\c@b@pagenum@backup\c@page \advance\c@b@pagenum@backup-1 %
+\pagenumbering{arabic}\global\c@page=\c@b@pagenum@backup %
+}
+%\newcommand{\BgtextTocFooter}{\hfill\thepage}
+
+\newenvironment{TOCpages}[2]{%
+\begin{TOCpagesII}{#1}{#2}{}}{\cleardoublepage\end{TOCpagesII}}
+
+% =========================================================
+% Index page, to be done
+\newenvironment{IndexPages}[2]{%
+\begin{TOCpagesII}{\relax}{}{\twocolumn[\HeadTOC{#2#1}\IssueParaSpace]}%
+\parskip=0pt\relax
+}{\end{TOCpagesII}}
+
+% =========================================================
+% List of Abbreviations
+\let\b@old@ListOfAbbreviations=\ListOfAbbreviations
+\renewcommand\ListOfAbbreviations{%
+\let\SetRunningHeader=\b@hide@first@running@header@set@second
+\b@old@ListOfAbbreviations}
+
+% =========================================================
+% Back page
+%
+\def\b@backpage@setup{\ifb@color\color{b@bwcolor@covertext}\fi}
+
+\newenvironment{Backpage}{%
+\clearpage
+\if@twoside\ifodd\c@page \hbox{}\clearpage \fi\fi
+\MasterPageIsBackpage
+\b@backpage@setup
+}{\clearpage}
+
+\let\b@backup@Backpage@Logo=\td@frame@Backpage@LogoWhite
+\let\td@frame@Backpage@LogoWhite=\relax
+\let\b@backup@AEBackpage@Logo=\td@frame@AEBackpage@LogoWhite
+\let\td@frame@AEBackpage@LogoWhite=\relax
+
+% =========================================================
+% A5
+%
+
+\newif\ifb@layout@av
+
+\newcommand\SwitchToLayoutAV{%
+\b@layout@avtrue
+%\setlength{\BodyWidth}{155mm}% 135mm + 2cm
+\AtBeginDocument{\setlength\pdfpagewidth{210mm}%
+\setlength\pdfpageheight{148mm}}%
+\def\MasterPageIsFrontpage{\MasterPageIsAEFrontpage}%
+\def\MasterPageIsFrontpageMarketingMmxiv{\MasterPageIsAEFrontpage}%
+\def\MasterPageIsEmpty{\MasterPageIsAEEmpty}%
+\def\MasterPageIsBody{\MasterPageIsAEBody}%
+\def\MasterPageIsBackpage{\MasterPageIsAEBackpage}}
+
+\newcommand\SwitchToLayoutTwoside{\@twosidetrue}
+
+% =========================================================
+% Hybrix
+%
+\newcommand\b@helper@turborow[5]{%
+ \hbox to 55mm{#1\hfil}%
+ \hbox to 15mm{#2\hfil}%
+ \hbox to 35mm{#3\hfil}%
+ \hbox to 12mm{#4\hfil}%
+ \hbox to 45mm{#5\hfil}}%
+
+\newcommand\BgtextCreator{\TeX ML}
+\newcommand\SwitchToHybrixKustode{%
+\def\RunningHeaderRowI{}%
+\def\RunningHeaderRowII{\ConfigurationFgname}%
+\renewcommand{\td@setup@Body@Left@RunningHeaderRowB}{\UseParaLayoutHeader\hfill}
+\renewcommand\SetRunningHeader[1]{}%
+\def\BgtextKustodeRowI{\b@helper@turborow{\ConfigurationSerialno \ConfigurationManual}{Author:}{\ConfigurationAuthor}{As of:}{\ConfigurationAsof}\hfil}
+\def\BgtextKustodeRowII{\b@helper@turborow{Codeword: \ConfigurationCodeword}{Editor:}{\ConfigurationEditor}{Revision:}{\ConfigurationRevision}\hfil}
+\def\BgtextKustodeRowIII{\b@helper@turborow{Created with \BgtextCreator}{Translator:}{\ConfigurationTranslator}{}{}\hfil}
+}
+
+% =========================================================
+% American paper
+%
+\def\AnsiToAmiVHSize@ii#1\vsize=#2mm#3\evensidemargin=#4mm#5rewritewith:#6#7#8{%
+\def#6{#1\vsize=#7 #3\evensidemargin=#8 #5}}
+
+\newcommand\AIV@ToAmiVHSize[1]{%
+\expandafter\AnsiToAmiVHSize@ii#1rewritewith:#1{222mm}{56mm}}
+
+\newcommand\AV@ToAmiVHSize[1]{%
+\expandafter\AnsiToAmiVHSize@ii#1rewritewith:#1{110mm}{41mm}}
+
+\newlength\paperfmt@delta@w
+\newlength\paperfmt@delta@h
+\newlength\paperfmt@delta@x
+\newlength\paperfmt@delta@y
+
+\newcommand\AnsiToAmi@Mkbox[6]{%
+\ifdim0pt=\paperfmt@delta@w\relax
+  \def\b@atoa@neww{#2}%
+\else
+  \advance\paperfmt@delta@w by #2\relax
+  \edef\b@atoa@neww{\the\paperfmt@delta@w}%
+  \setlength\paperfmt@delta@w{0pt}%
+\fi
+\ifdim0pt=\paperfmt@delta@h\relax
+  \def\b@atoa@newh{#3}%
+\else
+  \advance\paperfmt@delta@h by #3\relax
+  \edef\b@atoa@newh{\the\paperfmt@delta@h}%
+  \setlength\paperfmt@delta@h{0pt}%
+\fi
+\ifdim0pt=\paperfmt@delta@x\relax
+  \def\b@atoa@newx{#4}%
+\else
+  \advance\paperfmt@delta@x by #4\relax
+  \edef\b@atoa@newx{\the\paperfmt@delta@x}%
+  \setlength\paperfmt@delta@x{0pt}%
+\fi
+\ifdim0pt=\paperfmt@delta@y\relax
+  \def\b@atoa@newy{#5}%
+\else
+  \advance\paperfmt@delta@y by #5\relax
+  \edef\b@atoa@newy{\the\paperfmt@delta@y}%
+  \setlength\paperfmt@delta@y{0pt}%
+\fi
+\b@orig@td@mkbox{#1}{\b@atoa@neww}{\b@atoa@newh}{\b@atoa@newx}{\b@atoa@newy}{#6}%
+}
+
+\newcommand\atoa@correct@h[2]{%
+\def\mkdef##1\eom{\def#1{\setlength\paperfmt@delta@h{#2}##1}}%
+\expandafter\mkdef#1\eom}
+
+\newcommand\atoa@correct@w[2]{%
+\def\mkdef##1\eom{\def#1{\setlength\paperfmt@delta@w{#2}##1}}%
+\expandafter\mkdef#1\eom}
+
+\newcommand\atoa@correct@x[2]{%
+\def\mkdef##1\eom{\def#1{\setlength\paperfmt@delta@x{#2}##1}}%
+\expandafter\mkdef#1\eom}
+
+\newcommand\atoa@correct@y[2]{%
+\def\mkdef##1\eom{\def#1{\setlength\paperfmt@delta@y{#2}##1}}%
+\expandafter\mkdef#1\eom}
+
+\newcommand\FromAIVtoLetter{%
+\let\b@orig@td@mkbox=\td@mkbox
+\let\td@mkbox=\AnsiToAmi@Mkbox
+\AIV@ToAmiVHSize\MasterPageIsBody
+\AIV@ToAmiVHSize\MasterPageIsBodyColor
+\AIV@ToAmiVHSize\MasterPageIsFrontpage
+\AIV@ToAmiVHSize\MasterPageIsFrontpageColor
+\AIV@ToAmiVHSize\MasterPageIsEmpty
+\AIV@ToAmiVHSize\MasterPageIsRegister
+\AIV@ToAmiVHSize\MasterPageIsBackpage
+\AIV@ToAmiVHSize\MasterPageIsBackpageColor
+\atoa@correct@h\td@frame@FrontpageColor@ColorBoxC{-18mm}%
+\atoa@correct@h\td@frame@Frontpage@ColorBoxC{-18mm}%
+\atoa@correct@w\td@frame@FrontpageColor@Background{6mm}%
+\atoa@correct@w\td@frame@BodyColor@Left@RunningHeaderBackground{6mm}%
+\atoa@correct@x\td@frame@BodyColor@Right@RunningHeaderBackground{-6mm}%
+\atoa@correct@w\td@frame@BodyColor@Right@RunningHeaderBackground{6mm}%
+\atoa@correct@y\td@frame@Body@Left@KustodeRowA{-18mm}%
+\atoa@correct@y\td@frame@Body@Left@KustodeRowB{-18mm}%
+\atoa@correct@y\td@frame@Body@Left@KustodeRowC{-18mm}%
+\atoa@correct@y\td@frame@Body@Right@KustodeRowA{-18mm}%
+\atoa@correct@y\td@frame@Body@Right@KustodeRowB{-18mm}%
+\atoa@correct@y\td@frame@Body@Right@KustodeRowC{-18mm}%
+\atoa@correct@y\td@frame@Body@Left@Footer{-18mm}%
+\atoa@correct@y\td@frame@Body@Right@Footer{-18mm}%
+\AtBeginDocument{\setlength\pdfpagewidth{216mm}%
+\setlength\pdfpageheight{279mm}}}
+
+\newcommand\FromAVtoHalfLetter{%
+\let\b@orig@td@mkbox=\td@mkbox
+\let\td@mkbox=\AnsiToAmi@Mkbox
+\AV@ToAmiVHSize\MasterPageIsAEBody
+\AV@ToAmiVHSize\MasterPageIsAEBodyColor
+\AV@ToAmiVHSize\MasterPageIsAEFrontpage
+\AV@ToAmiVHSize\MasterPageIsAEFrontpageColor
+\AV@ToAmiVHSize\MasterPageIsAEEmpty
+\AV@ToAmiVHSize\MasterPageIsAEBackpage
+\AV@ToAmiVHSize\MasterPageIsAEBackpageColor
+%\atoa@correct@h\td@frame@FrontpageColor@ColorBoxC{-18mm}%
+%\atoa@correct@h\td@frame@Frontpage@ColorBoxC{-18mm}%
+\atoa@correct@w\td@frame@AEFrontpageColor@ColorBackground{6mm}%
+\atoa@correct@w\td@frame@AEBodyColor@Left@RunningHeaderBackground{6mm}%
+\atoa@correct@x\td@frame@AEBodyColor@Right@RunningHeaderBackground{-6mm}%
+\atoa@correct@w\td@frame@AEBodyColor@Right@RunningHeaderBackground{6mm}%
+%\atoa@correct@y\td@frame@Body@Left@KustodeRowA{-18mm}%
+%\atoa@correct@y\td@frame@Body@Left@KustodeRowB{-18mm}%
+%\atoa@correct@y\td@frame@Body@Left@KustodeRowC{-18mm}%
+%\atoa@correct@y\td@frame@Body@Right@KustodeRowA{-18mm}%
+%\atoa@correct@y\td@frame@Body@Right@KustodeRowB{-18mm}%
+%\atoa@correct@y\td@frame@Body@Right@KustodeRowC{-18mm}%
+\atoa@correct@y\td@frame@AEBody@Left@Footer{-8mm}%
+\atoa@correct@y\td@frame@AEBody@Right@Footer{-8mm}%
+\AtBeginDocument{\setlength\pdfpagewidth{216mm}%
+\setlength\pdfpageheight{140mm}}}
+
+%
+% New layout Okt 2014
+%
+\RequirePackage{pagesiiturbo}
+\renewcommand\VoithBasename{Voith Turbo}
+
+\newenvironment{FrontpageMmxiv}{\cleardoublepage
+\MasterPageIsFrontpageMarketingMmxiv
+\parskip=0pt\relax}%
+{\clearpage}
+
+\newcommand\FrontpageMmxivTitle{%
+\ifb@layout@av \def\next{48mm}\else\def\next{78mm}\fi
+\vbox to \next{\vfil
+\UseFontFrontpageMmxivTitle\color{VoithBlue}%
+\ifx\ConfigurationFgname\b@empty\else
+  \ifhmode\\\fi\ConfigurationFgname%
+\fi
+\if@schiffstechnik\else
+  \ifx\ConfigurationFgnumber\b@empty\else
+    \ifhmode\\\fi\ConfigurationFgnumber%
+  \fi
+\fi
+\ifx\ConfigurationCodeword\b@empty\else
+  \ifhmode\\\fi\ConfigurationCodeword%
+\fi
+\ifx\ConfigurationContext\b@empty\else
+  \color{VoithGrayDark}%
+  \ifhmode\\\fi\ConfigurationContext%
+\fi
+\if@schiffstechnik
+  \ifx\ConfigurationFgnumber\b@empty\else
+    \color{VoithGrayDark}%
+    \ifhmode\\\fi\ConfigurationFgnumber%
+  \fi
+\fi
+}}
+
+\newcommand\FrontpageMmxivDivLine{\vskip 10.3mm\relax
+\vskip-0.5pt\relax
+\nointerlineskip
+\vline width\hsize height1pt depth0pt\relax
+\vskip-0.5pt\relax
+\vskip 10.2mm\relax}
+
+\newcommand\FrontpageMmxivUnderTitle{\vbox to 21mm{%
+\IgnoreSpaceAboveNextPara
+\begin{BodyText}
+\color{VoithGrayDark}%
+\UseFontFrontpageMmxiv
+\ConfigurationAsof\\
+\ifx\ConfigurationSerialno\b@empty\else
+  \ConfigurationSerialno
+  \ifx\ConfigurationSafetyClass\b@empty\else, \fi
+\fi
+\ifx\ConfigurationSafetyClass\b@empty\else
+  \ConfigurationSafetyClass
+\fi
+\end{BodyText}\vfil}}
+
+\newcommand\FrontpageMmxivOneImage[1]{%
+\includegraphicsII[width=170mm,height=126.5mm]{#1}\par\vskip-100pt\relax}
+
+\newcommand\FrontpageMmxivTwoImages[2]{%
+\includegraphicsII[width=99.6mm,height=77mm]{#1}\hskip1pt\relax
+\includegraphicsII[width=69.3mm,height=77mm]{#1}\par}
+
+\newcommand\FrontpageMmxivKeepit[2]{%
+  \vfill
+  \begin{BodyText}
+    \UseFontFrontpageMmxiv\color{VoithGrayDark}%
+#1\Newline
+#2\end{BodyText}}
+
+\newcommand\IntroPageSplitMarker{\vfill
+\def\IntroPageSplitMarker{\begin{BodyText}\hbox{}\end{BodyText}}}
+\newcommand\IntroPageMmxivFormat{\hsize=6.5cm\relax\raggedright}

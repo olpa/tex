@@ -1,0 +1,51 @@
+\ProvidesFile{pagesii.sty}[2010/02/16 Bitplant master pages additions, proxy]
+
+\RequirePackage{pagesiiturbo}
+\let\MasterPageIsBody=\relax
+\let\MasterPageIsFrontpage=\relax
+\RequirePackage{pagesbitplant}
+
+\renewcommand\VoithBasename{bitplant.de}
+
+\def\MasterPageIsBodyColor{\MasterPageIsBody}
+\newcommand{\td@setup@Body@Left@RunningHeaderRowA}{\UseParaLayoutHeader\bfseries}
+\newcommand{\td@setup@Body@Left@RunningHeaderRowB}{\UseParaLayoutHeader\bfseries}
+\def\td@setup@Body@Left@KustodeRow{\UseParaIdentification \ifdocumentIsRTL\hfill\setRTL\fi}
+\let\td@setup@Body@Left@Footer=\UseParaLayoutFooter
+
+\newcommand\td@setup@Body@Right@RunningHeaderRowA{\td@setup@Body@Left@RunningHeaderRowA\hfill}
+\newcommand\td@setup@Body@Right@RunningHeaderRowB{\td@setup@Body@Left@RunningHeaderRowB\hfill}
+\newcommand\td@setup@Body@Right@KustodeRow{\td@setup@Body@Left@KustodeRow}
+\newcommand\td@setup@Body@Right@Footer{\td@setup@Body@Left@Footer}
+
+\renewcommand\RunningHeaderRowI{\ifdocumentIsRTL\hfill\setRTL\fi \ConfigurationFgname}
+\renewcommand\RunningHeaderRowII{\ifdocumentIsRTL\hfill\setRTL\fi \rightmark}
+
+\newcommand\td@setup@TimelineBody@Left@RunningHeaderRowA{\td@setup@Body@Left@RunningHeaderRowA}
+\newcommand\td@setup@TimelineBody@Left@RunningHeaderRowB{\td@setup@Body@Left@RunningHeaderRowB}
+\newcommand\td@setup@TimelineBody@Right@RunningHeaderRowA{\td@setup@Body@Right@RunningHeaderRowA}
+\newcommand\td@setup@TimelineBody@Right@RunningHeaderRowB{\td@setup@Body@Right@RunningHeaderRowB}
+\newcommand\td@setup@TimelineBody@Left@Footer{\td@setup@Body@Left@Footer}
+\newcommand\td@setup@TimelineBody@Right@Footer{\td@setup@Body@Right@Footer}
+
+\definecolor{BitplantBlueFrontpage}{cmyk}{1.0, 0.8, 0.0, 0.0}
+\let\td@setup@Frontpage@Header=\UseParaTitel
+
+\let\SwitchToColor=\relax
+
+\newcommand\BgtextKustodeRow{\ConfigurationFgname, \ConfigurationEditor
+\b@space - TeXML v.\StylesheetVersion
+\b@space - \b@current@date \b@space - \b@copyright@symbol{}
+\b@space \b@current@year \b@space \BgtextVoithName{}}
+
+\newcommand\ForceKustodeText[1]{\def\BgtextKustodeRow{#1}}
+
+\renewcommand\MaybeNewpage{\newpage}
+
+\renewcommand\FrontpageKeepit[2]{}
+
+\let\b@orig@IntroductionPage=\IntroductionPage
+\renewcommand\IntroductionPage{\b@orig@IntroductionPage
+\let\@oddhead=\relax
+\let\@evenhead=\relax
+}

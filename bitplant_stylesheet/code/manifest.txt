@@ -1,0 +1,3 @@
+name: bitplant
+version: 150518
+type: TeXML PDF

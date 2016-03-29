@@ -1,0 +1,222 @@
+\ProvidesPackage{parasmmxiv}[2015/04/02 Automatically generated paragraph styles for: parasmmxiv]
+% RTL hook
+\let\pd@leftskip=\leftskip
+
+\newcommand{\UseParaBodytextMmxiv}{\fontsize{\fontsizeX}{\fontsizeXIV plus.5pt minus.5pt}\selectfont}%
+\newenvironment{BodyTextMmxiv}{\fontsize{\fontsizeX}{\fontsizeXIV plus.5pt minus.5pt}\selectfont%
+\ParaSpaceAbove{\the\fontsizeXIV plus1pt minus1pt}%
+\noindent \ignorespaces}
+{\par\global\def\pd@after@para{\ParaSpaceBelow{0pt}}\aftergroup\pd@after@para}
+
+\newcommand{\UseParaOrienttextMmxiv}{}%
+\newenvironment{OrientationBodyTextMmxiv}{%
+\ParaSpaceAbove{\the\fontsizeXIV plus1pt minus1pt}%
+\noindent \ignorespaces}
+{\par\global\def\pd@after@para{\ParaSpaceBelow{0pt}}\aftergroup\pd@after@para}
+
+\newcommand{\UseParaCellBodyMmxiv}{\fontsize{\fontsizeX}{\fontsizeXII}\selectfont}%
+\newenvironment{TableParaMmxiv}{\fontsize{\fontsizeX}{\fontsizeXII}\selectfont%
+\ParaSpaceAbove{\fontsizeX}%
+\noindent \ignorespaces}
+{\par\global\def\pd@after@para{\ParaSpaceBelow{0pt}}\aftergroup\pd@after@para}
+
+\newcommand{\HeadINoNumMmxiv}[1]{{%
+\fontsize{\fontsizeXXIV}{\fontsizeXXVIII}\selectfont%
+\ParaSpaceAbove{0pt}%
+\color{VoithBlue}%
+\noindent #1\par}\nobreak\ParaSpaceBelow{7.7mm}}
+
+\newcommand{\HeadIMmxiv}[2]{{%
+\fontsize{\fontsizeXXIV}{\fontsizeXXVIII}\selectfont%
+\ParaSpaceAbove{0pt}%
+\hsize=175mm \headbreaker{-800}{15cm}\color{VoithBlue}%
+\noindent \advance\pd@leftskip by 1.2cm %
+\hbox to 0pt{\hss\hbox to 1.2cm{#1\hss}\dimen0=1.2cm %
+\advance\dimen0 by -0mm \advance\dimen0 by -1.2cm \hskip\dimen0}%
+\the\everypar #2\par}\nobreak\ParaSpaceBelow{7.7mm}}
+
+\newcommand{\HeadIIMmxiv}[2]{{%
+\fontsize{13.5pt}{\fontsizeXIV}\fontseries{b}\selectfont%
+\ParaSpaceAbove{11.2mm}%
+\headbreaker{-750}{10cm}\color{VoithBlue}%
+\noindent \advance\pd@leftskip by 1.4cm %
+\hbox to 0pt{\hss\hbox to 1.4cm{#1\hss}\dimen0=1.4cm %
+\advance\dimen0 by -0mm \advance\dimen0 by -1.4cm \hskip\dimen0}%
+\the\everypar #2\par}\nobreak\ParaSpaceBelow{7.3mm}}
+
+\newcommand{\HeadIIIMmxiv}[2]{{%
+\fontsize{13.5pt}{\fontsizeXIV}\fontseries{b}\selectfont%
+\ParaSpaceAbove{11.2mm}%
+\headbreaker{-700}{5cm}%
+\noindent \advance\pd@leftskip by 1.8cm %
+\hbox to 0pt{\hss\hbox to 1.8cm{#1\hss}\dimen0=1.8cm %
+\advance\dimen0 by -0mm \advance\dimen0 by -1.8cm \hskip\dimen0}%
+\the\everypar #2\par}\nobreak\ParaSpaceBelow{7mm}}
+
+\newcommand{\HeadIVMmxiv}[2]{{%
+\fontsize{\fontsizeX}{\fontsizeXIV}\fontseries{b}\selectfont%
+\ParaSpaceAbove{7mm}%
+\headbreaker{-650}{4cm}%
+\noindent \advance\pd@leftskip by 2cm %
+\hbox to 0pt{\hss\hbox to 2cm{#1\hss}\dimen0=2cm %
+\advance\dimen0 by -0mm \advance\dimen0 by -2cm \hskip\dimen0}%
+\the\everypar #2\par}\nobreak\ParaSpaceBelow{7.3mm}}
+
+\newcommand{\HeadVMmxiv}[2]{{%
+\fontsize{\fontsizeX}{\fontsizeXIV}\fontseries{b}\selectfont%
+\ParaSpaceAbove{7mm}%
+\headbreaker{-600}{4cm}%
+\noindent \advance\pd@leftskip by 2.25cm %
+\hbox to 0pt{\hss\hbox to 2.25cm{#1\hss}\dimen0=2.25cm %
+\advance\dimen0 by -0mm \advance\dimen0 by -2.25cm \hskip\dimen0}%
+\the\everypar #2\par}\nobreak\ParaSpaceBelow{7.3mm}}
+
+\newcommand{\IHeadMmxiv}[1]{{%
+\fontsize{\fontsizeX}{\fontsizeXII}\fontseries{b}\selectfont%
+\ParaSpaceAbove{7.3mm}%
+\headbreaker{-550}{4cm}%
+\noindent #1\par}\vskip \fontsizeVIII\relax\nobreak\ParaSpaceBelow{-0.01pt}}
+
+\newcommand{\CaptionMmxiv}[2]{{%
+\fontsize{8.5pt}{\fontsizeX}\fontseries{b}\selectfont%
+\ParaSpaceAbove{2.8mm}%
+\noindent \advance\pd@leftskip by 1.5cm %
+\hbox to 0pt{\hss\hbox to 1.5cm{#1\hss}\dimen0=1.5cm %
+\advance\dimen0 by -0cm \advance\dimen0 by -1.5cm \hskip\dimen0}%
+\the\everypar #2\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\CaptionTableMmxiv}[2]{{%
+\fontsize{8.5pt}{\fontsizeX}\fontseries{b}\selectfont%
+\ParaSpaceAbove{4mm}%
+\noindent \advance\pd@leftskip by 1.5cm %
+\hbox to 0pt{\hss\hbox to 1.5cm{#1\hss}\dimen0=1.5cm %
+\advance\dimen0 by -0cm \advance\dimen0 by -1.5cm \hskip\dimen0}%
+\the\everypar #2\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\UseParaAdmonTitleMmxiv}{\fontsize{11.5pt}{\fontsizeXIV}\fontseries{b}\selectfont}%
+
+\newcommand{\ParaIndexSectionTitle@Mmxiv}[1]{{%
+\fontsize{12.5pt}{\fontsizeXIV}\fontseries{b}\selectfont%
+\ParaSpaceAbove{6.7mm}%
+\noindent #1\par}\nobreak\ParaSpaceBelow{0pt}}
+
+\newcommand{\ParaListActionMmxiv@}[2]{{%
+%
+\ParaSpaceAbove{\the\fontsizeX plus1pt minus1pt}%
+\interlinepenalty=150\relax%
+\noindent \advance\pd@leftskip by 0.5cm %
+\hbox to 0pt{\hss\hbox to 0.5cm{#1\hss}\dimen0=0.5cm %
+\advance\dimen0 by -0cm \advance\dimen0 by -0.5cm \hskip\dimen0}%
+\the\everypar #2\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\ParaListBulletMmxiv@}[2]{{%
+%
+\ParaSpaceAbove{\the\fontsizeX plus1pt minus1pt}%
+\interlinepenalty=150\relax%
+\noindent \advance\pd@leftskip by 0.5cm %
+\hbox to 0pt{\hss\hbox to 0.5cm{#1\hss}\dimen0=0.5cm %
+\advance\dimen0 by -0cm \advance\dimen0 by -0.5cm \hskip\dimen0}%
+\the\everypar #2\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\ParaListNestedMmxiv@}[2]{{%
+%
+\ParaSpaceAbove{\the\fontsizeX plus1pt minus1pt}%
+\interlinepenalty=150\relax%
+\noindent \advance\pd@leftskip by 0.5cm %
+\hbox to 0pt{\hss\hbox to 0.5cm{#1\hss}\dimen0=0.5cm %
+\advance\dimen0 by -0cm \advance\dimen0 by -0.5cm \hskip\dimen0}%
+\the\everypar #2\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\UseParaLayoutFooterMmxiv}{\fontsize{8.5pt}{\fontsizeXI}\selectfont}%
+
+\newcommand{\UseParaLayoutHeaderMmxiv}{\fontsize{\fontsizeVIII}{\fontsizeXI}\selectfont}%
+
+\newcommand{\UseParaIdentificationMmxiv}{\fontsize{\fontsizeVI}{\fontsizeVIII}\selectfont}%
+
+\newcommand{\ParaStepITitleMmxiv}[1]{{%
+\fontsize{\fontsizeXX}{\fontsizeXXIV}\fontseries{bc}\selectfont%
+\ParaSpaceAbove{0pt}%
+\color{VoithBlue}%
+\noindent #1\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\UseFontFrontpageMmxivTitle}{\fontsize{\fontsizeXXIV}{34pt}\selectfont}%
+
+\newcommand{\UseFontFrontpageMmxiv}{\fontsize{\fontsizeX}{\fontsizeXIV}\selectfont}%
+
+\newcommand{\ParaTocLineIMmxiv}[3]{{%
+\fontsize{\fontsizeX}{\fontsizeXVI}\fontseries{b}\selectfont%
+\ParaSpaceAbove{8mm minus2mm}%
+\headbreaker{-100}{3cm}\color{VoithBlue}%
+\noindent \advance\pd@leftskip by 25.2mm %
+\hbox to 0pt{\hss\hbox to 25.2mm{#1\hss}\dimen0=25.2mm %
+\advance\dimen0 by -0mm \advance\dimen0 by -25.2mm \hskip\dimen0}%
+\hbox to 0pt{\hss\hbox to 1cm{#2\hss}\dimen0=25.2mm %
+\advance\dimen0 by -12.5cm \advance\dimen0 by -1cm \hskip\dimen0}%
+\the\everypar \hsize=12.5cm\relax
+#3\par}\penalty5000\ParaSpaceBelow{0pt}}
+
+\newcommand{\ParaTocLineIbMmxiv}[2]{{%
+\fontsize{\fontsizeX}{\fontsizeXVI}\fontseries{b}\selectfont%
+\ParaSpaceAbove{8mm minus2mm}%
+\noindent \advance\pd@leftskip by 0pt %
+\hbox to 0pt{\hss\hbox to 1cm{#1\hss}\dimen0=0pt %
+\advance\dimen0 by -16.5cm \advance\dimen0 by -1cm \hskip\dimen0}%
+\the\everypar \hsize=16.5cm\relax
+#2\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\ParaTocLineIIMmxiv}[3]{{%
+\fontsize{\fontsizeX}{\fontsizeXVI}\fontseries{b}\selectfont%
+\ParaSpaceAbove{8mm minus2mm}%
+\headbreaker{-50}{3cm}\color{VoithBlue}%
+\noindent \advance\pd@leftskip by 25.2mm %
+\hbox to 0pt{\hss\hbox to 25.2mm{#1\hss}\dimen0=25.2mm %
+\advance\dimen0 by -0mm \advance\dimen0 by -25.2mm \hskip\dimen0}%
+\hbox to 0pt{\hss\hbox to 1cm{#2\hss}\dimen0=25.2mm %
+\advance\dimen0 by -12.5cm \advance\dimen0 by -1cm \hskip\dimen0}%
+\the\everypar \hsize=12.5cm\relax
+#3\par}\penalty5000\ParaSpaceBelow{0pt}}
+
+\newcommand{\ParaTocLineIIIMmxiv}[3]{{%
+\fontsize{\fontsizeX}{\fontsizeXVI}\selectfont%
+\ParaSpaceAbove{\the\fontsizeVII plus1pt minus1pt}%
+\noindent \advance\pd@leftskip by 25.2mm %
+\hbox to 0pt{\hss\hbox to 25.2mm{#1\hss}\dimen0=25.2mm %
+\advance\dimen0 by -0mm \advance\dimen0 by -25.2mm \hskip\dimen0}%
+\hbox to 0pt{\hss\hbox to 1cm{#2\hss}\dimen0=25.2mm %
+\advance\dimen0 by -12.5cm \advance\dimen0 by -1cm \hskip\dimen0}%
+\the\everypar \hsize=12.5cm\relax
+#3\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\ParaTocLineIVMmxiv}[3]{{%
+\fontsize{\fontsizeX}{\fontsizeXVI}\selectfont%
+\ParaSpaceAbove{\the\fontsizeVII plus1pt minus1pt}%
+\noindent \advance\pd@leftskip by 25.2mm %
+\hbox to 0pt{\hss\hbox to 25.2mm{#1\hss}\dimen0=25.2mm %
+\advance\dimen0 by -0mm \advance\dimen0 by -25.2mm \hskip\dimen0}%
+\hbox to 0pt{\hss\hbox to 1cm{#2\hss}\dimen0=25.2mm %
+\advance\dimen0 by -12.5cm \advance\dimen0 by -1cm \hskip\dimen0}%
+\the\everypar \hsize=12.5cm\relax
+#3\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\ParaTocLineVMmxiv}[3]{{%
+\fontsize{\fontsizeX}{\fontsizeXVI}\selectfont%
+\ParaSpaceAbove{\the\fontsizeVII plus1pt minus1pt}%
+\noindent \advance\pd@leftskip by 25.2mm %
+\hbox to 0pt{\hss\hbox to 25.2mm{#1\hss}\dimen0=25.2mm %
+\advance\dimen0 by -0mm \advance\dimen0 by -25.2mm \hskip\dimen0}%
+\hbox to 0pt{\hss\hbox to 1cm{#2\hss}\dimen0=25.2mm %
+\advance\dimen0 by -12.5cm \advance\dimen0 by -1cm \hskip\dimen0}%
+\the\everypar \hsize=12.5cm\relax
+#3\par}\ParaSpaceBelow{0pt}}
+
+\newcommand{\ParaLegendMmxiv}[2]{{%
+\fontsize{\fontsizeX}{\fontsizeXI}\selectfont%
+\noindent \advance\pd@leftskip by .5cm %
+\hbox to 0pt{\hss\hbox to .5cm{#1\hss}\dimen0=.5cm %
+\advance\dimen0 by -0pt \advance\dimen0 by -.5cm \hskip\dimen0}%
+\the\everypar #2\par}}
+
+\newcommand{\ParaIndexMmxiv}[1]{{%
+\fontsize{\fontsizeX}{\fontsizeXIV}\selectfont%
+\ParaSpaceAbove{\the\fontsizeVII}%
+\noindent #1\par}\ParaSpaceBelow{0pt}}

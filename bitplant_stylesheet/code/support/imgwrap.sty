@@ -1,0 +1,17 @@
+% Wrapper for images
+
+\RequirePackage{grffile}
+
+% Use "dummy.pdf" for missed image files
+\def\includegraphicsII[#1]#2{%
+\IfFileExists{#2}{\includegraphics[#1]{#2}}{%
+\typeout{! LaTeX warning: File `#2' not found.}%
+\includegraphics[#1]{dummy.pdf}}}
+
+% Allow escaping in file names
+\catcode`\_=11
+\edef\ImageUnderscore{_}
+\catcode`\_=8
+\def\Image[#1]#2{{%
+\let\_=\ImageUnderscore
+\includegraphicsII[#1]{#2}}}

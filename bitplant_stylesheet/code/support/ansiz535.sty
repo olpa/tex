@@ -1,0 +1,271 @@
+\newlength\zDXXXVwidth
+\setlength\zDXXXVwidth{5cm}
+\newlength\zDXXXVheight
+\setlength\zDXXXVheight{6mm}
+\newlength\zDXXXVvertpad
+\setlength\zDXXXVvertpad{1mm}
+\newlength\zDXXXVtabstopI
+\setlength\zDXXXVtabstopI{2mm}
+\newlength\zDXXXVtabstopII
+\setlength\zDXXXVtabstopII{11.8mm}
+\newcommand\zDXXXVselectfont{\fontsize{14pt}{14pt}\fontseries{b}\selectfont}
+
+\newcommand\zDXXXVdangerText{DANGER}
+\newcommand\zDXXXVwarningText{WARNING}
+\newcommand\zDXXXVcautionText{CAUTION}
+\newcommand\zDXXXVnoticeText{NOTICE}
+
+%\definecolor{zDXXXVred}   {cmyk}{0.0, 1.0, 1.0, 0.0}
+%\definecolor{zDXXXVorange}{cmyk}{0.0, 0.4, 0.8, 0.0}
+%\definecolor{zDXXXVyellow}{cmyk}{0.0, 0.0, 1.0, 0.0}
+%\definecolor{zDXXXVblue}  {cmyk}{1.0, 0.8, 0.0, 0.0}
+\colorlet{zDXXXVred}   {admonDanger}
+\colorlet{zDXXXVorange}{admonWarning}
+\colorlet{zDXXXVyellow}{admonCaution}
+\colorlet{zDXXXVblue}  {admonNotice}
+
+% \newenvironment{SourceOfDanger}
+\newcommand\SourceOfDanger{\BodyText\admon@hook@SourceOfDanger}
+\def\endSourceOfDanger{\endBodyText}
+\providecommand\admon@hook@SourceOfDanger{}
+
+\newcommand\zDXXXV@box[3]{\begingroup \fboxsep=0pt\relax
+\colorbox{#2}{%
+\hbox to \zDXXXVwidth{%
+\vbox to \zDXXXVheight{\vfil\hbox{%
+%
+% box2 := text
+%
+\setbox2=\hbox{%
+  \ifx b#1\else
+    \color{white}%
+  \fi
+  \zDXXXVselectfont #3}%
+\dimen2=\zDXXXVwidth\relax
+\advance\dimen2 by -\zDXXXVtabstopII\relax
+\advance\dimen2 by -\zDXXXVtabstopI\relax
+\advance\dimen2 by -\zDXXXVtabstopI\relax
+\ifdim\wd2>\dimen2
+  \setbox2=\hbox{\resizebox{\the\dimen2}{!}{\box2}}%
+\fi
+%
+% Safety alert symbol
+%
+\ifx n#1%
+  \hskip\zDXXXVtabstopI
+\else
+  \dimen0=\zDXXXVheight
+  \advance\dimen0 by \ht2
+  \divide\dimen0 by 2
+  \edef\zDXXXVheight{\the\dimen0 }%
+  \setbox0=\hbox to \zDXXXVtabstopII{\hskip\zDXXXVtabstopI
+    \includegraphics[height=\zDXXXVheight]{sftsmbl#1}\hfil}%
+  \dimen0=\ht0
+  \divide\dimen0 by 2
+  \box0
+\fi
+\box2
+}\vfil}\hfil}}\endgroup}
+
+\newcommand\zDXXXVdanger{\zDXXXV@box{w}{zDXXXVred}{\zDXXXVdangerText}}
+\newcommand\zDXXXVwarning{\zDXXXV@box{b}{zDXXXVorange}{\zDXXXVwarningText}}
+\newcommand\zDXXXVcaution{\zDXXXV@box{b}{zDXXXVyellow}{\zDXXXVcautionText}}
+\newcommand\zDXXXVnotice{\zDXXXV@box{n}{zDXXXVblue}{\textit{\zDXXXVnoticeText}}}
+
+% =========================================================
+% Marketing-layout 2014
+%
+\colorlet{SaMmxivRed}   {admonDanger}
+\colorlet{SaMmxivOrange}{admonWarning}
+\colorlet{SaMmxivYellow}{admonCaution}
+
+\newcommand\Mmxiv@box[4]{\BeginDisplay\BeginDisplayAdmonSkip%
+\vbox{
+\begin{calstable}
+\def\AdmonHrule{}
+\let\cals@ifbreak=\cals@iffalse
+\colwidths{{4.2mm}{10.5mm}{116.1mm}{4.2mm}}
+\def\cals@framecs@width{0.3pt}
+\def\cals@framers@width{0.3pt}
+\def\cals@rs@width{0pt}
+\def\cals@cs@width{0pt}
+\cals@paddingT=1.8mm\relax
+\cals@paddingB=2mm\relax
+\cals@paddingL=0mm \relax
+\cals@paddingR=0mm \relax
+\brow
+\def\cals@bgcolor{#2}
+\cell{}
+\cell{\vfil
+\ifx n#1%
+  \relax
+\else
+  \vfill
+  \hskip-1.2mm\relax\includegraphics[height=5.2mm]{sftsmbl#1}%
+\fi}
+\cell{\vfil \UseParaAdmonTitleMmxiv \ifx w#1{\color{white}#3}\else#3\fi}
+\cell{}
+\ht\cals@current@row=9mm\relax
+\erow
+\brow
+\def\cals@bgcolor{}
+\cals@paddingT=4.3mm \relax
+\cals@paddingB=6mm \relax
+\cell{}
+\nullcell{ltb}
+\nullcell{rtb}
+\spancontent{\bfseries #4}
+\cell{}
+\erow
+\end{calstable}
+}
+\EndDisplay\EndDisplayAdmonSkip}
+
+\newcommand\MmxivNotice[2]{\BeginDisplay\BeginDisplayAdmonSkip%
+\vbox{
+\begin{calstable}
+\def\AdmonHrule{}
+\let\cals@ifbreak=\cals@iffalse
+\colwidths{{135mm}}
+\def\cals@framecs@width{0.3pt}
+\def\cals@framers@width{0.3pt}
+\def\cals@rs@width{0pt}
+\def\cals@cs@width{0pt}
+\cals@paddingL=4.2mm \relax
+\cals@paddingR=4.2mm \relax
+\brow
+\def\cals@bgcolor{zDXXXVblue}
+\cell{\vfil \UseParaAdmonTitleMmxiv \textcolor{white}{\textit{#1}}}
+\ht\cals@current@row=8mm\relax
+\erow
+\brow
+\def\cals@bgcolor{}
+\cals@paddingT=4.3mm \relax
+\cals@paddingB=6mm \relax
+\cell{#2}
+\erow
+\end{calstable}
+}
+\EndDisplay\EndDisplayAdmonSkip}
+
+\def\b@Arg@Uppercase#1{\uppercase{#1}}
+
+\newcommand\MmxivNote@icon@width{5.6mm}
+
+\newcommand\MmxivNote[2]{\BeginDisplay\BeginDisplayAdmonSkip%
+\vbox{%
+\color{zDXXXVblue}\hrule height1pt depth0pt\relax \color{black}%
+\vbox to 0pt{\vskip-1pt\relax
+\hbox to 0pt{\LeftOrRight{\hss}{\hskip\hsize\relax \hskip5mm\relax}%
+\includegraphics[width=\MmxivNote@icon@width,height=\MmxivNote@icon@width]{sftinfsq}
+\LeftOrRight{\hskip5mm\relax}{\hss}}%
+\vss}%
+\vskip4mm\nointerlineskip\ParaSpaceBelow{-0.01pt}%
+\IHead{\expandafter\lowercase
+\expandafter{\expandafter\b@Arg@Uppercase\zDXXXVnoticeText\relax}}% Use relax to avoid \par error if text is not defined
+#2
+\vskip4mm\relax
+\color{zDXXXVblue}\hrule height1pt depth0pt\relax \color{black}%
+}
+\EndDisplay\EndDisplayAdmonSkip}
+
+\newcommand\MmxivDanger[1]{\Mmxiv@box{w}{SaMmxivRed}{\zDXXXVdangerText}{#1}}
+\newcommand\MmxivWarning[1]{\Mmxiv@box{b}{SaMmxivOrange}{\zDXXXVwarningText}{#1}}
+\newcommand\MmxivCaution[1]{\Mmxiv@box{b}{SaMmxivYellow}{\zDXXXVcautionText}{#1}}
+
+\newcommand\MmxivAdvice[4]{%
+\ifx #1w\MmxivWarning{#4}\else
+\ifx #1d\MmxivDanger{#4}\else
+\ifx #1c\MmxivCaution{#4}\else
+        \MmxivNotice{\zDXXXVnoticeText}{#4}\fi\fi\fi}
+
+\newcommand\SwitchToMmxivAdmonitions{%
+\let\SafetyAdvice=\MmxivAdvice
+\let\SafetyAdviceLight=\MmxivNotice
+\let\note=\MmxivNote
+}
+
+% =========================================================
+% Thomas-layout
+%
+
+\newcommand\AdmonThomas@box[3]{\BeginDisplay\BeginDisplayAdmonSkip%
+\vbox{
+\begin{calstable}
+\def\AdmonHrule{}
+\def\admon@hook@SourceOfDanger{\color{black!75}\bfseries}
+\let\admon@bitactionarrow@orig=\bitactionarrow
+\def\bitactionarrow{{\color{zDXXXVblue}\admon@bitactionarrow@orig}}
+\let\cals@ifbreak=\cals@iffalse
+\colwidths{{50mm}{85mm}}
+\def\cals@rs@width{0pt}
+\def\cals@cs@width{0pt}
+\cals@paddingL=0mm \relax
+\cals@paddingR=0mm \relax
+\brow
+\def\cals@bgcolor{#1}
+\cell{\vfil
+  \hskip5pt\relax{\fontsize{14pt}{14pt}\fontseries{b}\selectfont\color{white} #2}}%
+\def\cals@bgcolor{}
+\cell{}
+\ht\cals@current@row=10mm\relax
+\erow
+\color{#1}\hrule height1pt depth0pt\relax\color{black}%
+\cals@paddingT=\b@padding\relax
+\cals@paddingB=\b@padding\relax
+\brow
+\nullcell{ltb}
+\nullcell{rtb}
+\spancontent{#3}
+\erow
+\end{calstable}
+\color{#1}\hrule height1pt depth0pt\relax\color{black}%
+}
+\EndDisplay\EndDisplayAdmonSkip}
+
+\newcommand\AdmonThomasDanger[1]{\AdmonThomas@box{zDXXXVred}{\zDXXXVdangerText}{#1}}
+\newcommand\AdmonThomasWarning[1]{\AdmonThomas@box{zDXXXVorange}{\zDXXXVwarningText}{#1}}
+\newcommand\AdmonThomasCaution[1]{\AdmonThomas@box{zDXXXVyellow}{\zDXXXVcautionText}{#1}}
+\newcommand\AdmonThomasNotice[1]{\AdmonThomas@box{zDXXXVblue}{\textit{\zDXXXVcautionText}}{#1}}
+
+\newcommand\AdmonThomasAdvice[4]{%
+\ifx #1d\AdmonThomasDanger{#4}\else
+\ifx #1w\AdmonThomasWarning{#4}\else
+\ifx #1c\AdmonThomasCaution{#4}\else
+        \AdmonThomasNotice{#4}\fi\fi\fi}
+
+\newcommand\AdmonThomasNoticeII[2]{\AdmonThomasNotice{#2}}
+
+\newcommand\AdmonThomasNote[2]{\BeginDisplay\BeginDisplayAdmonSkip%
+\vbox{\begin{calstable}
+\color{zDXXXVblue}%
+\colwidths{{20mm}{115mm}}
+\cals@paddingT=\b@padding\relax
+\cals@paddingB=\b@padding\relax
+\cals@paddingL=0pt\relax
+\def\cals@cs@width{0pt}
+\def\cals@bgcolor{black!15}
+\hrule width135mm height0.5pt depth0pt\relax
+\brow
+\alignC
+\cell{%
+\ifx#1q\includegraphicsII[width=12.9199pt,height=24.8555pt]{thonotqu.pdf}\else
+       \includegraphicsII[width=8.06836pt,height=24.9961pt]{thonotin.pdf}\fi
+}%
+\alignL\color{black}
+\cell{#2}
+\erow
+\color{zDXXXVblue}
+\hrule width135mm height0.5pt depth0pt\relax
+\end{calstable}%
+}\EndDisplay\EndDisplayAdmonSkip}
+
+\newcommand\SwitchToThomasSafetyAdvices{%
+\let\SafetyAdvice=\AdmonThomasAdvice
+\let\SafetyAdviceLight=\AdmonThomasNoticeII
+}
+
+\newcommand\SwitchToThomasAdmonitions{%
+\SwitchToThomasSafetyAdvices
+\let\note=\AdmonThomasNote
+}

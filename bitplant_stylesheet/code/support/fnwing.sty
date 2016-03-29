@@ -1,0 +1,33 @@
+\RequirePackage{svn-prov}
+\ProvidesPackageSVN{$Id: fnwing.sty 19124 2014-10-30 10:06:12Z olpa $}[Definition of the Wingdings font]
+
+\newcommand\switchtodingfont{%
+\global\font\switchtodingfont"[wingding.ttf]"\relax
+\switchtodingfont}
+
+%\newcommand{\bitarrowright}{{\switchtodingfont\XeTeXglyph206 }}
+%\newcommand{\bitlistsquare}{{\switchtodingfont\XeTeXglyph133 }}
+%\newcommand{\bitactionarrow}{{\switchtodingfont\XeTeXglyph214 }}
+\newcommand{\bitarrowright}{{\XeTeXinterchartokenstate=0 \fontencoding{EU1}\switchtodingfont \XeTeXglyph\XeTeXglyphindex"barb4right" }}
+\newcommand{\bitlistsquare}{{\XeTeXinterchartokenstate=0 \fontencoding{EU1}\switchtodingfont \XeTeXglyph\XeTeXglyphindex"box3" }}
+\newcommand{\bitactionarrow}{{\XeTeXinterchartokenstate=0 \fontencoding{EU1}\switchtodingfont \XeTeXglyph\XeTeXglyphindex"bright" }}
+\newcommand{\bitmouse}{{\XeTeXinterchartokenstate=0 \fontencoding{EU1}\switchtodingfont \XeTeXglyph\XeTeXglyphindex"mouse2button" }}
+\newcommand{\bitboxshadowdwn}{{\XeTeXinterchartokenstate=0 \fontencoding{EU1}\switchtodingfont \XeTeXglyph\XeTeXglyphindex"boxshadowdwn" }}
+
+\newcommand{\bitbobbel}{{\XeTeXinterchartokenstate=0 \fontencoding{EU1}\switchtodingfont \XeTeXglyph\XeTeXglyphindex"circle4" }}
+\newcommand{\bitcheckbox}{{\XeTeXinterchartokenstate=0 \fontencoding{EU1}\switchtodingfont \XeTeXglyph\XeTeXglyphindex"boxshadowup" }}
+\newcommand{\bitarrowthick}{{\XeTeXinterchartokenstate=0 \fontencoding{EU1}\switchtodingfont \XeTeXglyph\XeTeXglyphindex"barb4right" }}
+\newcommand{\bitarrowthin}{{\XeTeXinterchartokenstate=0 \fontencoding{EU1}\switchtodingfont \XeTeXglyph\XeTeXglyphindex"barb2right" }}
+\newcommand{\bitcheckbld}{{\XeTeXinterchartokenstate=0 \fontencoding{EU1}\switchtodingfont \XeTeXglyph\XeTeXglyphindex"checkbld" }}
+\newcommand{\bitsquareVI}{{\XeTeXinterchartokenstate=0 \fontencoding{EU1}\switchtodingfont \XeTeXglyph\XeTeXglyphindex"square6" }}
+\newcommand{\bitringII}{{\XeTeXinterchartokenstate=0 \fontencoding{EU1}\switchtodingfont \XeTeXglyph\XeTeXglyphindex"ring2" }}
+\newcommand{\bitcircleVI}{{\XeTeXinterchartokenstate=0 \fontencoding{EU1}\switchtodingfont \XeTeXglyph\XeTeXglyphindex"circle6" }}
+% FrameMaker export
+\catcode`\^^^^f0a0=13
+\def^^^^f0a0{\bitbobbel}
+\catcode`\^^^^f07b=13
+\def^^^^f07b{\bitcheckbox}
+\catcode`\^^^^f0e5=13
+\def^^^^f0e5{\bitarrowthick}
+\catcode`\^^^^f0dd=13
+\def^^^^f0dd{\bitarrowthin}

@@ -1,0 +1,12 @@
+\ProvidesFile{eu1termes}[2014/10/30 TeXGyreTermes]
+
+\DeclareFontFamily{EU1}{termes}{}
+\DeclareFontShape{EU1}{termes}{m}{n}{ <-> "[texgyretermes-regular.otf]"}{}
+\DeclareFontShape{EU1}{termes}{m}{it}{ <-> "[texgyretermes-italic.otf]"}{}
+\DeclareFontShape{EU1}{termes}{b}{n}{ <-> "[texgyretermes-bold.otf]"}{}
+\DeclareFontShape{EU1}{termes}{b}{it}{ <-> "[texgyretermes-bolditalic.otf]"}{}
+\DeclareFontShape{EU1}{termes}{bx}{n}{ <-> "[texgyretermes-bold.otf]"}{}
+\DeclareFontShape{EU1}{termes}{bx}{it}{ <-> "[texgyretermes-bolditalic.otf]"}{}
+\DeclareFontShape{EU1}{termes}{bl}{n}{ <-> "[texgyretermes-bold.otf]"}{}
+\DeclareFontShape{EU1}{termes}{c}{n}{ <-> "[texgyretermes-regular.otf]:extend=0.8"}{}
+\DeclareFontShape{EU1}{termes}{bc}{n}{ <-> "[texgyretermes-bold.otf]:extend=0.8"}{}

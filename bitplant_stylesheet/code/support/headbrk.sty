@@ -1,0 +1,69 @@
+\ProvidesPackage{headbrk}[2010/11/16 pagebreaks for headers]
+
+\newcount\hb@tracked@page@no
+\newdimen\hb@tracked@pagetotal
+\newcount\TrackedPenalty
+
+\newcount\hb@break@possible@page@no
+
+\def\ResetHeadBreaker{\global\hb@break@possible@page@no=-1\relax}
+
+\def\UpdateTrackedPenalty{%
+\relax
+\ifnum\count0=\hb@tracked@page@no
+  \ifdim\pagetotal=\hb@tracked@pagetotal
+  \else
+    \TrackedPenalty=\lastpenalty
+  \fi
+\else
+  \TrackedPenalty=\lastpenalty
+\fi
+}
+
+% \vskip10pt \vskip7pt: while looking for plus-minus parts of the skip,
+% TeX expands the second \vskip, executing "if" too early. Prevent
+% it using \relax.
+
+\def\hb@tracked@vskip{%
+\relax
+\ifnum\lastpenalty=0 \else
+  \hb@tracked@page@no=\count0
+  \hb@tracked@pagetotal=\pagetotal
+  \TrackedPenalty=\lastpenalty
+\fi
+\hb@vskip@orig
+}
+
+\let\hb@vskip@orig=\vskip
+\let\vskip=\hb@tracked@vskip
+
+% #1--penalty, #2--starting height
+\newcommand\headbreaker[2]{{%
+\UpdateTrackedPenalty
+\ifnum10000=\TrackedPenalty \else
+  \penalty0
+  \dimen0=\pagegoal
+  \advance\dimen0 by -\pagetotal
+  \ifdim #2>\dimen0
+    \global\hb@break@possible@page@no=\c@page
+    \divide\dimen0 by 3
+    \advance\dimen0 by -\pagestretch
+    \vskip 0pt plus\dimen0 \relax
+    \count10=#1
+    \advance\count10-2700
+    \penalty\count10
+    \vskip 0pt plus-\dimen0 \relax
+  \fi
+\fi
+}}
+
+\newcommand\ApplyHeadbreak{{%
+\ifnum\c@page=\hb@break@possible@page@no
+  \dimen0=\pagegoal \relax
+  \advance\dimen0 by -\pagetotal \relax
+  \advance\dimen0 by 100pt \relax
+  \vskip\dimen0 \relax
+  \penalty0
+  \vskip-\dimen0 \relax
+\fi
+}}

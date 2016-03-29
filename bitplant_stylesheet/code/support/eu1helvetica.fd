@@ -1,0 +1,11 @@
+\ProvidesFile{eu1helvet}[2014/10/31 Font Helvetica]
+
+\DeclareFontFamily{EU1}{helvetica}{}
+\DeclareFontShape{EU1}{helvetica}{m}{n}{ <-> "[HelveticaLTCom-Roman.ttf]"}{}
+\DeclareFontShape{EU1}{helvetica}{m}{it}{ <-> "[HelveticaLTCom-Oblique.ttf]"}{}
+\DeclareFontShape{EU1}{helvetica}{b}{n}{ <-> "[HelveticaLTCom-Bold.ttf]"}{}
+\DeclareFontShape{EU1}{helvetica}{b}{it}{ <-> "[HelveticaLTCom-BoldOblique]"}{}
+\DeclareFontShape{EU1}{helvetica}{bx}{n}{ <-> "[HelveticaLTCom-Bold.ttf]"}{}
+\DeclareFontShape{EU1}{helvetica}{bx}{it}{ <-> "[HelveticaLTCom-BoldOblique]"}{}
+\DeclareFontShape{EU1}{helvetica}{c}{n}{ <-> "[HelveticaCom-Condensed.ttf]"}{}
+\DeclareFontShape{EU1}{helvetica}{bc}{n}{ <-> "[HelveticaCom-BoldCondensed.ttf]"}{}

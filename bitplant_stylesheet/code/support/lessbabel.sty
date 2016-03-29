@@ -1,0 +1,8 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{lessbabel}[2005/10/04 Babel without shorthands]
+
+\DeclareOption*{\PassOptionsToPackage{\CurrentOption}{babel}}
+\ProcessOptions\relax
+\RequirePackage{babel}
+
+\def\bbl@activate#1{}

@@ -1,0 +1,70 @@
+\ProvidesPackage{paravesp}[2014/07/30 space above and below paragraphs]
+
+\newcommand\ParaSpaceAboveII[1]{\relax % Mask \ifdim from possible expansion
+\ifvmode
+  \skip0=#1\relax
+  \ifdim\parskip<0pt\relax % Vertical spacing cancelled. For example, after some headings or (idea!) inside table cells
+    \skip0=0pt\relax
+  \fi
+  \ifdim\skip0=0pt\relax
+    \IssueParaSpace
+  \else
+    \ifdim\prevdepth>-1000pt\relax
+      \advance\parskip by \prevdepth\relax % assumed: was set by SpaceBelow
+      \b@remember@penalty
+      \vskip-\prevdepth\relax
+      \b@restore@penalty
+      \prevdepth=-1000pt\relax
+    \fi
+    \ifdim\skip0>\parskip\relax
+      \parskip=#1\relax
+    \fi
+  \fi
+\fi
+}
+
+\newcommand\ParaSpaceBelowII[1]{\relax
+\parskip=#1\relax
+\advance\parskip by -\prevdepth\relax
+\ifdim\parskip<0pt\relax
+  \ifdim#1<0pt\relax \parskip=#1\relax \else \parskip=0pt\relax \fi
+  \nointerlineskip
+\else% >=10000pt
+  \ifdim\parskip>999pt\relax \parskip=#1\relax\fi
+\fi}
+
+\newcommand\IssueParaSpace{\relax
+\ifhmode \typeout{! LaTeX warning: IssueParaSpace in horizontal mode.}\par \fi
+\ifdim\parskip>0pt\relax
+  \b@remember@penalty
+  \vskip\parskip\relax
+  \b@restore@penalty
+  \prevdepth=-1000pt\relax
+  \parskip=0pt\relax
+\fi
+}
+
+\newcommand\IgnoreSpaceAboveNextParaXXX{%
+\let\ParaSpaceAbove=\pvs@Above@InIgnore
+\let\ParaSpaceBelow=\pvs@Below@InIgnore
+}
+
+\newcommand\IgnoreSpaceAboveNextPara{%
+\ParaSpaceBelow{-0.01pt}}
+
+\newcommand\CancelIgnoreSpaceAboveNextPara{%
+\relax\ifdim\parskip<0pt\relax \parskip=0pt\relax \fi}
+
+\newcommand\pvs@Above@InIgnore[1]{}
+
+\newcommand\pvs@Below@InIgnore[1]{%
+\pvs@restore@cmd
+\ParaSpaceBelowII{#1}%
+}
+
+\newcommand\pvs@restore@cmd{%
+\let\ParaSpaceAbove=\ParaSpaceAboveII
+\let\ParaSpaceBelow=\ParaSpaceBelowII
+}
+
+\pvs@restore@cmd

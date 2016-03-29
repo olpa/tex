@@ -1,0 +1,128 @@
+\ProvidesFile{voithturbo}[2014/07/14 Voith Turbo common]
+
+\definecolor{VoithBlue}{cmyk}{  1.00, 0.80, 0.00, 0.00}
+\definecolor{VoithGrayDark}{cmyk}{  0.00, 0.00, 0.00, 0.70}
+
+\RequirePackage{parasmmxiv}
+
+\newcommand\SetMmxivParagraphs{%
+\let\UseParaBodytext=\UseParaBodytextMmxiv
+\let\UseParaOrienttext=\UseParaOrienttextMmxiv
+\let\UseParaCellBody=\UseParaCellBodyMmxiv
+\let\HeadINoNum=\HeadINoNumMmxiv
+\let\HeadI=\HeadIMmxiv
+\let\HeadII=\HeadIIMmxiv
+\let\HeadIII=\HeadIIIMmxiv
+\let\HeadIV=\HeadIVMmxiv
+\let\HeadV=\HeadVMmxiv
+\let\IHead=\IHeadMmxiv
+\let\ParaStepITitle=\ParaStepITitleMmxiv
+%\let\Caption=\CaptionMmxiv %redefined as a command
+\let\UseParaAdmonTitle=\UseParaAdmonTitleMmxiv
+\let\ParaListAction@=\ParaListActionMmxiv@
+\let\ParaListBullet@=\ParaListBulletMmxiv@
+\let\ParaListNested@=\ParaListNestedMmxiv@
+\let\UseParaLayoutFooter=\UseParaLayoutFooterMmxiv
+\let\UseParaLayoutHeader=\UseParaLayoutHeaderMmxiv
+\let\UseParaIdentification=\UseParaIdentificationMmxiv
+\let\ParaTocLineI=\ParaTocLineIMmxiv
+\let\ParaTocLineIb=\ParaTocLineIbMmxiv
+\let\ParaTocLineII=\ParaTocLineIIMmxiv
+\let\ParaTocLineIII=\ParaTocLineIIIMmxiv
+\let\ParaTocLineIV=\ParaTocLineIVMmxiv
+\let\ParaTocLineV=\ParaTocLineVMmxiv
+\let\ParaLegend=\ParaLegendMmxiv
+\let\UseParaIndexSectionTitle=\UseParaIndexSectionTitleMmxiv
+\let\BodyText=\BodyTextMmxiv
+\let\endBodyText=\endBodyTextMmxiv
+\let\OrientationBodyText=\OrientationBodyTextMmxiv
+\let\endOrientationBodyText=\endOrientationBodyTextMmxiv
+\let\TablePara=\TableParaMmxiv
+\let\endTablePara=\endTableParaMmxiv
+\renewcommand\listbullet{\raise .6pt \hbox{\fontsize{10pt}{10pt}\fontfamily{arial}\selectfont ^^^^2022 }}
+\renewcommand\listndash{\raise .1pt \hbox{\fontsize{10pt}{10pt}\fontfamily{arial}\selectfont ^^^^2013 }}
+\renewcommand\linkarrowright{{\color{VoithBlue}\fontsize{11pt}{11pt}\bitarrowthin }}
+\renewcommand\listsquare{{\color{VoithBlue}\fontsize{10pt}{10pt}\fontfamily{arial}\selectfont ^^^^25a0 }}
+\UseParaBodytextMmxiv
+}
+
+\newcommand\ConfigurationCodeword{Codeword}
+
+\renewcommand\MaybeNewpage{\newpage}
+
+\renewcommand\ImgAlignHfill{\ifdim\hsize>130mm\relax \else \hfill \fi}
+
+\newcommand\SetMmxivPages{%
+\let\MasterPageIsBody=\MasterPageIsBodyMarketingMmxiv
+\let\MasterPageIsBackpage=\MasterPageIsBackpageMarketingMmxiv
+\def\b@backpage@setup{\vbox{}\vfill}%
+\renewcommand\BgtextFooter{\thepage\relax}%
+\renewcommand\BgtextKustodeRowI{\ConfigurationContext{} / \ConfigurationSerialno}%
+\renewcommand\BgtextKustodeRowII{\ConfigurationLanguage{} / \ConfigurationSafetyClass{} / \ConfigurationAsof}%
+\def\b@TOC@ToFullWidth{\MasterPageIsBody}%
+\let\TOClineI=\TOClineMmxivI
+\let\IndexSectionTitle=\IndexSectionTitleMmxiv
+\let\ParaIndex=\ParaIndexMmxiv
+\renewcommand\IndexBeteenWordAndRef{\hfill}
+%\let\b@SetCellPadding=\b@SetCellPadding@Mmxiv
+\let\BitplantTHead=\BitplantTHead@Mmxiv
+\def\cals@bodyrs@width{0pt}%
+\def\cals@cs@width{.5pt}%
+\def\cals@rs@width{.5pt}%
+\let\b@tfoot@prepend=\b@tfoot@prependMmxiv
+\let\Caption=\CaptionMmxivII
+\let\CaptionTable=\CaptionTableMmxivII
+\renewcommand\TOClineIb[2]{\TOClineI{##1}{}{##2}}%
+\setlength\BeginDisplayDefaultSkip{14pt plus.7pt minus2.8pt}%
+\setlength\EndDisplayDefaultSkip{14pt plus.7pt minus2.8pt}%
+\setlength\BeginDisplayTableSkip{6.3mm plus0.315mm minus1.26mm}%
+\setlength\EndDisplayTableSkip{8mm plus0.4mm minus1.6mm}%
+\setlength\BeginDisplayImageSkip{7mm plus0.35mm minus1.4mm}%
+\setlength\EndDisplayImageSkip{8mm plus0.4mm minus1.6mm}%
+\setlength\BeginDisplayListSkip{14pt plus.7pt minus2.8pt}%
+\setlength\EndDisplayListSkip{14pt plus.7pt minus2.8pt}%
+\setlength\BeginDisplayAdmonSkip{7.5mm plus0.325mm minus1.5mm}%
+\setlength\EndDisplayAdmonSkip{7.5mm plus0.325mm minus1.5mm}%
+\b@hook@after@SetMmxivPages
+}
+\newcommand\b@hook@after@SetMmxivPages{}
+
+\newcommand{\TOClineMmxivI}[3]{\ParaTocLineI{#2}{\bit@tocref{#1}}{#3}%
+\nobreak\VListToBaseline
+\nointerlineskip
+\dimen0=8.5mm\relax \advance\dimen0 by -8mm\relax
+\vbox to \dimen0{\vskip4mm\relax
+\hrule width\hsize height0.5pt depth0pt\relax
+\vss}\nobreak}
+
+\newcommand\IndexSectionTitleMmxiv[1]{\ParaIndexSectionTitle@Mmxiv{\color{VoithBlue}#1\color{black}}\nobreak\VListToBaseline
+\nointerlineskip
+\vbox to 7.1mm{\vskip4mm\relax
+\hrule width\hsize height0.5pt depth0pt\relax
+\vss}%
+\nobreak
+\prevdepth=-10000pt\relax}
+
+% Disabled
+\newcommand\b@SetCellPadding@Mmxiv{%
+\setlength{\cals@paddingL}{3mm}%
+\setlength{\cals@paddingR}{3mm plus 22pt minus3pt}%
+\setlength{\cals@paddingT}{4mm}%
+\setlength{\cals@paddingB}{4mm}%
+}
+
+\newcommand\BitplantTHead@Mmxiv[1]{\thead{\bfseries\color{VoithBlue} #1%
+\b@calculate@tbl@width
+\nointerlineskip\withWidth{\tmp@tblwidth}{\moveright\leftskip\hbox to\tmp@tblwidth{\vrule width\tmp@tblwidth height1pt depth0pt\relax}}\par\nointerlineskip
+\color{black}\mdseries}}
+
+\newcommand\b@tfoot@prependMmxiv{\nointerlineskip
+{\color{VoithBlue}%
+\moveright\leftskip\hbox to\tmp@tblwidth{\vrule width\tmp@tblwidth height1pt depth0pt\relax}\par\nointerlineskip}%
+\relax\parskip=0pt\relax\prevdepth=-10000pt\relax}
+
+\let\b@old@caption=\CaptionMmxiv
+\newcommand\CaptionMmxivII[2]{\b@old@caption{#1}{\mdseries #2}}
+
+\let\b@old@captionTab=\CaptionTableMmxiv
+\newcommand\CaptionTableMmxivII[2]{\b@old@captionTab{#1}{\mdseries #2}}

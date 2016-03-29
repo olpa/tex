@@ -1,0 +1,98 @@
+\RequirePackage{svn-prov}
+\ProvidesPackageSVN{$Id: multifont.sty 19956 2015-05-07 06:59:10Z olpa $}[Default fonts for different languages]
+
+%
+% Work in unicode
+%
+\newcommand\unicodefont{termes}% Full name: TeXGyreTermes
+\RequirePackage[EU1]{fontenc}
+\renewcommand\encodingdefault{EU1}
+\renewcommand\rmdefault{\unicodefont}
+\DeclareErrorFont{EU1}{\unicodefont}{m}{n}{10}
+\DeclareFontSubstitution{EU1}{\unicodefont}{m}{n}
+
+%
+% Specialization
+%
+%\newcommand\chinesefont{ukai}
+\newcommand\chinesefont{arialuni}
+\newcommand\koreanfont{batang}
+\newcommand\japanesefont{ipag}
+\newcommand\arabianfont{amiri}
+\newcommand\arabicfont{\arabianfont}
+\newcommand\cyrillicfont{\unicodefont}
+
+%
+% Default font plus then size
+%
+\newcommand\ActivateBodyFont{%
+\normalsize\fontencoding{\encodingdefault}\fontfamily{\rmdefault}\selectfont
+\expandafter\let\expandafter\next\csname \rmdefault AdditionalSettings\endcsname
+\ifx\relax\next \else \next \fi
+\UseParaBodytext
+}
+
+% Local language-injection (Chinese inside latin)
+\newenvironment{ForeignLanguage}[1]{%
+\expandafter\let\expandafter\next\csname LocalFontProfile#1\endcsname
+\next
+\fontencoding{\encodingdefault}\fontfamily{\rmdefault}\selectfont
+}{}
+
+% Disable smart polyglossia things
+\def\russian@font{}
+\def\russian@font@rm{}
+\def\xpg@addfontfeature@script#1#2{}
+
+%
+% Chinese
+%
+\newcommand\LocalFontProfilezh{%
+\renewcommand\rmdefault{\chinesefont}%
+\renewcommand\unicodefont{\chinesefont}%
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.5pt \relax
+\XeTeXlinebreaklocale "zh"\relax
+}
+\newcommand\FontProfileChinese{\LocalFontProfilezh}
+
+%
+% Korean
+%
+\newcommand\LocalFontProfileko{%
+\renewcommand\rmdefault{\koreanfont}%
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.5pt \relax
+\XeTeXlinebreaklocale "ko"\relax
+}
+\newcommand\FontProfileKorean{\LocalFontProfileko}
+
+%
+% Japanese
+%
+\newcommand\LocalFontProfileja{%
+\renewcommand\rmdefault{\japanesefont}%
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.5pt \relax
+\XeTeXlinebreaklocale "ja"\relax
+}
+\newcommand\FontProfileJapanese{\LocalFontProfileja}
+
+%
+% Cyrillic
+%
+\newcommand\LocalFontProfileru{%
+\renewcommand\rmdefault{\cyrillicfont}%
+}
+\newcommand\FontProfileCyrillic{\LocalFontProfileru}
+
+%
+% Arabic
+%
+\newcommand\LocalFontProfilear{%
+\documentIsRTLtrue
+\renewcommand\rmdefault{\arabianfont}%
+}
+\newcommand\FontProfileArabian{\LocalFontProfilear}
+
+%
+% Latin. Default. For legacy compatibility.
+%
+\newcommand\FontProfileLatin{}

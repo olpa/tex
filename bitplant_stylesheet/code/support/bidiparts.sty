@@ -1,0 +1,77 @@
+\ProvidesPackage{bidiparts}[2014/11/06 bidi support]
+
+\def\setRTL{%
+\let\if@RTL=\iftrue
+\TeXXeTstate=1
+\everypar{\setbox\z@\lastbox\beginR\ifvoid\z@\else\usebox\z@\fi}%
+\let\pd@leftskip=\rightskip
+}
+\def\unsetRTL{%
+\let\if@RTL=\iffalse
+\TeXXeTstate=0
+\everypar{}%
+\let\pd@leftskip=\leftskip
+}
+
+\newif\ifdocumentIsRTL % For running headers
+\documentIsRTLfalse
+
+\let\bipa@orig@outputpage=\@outputpage
+\renewcommand\@outputpage{\begingroup
+\def\color@hbox##1{\hbox\bgroup}%
+\def\color@endbox{\egroup}%
+% eat original begingroup
+\expandafter\let\expandafter\next\bipa@orig@outputpage}
+
+\def\suspend@RTL{\if@RTL
+  \let\maybe@resume@RTL=\setRTL
+  \unsetRTL
+\else
+  \let\maybe@resume@RTL=\relax
+\fi}
+
+\let\maybe@resume@RTL=\relax
+
+\def\endLRstacked{\relax}
+
+\newcommand\bp@endL{\endL\fontfamily{\arabicfont}\selectfont}
+\newcommand\bp@endR{\endR\fontfamily{\unicodefont}\selectfont}
+
+\newcommand\beginLstacked{\beginL\fontfamily{\unicodefont}\selectfont
+\toks0=\expandafter{\endLRstacked}%
+\edef\endLRstacked{\noexpand\bp@endL\def\noexpand\endLRstacked{\the\toks0 }}}
+\newcommand\beginRstacked{\beginR\fontfamily{\arabicfont}\selectfont
+\toks0=\expandafter{\endLRstacked}%
+\edef\endLRstacked{\noexpand\bp@endR\def\noexpand\endLRstacked{\the\toks0 }}}
+
+\catcode`\^^^^202a=13
+\def^^^^202a{\protect\beginLstacked}
+\catcode`\^^^^202b=13
+\def^^^^202b{\protect\beginRstacked}
+\catcode`\^^^^202c=13
+\def^^^^202c{\protect\endLRstacked}
+\catcode`\^^^^200c=13
+\def^^^^200c{\protect\hbox{}}
+
+% Used by \hyper@normalise
+\newcommand\bidiparts@drop@specials{%
+\def^^^^202a{}%
+\def^^^^202b{}%
+\def^^^^202c{}%
+\def^^^^200c{}%
+}
+
+% Copy/paste
+\protected\def\hboxR{\hbox\bgroup
+ \everyhbox{%
+  \aftergroup\egroup
+  \everyhbox{}%
+  \beginR
+  \bgroup
+  \aftergroup\endR
+  \aftergroup\egroup
+ }\hbox}
+
+\input{xcolor-xetex-bidi.def}
+\input{hyperref-xetex-bidi.def}
+\input{graphicx-xetex-bidi.def}

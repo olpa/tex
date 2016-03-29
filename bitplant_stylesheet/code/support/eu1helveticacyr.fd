@@ -1,0 +1,14 @@
+\ProvidesFile{eu1helvetcyr}[2014/10/31 Font Helvetica Cyrillic]
+
+%
+% Cyrillic
+%
+\DeclareFontFamily{EU1}{helveticacyr}{}
+\DeclareFontShape{EU1}{helveticacyr}{m}{n}{ <-> "[LT_51680.ttf]"}{}
+\DeclareFontShape{EU1}{helveticacyr}{m}{it}{ <-> "[LT_51681.ttf]"}{}
+\DeclareFontShape{EU1}{helveticacyr}{b}{n}{ <-> "[LT_51687.ttf]"}{}
+\DeclareFontShape{EU1}{helveticacyr}{b}{it}{ <-> "[LT_51688.ttf]"}{}
+\DeclareFontShape{EU1}{helveticacyr}{bx}{n}{ <-> "[LT_51687.ttf]"}{}
+\DeclareFontShape{EU1}{helveticacyr}{bx}{it}{ <-> "[LT_51688.ttf]"}{}
+% no special bold condenced version
+\DeclareFontShape{EU1}{helveticacyr}{bc}{n}{ <-> "[LT_51687.ttf]:extend=0.8"}{}

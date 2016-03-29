@@ -1,0 +1,12 @@
+\ProvidesFile{eu1amiri}[2014/11/11 Arabic font Amiri]
+
+\DeclareFontFamily{EU1}{amiri}{}
+\DeclareFontShape{EU1}{amiri}{m}{n}{ <-> "[amiri-regular.ttf]:script=arabic"}{}
+\DeclareFontShape{EU1}{amiri}{c}{n}{ <-> "[amiri-regular.ttf]:script=arabic,extend=0.8"}{}
+\DeclareFontShape{EU1}{amiri}{m}{it}{ <-> "[amiri-slanted.ttf]:script=arabic"}{}
+\DeclareFontShape{EU1}{amiri}{bc}{n}{ <-> "[amiri-bold.ttf]:script=arabic,extend=0.8"}{}
+\DeclareFontShape{EU1}{amiri}{b}{n}{ <-> "[amiri-bold.ttf]:script=arabic"}{}
+\DeclareFontShape{EU1}{amiri}{b}{it}{ <-> "[amiri-boldslanted.ttf]:script=arabic"}{}
+\DeclareFontShape{EU1}{amiri}{bx}{n}{ <-> "[amiri-bold.ttf]:script=arabic"}{}
+\DeclareFontShape{EU1}{amiri}{bx}{it}{ <-> "[amiri-boldslanted.ttf]:script=arabic"}{}
+\DeclareFontShape{EU1}{amiri}{bl}{n}{ <-> "[amiri-bold.ttf]:script=arabic"}{}

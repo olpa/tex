@@ -1,0 +1,271 @@
+\ProvidesFile{admon.sty}[2010/09/02 bitplant admonitions]
+
+% Somewhere to be defined: the command \UseParaAdmonTitle
+
+\RequirePackage{xcolor}
+\definecolor{admonDanger}{cmyk}{ 0.0, 1.00, 0.6, 0.3}
+\definecolor{admonWarning}{cmyk}{0.0, 0.70, 1.0, 0.0}
+\definecolor{admonCaution}{cmyk}{0.0, 0.15, 1.0, 0.0}
+\definecolor{admonNotice}{cmyk}{ 1.0, 0.80, 0.0, 0.0}
+
+\newcommand\BrightColorsForAdmonitions{%
+\definecolor{admonDanger}{cmyk}{ 0.0, 1.00, 1.0, 0.0}%
+\definecolor{admonWarning}{cmyk}{0.0, 0.40, 0.8, 0.0}%
+\definecolor{admonCaution}{cmyk}{0.0, 0.15, 1.0, 0.0}%
+\definecolor{admonNotice}{cmyk}{ 1.0, 0.80, 0.0, 0.0}%
+\colorlet{zDXXXVred}   {admonDanger}%
+\colorlet{zDXXXVorange}{admonWarning}%
+\colorlet{zDXXXVyellow}{admonCaution}%
+\colorlet{zDXXXVblue}  {admonNotice}%
+}
+
+\RequirePackage{ansiz535}
+
+\newcommand\admonNoticeFontEffects{\itshape \color{white}}
+
+%
+% Correctly framing a box 0. Corrupts the box1.
+%
+\def\b@admon@framebox{%
+\setbox1=\vtop{\cals@borderbox{.4pt}{\wd0}{.4pt}{.4pt}{\ht0}{.4pt}}%
+\setbox0=\vbox{\hbox{\box0 \box1}}}%
+
+%
+% Note
+%
+\newcommand\note@rightPage[2]{\note@table{\BodyWidth}{#2}{15mm}{\note@image{#1}}}
+\newcommand\note@leftPage[2]{\vbox{%
+\leftskip=\BodyWidth\relax \advance\leftskip by -\FullBodyWidth\relax
+\note@table{15mm}{\note@image{#1}}{\BodyWidth}{#2}}}
+
+\newcommand\note@image[1]{%
+\ifx        #1t \def\name{exclamationmark}%
+  \else \ifx#1q \def\name{questionmark}%
+  \else \ifx#1e \def\name{environment}%
+  \else         \def\name{information} \fi\fi\fi
+\vskip-0.5ex % manual correction
+\includegraphicsII[width=1.5cm,height=1.5cm]{picto_\name.pdf}}
+
+\newcommand\note@decor{%
+\cals@paddingL=0pt
+\cals@paddingR=0pt
+\def\cals@cs@width{0pt}%
+\def\cals@framers@width{.4pt}%
+}
+
+\newcommand\note@table[4]{%
+\suspend@RTL
+\begin{calstable}
+\ifdim\leftskip>0pt \relax % Action lists: no indent, left to margin: allow
+  \leftskip=0pt \relax
+\fi
+\pdfsyncstop
+\dimen0=\FullBodyWidth\relax
+\advance\dimen0 by -#1\relax
+\advance\dimen0 by -#3\relax
+\edef\tmpwidth{\the\dimen0 }
+\colwidths{{#1}{\tmpwidth}{#3}}
+\note@decor
+\brow \cell{\maybe@resume@RTL#2}\cell{}\cell{#4} \erow
+\end{calstable}\maybe@resume@RTL}%
+
+\newcommand\note@left@or@right[2]{%
+  \checkoddpageNolabel
+  \ifoddpage \note@rightPage{#1}{\CopLabel#2} \else \note@leftPage{\CopLabel#1}{\CopLabel#2}\fi}
+
+\newcommand\note[2]{%
+\BeginDisplay\BeginDisplayAdmonSkip
+\if@twoside
+  \note@left@or@right{#1}{#2}
+\else
+  \note@rightPage{#1}{#2}%
+\fi
+\EndDisplay\EndDisplayAdmonSkip}
+
+\newlength\b@noteIconAdjustment \setlength\b@noteIconAdjustment{1mm}
+
+%
+% Light safety advice
+%
+\newcommand{\SafetyAdviceLight}[2]{%
+\BeginDisplay\BeginDisplayAdmonSkip
+\begingroup
+\hsize=\BodyWidth %
+%
+% Body
+%
+\setbox1=\vbox{%
+\leftskip=\b@padding %
+\rightskip=\b@padding %
+#2}%
+%
+% Header
+%
+\setbox0=\vbox{\colorbox{admonNotice}{\vbox to 1.2cm{%
+\vfil
+\hbox to \hsize{%
+\hfil\UseParaAdmonTitle \admonNoticeFontEffects #1\hfil}%
+\vfil
+}}}%
+%
+% Combine the parts
+%
+\setbox0=\vbox{\box0 \hrule \vskip\b@padding \box1 \vskip\b@padding}%
+\b@admon@framebox%
+\box0 %
+\endgroup
+\prevdepth=0pt %
+\EndDisplay\EndDisplayAdmonSkip
+}
+
+% =========================================================
+% Safety Advice
+%
+% \safetyadvice{x}{title}{picto}{text} where x
+%   is 'w' for warning
+%   is 'd' for danger
+%   is 'c' for caution
+% picto is a filename of pictogramm
+% title is the text like 'danger'
+%
+\newcommand{\SafetyAdvice}[4]{%
+\BeginDisplay\BeginDisplayAdmonSkip
+%
+% Icon and color variants
+%
+\def\b@admon@bgcolor{admonCaution}%
+\def\b@admon@textcolor{black}%
+\def\b@admon@icon{danger_white_exclamation_mark.pdf}%
+\ifx#1d%
+\def\b@admon@bgcolor{admonDanger}%
+\def\b@admon@textcolor{white}%
+\def\b@admon@icon{danger_black_exclamation_mark.pdf}%
+\fi
+\ifx#1w%
+\def\b@admon@bgcolor{admonWarning}%
+\fi
+%
+% Starting output
+%
+\begingroup
+%
+% Easy: get the image (to vbox2)
+%
+\hsize=3.5cm
+\setbox2=\vtop{\vskip0pt % baseline adjustment
+\hbox to3.5cm{\hfil\Image[width=3cm]{#3}\hfil}}%
+\dimen1=\BodyWidth \advance\dimen1 -3.5cm%
+\hsize=\dimen1
+%
+% Easy: get the body (to vbox3)
+%
+\leftskip=\b@padding %
+\rightskip=\b@paddingPlus %
+\setbox3=\vbox{#4}%
+%
+% Art work for the header (to vbox0)
+%
+\leftskip=0pt %
+\rightskip=0pt %
+\setbox0=\hbox{\includegraphicsII[width=1.25cm,height=1.25cm]{\b@admon@icon}}%
+\setbox1=\hbox{\UseParaAdmonTitle\textcolor{\b@admon@textcolor}{#2}}%
+\dimen0=-1.25cm %
+\advance\dimen0 by \ht1 %
+\advance\dimen0 by \dp1 %
+\divide\dimen0 by 2 %
+\setbox0=\hbox to \dimen1{\hskip1.25mm \raise\dimen0\box0 %
+\hskip-1.75cm 
+\hfil
+\box1 \hfil}%
+\setbox0=\vbox to 1.5cm{\vfil\box0 \vfil}%
+\setbox0=\vbox{\colorbox{\b@admon@bgcolor}{\box0}}%
+%
+% Combine all the parts together
+% The image should be centered vertically. Otherwise, if the is a more
+% text, the white space below can be slightly larger than space above,
+% and it is looking bad.
+%
+\setbox0=\vtop{\vskip0pt % baseline adjustment
+\box0
+\ifx c#1%
+  \vskip-.2pt \hrule height.2pt depth.2pt
+\else
+  \vskip-.6pt \hrule height.6pt depth.6pt % red and orange: dicker divider
+\fi
+\vskip\b@padding \box3 \vskip\b@padding}%
+% height of the both boxes 0 and 2 is 0sp.
+\dimen0=\dp0
+\advance\dimen0 by -\dp2
+\divide\dimen0 by 2
+\ifdim \dimen0<0sp \dimen0=0pt \fi % Image is bigger than the text column, do not center the text
+\setbox0=\hbox to \BodyWidth{\box2 \raise\dimen0 \box0 %
+\hskip-\dimen1 \vrule\hfil}%
+%
+% Frame the box
+%
+\setbox0=\vbox{\box0\vskip0pt}%
+\b@admon@framebox%
+\box0 %
+\endgroup
+\prevdepth=0pt %
+\EndDisplay\EndDisplayAdmonSkip
+}
+
+%
+% \hrule in admonitions
+%
+\newcommand{\AdmonHrule}{\TransparentHrule{\b@padding}{}}
+
+% Heritage: old CALS code was used.
+\def\cals@tozeroW#1{%
+\hbox to 0pt{\hss #1\hss}}
+\def\cals@tozeroH#1{%
+\vbox to 0pt{\vss #1\vss}}
+
+\def\cals@borderbox#1#2#3#4#5#6{%
+\vbox{%
+\vskip-#5\relax
+\hbox{%
+\hskip-#2\relax
+\cals@tozeroW{\cals@tozeroH{\vbox{\hrule width#1 height#6 depth0pt}}}%
+\cals@tozeroH{\hbox{\vrule width#2 height#6 depth0pt}}%
+\cals@tozeroW{\cals@tozeroH{\vbox{\hrule width#3 height#6 depth0pt}}}%
+}%
+\nointerlineskip
+\hbox{%
+\hskip-#2\relax
+\cals@tozeroW{\hbox{\vrule width#1 height#5 depth0pt}}%
+\hbox to #2{}%
+\cals@tozeroW{\hbox{\vrule width#3 height#5 depth0pt}}%
+}%
+\nointerlineskip
+\hbox{%
+\hskip-#2\relax
+\cals@tozeroW{\cals@tozeroH{\vbox{\hrule width#1 height#4 depth0pt}}}%
+\cals@tozeroH{\hbox{\vrule width#2 height#4 depth0pt}}%
+\cals@tozeroW{\cals@tozeroH{\vbox{\hrule width#3 height#4 depth0pt}}}%
+}%
+}}
+
+
+% \safetyadvice{x}{title}{picto}{text} where x}
+\def\zDXXXVselectfont{\UseParaAdmonTitle}
+
+\newcommand\ansiAdvice[4]{%
+\BeginDisplay\BeginDisplayAdmonSkip
+\vbox{\vbox{%
+\ifx #1w\zDXXXVwarning \else
+\ifx #1d\zDXXXVdanger  \else
+\ifx #1c\zDXXXVcaution \else
+        \zDXXXVnotice  \fi\fi\fi}%
+\prevdepth=0pt\relax
+\let\AdmonHrule=\relax
+#4}%
+\EndDisplay\EndDisplayAdmonSkip}
+
+\newcommand\ansiAdviceLight[2]{\ansiAdvice{n}{}{}{#2}}
+
+\newcommand\switchToAnsiSafety{%
+\let\SafetyAdvice=\ansiAdvice
+\let\SafetyAdviceLight=\ansiAdviceLight
+}

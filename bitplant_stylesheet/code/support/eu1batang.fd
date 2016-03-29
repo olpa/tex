@@ -1,0 +1,12 @@
+\ProvidesFile{eu1batang}[2014/11/04 Korean font Batang]
+
+\DeclareFontFamily{EU1}{batang}{}
+\DeclareFontShape{EU1}{batang}{m}{n}{ <-> "[UnBatang.ttf]"}{}
+\DeclareFontShape{EU1}{batang}{c}{n}{ <-> "[UnBatang.ttf]:extend=0.8"}{}
+\DeclareFontShape{EU1}{batang}{m}{it}{ <-> "[UnBatang.ttf]:slant=0.2"}{}
+\DeclareFontShape{EU1}{batang}{b}{n}{ <-> "[UnBatangBold.ttf]"}{}
+\DeclareFontShape{EU1}{batang}{bc}{n}{ <-> "[UnBatangBold.ttf]:extend=0.8"}{}
+\DeclareFontShape{EU1}{batang}{b}{it}{ <-> "[UnBatangBold.ttf]:slant=0.2"}{}
+\DeclareFontShape{EU1}{batang}{bx}{n}{ <-> "[UnBatangBold.ttf]"}{}
+\DeclareFontShape{EU1}{batang}{bx}{it}{ <-> "[UnBatangBold.ttf]:slant=0.2"}{}
+\DeclareFontShape{EU1}{batang}{bl}{n}{ <-> "[UnBatangBold.ttf]"}{}

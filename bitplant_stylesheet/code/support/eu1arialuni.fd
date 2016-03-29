@@ -1,0 +1,15 @@
+\ProvidesFile{eu1arialuni}[2015/03/20 Arial Unicode MS]
+
+\DeclareFontFamily{EU1}{arialuni}{}
+\DeclareFontShape{EU1}{arialuni}{m}{n}{ <-> "Arial Unicode MS"}{}
+\DeclareFontShape{EU1}{arialuni}{m}{it}{ <-> "Arial Unicode MS:slant=0.2"}{}
+\DeclareFontShape{EU1}{arialuni}{b}{n}{ <-> "Arial Unicode MS/B"}{}
+\DeclareFontShape{EU1}{arialuni}{b}{it}{ <-> "Arial Unicode MS/B:slant=0.2"}{}
+\DeclareFontShape{EU1}{arialuni}{bx}{n}{ <-> "Arial Unicode MS/B"}{}
+\DeclareFontShape{EU1}{arialuni}{bx}{it}{ <-> "Arial Unicode MS/B:slant=0.2"}{}
+\DeclareFontShape{EU1}{arialuni}{bl}{n}{ <-> "Arial Unicode MS/B"}{}
+% A sort of compatibility with hybrix-generator for turbo
+%\DeclareFontShape{EU1}{arialuni}{c}{n}{ <-> "Arial Unicode MS:extend=0.8"}{}
+%\DeclareFontShape{EU1}{arialuni}{bc}{n}{ <-> "Arial Unicode MS/B:extend=0.8""}{}
+\DeclareFontShape{EU1}{arialuni}{c}{n}{ <-> "Arial Unicode MS"}{}
+\DeclareFontShape{EU1}{arialuni}{bc}{n}{ <-> "Arial Unicode MS/B"}{}

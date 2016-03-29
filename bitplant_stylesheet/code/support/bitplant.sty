@@ -1,0 +1,942 @@
+\RequirePackage{xcolor}
+\RequirePackage[bookmarks,unicode,pageanchor=false,hypertexnames=true,bookmarksopen=true,bookmarksopenlevel=8,linkcolor=black,linkbordercolor={0 0 1},urlcolor=blue,colorlinks=true,urlbordercolor=blue,pdfcenterwindow=true,pdffitwindow=true,pdfpagelayout=SinglePage,pdfpagelabels=false,hyperfootnotes=false]{hyperref}
+\providecommand\StylesheetVersion{devel}
+
+% The official command "hypersetup" uses "pdfstringdef", which
+% adds an initial marker, which confuses xdvipdfmx
+\def\@pdfcreator{bitplant.de - TeXML \StylesheetVersion}
+% http://tex.stackexchange.com/questions/26071/
+\Hy@AtBeginDocument{%
+  \def\@pdfborderstyle{/S/U/W 1}
+}
+
+\RequirePackage{ragged2e}
+\RequirePackage{lscape}
+\RequirePackage{multicol}
+\RequirePackage{alltt}
+
+\RequirePackage{imgwrap}
+\RequirePackage{headbrk}
+
+\RequirePackage[strict]{changepage}
+
+\RequirePackage{partkofn}
+
+\let\pdfsyncstart=\relax
+\let\pdfsyncstop=\relax
+
+\setlength{\parindent}{0pt}
+\renewcommand\normalsize{\fontsize{\fontsizeX}{\fontsizeXII}\selectfont}
+\setlength{\emergencystretch}{1cm}
+
+\setlength{\hfuzz}{15pt}% ~5mm
+%\setlength\overfullrule{30pt}
+
+\newlength{\b@padding}
+\newlength{\b@paddingPlus}
+\setlength{\b@padding}{2.5mm}
+\setlength{\b@paddingPlus}{2.5mm plus 20pt}
+\setlength{\fboxsep}{0pt}
+
+\newlength{\b@page@margin@top}
+\setlength{\b@page@margin@top}{35mm}
+\newlength{\b@page@margin@left}
+\setlength{\b@page@margin@left}{25mm}
+%\RequirePackage[a4paper, % 210×297mm
+%top=\b@page@margin@top,bottom=22mm,inner=\b@page@margin@left,outer=10mm,
+%includemp=true,marginpar=40mm,marginparsep=0mm,
+%columnsep=0mm,
+%showframe,
+%]{geometry}
+\raggedbottom
+\newlength{\FullBodyWidth}
+\setlength{\FullBodyWidth}{175mm}
+\newlength{\BodyWidth}
+\setlength{\BodyWidth}{135mm}
+
+\newcommand\footnotesize{\fontsize{8pt}{9pt}}
+\RequirePackage{footmisc}
+
+\renewcommand\normalsize{\fontsize{\fontsizeX}{\fontsizeXII plus.5pt minus.5pt}}
+
+\widowpenalty=500\relax
+\clubpenalty=500\relax
+
+% To be redefined by "bidiparts"
+\let\if@RTL=\iffalse
+\let\ifdocumentIsRTL=\iffalse
+\let\suspend@RTL=\relax
+\let\maybe@resume@RTL=\relax
+
+%\newcommand\MaybeNewpage{{%
+%\dimen0=\pagegoal
+%\advance\dimen0 by -\pagetotal\relax
+%\ifdim\dimen0<\pagetotal\relax \newpage \fi
+%}}
+\newcommand\MaybeNewpage{\relax}
+
+\newcommand{\TODO}[1]{\begin{para}\textbf{\color{red}#1}\end{para}}
+\newcommand\b@variant@font@sel{\fontsize{8pt}{8pt}\selectfont}
+\newcommand{\VariantBegin}[1]{\b@variant@font@sel {\textbf{\color{green}#1}}}
+\newcommand{\VariantEnd}[1]{{\b@variant@font@sel \textbf{\color{red}#1}}}
+\newcommand{\VariantMarkerAlone}[1]{{\b@variant@font@sel \textbf{\color{magenta}#1}}}
+% Printing comments: for somewhen later
+%\newcommand{\xmlcomment}[1]{\begin{para}\RaggedRight\textbf{\color{blue}\hbox to\hsize{#1\hss}}\end{para}}
+%\newcommand{\xmlcomment}[1]{\textbf{\color{blue}{#1}}}
+
+\edef\DateYYYYmMMmmDD{\the\year -\ifnum\month<10 0\fi\the\month -\ifnum\day<10 0\fi\the\day\relax}
+
+\newcommand{\Newline}{\ifhmode\begingroup\parskip0pt\hfil\par\noindent\endgroup\fi}
+
+\newcommand{\ForceVerticalMode}{\ifhmode\par\fi}
+
+\newenvironment{para}{\begin{BodyText}}{\end{BodyText}}
+
+\newcommand\Symbol[1]{{\fontfamily{\unicodefont}\fontencoding{\encodingdefault}\selectfont #1}}
+
+\let\if@RTL=\iffalse
+
+\newenvironment{bitalltt}{%
+\begin{alltt}%
+\setlength\overfullrule{0pt}}%
+{\end{alltt}}
+
+\newcommand\b@AssertNotHMode{\ifhmode \typeout{! LaTeX warning: ManualConditionalParskip in horizontal mode.}\par \fi}
+
+% Label for page numbers and hypertarget for PDF links
+\newcommand{\setid}[1]{%\protect\label{#1}% FIXME
+\hypertarget{#1}{}}
+
+\newlength{\b@prevdepth}
+
+\newlength\BeginDisplayDefaultSkip \setlength\BeginDisplayDefaultSkip{10pt plus 0.5pt minus2pt}
+\newlength\EndDisplayDefaultSkip \setlength\EndDisplayDefaultSkip{5pt plus 0.25pt minus1pt}
+\newlength\BeginDisplayImageSkip \setlength\BeginDisplayImageSkip{\BeginDisplayDefaultSkip}
+\newlength\EndDisplayImageSkip \setlength\EndDisplayImageSkip{\EndDisplayDefaultSkip}
+\newlength\BeginDisplayTableSkip \setlength\BeginDisplayTableSkip{\BeginDisplayDefaultSkip}
+\newlength\EndDisplayTableSkip \setlength\EndDisplayTableSkip{\EndDisplayDefaultSkip}
+\newlength\BeginDisplayListSkip \setlength\BeginDisplayListSkip{\BeginDisplayDefaultSkip}
+\newlength\EndDisplayListSkip \setlength\EndDisplayListSkip{\EndDisplayDefaultSkip}
+\newlength\BeginDisplayLegendSkip \setlength\BeginDisplayLegendSkip{\BeginDisplayDefaultSkip}
+\newlength\EndDisplayLegendSkip \setlength\EndDisplayLegendSkip{\EndDisplayDefaultSkip}
+\newlength\BeginDisplayAdmonSkip \setlength\BeginDisplayAdmonSkip{\BeginDisplayDefaultSkip}
+\newlength\EndDisplayAdmonSkip \setlength\EndDisplayAdmonSkip{\EndDisplayDefaultSkip}
+
+\newcommand\BeginDisplay[1]{\b@AssertNotHMode
+\b@penalty@unless@undesired{-150}%
+\ifinner\relax\else
+  \leftskip=0pt\relax % images and tables inside lists
+\fi
+\ParaSpaceAbove{#1}\IssueParaSpace}
+\newcommand\EndDisplay[1]{\b@AssertNotHMode\penalty-150\relax\ParaSpaceBelow{#1}}
+
+\newcommand{\vgroup}[1]{\vbox{\ignorespaces #1\ignorespaces}}
+
+\def\innerif#1#2{#2}
+\def\b@iftrue{\iftrue}
+\def\b@iffalse{\iffalse}
+
+\newcommand\EnvPostSetup[1]{\gdef\b@after@env{#1}\aftergroup\b@after@env}
+
+\newcommand\b@empty{} % \long-empty vs default short-empty
+
+\definecolor{bqtext}{cmyk}{0.25, 1.00, 1.00, 0.35}
+\definecolor{bqback}{cmyk}{0.00, 0.00, 0.00, 0.05}
+\newenvironment{blockquote}{%
+\color{bqtext}
+\BeginDisplay\BeginDisplayAdmonSkip
+\begin{calstable}
+\def\cals@bgcolor{bqback}
+\b@SetCellPadding
+\expandafter\colwidths\expandafter{\expandafter{\the\hsize}}
+\brow
+\cell\bgroup
+}{\egroup\erow\end{calstable}
+\EndDisplay\EndDisplayAdmonSkip}
+
+%
+% An wrapper for the figure (image, caption and the legend)
+%
+\newcommand{\widegroup}[1]{%
+\BeginDisplay\BeginDisplayImageSkip
+\setbox0=\vbox{\ignorespaces #1\ignorespaces}%
+\if@twoside
+  \ifdim\b@lastImageWidth>\hsize
+    \vskip\ht0
+    \goodbreak
+    \vskip-\ht0
+    \checkoddpage\ifoddpage
+    \else
+      \dimen0=\hsize
+      \advance\dimen0-\b@lastImageWidth
+      \setbox0=\hbox{\hskip\dimen0 \box0}%
+    \fi
+  \fi
+\fi
+\IssueParaSpace
+\box0
+\EndDisplay\EndDisplayImageSkip
+}
+
+\def\CaptionTable{\Caption}
+%\def\CaptionImage{\Caption}
+\newlength\b@old@hsize
+\newcommand\CaptionImage[2]{%
+\b@old@hsize=\hsize\relax
+\ifdim\b@lastImageWidth>\hsize\relax \hsize=\b@lastImageWidth \fi
+\Caption{#1}{#2}%
+\hsize=\b@old@hsize\relax}
+
+
+% 1: vskip, 2: rule
+\newcommand{\TransparentHrule}[2]{\b@AssertNotHMode\dimen0=\prevdepth \vskip#1 \hrule#2 \prevdepth=\dimen0}
+
+\newcommand{\filmedbreak}{\vfil\medbreak\vfilneg}
+\newcommand{\filsmallbreak}{\vfil\smallbreak\vfilneg}
+
+%
+% Two-side layout, re-width small amount of text material
+%
+\newlength{\b@rewidth@old@leftskip}
+\newlength{\b@rewidth@old@hsize}
+
+\def\rewidthRemember{%
+\setlength{\b@rewidth@old@leftskip}{\leftskip}%
+\setlength{\b@rewidth@old@hsize}{\hsize}}
+
+\def\rewidthRestore{%
+\leftskip=\b@rewidth@old@leftskip\relax
+\hsize=\b@rewidth@old@hsize\relax}
+
+\newcommand\rewidthSet[1]{%
+\ifdim#1>\hsize\relax \rewidthSetII{#1}\fi}
+
+\newcommand\rewidthSetII[1]{%
+\def\next{\def\next{\ifoddpage}}% nested if workaround
+\if@twoside
+  \checkoddpage
+  \next
+\else
+  \let\next=\b@iftrue
+\fi
+\next
+  \hsize=#1\relax
+\else
+  % twoside mode and not odd page
+  \advance\leftskip by -#1\relax
+  \advance\leftskip by \hsize\relax
+\fi}
+
+\newcommand\withWidth[2]{\rewidthRemember\rewidthSet{#1}%
+#2\rewidthRestore}
+
+\newcommand\LeftOrRight[2]{\def\next{#2}%
+\if@twoside\ifodd\c@page \else \def\next{#1}\fi\fi
+\next}
+
+
+% =========================================================
+% Inline elements
+
+\newcommand{\Software}[1]{\texttt{#1}}
+
+\newcommand{\Switch}[1]{\textbf{\textit{#1}}}
+
+\newcommand\Mouse[1]{\bitmouse\textsubscript{\textbf{#1}}}
+
+\newcommand{\unicodechar}[1]{\textcolor{red}{\&\##1;}}
+
+\newcommand\SoftwareButton[1]{{%
+\colorbox{black!10}{\ttfamily\scshape \strut #1}%
+}}
+
+%\newcommand\BlockStartQuote[1]{\hbox to 0pt{\hskip -1ex\relax #1\hss}}
+%\newcommand\BlockEndQuote[1]{\hbox to 0pt{\hbox to 1ex{\hss#1}\hss}}
+\newcommand\BlockStartQuote[1]{#1}
+\newcommand\BlockEndQuote[1]{#1}
+
+\newcommand{\CrossReference}[2]{\hyperlink{#1}{\linkarrowright~#2}}
+\def\linkarrowright{\bitarrowright}
+
+\newcommand\TwoPartCrossRef[3]{\CrossReference{#1}{#2, #3}}
+\newcommand\ObjectCrossRef[2]{\textit{\hyperlink{#1}{\linkarrowright~#2}}}
+% "Unbreakable" link. However, should break in narrow columns.
+% Play with breaks: nearly force a break at the begin, but try
+% to avoid it if at the begin of a line.
+\newcommand\PageChapterTitleRef[4]{%
+{\dimen0=\hsize\relax \divide\dimen0 by 2\relax
+ \hskip0pt plus\dimen0\relax \penalty0 \hskip0pt plus-\dimen0\relax}%
+\CrossReference{#1}{\hbox{#2}, \penalty100 \hbox{#3}, #4}}
+
+% http://groups.google.de/group/comp.text.tex/msg/8112ff8779575474
+\DeclareRobustCommand*\textsubscript[1]{%
+\@textsubscript{\selectfont#1}}
+\def\@textsubscript#1{%
+{\m@th\ensuremath{_{\mbox{\fontsize\sf@size\z@#1}}}}} 
+
+\def\b@hl@II#1 {\colorbox{yellow}{\strut #1 }\penalty0\relax\next}
+\newcommand\hl[1]{%
+  \def\next##1{\ifx\relax##1\let\next=\relax\else\b@hl@II##1\fi}%
+  \next#1 \relax}
+
+\definecolor{lcd@display@screen}{cmyk}{  0.25, 0.00, 1.00, 0.00}
+
+% Außenmaße: 9,5 cm x 3,5 cm (oder 11,5x3,5)
+% Innenmaße: 7,5 cm x 2,75 cm
+% One line size: 2.75/4=0.6875, too big. Twice less: 0.34375
+\newcommand\LcdDisplay[1]{\BeginDisplay\BeginDisplayDefaultSkip
+\begin{calstable}
+\pdfsyncstop\colwidths{{5.75cm}}
+\def\cals@framecs@width{.5pt}
+\def\cals@framers@width{.5pt}
+\def\cals@bgcolor{lcd@display@screen}
+\parskip=0pt\relax
+\fontsize{.3cm}{.34375cm}\ttfamily\selectfont
+\baselineskip=.34375cm\relax
+\alignC
+\brow \cell{\vfil%
+\def\next##1{\ifx \b@stop##1\relax
+  \let\next=\relax
+\else
+  \ifx ^^^^2022##1\ \else
+    \ifx ^^^^2023##1\par \else
+      \ifx ^^^^2021##1\textcolor{blue}{N}\else
+        \ifx ^^^^2020##1\textcolor{blue}{n}\else
+  ##1\fi\fi\fi\fi
+\fi\next}%
+\next#1\b@stop
+}\ht\cals@current@row=1.75cm\relax \erow
+\end{calstable}\EndDisplay\EndDisplayDefaultSkip}
+
+% =========================================================
+% Table
+
+\newlength{\b@old@leftskip}
+
+\newcommand\b@twoside@issue@row{%
+\ifinner
+  \b@old@issue@row
+\else
+  \withWidth{\wd\cals@current@row}{\b@old@issue@row}%
+\fi
+}
+
+% Two-side layout. If the table is wider as the text, we should
+% move it to the correct side.
+\newcommand\b@set@leftskip@for@wide@material{%
+\checkoddpage\ifoddpage
+ \leftskip=\b@old@leftskip
+\else
+ \b@old@leftskip=\leftskip
+ \leftskip=\b@twoside@wide@correction
+\fi
+}
+
+% Two-side layout. If the table is wider as the text, we should
+% move it to the correct side.
+\newcommand\b@twoside@colwidths[1]{%
+ \b@old@colwidths{#1}%
+ \def\next##1{\ifx##1\eol \let\next=\relax
+   \else \advance\dimen0 by ##1\fi \next}
+ \dimen0=-1pt % compensate rounding errors
+ \next#1\eol
+ \ifdim\dimen0>\hsize
+  \advance\dimen0 by -\hsize
+  \advance\dimen0 by 1pt
+  \b@twoside@wide@correction=-\dimen0
+  \b@old@leftskip=\leftskip
+  \b@set@leftskip@for@wide@material
+ \fi
+ \let\b@old@issue@break=\cals@issue@break
+ \def\cals@issue@break{%
+  \b@old@issue@break\clearpage
+  \b@set@leftskip@for@wide@material}%
+ }
+
+\newcommand\b@SetCellPadding{%
+\setlength{\cals@paddingL}{6pt}%
+\setlength{\cals@paddingR}{6pt plus 22pt minus3pt}%
+\setlength{\cals@paddingT}{5pt}%
+\setlength{\cals@paddingB}{5.6pt}%
+}
+
+\newenvironment{BitplantTable}{%
+\BeginDisplay\BeginDisplayTableSkip
+{%
+\ifdim\pagegoal<5000pt % maxdimen is 16383.99998pt
+  \dimen0=\pagegoal
+  \advance\dimen0 by -\pagetotal
+  \multiply\dimen0 by 3
+  \ifdim\dimen0<\pagegoal
+    \ApplyHeadbreak
+  \fi
+\fi
+}%
+%
+% If there is few space left, try to recommend a page break.
+% Useful for wide tables with two-side layout. ifodd-ifeven
+% should be on the correct pages.
+%
+\if@twoside
+ \let\b@old@issue@row=\cals@issue@row
+ \let\cals@issue@row=\b@twoside@issue@row
+\fi
+%
+% Just a normal table
+%
+\begin{calstable}%
+  \pdfsyncstop
+  \UseParaCellBody
+  \b@SetCellPadding
+  \cals@setcellprevdepth{Al}%
+  \let\TablePartKofN=\TablePartKofN@passO
+  \let\TablePartKofN@EOT=\relax
+}{\TablePartKofN@EOT \end{calstable}%
+\EnvPostSetup{\EndDisplay\EndDisplayTableSkip}}
+
+% The command \pdfsyncstart is not defined yet,
+% therefore I use "def" instead of "let".
+\def\cals@AtBeginCell{%
+\hfuzz=3pt %
+% Switch on hyphenation of the first word
+\expandafter\everypar\expandafter{\the\everypar\hspace{0pt}}%
+\IgnoreSpaceAboveNextPara
+\pdfsyncstart}
+
+\newcommand{\theadrow}{\bfseries }
+
+\newcommand\BitplantTHead[1]{\thead{\bfseries #1\mdseries}}
+
+%
+% A break at the header and the first row sometimes makes
+% an empty page. (Due to overfill). Workaround it.
+%
+\renewcommand\cals@issue@break{\ifx \relax\cals@tbreak@tokens
+ \penalty0 \ifdim 100pt<\pagetotal \penalty-10000 \fi
+\else \cals@tbreak@tokens \fi
+\let\cals@tbreak@tokens=\relax
+\let\cals@last@context=n}
+
+%
+% The normal footer, then again a workaround for header+first row.
+%
+\newcount\b@tfoot@count \b@tfoot@count=0
+
+\newcommand\b@calculate@tbl@width{%
+\dimen0=0pt\relax
+\def\tmp@tblwidth##1{\ifx\relax##1 \let\tmp@tblwidth=\relax \else
+  \advance\dimen0 by ##1\relax \fi \tmp@tblwidth}%
+\expandafter\tmp@tblwidth\cals@colwidths\relax
+\edef\tmp@tblwidth{\the\dimen0}}%
+
+\newcommand\b@tfoot@prepend{\nointerlineskip}
+
+\newcommand\BitplantTFoot[1]{%
+% caption width to table width
+\b@calculate@tbl@width
+\tfoot{%
+  \withWidth{\tmp@tblwidth}{\b@tfoot@prepend #1}%
+  \ifnum\b@tfoot@count>0
+    {\dimen0=\pagetotal \advance\dimen0 by 10pt
+    \ifdim \dimen0>\pagegoal \pagegoal=\dimen0 \fi
+    }%
+  \fi
+}%
+\advance\b@tfoot@count by 1
+}
+
+% Cals-tables take care of \parskip, at the same time paragraph
+% spacing also plays with it. As result, for some reason, the several-
+% page tables had corrupted \parskip and spoled layout.
+\let\b@orig@brow=\brow
+\renewcommand\brow{\parskip=0pt\relax\b@orig@brow}
+
+% ---
+
+\newcommand\TablePartKofN@passO{\hfill\hbox to10mm{\hfil}%
+\global\let\TablePartKofN=\TablePartKofN@passI}
+
+\newcommand\TablePartKofN@passI{\ifvoid\cals@backup@row
+  \global\let\TablePartKofN=\relax
+\else
+  \global\let\TablePartKofN@EOT=\TablePartKofN@preEOT
+  \global\let\TablePartKofN=\TablePartKofN@passK
+  \knReset
+  \TablePartKofN
+\fi}
+
+\newcommand\TablePartKofN@passK{%
+\knInc \hfill\hbox to10mm{\hfil\knK\space / \knN}}
+
+\newcommand\TablePartKofN@passN{%
+\TablePartKofN@passK
+\knCommit}
+
+\newcommand\TablePartKofN@preEOT{\global\let\TablePartKofN=\TablePartKofN@passN}
+
+% =========================================================
+% TOC
+
+\newcommand{\HeadTOC}[1]{\HeadINoNum{#1\strut}\vskip1mm }
+
+\newcommand{\bit@tocref}[1]{\hfill\hyperlink{#1}{\pageref*{#1}}}
+
+\newcommand{\TOClineI}[3]{\ParaTocLineI{#2}{\bit@tocref{#1}}{#3}%
+\nobreak\TransparentHrule{2pt}{height0.4pt depth0pt}\penalty5000}
+\newcommand{\TOClineIb}[2]{\ParaTocLineIb{\bit@tocref{#1}}{#2}}
+\newcommand{\TOClineII}[3]{\ParaTocLineII{#2}{\bit@tocref{#1}}{#3}}
+\newcommand{\TOClineIII}[3]{\ParaTocLineIII{#2}{\bit@tocref{#1}}{#3}}
+\newcommand{\TOClineIV}[3]{\ParaTocLineIV{#2}{\bit@tocref{#1}}{#3}}
+\newcommand{\TOClineV}[3]{\ParaTocLineV{#2}{\bit@tocref{#1}}{#3}}
+\providecommand\TOCisForChapter[1]{}
+
+% =========================================================
+% Lists
+%
+\newcount\DisplayLevel
+\newcommand\OnlyOuterBeginDisplay[1]{\b@AssertNotHMode%
+\b@penalty@unless@undesired{-150}%
+\ifnum\DisplayLevel=0\relax \ParaSpaceAbove{#1}\fi
+\advance\DisplayLevel by 1\relax}
+
+% This version to be used in commands (no implicit locals of environment)
+\newcommand\OnlyOuterEndDisplay[1]{\penalty-150\relax\ifnum\DisplayLevel=1\relax \ParaSpaceBelow{#1}\fi
+\advance\DisplayLevel by -1\relax}
+
+% This version to be used "after environment"
+\newcommand\OnlyOuterEndDisplayPostEnv[1]{\penalty-150\relax\ifnum\DisplayLevel=0\relax \ParaSpaceBelow{#1}\fi}
+
+\newenvironment{List}{%
+\OnlyOuterBeginDisplay\BeginDisplayListSkip
+\widowpenalty=10000\relax
+\clubpenalty=10000\relax
+% Drop glue to avoid unaligned items
+\dimen0=\leftskip\relax \leftskip=\dimen0\relax
+}{\EnvPostSetup{\OnlyOuterEndDisplayPostEnv\EndDisplayListSkip}}
+
+\newenvironment{NestedList}{\advance\leftskip.6cm\relax}{}
+
+\newcommand{\ParaListAction}[2]{\ParaListAction@{#1}{\ignorespaces #2}}
+\newcommand{\ParaListBullet}[2]{\ParaListBullet@{#1}{\ignorespaces #2}}
+\newcommand{\ParaListNested}[2]{\ParaListNested@{#1}{\ignorespaces #2}}
+
+\newcommand\ActionStepTextAfterImage{\prevdepth=-10000pt\relax}
+
+%\newenvironment{Actions}{\begin{List}}{\end{List}}
+\newcommand\Actions{\List}
+\let\endActions=\endList
+
+\newenvironment{Result}{}{}
+\newenvironment{StepResult}{\advance\leftskip.6cm\relax}{}
+\newcommand{\ActionseqHead}[1]{\IHead{#1}}
+
+\ifx\ParaSafetyAdviceStep\undefined
+  \def\ParaSafetyAdviceStep{\ParaListAction}%
+\fi
+
+\newcommand{\Alternative}[1]{{\bfseries #1}\par}
+
+\newlength\b@lastImageWidth
+\newcommand{\ImageWrapper}[1]{%
+%\hbox to \hsize{#1\hss}%avoid possible zero width in table columns
+\setbox0=\hbox{#1}%
+\global\b@lastImageWidth=\wd0
+{\ifdim\wd0>\hsize \hsize=\wd0 \fi
+\everypar{}% bidi fix
+\unhbox0\par}%
+\ParaSpaceBelow{0pt}% Also allow vertical spacing for caption inside tables
+}
+
+% If an image width is (say) 11.5mm and the text width is 13.5mm,
+% then centered images look ugly. Solution: ignore centering attribute
+% in the main flow. (Only in Turbo stylesheets, redefined there)
+\newcommand\ImgAlignHfill{}
+\let\ImgAlignHfill=\hfill
+
+% Heading or something is the first in a cell. Avoid adding
+% vertical space above. In future, we will implement tunable
+% vertical spaces.
+\newcommand\TmpHackFirstInCell{\prevdepth=-10000pt\relax\vskip\b@padding\relax}
+
+% =========================================================
+
+\newcommand\SignatureField[1]{%
+\vskip1.2cm\hbox to 8cm{#1 \leaders\hrule\hfil}}
+
+\newenvironment{Text}{%
+\ignorespaces
+}{\par}
+
+\newenvironment{Address}{%
+\begin{BodyText}
+\advance\leftskip15mm %
+}{\end{BodyText}}
+
+\newenvironment{TextBlock}{%
+\BeginDisplay\BeginDisplayDefaultSkip
+\IgnoreSpaceAboveNextPara\begin{BodyText}}{%
+\end{BodyText}\EnvPostSetup{\EndDisplay\EndDisplayDefaultSkip}}
+
+\newcommand\TextClassCopyright{\fontsize{\fontsizeVI}{\fontsizeVIII}\selectfont}
+
+% usually \textbf, but inside cursive, drops cursive off
+\newcommand\boldemphasis[1]{{\ifdim \fontdimen\@ne\font >\z@
+ \upshape \fi\textbf{#1}}}
+
+% In "background" texts such as running headers, align the
+% baseline with the bottom of the frame
+\newcommand\VListToBaseline{\ifdim\prevdepth>0pt\relax\vskip-\prevdepth\relax\fi}
+
+%
+% Legend table
+%
+\multicolsep0pt\relax
+\columnsep.5cm\relax
+\raggedcolumns
+
+% the width is ignored, all the legends should be 135mm wide
+\newenvironment{Legend}[1]{%
+\BeginDisplay\BeginDisplayLegendSkip\IssueParaSpace
+\begingroup
+\linewidth=\BodyWidth %
+\ifdim \hsize<\BodyWidth\relax % inside an etk table
+  \linewidth = \hsize
+\fi
+\begin{multicols}{2}\ignorespaces}{\end{multicols}\endgroup}
+
+\newcommand{\LegendItem}[2]{\ParaLegend{\bfseries #1}{\ignorespaces#2}}
+
+\newenvironment{LegendOneItem}[1]{%
+\BeginDisplay\BeginDisplayLegendSkip %
+\linewidth=\BodyWidth\relax%
+\ignorespaces}{\EnvPostSetup{\EndDisplay\EndDisplayLegendSkip}}
+
+%
+% Listings
+%
+\RequirePackage{listings}
+\lstset{breaklines=true,prebreak=\mbox{$\rightarrow$},postbreak=\mbox{$\rightarrow$}}
+%\lstset{basicstyle=\footnotesize}
+%\lstset{basicstyle=\ttfamily}
+%
+\newenvironment{BitListing}{%
+\b@SlashNormal
+}{}
+
+%
+%}{\end{lstlisting}}%
+% Don't pollute log by messages from graphicx
+%
+\let\Gin@log\@gobble
+\def\@providesfile@test#1Graphic{%
+\ifx#1\relax \global\let\@providesfile@wlog=n
+  \else \global\let\@providesfile@wlog=y\fi}
+\def\@providesfile#1[#2]{%
+  \setbox0=\hbox{\@providesfile@test\relax#2Graphic}%
+  \if y\@providesfile@wlog\wlog{File: #1 #2}\fi
+  \@addtofilelist{ #2}%
+  \endgroup}
+
+%
+% The technique used by the \showhyphens macro from plain.tex will
+% not display hyphen positions when used with "native" fonts in xetex.
+% http://www.tug.org/pipermail/xetex/2006-September/005176.html
+%
+\def\showhyphensII#1{%
+   \setbox0=\vbox{\hsize1sp \hbadness10000 \hfuzz\maxdimen
+     \everypar={} \leftskip0pt \rightskip\leftskip \pretolerance-1
+     \noindent \hskip0pt #1\par
+     \global\setbox1=\hbox{}\SHconcatenate}%
+   \setbox0=\hbox to \maxdimen{\unhbox1}}
+\def\SHconcatenate{\unskip\unpenalty
+   \setbox0=\lastbox \ifvoid0 \let\next\relax \else
+     \global\setbox1=\hbox{\unhbox0
+     \unskip\unskip\unhbox1}\let\next\SHconcatenate
+   \fi\next}
+
+% =========================================================
+% Pages
+%
+\pagestyle{empty}
+
+\newcounter{chapter}
+\setcounter{chapter}{1}
+\RequirePackage{chappg}
+\renewcommand{\chappgsep}{-}
+\pagenumbering{arabic} % bychapter set in \Chapter
+
+\let\b@old@pagenumbering=\pagenumbering
+\def\pagenumbering{\ResetHeadBreaker\b@old@pagenumbering}
+
+% Revision sheet
+
+\newenvironment{RevisionSheet}{\cleardoublepage
+\MasterPageIsBody
+\UseFullWidth
+\b@RevisionTable@MinRowHeight
+}{\clearpage}
+
+\newcommand\b@RevisionTable@MinRowHeight{%
+\let\b@rs@orig@erow=\erow
+\def\erow{\ifdim\ht\cals@current@row<0.8cm\relax
+  \ht\cals@current@row=0.8cm\relax \fi \b@rs@orig@erow}}%
+
+% Introduciton page: at 23.09.2010 the Turbo text does not
+% fot to the page, therefore decrease the spacing of headers.
+\newcommand\IntroPagePreHead{\addvspace{50pt minus 45pt}\headbreaker{-20}{2cm}}
+\newenvironment{IntroductionPage}{\cleardoublepage
+\MasterPageIsBody
+\hsize=\BodyWidth\relax}{\clearpage}
+
+\newcount\c@chapter@no
+\c@chapter@no=0\relax
+
+\newcommand\Chapter[1]{\cleardoublepage{}%
+\MasterPageIsBody{}\pagenumbering[#1]{bychapter}%
+\c@chapter@no=#1\relax}
+
+\newcommand\SetRunningHeader[1]{\markboth{\ignorespaces#1\ignorespaces}{\ignorespaces#1\ignorespaces}}
+
+\newenvironment{ListOfAbbreviations}{%
+\clearpage
+\MasterPageIsBody{}
+\DropPageKustode
+\DropPageFooter
+}{\clearpage}
+
+\def\DropPageKustode{}
+\def\DropPageFooter{}
+
+%
+% Having the definitions (we know the structure of template designer):
+%   \def\cmdA{SomethingA\hfil}
+%   \def\cmdB{SomethingB\hfil}
+% the call
+%   \b@PrependColorFrames\cmdA\cmdB
+% will convert \cmdB to:
+%   SomethingASomethingB\hfil
+%
+\def\b@PrependColorFrames#1#2{{%
+\def\tmp##1\hfil{\toks0={##1}}%
+\expandafter\tmp #1
+\toks2=\expandafter{#2}%
+\xdef#2{\the\toks0 \the\toks2 }%
+}}
+
+% extend \hsize to \FullBodyWidth
+\newcommand\UseFullWidth{\ifdim \hsize<\FullBodyWidth\relax
+\evensidemargin=\oddsidemargin\relax
+\hsize=\FullBodyWidth\relax
+\fi}
+
+%
+% Index entries
+%
+\newcommand\ParaIndex[1]{\begin{BodyText}#1\end{BodyText}}
+\newcommand\IndexBeteenWordAndRef{}
+\newcommand\IndexSectionTitle[1]{\HeadII{#1}{}\nobreak}
+\newcommand\IndexPrimary[2]{\let\b@PreIndexRef=\space \ParaIndex{#2\IndexBeteenWordAndRef #1}}
+\newcommand\IndexSecondary[2]{\let\b@PreIndexRef=\space \nobreak\ParaIndex{\advance\leftskip 5mm\relax #2\IndexBeteenWordAndRef #1}}
+\newcommand{\IndexRef}[1]{\b@PreIndexRef\space \hyperlink{#1}{\pageref*{#1}}\let\b@PreIndexRef=,}
+
+%
+% Improved \checkoddpage: use label inside actual matherial,
+% not before the matherial is typeset.
+%
+\newcommand\checkoddpageNolabel{\let\b@old@pmemlabel=\pmemlabel
+\def\pmemlabel##1{} \checkoddpage \let\pmemlabel=\b@old@pmemlabel}
+
+\newcommand\CopLabel{\pmemlabel{\cplabel\thecp@cntr}}
+
+% =========================================================
+% Specials
+
+\newcount\b@lastpenalty
+
+\newcommand\b@remember@penalty{\b@lastpenalty=\lastpenalty\relax}
+
+\newcommand\b@restore@penalty{\ifnum 0=\b@lastpenalty \else
+  \penalty\b@lastpenalty\relax \fi}
+
+\newcommand\b@penalty@unless@undesired[1]{%
+\ifnum\lastpenalty>0\relax
+  % #1 < \lastpenalty: the greater value should be used, must not put
+  % #1 > \lastpenalty: tex anyway uses the least value, no sense to put
+\else
+  \penalty#1\relax
+\fi
+}
+
+%
+% Bug in the package "polyglossia". The command \foreignlanguage switches
+% to a non-bold font even in bold text. Dropping this command for a while.
+%
+\renewcommand\foreignlanguage[2]{#2}
+
+%
+% Drop TeXML escapes (avoid OMS encoding)
+% Alternative: \RequirePackage{xunicode}
+%
+\chardef\textbackslash=`\\
+\chardef\{=`\{
+\chardef\}=`\}
+\chardef\textdollar=`\$
+\chardef\&=`\&
+\chardef\#=`\#
+\chardef\^=`\^
+\chardef\_=`\_
+\chardef\textasciitilde=`\~
+\chardef\%=`\%
+\chardef\textbar=`\|
+\chardef\textless=`\<
+\chardef\textgreater=`\>
+\chardef\textcopyright=`\^^^^00a9
+
+% For "scalable" fonts
+\newlength\fontsizeIV   \setlength\fontsizeIV{4pt}
+\newlength\fontsizeV    \setlength\fontsizeV{5pt}
+\newlength\fontsizeVI   \setlength\fontsizeVI{6pt}
+\newlength\fontsizeVII  \setlength\fontsizeVII{7pt}
+\newlength\fontsizeVIII \setlength\fontsizeVIII{8pt}
+\newlength\fontsizeVIIIb \setlength\fontsizeVIII{8.5pt}
+\newlength\fontsizeIX   \setlength\fontsizeIX{9pt}
+\newlength\fontsizeX    \setlength\fontsizeX{10pt}
+\newlength\fontsizeXb   \setlength\fontsizeXb{10.5pt}
+\newlength\fontsizeXI   \setlength\fontsizeXI{11pt}
+\newlength\fontsizeXIb   \setlength\fontsizeXI{11.5pt}
+\newlength\fontsizeXII  \setlength\fontsizeXII{12pt}
+\newlength\fontsizeXIIb  \setlength\fontsizeXII{12.5pt}
+\newlength\fontsizeXIII \setlength\fontsizeXIII{13pt}
+\newlength\fontsizeXIIIb \setlength\fontsizeXIII{13.5pt}
+\newlength\fontsizeXIV  \setlength\fontsizeXIV{14pt}
+\newlength\fontsizeXV   \setlength\fontsizeXV{15pt}
+\newlength\fontsizeXVI   \setlength\fontsizeXVI{16pt}
+\newlength\fontsizeXVII  \setlength\fontsizeXVII{17pt}
+\newlength\fontsizeXVIII \setlength\fontsizeXVIII{18pt}
+\newlength\fontsizeXVIX  \setlength\fontsizeXVIX{19pt}
+\newlength\fontsizeXX    \setlength\fontsizeXX{20pt}
+\newlength\fontsizeXXI   \setlength\fontsizeXXI{21pt}
+\newlength\fontsizeXXII  \setlength\fontsizeXXII{22pt}
+\newlength\fontsizeXXIII \setlength\fontsizeXXIII{23pt}
+\newlength\fontsizeXXIV  \setlength\fontsizeXXIV{24pt}
+\newlength\fontsizeXXV   \setlength\fontsizeXXV{25pt}
+\newlength\fontsizeXXVIII\setlength\fontsizeXXVIII{28pt}
+
+\newcommand\enlargeFonts{%
+\def\next##1{\ifx##1\relax\let\next=\relax\else
+##1=1.05 ##1\relax\fi\next}% math.sqrt(1.2)=1.0954451150103321
+\next
+\fontsizeIV   \fontsizeV
+\fontsizeVI   \fontsizeVII  \fontsizeVIII \fontsizeIX   \fontsizeX
+\fontsizeXI   \fontsizeXII  \fontsizeXIII \fontsizeXIV  \fontsizeXV
+\fontsizeXVI  \fontsizeXVII \fontsizeXVIII\fontsizeXVIX \fontsizeXX
+\fontsizeXXI  \fontsizeXXII \fontsizeXXIII\fontsizeXXIV \fontsizeXXV
+\fontsizeXXVIII \fontsizeVIIIb \fontsizeXIb
+\fontsizeXb \fontsizeXIIb \fontsizeXIIIb
+\relax
+\normalsize
+}
+
+% Switch from TeXlive2009 to TeXlive2011 resulted in the error:
+%   Command \nobreakspace unavailable in encoding EUT1
+% The correct fix is unknown, the workaround is code from "ltugcomn.sty"
+\DeclareRobustCommand{\nobreakspace}{\unskip\nobreak\ \ignorespaces}
+
+% Style packages rely on catcode of '/', therefore we can
+% activate it only after loading all them. Correct also \href.
+% http://tex.stackexchange.com/questions/97310/
+% http://tex.stackexchange.com/questions/160031/
+% 07 Nov 2014: more problems, also in bidi. Disabling hyphenation on slash
+%\def\b@SlashActive{\catcode`\/=\active}
+%\def\b@SlashNormal{\catcode`\/=12 }
+\newcommand\b@SlashActive{}
+\newcommand\b@SlashNormal{}
+
+\let\b@orig@hyper@normalise\hyper@normalise
+\def\hyper@normalise{%
+  \begingroup
+  \ifdefined\bidiparts@drop@specials \bidiparts@drop@specials \fi
+  \expandafter\@gobble\b@orig@hyper@normalise}
+
+%
+% FrameMaker export corrections
+%
+
+% dash
+\catcode`\^^^^fffd=13
+\def^^^^fffd{-}
+% flattened link
+\catcode`\^^^^f0e5=13
+\def^^^^f0e5{\bitarrowright}
+% diameter. few fonts support it, let use a similar symbol
+\catcode`\^^^^2300=13
+\let^^^^2300=^^f8
+\catcode`\^^^^2205=13 % empty set
+\let^^^^2205=^^f8
+\catcode`\^^^^03bb=13 % lambda
+\def^^^^03bb{$\lambda$}
+\catcode`\^^^^039b=13 % big lambda
+\def^^^^039b{$\Lambda$}
+\catcode`\^^^^2217=13 % asterisk operator
+\def^^^^2217{$\star$}
+% framemaker export error: bullet as infinity
+\catcode`\^^^^221e=13 % infinity, converted to dot
+% 13.09.12: and now we have a real infinity in the document
+%\def^^^^221e{$\bullet$}
+\def^^^^221e{$\infty$}
+% Soft hyphen. There are different intrepretations of it:
+% Michael S. Kaplan, Every character has a story #23: U+00ad (SOFT HYPHEN)
+% http://blogs.msdn.com/michkap/archive/2006/09/02/736881.aspx
+% FM version is that it recommends a break, and the hyphen is displayed
+% only in the case of breaking.
+% Allow further hyphenation of the parts of the word.
+% See TeX by Topic by Victor Eijkhout, 19.3.1 "Hyphens and discretionaries"
+\catcode`\^^^^00ad=13
+\def^^^^00ad{\penalty10000 \hskip0pt \discretionary{-}{}{}\penalty0 \hskip0pt\relax}
+% arrows
+\catcode`\^^^^2190=13
+\catcode`\^^^^2191=13
+\catcode`\^^^^2192=13
+\catcode`\^^^^2193=13
+\def^^^^2190{$\leftarrow$}
+\def^^^^2191{$\uparrow$}
+\def^^^^2192{$\rightarrow$}
+\def^^^^2193{$\downarrow$}
+% more special symbols
+\catcode`\^^^^2227=13
+\def^^^^2227{$\wedge$}
+\catcode`\^^^^2228=13
+\def^^^^2228{$\vee$}
+\catcode`\^^^^03b5=13
+\def^^^^03b5{$\varepsilon$}
+\catcode`\^^^^21d2=13
+\def^^^^21d2{$\Rightarrow$}
+\catcode`\^^^^222b=13
+\def^^^^222b{$\int{}\!$}
+\catcode`\^^^^03d5=13
+\def^^^^03d5{$\phi$}
+\catcode`\^^^^03c6=13
+\def^^^^03c6{$\varphi$}
+\catcode`\^^^^f07e=13 % no such symbol in unicode
+\def^^^^f07e{\bitboxshadowdwn}
+\catcode`\^^^^f0ed=13 % no such symbol in unicode
+\def^^^^f0ed{\bitactionarrow}
+\catcode`\^^^^f8fb=13 % no such symbol in unicode
+\def^^^^f8fb{$\bullet$}
+\catcode`\^^^^2009=13 % thin space
+\def^^^^2009{\thinspace}
+
+\def\listbullet{\bittextbullet}
+\def\listndash{\bitndash}
+\def\listsquare{\bitlistsquare}
+
+\newcommand\bitndash{\texorpdfstring{\char"2013{}}{--}}
+\newcommand{\bittextbullet}{\char"2022 }
+
+\catcode`_=12\relax
+\let\_=_\relax
+
+%
+% More
+%
+\RequirePackage{admon}

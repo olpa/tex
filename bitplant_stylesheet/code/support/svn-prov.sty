@@ -1,0 +1,158 @@
+%%
+%% This is file `svn-prov.sty',
+%% generated with the docstrip utility.
+%%
+%% The original source files were:
+%%
+%% svn-prov.dtx  (with options: `package')
+%% 
+%% Copyright (C) 2009 by Martin Scharrer <martin@scharrer-online.de>
+%% 
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%% 
+%%    http://www.latex-project.org/lppl.txt
+%% 
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008/05/04 or later.
+%% 
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is Martin Scharrer.
+%% 
+%% This work consists of the files svn-prov.dtx, svn-prov.ins
+%% and the derived file svn-prov.sty.
+%% 
+\def\svnprov@version{v1.\rev}
+\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+\def\ProvidesClassSVN{%
+  \svnprov@generic\ProvidesClass{\svnprov@filebase}%
+}
+\def\ProvidesFileSVN{%
+  \svnprov@generic\ProvidesFile{\svnprov@filebase.\svnprov@fileext}%
+}
+\def\ProvidesPackageSVN{%
+  \svnprov@generic\ProvidesPackage{\svnprov@filebase}%
+}
+\def\svnprov@generic#1#2{%
+  \def\svnprov@ltxprov{#1}%
+  \def\svnprov@filemask{#2}%
+  \@ifnextchar{[}%
+    {\svnprov@getid}%
+    {\svnprov@getid[\svnprov@svnfilename]}%
+}
+\def\svnprov@getid[#1]#2{%
+  \def\svnprov@filename{#1}%
+  \svnprov@scanid #2\relax $%
+    Id: unknown.xxx 0 0000-00-00 00:00:00Z user $\svnprov@endmarker
+}
+\def\svnprov@scanid#1$%
+  Id: #2 #3 #4-#5-#6 #7 $#8{%
+  \def\next{%
+    \PackageWarning{svn-prov}{Did not found valid SVN Id line in file
+    '#2'.}{}{}{}%
+    \svnprov@gobbleopt
+  }%
+  \ifx\relax#1\relax
+    \ifx\relax#8\empty
+      \def\svnprov@svnfilename{#2}%
+      \svnprov@splitfilename{#2}%
+      \def\svnprov@filerev{#3}%
+      \def\svnprov@filedate{#4/#5/#6}%
+      \def\next{\svnprov@buildstring}%
+    \fi
+  \fi
+  \expandafter\next\svnprov@gobblerest
+}% $
+\def\svnprov@splitfilename#1{%
+  \edef\g@tempa{#1}%
+  \let\svnprov@filebase\@gobble
+  \expandafter
+  \svnprov@splitfilename@\g@tempa.\relax
+}
+\def\svnprov@splitfilename@#1.#2\relax{%
+  \if&#2&
+    \ifx\svnprov@filebase\@gobble
+      \gdef\svnprov@filebase{#1}%
+      \gdef\svnprov@fileext{}%
+    \else
+      \gdef\svnprov@fileext{#1}%
+    \fi
+    \let\next\relax
+  \else
+    \xdef\svnprov@filebase{\svnprov@filebase.#1}%
+    \def\next{\svnprov@splitfilename@#2\relax}%
+  \fi
+  \next
+}
+\def\svnprov@gobblerest#1\svnprov@endmarker{}
+\def\svnprov@endmarker{\@gobble{svn-prov endmarker}}
+\newcommand*\svnprov@gobbleopt[1][]{}
+\def\svnprov@defaultdesc{%
+  (SVN Rev:\space\svnprov@filerev)%
+}
+\newcommand*\svnprov@buildstring[1][\svnprov@defaultdesc]{%
+  \begingroup
+    \let\rev\svnprov@filerev
+    \let\filerev\svnprov@filerev
+    \def\Rev{\rev\space}%
+    \let\revinfo\svnprov@defaultdesc
+    \let\filebase\svnprov@filebase
+    \let\fileext\svnprov@fileext
+    \ifx\fileversion\@undefined
+      \def\fileversion{v0.0}%
+    \fi
+    \edef\filename{\filebase.\fileext}%
+    \xdef\svnprov@filename{\svnprov@filename}%
+    \ifx\svnprov@filename\filename\else
+      \svnprov@splitfilename{\svnprov@filename}%
+    \fi
+    \let\filename\svnprov@filename
+    \xdef\svnprov@fileinfo{#1}%
+  \endgroup
+  \svnprov@ltxprov{\svnprov@filemask}[\svnprov@filedate\space\svnprov@fileinfo]%
+}
+\def\GetFileInfoSVN#1{%
+  \ifx*#1\relax
+    \let\filebase\svnprov@filebase
+    \let\fileext\svnprov@fileext
+    \let\filename\svnprov@filename
+    \let\filedate\svnprov@filedate
+    \let\filerev\svnprov@filerev
+    \expandafter\svnprov@getversion
+    \svnprov@fileinfo\relax{} \relax\svnprov@endmarker
+    \let\fileversion\svnprov@fileversion
+    \let\fileinfo\svnprov@fileinfoonly
+  \else
+    \PackageError{svn-prov}{Macro \textbackslash GetFileInfoSVN without '*' is
+    not implemented yet.}{}{}{}%
+  \fi
+}
+\newcommand*\DefineFileInfoSVN[1][\svnprov@filemask]{%
+  \expandafter\svnprov@getversion
+  \svnprov@fileinfo\relax{} \relax\svnprov@endmarker
+  \expandafter
+  \let\csname#1@date\endcsname\svnprov@filedate
+  \expandafter
+  \let\csname#1@version\endcsname\svnprov@fileversion
+  \expandafter
+  \let\csname#1@rev\endcsname\svnprov@filerev
+  \expandafter
+  \let\csname#1@info\endcsname\svnprov@fileinfoonly
+}
+\def\svnprov@getversion#1 #2\relax#3\svnprov@endmarker{%
+  \if&#3&%
+    \def\svnprov@fileversion{??}%
+  \else
+    \def\svnprov@fileversion{#1}%
+    \def\svnprov@fileinfoonly{#2}%
+  \fi
+}
+\ProvidesPackageSVN{$Id: svn-prov.dtx 1049 2009-05-03 00:24:49Z martin $}%
+  [\svnprov@version\space Package Date/Version from SVN Keywords]
+
+\endinput
+%%
+%% End of file `svn-prov.sty'.

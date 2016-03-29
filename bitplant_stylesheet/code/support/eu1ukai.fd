@@ -1,0 +1,12 @@
+\ProvidesFile{eu1ukai}[2014/11/04 AR PL UKai]
+
+\DeclareFontFamily{EU1}{ukai}{}
+\DeclareFontShape{EU1}{ukai}{m}{n}{ <-> "[ukai.ttc]"}{}
+\DeclareFontShape{EU1}{ukai}{c}{n}{ <-> "[ukai.ttc]:extend=0.8"}{}
+\DeclareFontShape{EU1}{ukai}{m}{it}{ <-> "[ukai.ttc]:slant=0.2"}{}
+\DeclareFontShape{EU1}{ukai}{b}{n}{ <-> "[ukai.ttc]:embolden=0"}{}
+\DeclareFontShape{EU1}{ukai}{bc}{n}{ <-> "[ukai.ttc]:embolden=0,extend=0.8"}{}
+\DeclareFontShape{EU1}{ukai}{b}{it}{ <-> "[ukai.ttc]:slant=0.2"}{}
+\DeclareFontShape{EU1}{ukai}{bx}{n}{ <-> "[ukai.ttc]:embolden=0"}{}
+\DeclareFontShape{EU1}{ukai}{bx}{it}{ <-> "[ukai.ttc]:slant=0.2"}{}
+\DeclareFontShape{EU1}{ukai}{bl}{n}{ <-> "[ukai.ttc]:embolden=0"}{}

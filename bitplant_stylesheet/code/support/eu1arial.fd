@@ -1,0 +1,11 @@
+\ProvidesFile{eu1arial}[2014/10/30 Font Arial]
+
+\DeclareFontFamily{EU1}{arial}{}
+\DeclareFontShape{EU1}{arial}{m}{n}{ <-> "[arial.ttf]"}{}
+\DeclareFontShape{EU1}{arial}{m}{it}{ <-> "[ariali.ttf]"}{}
+\DeclareFontShape{EU1}{arial}{b}{n}{ <-> "[arialbd.ttf]"}{}
+\DeclareFontShape{EU1}{arial}{bc}{n}{ <-> "[arialbd.ttf]"}{}
+\DeclareFontShape{EU1}{arial}{b}{it}{ <-> "[arialbi.ttf]"}{}
+\DeclareFontShape{EU1}{arial}{bc}{it}{ <-> "[arialbi.ttf]"}{}
+\DeclareFontShape{EU1}{arial}{bx}{n}{ <-> "[arialbd.ttf]"}{}
+\DeclareFontShape{EU1}{arial}{bx}{it}{ <-> "[arialbi.ttf]"}{}

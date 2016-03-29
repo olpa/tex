@@ -1,0 +1,222 @@
+\ProvidesPackage{pages}[2015/05/08 Automatically generated master pages for: Bitplant Template]
+\RequirePackage{tpldes}
+\RequirePackage[paper=a4paper,ignoreall,left=0cm,top=0cm]{geometry}
+
+%
+% Frames of the page: Body@Left
+%
+\let\td@setup@Body@Left@RunningHeaderLogo=\relax
+\def\td@frame@Body@Left@RunningHeaderLogo{%
+\td@mkbox{0}{50mm}{13.6mm}{152mm}{4.74mm}{\td@setup@Body@Left@RunningHeaderLogo{}%
+\Image[width=50mm,height=13.6mm]{bitplant\_ATD.pdf}}}
+
+\let\td@setup@Body@Left@RunningHeaderRowA=\relax
+\def\td@frame@Body@Left@RunningHeaderRowA{%
+\td@mkbox{0}{120mm}{3.34mm}{25mm}{11.82mm}{\td@setup@Body@Left@RunningHeaderRowA{}%
+\RunningHeaderRowI}}
+
+\let\td@setup@Body@Left@RunningHeaderRowB=\relax
+\def\td@frame@Body@Left@RunningHeaderRowB{%
+\td@mkbox{0}{120mm}{3.34mm}{25mm}{15mm}{\td@setup@Body@Left@RunningHeaderRowB{}%
+\RunningHeaderRowII}}
+
+\let\td@setup@Body@Left@Footer=\relax
+\def\td@frame@Body@Left@Footer{%
+\td@mkbox{0}{175mm}{3.5mm}{25mm}{282mm}{\td@setup@Body@Left@Footer{}%
+\BgtextFooter}}
+
+\let\td@setup@Body@Left@KustodeRow=\relax
+\def\td@frame@Body@Left@KustodeRow{%
+\td@mkbox{90}{175mm}{2.47mm}{15mm}{110mm}{\td@setup@Body@Left@KustodeRow{}%
+\BgtextKustodeRow}}
+
+%
+% Output frames of the page: Body@Left
+%
+\def\td@Body@Left@master{\td@master@frames{25mm}{25mm}{%
+\td@frame@Body@Left@RunningHeaderLogo
+\td@frame@Body@Left@RunningHeaderRowA
+\td@frame@Body@Left@RunningHeaderRowB
+\td@frame@Body@Left@Footer
+\td@frame@Body@Left@KustodeRow
+}\hfil}
+
+%
+%
+% Frames of the page: Body@Right
+%
+\let\td@setup@Body@Right@RunningHeaderLogo=\relax
+\def\td@frame@Body@Right@RunningHeaderLogo{%
+\td@mkbox{0}{50mm}{13.6mm}{8mm}{4.74mm}{\td@setup@Body@Right@RunningHeaderLogo{}%
+\Image[width=50mm,height=13.6mm]{bitplant\_ATD.pdf}}}
+
+\let\td@setup@Body@Right@RunningHeaderRowA=\relax
+\def\td@frame@Body@Right@RunningHeaderRowA{%
+\td@mkbox{0}{120mm}{3.34mm}{65mm}{11.82mm}{\td@setup@Body@Right@RunningHeaderRowA{}%
+\RunningHeaderRowI}}
+
+\let\td@setup@Body@Right@RunningHeaderRowB=\relax
+\def\td@frame@Body@Right@RunningHeaderRowB{%
+\td@mkbox{0}{120mm}{3.34mm}{65mm}{15mm}{\td@setup@Body@Right@RunningHeaderRowB{}%
+\RunningHeaderRowII}}
+
+\let\td@setup@Body@Right@Footer=\relax
+\def\td@frame@Body@Right@Footer{%
+\td@mkbox{0}{175mm}{3.5mm}{10mm}{282mm}{\td@setup@Body@Right@Footer{}%
+\BgtextFooter}}
+
+\let\td@setup@Body@Right@KustodeRow=\relax
+\def\td@frame@Body@Right@KustodeRow{%
+\td@mkbox{90}{175mm}{2.47mm}{192.53mm}{110mm}{\td@setup@Body@Right@KustodeRow{}%
+\BgtextKustodeRow}}
+
+%
+% Output frames of the page: Body@Right
+%
+\def\td@Body@Right@master{\td@master@frames{50mm}{25mm}{%
+\td@frame@Body@Right@RunningHeaderLogo
+\td@frame@Body@Right@RunningHeaderRowA
+\td@frame@Body@Right@RunningHeaderRowB
+\td@frame@Body@Right@Footer
+\td@frame@Body@Right@KustodeRow
+}\hfil}
+
+%
+% Switch to the frame: Body
+%
+\def\ps@Body{%
+\let\@oddhead=\td@Body@Left@master
+\let\@evenhead=\td@Body@Right@master
+\let\@oddfoot=\relax
+\let\@evenfoot=\relax
+}
+    
+\newcommand{\MasterPageIsBody}{%
+\hsize=135mm\relax \textwidth=\hsize\relax%
+\vsize=250mm\relax \textheight=\vsize\relax \@colht=\vsize\relax%
+\topmargin=25mm \advance\topmargin-1in \advance\topmargin-\voffset %
+\oddsidemargin=25mm \advance\oddsidemargin-1in \advance\oddsidemargin-\hoffset %
+\evensidemargin=50mm \advance\evensidemargin-1in \advance\evensidemargin-\hoffset %
+\pagestyle{Body}}
+%
+% Frames of the page: Frontpage
+%
+\let\td@setup@Frontpage@Logo=\relax
+\def\td@frame@Frontpage@Logo{%
+\td@mkbox{0}{50mm}{13.6mm}{152mm}{8.74mm}{\td@setup@Frontpage@Logo{}%
+\Image[width=50mm,height=13.6mm]{bitplant\_ATD.pdf}}}
+
+\let\td@setup@Frontpage@PoweredBy=\relax
+\def\td@frame@Frontpage@PoweredBy{%
+\td@mkbox{0}{27mm}{20.9mm}{165mm}{32mm}{\td@setup@Frontpage@PoweredBy{}%
+\Image[width=27mm,height=20.9mm]{TeXML\_powered\_by.pdf}}}
+
+\let\td@setup@Frontpage@Line=\relax
+\def\td@frame@Frontpage@Line{%
+\td@mkbox{0}{0.12mm}{290mm}{11.25mm}{5mm}{\td@setup@Frontpage@Line{}%
+\color{BitplantBlueFrontpage}\vrule height290mm depth0mm width0.12mm}}
+
+\let\td@setup@Frontpage@Footer=\relax
+\def\td@frame@Frontpage@Footer{%
+\td@mkbox{0}{310mm}{13mm}{80mm}{280mm}{\td@setup@Frontpage@Footer{}%
+\Image[width=310mm,height=13mm]{000nn000.pdf}}}
+
+%
+% Output frames of the page: Frontpage
+%
+\def\td@Frontpage@master{\td@master@frames{25mm}{75mm}{%
+\td@frame@Frontpage@Logo
+\td@frame@Frontpage@PoweredBy
+\td@frame@Frontpage@Line
+\td@frame@Frontpage@Footer
+}\hfil}
+
+%
+% Switch to the frame: Frontpage
+%
+\def\ps@Frontpage{%
+\let\@oddhead=\td@Frontpage@master
+\let\@evenhead=\td@Frontpage@master
+\let\@oddfoot=\relax
+\let\@evenfoot=\relax
+}
+    
+\newcommand{\MasterPageIsFrontpage}{%
+\hsize=175mm\relax \textwidth=\hsize\relax%
+\vsize=200mm\relax \textheight=\vsize\relax \@colht=\vsize\relax%
+\topmargin=75mm \advance\topmargin-1in \advance\topmargin-\voffset %
+\oddsidemargin=25mm \advance\oddsidemargin-1in \advance\oddsidemargin-\hoffset %
+\evensidemargin=25mm \advance\evensidemargin-1in \advance\evensidemargin-\hoffset %
+\pagestyle{Frontpage}}
+%
+% Frames of the page: TimelineBody@Left
+%
+\let\td@setup@TimelineBody@Left@RunningHeaderRowA=\relax
+\def\td@frame@TimelineBody@Left@RunningHeaderRowA{%
+\td@mkbox{0}{175mm}{3.34mm}{17.5mm}{6.82mm}{\td@setup@TimelineBody@Left@RunningHeaderRowA{}%
+\RunningHeaderRowI}}
+
+\let\td@setup@TimelineBody@Left@RunningHeaderRowB=\relax
+\def\td@frame@TimelineBody@Left@RunningHeaderRowB{%
+\td@mkbox{0}{175mm}{3.34mm}{17.5mm}{10mm}{\td@setup@TimelineBody@Left@RunningHeaderRowB{}%
+\RunningHeaderRowII}}
+
+\let\td@setup@TimelineBody@Left@Footer=\relax
+\def\td@frame@TimelineBody@Left@Footer{%
+\td@mkbox{0}{175mm}{3.5mm}{17.5mm}{282mm}{\td@setup@TimelineBody@Left@Footer{}%
+\BgtextFooter}}
+
+%
+% Output frames of the page: TimelineBody@Left
+%
+\def\td@TimelineBody@Left@master{\td@master@frames{17.5mm}{20mm}{%
+\td@frame@TimelineBody@Left@RunningHeaderRowA
+\td@frame@TimelineBody@Left@RunningHeaderRowB
+\td@frame@TimelineBody@Left@Footer
+}\hfil}
+
+%
+%
+% Frames of the page: TimelineBody@Right
+%
+\let\td@setup@TimelineBody@Right@RunningHeaderRowA=\relax
+\def\td@frame@TimelineBody@Right@RunningHeaderRowA{%
+\td@mkbox{0}{175mm}{3.34mm}{17.5mm}{6.82mm}{\td@setup@TimelineBody@Right@RunningHeaderRowA{}%
+\RunningHeaderRowI}}
+
+\let\td@setup@TimelineBody@Right@RunningHeaderRowB=\relax
+\def\td@frame@TimelineBody@Right@RunningHeaderRowB{%
+\td@mkbox{0}{175mm}{3.34mm}{17.5mm}{10mm}{\td@setup@TimelineBody@Right@RunningHeaderRowB{}%
+\RunningHeaderRowII}}
+
+\let\td@setup@TimelineBody@Right@Footer=\relax
+\def\td@frame@TimelineBody@Right@Footer{%
+\td@mkbox{0}{175mm}{3.5mm}{17.5mm}{282mm}{\td@setup@TimelineBody@Right@Footer{}%
+\BgtextFooter}}
+
+%
+% Output frames of the page: TimelineBody@Right
+%
+\def\td@TimelineBody@Right@master{\td@master@frames{17.5mm}{20mm}{%
+\td@frame@TimelineBody@Right@RunningHeaderRowA
+\td@frame@TimelineBody@Right@RunningHeaderRowB
+\td@frame@TimelineBody@Right@Footer
+}\hfil}
+
+%
+% Switch to the frame: TimelineBody
+%
+\def\ps@TimelineBody{%
+\let\@oddhead=\td@TimelineBody@Left@master
+\let\@evenhead=\td@TimelineBody@Right@master
+\let\@oddfoot=\relax
+\let\@evenfoot=\relax
+}
+    
+\newcommand{\MasterPageIsTimelineBody}{%
+\hsize=175mm\relax \textwidth=\hsize\relax%
+\vsize=255mm\relax \textheight=\vsize\relax \@colht=\vsize\relax%
+\topmargin=20mm \advance\topmargin-1in \advance\topmargin-\voffset %
+\oddsidemargin=17.5mm \advance\oddsidemargin-1in \advance\oddsidemargin-\hoffset %
+\evensidemargin=17.5mm \advance\evensidemargin-1in \advance\evensidemargin-\hoffset %
+\pagestyle{TimelineBody}}

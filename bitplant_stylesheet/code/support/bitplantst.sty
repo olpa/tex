@@ -1,0 +1,36 @@
+\RequirePackage{bitplant}
+\RequirePackage{voithturbo}
+
+% Special layout for the timeline book
+\newcommand\SwitchToTimelineBook{%
+%
+\renewcommand\MasterPageIsBody{\MasterPageIsTimelineBody
+\hsize=\BodyWidth\relax}%
+%
+\def\BgtextFooter{\LeftOrRight{\b@current@date\hfill\thepage}{\thepage\hfill\b@current@date}}%
+%
+\renewcommand{\widegroup}[1]{%
+\BeginDisplay\BeginDisplayImageSkip
+\IssueParaSpace
+\vbox{\ignorespaces ##1\ignorespaces}%
+\EndDisplay\EndDisplayImageSkip}%
+%
+\renewcommand\b@twoside@issue@row{\b@old@issue@row}%
+\renewcommand\b@set@leftskip@for@wide@material{\leftskip=\b@old@leftskip}%
+\renewcommand\withWidth[2]{##2}%
+%
+\let\note@leftPage=\note@rightPage
+%
+\def\b@TOC@ToFullWidth{\MasterPageIsBody
+\hsize=\FullBodyWidth\relax
+\let\@oddhead=\relax
+\let\@evenhead=\relax}%
+%
+\renewcommand\RunningHeaderRowII{}%
+%
+\renewcommand{\IHead}[1]{{%
+\fontsize{\fontsizeX}{\fontsizeXII}\fontseries{b}\selectfont%
+\ParaSpaceAbove{16pt}%
+\if@RTL\else\hsize=175mm\relax\fi \headbreaker{-550}{4cm}%
+\noindent ##1\par}\nobreak\ParaSpaceBelow{10pt}}%
+}
