@@ -8,14 +8,6 @@
 \usepackage{fancyvrb}
 \usepackage{multicol}
 \usepackage{cals}
-\usepackage{pdfsync}
-
-% pdfsync setup. The command \pdfsyncstart is not defined yet,
-% therefore I use "def" instead of "let".
-\makeatletter
-\let\oldcalstable=\calstable
-\def\calstable{\oldcalstable\pdfsyncstop}
-\def\cals@AtBeginCell{\pdfsyncstart}
 
 \newcommand\newcolumn{\vfil\penalty-10000 }
 \newcommand\small{\fontsize{9pt}{11pt}\selectfont}
