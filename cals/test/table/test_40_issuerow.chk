@@ -25,3 +25,4 @@
 ....\rule(20.0+0.0)x200.0
 ....\glue 0.0 plus 1.0fil
 ..\glue 0.0
+.\penalty 10000

@@ -47,11 +47,13 @@
 ....\rule(20.0+0.0)x200.0
 ....\glue 0.0 plus 1.0fil
 ..\glue 0.0
-%
-% Output procesure forcing
-%
-.\glue 0.0
 .\penalty 10000
+% %
+% % Output procesure forcing
+% % 18.11.2016: conditionally
+% %
+% .\glue 0.0
+% .\penalty 10000
 %
 % Row 2, colsep
 %
@@ -97,3 +99,4 @@
 ....\rule(40.0+0.0)x200.0
 ....\glue 0.0 plus 1.0fil
 ..\glue 0.0
+.\penalty 10000
