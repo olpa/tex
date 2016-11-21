@@ -385,6 +385,14 @@
 \let\cals@borderR=\relax
 \let\cals@borderT=\relax
 \let\cals@borderB=\relax
+%    \end{macrocode}
+% Bug fix for \url{http://tex.stackexchange.com/questions/167400/fancyhdr-and-cals-vertical-merge-problem}.
+% Table inside a table is ok, but when there are 1) page break inside
+% a table in the text flow, and 2) a table with a vertically straddled
+% cell is created in the output procedure, then this table inside table
+% needs additional cleaning.
+%    \begin{macrocode}
+\setbox\cals@backup@row=\box\voidb@x\relax
 \cals@AtBeginTable
 }{% End of the table
 \cals@tfoot@tokens\lastrule\cals@AtEndTable}
