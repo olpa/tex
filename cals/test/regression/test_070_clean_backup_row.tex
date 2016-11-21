@@ -1,0 +1,18 @@
+%
+% Collision of two tables when a table is started in an unexpected moment
+% http://tex.stackexchange.com/questions/167400/fancyhdr-and-cals-vertical-merge-problem
+%
+
+\setbox\cals@backup@row=\hbox{nonsense}
+
+\begin{calstable}
+\colwidths{{90pt}}
+\brow
+\nullcell{ltr}
+\erow
+\brow
+\nullcell{lbr}\spancontent{spanned}
+\erow
+\end{calstable}
+
+\show Y
