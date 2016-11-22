@@ -1,0 +1,14 @@
+%
+% Between the 2&3 rows with a vertically straddled cell
+%
+> \cals@last@rs@below=macro:
+->{{100pt}{0pt}{0pt}{0pt}}{{100pt}{0pt}{0pt}{0pt}}.
+> \cals@current@rs@above=macro:
+->{{100pt}{0pt}{0pt}{0pt}}{{100pt}{0pt}{0pt}{0pt}}.
+%
+% Between the first row and the straddled 2&3
+%
+> \cals@last@rs@below=macro:
+->{{100pt}{0.4pt}{0.4pt}{0.4pt}}{{100pt}{0.4pt}{0.4pt}{0.4pt}}.
+> \cals@current@rs@above=macro:
+->{{100pt}{0pt}{0pt}{0pt}}{{100pt}{0pt}{0pt}{0pt}}.

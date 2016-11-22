@@ -111,6 +111,7 @@
  \setbox\cals@backup@row=\vbox{\box\cals@current@row}%
  \setbox\cals@backup@cs=\box\cals@current@cs
  \let\cals@backup@rs@above=\cals@current@rs@above
+ \let\cals@backup@last@rs@below=\cals@last@rs@below
  \let\cals@backup@context=\cals@last@context
  \cals@backup@leftskip=\leftskip\relax
  \cals@backup@rightskip=\rightskip\relax
@@ -131,6 +132,7 @@
  \setbox\cals@current@row=\box\cals@backup@row
  \setbox\cals@current@cs=\box\cals@backup@cs
  \let\cals@current@rs@above=\cals@backup@rs@above
+ \let\cals@last@rs@below=\cals@backup@last@rs@below
  \let\cals@last@context=\cals@backup@context
  \leftskip=\cals@backup@leftskip
  \rightskip=\cals@backup@rightskip

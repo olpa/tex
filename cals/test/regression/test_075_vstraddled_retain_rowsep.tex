@@ -1,0 +1,38 @@
+% http://tex.stackexchange.com/questions/159814/miss-the-bottom-line-of-the-frame-header-of-the-cals-table-on-the-first-page
+
+% The first row should be inside a border, because the rules are
+% switched off after the row is made. However, the straddled rows
+% "forget" about the first row decoration. Fix it.
+
+% Mock
+\renewcommand\cals@rs@joinTwo[3]{\show#2\show#3}
+
+\begin{calstable}
+\colwidths{{100pt}{100pt}}
+\def\cals@borderT{0.4pt}
+\def\cals@borderB{0.4pt}
+\def\cals@borderL{0.4pt}
+\def\cals@borderR{0.4pt}
+
+\brow
+\cell{head1}
+\cell{head2}
+\erow
+
+\def\cals@borderT{0pt}
+\def\cals@borderB{0pt}
+\def\cals@borderL{0pt}
+\def\cals@borderR{0pt}
+
+\brow
+\nullcell{ltr}
+\cell{text 2}
+\erow
+
+\brow
+\nullcell{blr}
+\spancontent{2}
+\cell{text 2}
+\erow
+
+\end{calstable}
