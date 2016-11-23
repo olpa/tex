@@ -1,6 +1,6 @@
 % \iffalse meta-comment
 %
-% Copyright (C) 2010-2014 by Oleg Parashchenko <olpa@uucode.com>
+% Copyright (C) 2010-2017 by Oleg Parashchenko <olpa@uucode.com>
 % -------------------------------------------------------
 % 
 % This file may be distributed and/or modified under the
@@ -22,7 +22,7 @@
 %<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<package>\ProvidesPackage{cals}
 %<*package>
-    [2015/11/03 CALS tables v.2.3.2]
+    [2016/11/23 CALS tables v.2.4.1]
 %</package>
 %
 %<*driver>
@@ -58,6 +58,7 @@
 %   Right brace   \}     Tilde         \~}
 %
 %
+% \changes{v2.4.1}{2016/11/23}{Bug fixes for row separation lines.}
 % \changes{v2.4}{2014/11/12}{Built-in RTL (right-to-left) support.}
 % \changes{v2.2}{2013/05/27}{Hooks for bidi support.}
 % \changes{v2.1}{2013/05/24}{Alignment of tables works.}
@@ -90,20 +91,22 @@
 % \section{Usage}
 %
 % The users' guide is a separate document, published in TUGboat 2011:2:
-% \url{http://tug.org/TUGboat/tb32-2/tb101parashchenko.pdf}
+% \url{http://tug.org/TUGboat/tb32-2/tb101parashchenko.pdf}. There are
+% examples on CTAN: \url{https://www.ctan.org/pkg/cals}.
 %
 % The most important feature: the table (its rows) must start in a
 % vertical mode, the cells content should switch to a horizontal mode.
+% For using the commands with the |@| symbol you might need to say
+% |\makeatletter| first.
 %
-% Please post questions and suggestions to TeX-SX
-% (\url{http://tex.stackexchange.com/}), the newsgroup
-% |comp.text.tex| and the |texhax| mailing list (see
-% \url{http://tug.org/mailman/listinfo/texhax}),
-% not directly to me.
+% Please post questions and suggestions to the |texhax| mailing list
+% (\url{http://tug.org/mailman/listinfo/texhax}) or on \TeX-\LaTeX{}
+% Stack Exchange site (\url{http://tex.stackexchange.com/}) with the
+% tag |cals|.
 %
 % Summary of the user interface:
 % \begin{verbatim}
-% \begin{calstable}
+% \begin{calstable} % [n|l|c|r]
 % \colwidths{{100pt}{200pt}}
 % \brow \cell{a} \cell{b} \erow
 % \end{calstable}
@@ -111,7 +114,10 @@
 %
 % Table elements: |\thead|, |\tfoot|, |\tbreak{\penalty-10000}|, |\lastrule|.
 %
-% Alignment: |\alignL|, |\alignC|, |\alignR|, |\vfill|.
+% Table alignment: |l|, |c|, |r| for left, center and right;
+% |n| for none, using the default |\leftskip| and |\rightskip|.
+%
+% In-cell alignment: |\alignL|, |\alignC|, |\alignR|, |\vfill|.
 %
 % Padding: lengths |\cals@paddingL| (|...T,R,B|), set by |\cals@setpadding{Ag}|,
 % baseline alignment |\cals@paddingD|, set by |\cals@setcellprevdepth{Al}|.
