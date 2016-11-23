@@ -1,0 +1,33 @@
+\makeatletter \let\olderow=\erow
+\def\erow{\ht\cals@current@row=1.3cm \olderow}
+
+\begin{calstable}
+\def\cals@framecs@width{.4pt}
+\def\cals@framers@width{.4pt}
+\colwidths{{1.3cm}}
+\brow
+  \cell{a6} \cell{b6} \cell{c6}
+  \cell{d6} \cell{e6} \cell{f6} \erow
+\brow
+  \cell{a5} \nullcell{ltb} \nullcell{tb}
+  \nullcell{rtb}\spancontent{b5, c5, d5}
+  \nullcell{ltr} \cell{f5} \erow
+\brow
+  \cell{a4} \nullcell{ltr} \nullcell{tl}
+  \nullcell{tr} \nullcell{lr} \cell{f4} \erow
+\brow
+  \cell{a3} \nullcell{lr} \nullcell{lb}
+  \nullcell{rb}\spancontent{c3, c4, d3, d4}
+  \nullcell{lrb}\spancontent{e3, e4, e5}
+  \cell{f3} \erow
+\brow
+  \cell{a2}
+  \nullcell{lrb}\spancontent{b2, b3, b4}
+  \nullcell{ltb} \nullcell{tb}
+  \nullcell{tbr}\spancontent{c2, d2, e2}
+  \cell{f2} \erow
+\brow
+  \cell{a1} \cell{b1} \cell{c1}
+  \cell{d1} \cell{e1} \cell{f1} \erow
+\end{calstable}
+\let\erow=\olderow
