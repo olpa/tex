@@ -327,22 +327,23 @@
 \let\cals@tmp=\cals@iffalse
 \let\cals@tmpII=\cals@iftrue
 \ifx\relax\cals@tbreak@tokens
- \ifx h\cals@current@context \else
-  \ifx f\cals@current@context \else
-   \ifx h\cals@last@context \else
-    \ifx n\cals@last@context \else
-      \dimen0=\pagetotal\relax
-      \advance\dimen0 by \ht\cals@current@row\relax
-      %\showthe\ht\cals@current@row\relax
-      \ifx \cals@tfoot@tokens\relax \else
-        %\show\cals@tfoot@height\relax
-        \advance\dimen0 by \cals@tfoot@height\relax
-      \fi
-      %\showthe\dimen0\relax
-      \ifdim \dimen0>\pagegoal\relax
-        \let\cals@tmp=\cals@tmpII
-      \fi
- \fi\fi\fi\fi
+ \ifinner\else
+  \ifx h\cals@current@context \else
+   \ifx f\cals@current@context \else
+    \ifx h\cals@last@context \else
+     \ifx n\cals@last@context \else
+       \dimen0=\pagetotal\relax
+       \advance\dimen0 by \ht\cals@current@row\relax
+       %\showthe\ht\cals@current@row\relax
+       \ifx \cals@tfoot@tokens\relax \else
+         %\show\cals@tfoot@height\relax
+         \advance\dimen0 by \cals@tfoot@height\relax
+       \fi
+       %\showthe\dimen0\relax
+       \ifdim \dimen0>\pagegoal\relax
+         \let\cals@tmp=\cals@tmpII
+       \fi
+ \fi\fi\fi\fi\fi
 \else \let\cals@tmp=\cals@tmpII % tbreak@tokens
 \fi
 \cals@tmp}

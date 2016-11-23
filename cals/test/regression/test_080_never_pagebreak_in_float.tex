@@ -1,0 +1,46 @@
+% Don't break inside a float
+
+% Mock
+\let\issue@orig=\cals@issue@row
+\renewcommand\cals@issue@row{%
+\show\cals@last@context
+\issue@orig}
+
+% Start float at the end of page, so that the table breaking code
+% think it should split over page.
+Start of text\par
+\dimen0=\pagegoal\relax
+\advance\dimen0 by -5cm\relax
+\vskip\dimen0\relax
+here we are\par
+
+\newcommand\www{\ht\cals@current@row=2.5cm}
+
+\vbox{%
+\begin{calstable}
+\colwidths{{0.25in}{1.5in}{1.5in}{1.5in}}
+%
+\brow \cell{}\cell{C1}\cell{C2}\cell{C3} \www\erow
+%
+\brow
+\cell{R}
+\cell{r1c1}
+\cell{r1c2}
+\cell{r1c3}
+\www\erow
+%
+\brow \nullcell{lrt}
+\cell{r2c1}
+\cell{r2c2}
+\cell{r2c3}
+\www\erow
+%
+\brow
+\nullcell{lrb}\spancontent{S}
+\cell{r3c1}
+\cell{r3c2}
+\cell{r3c3}
+\www\erow
+\end{calstable}
+}% vbox
+\end{document}
