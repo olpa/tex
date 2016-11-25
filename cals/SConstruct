@@ -1,6 +1,6 @@
 import glob, os
 
-version = '201611xx'
+version = '20161125'
 out_dir = 'cals-' + version
 
 def add_to_install(file):
@@ -16,11 +16,13 @@ for file in dev_files:
 
 node = InstallAs(os.path.join(out_dir, 'cals.pdf'), 'dev/cals.pdf')
 Alias('copy', node)
-node = InstallAs(os.path.join(out_dir, 'tb101parashchenko.pdf'), 'doc/tb101parashchenko.pdf')
-Alias('copy', node)
+for doc_file in ("tb101parashchenko.pdf", "notes.pdf"):
+  node = InstallAs(os.path.join(out_dir, doc_file), os.path.join("doc", doc_file))
+  Alias('copy', node)
 
 example_files = glob.glob('examples/*.tex')
 example_files.append('examples/demo.pdf')
+example_files.append('examples/bididemo.pdf')
 for file in example_files:
   add_to_install(file)
 
