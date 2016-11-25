@@ -1,0 +1,161 @@
+\documentclass{article}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{cals}
+\usepackage[T1]{fontenc}
+\begin{document}
+
+\title{Notes on cals package}
+\author{Oleg Parashchenko}
+\date{\today}
+\maketitle
+
+\begin{abstract}This document extends the package documentation.
+The most content comes from answering the users' questions.
+\end{abstract}
+
+\section{How to ask for help}
+Ask a question on \TeX-\LaTeX{} Stack Exchange site
+(\url{http://tex.stackexchange.com/}) attaching the tag
+\verb|cals| and then optinally send me an e-mail with the
+link to the question.
+
+\section{The most often error}
+If you tune the presentation of the tables, you use the commands
+with the symbol \verb|@| in the name. This symbol should be
+allowed first using the command \verb|\makeatletter|.
+
+\section{Documentation}
+The summary of commands is given in the file \verb|cals.pdf|.
+The users guide is the paper ``The cals package: Multipage
+tables with decorations'' published in TUGboat 32:2, 2011.
+
+\section{Right-to-left support}
+The native RLT support is tested against \verb|bidi| package.
+Any RTL-package with the commands \verb|\if@RTL| and
+\verb|\hboxR| should probably work.
+
+Note that \verb|cals| package should be loaded after \verb|bidi|,
+otherwise \verb|bidi| applies patches, that are not anymore good.
+
+\section{\textbackslash\texttt{nobreak} between rows}
+Impossible. The workaround is to vertically straddle a cell
+over all the rows that should stay together.
+
+\section{Pagebreak inside a row}
+You shouldn't do it, any alternative is better. However, in simple
+cases and with luck you can get what desired:
+\url{http://tex.stackexchange.com/questions/204939/in-row-table-page-break}.
+
+\section{Development}
+The source code of \verb|cals| and other \TeX{} tools can be found here:
+\url{http://github.com/olpa/tex/tree/master/cals}.
+
+\section{Straddled cells}
+The explanation how to create straddled cells is not clear.
+I hope that the following table helps.
+
+In the table, there is a number of straddled forms,
+highlighted by grey background. Each virtual cell
+displays which commands and parameters should be given.
+The shortcut \verb|\n| stays for \verb|\nullcell|
+and \verb|\s| for \verb|\spancontent|.
+
+\newpage
+
+\newcommand\cw{1.35cm}
+\makeatletter
+\newcommand\fw{\ht\cals@current@row=\cw}
+\newcommand\hon{\def\cals@bgcolor{gray!20}}
+\newcommand\hoff{\def\cals@bgcolor{}}
+\newcommand\n[1]{\textbackslash\texttt{n\{#1\}}}
+\newcommand\s{\textbackslash\texttt{s\{...\}}}
+\begin{calstable}
+\small
+\cals@setpadding{x}
+\colwidths{{\cw}}
+\brow
+\cell{} \cell{} \cell{} \cell{} \cell{} \cell{} \cell{} \cell{} \cell{}
+\fw\erow
+\brow
+\cell{}
+\hon\cell{\n{ltb}} \cell{\n{tb}} \cell{\n{tb}} \cell{\n{rtb}\\\s}\hoff
+\cell{} \cell{}
+\hon\cell{\n{lrt}}\hoff
+\cell{}
+\fw\erow
+\brow
+\cell{} \cell{} \cell{} \cell{} \cell{} \cell{} \cell{}
+\hon\cell{\n{lr}}\hoff
+\cell{}
+\fw\erow
+\brow
+\cell{}
+\hon\cell{\n{lrt}}\hoff
+\cell{} \cell{}
+\hon\cell{\n{ltb}} \cell{\n{rtb}\\\s}\hoff
+\cell{}
+\hon\cell{\n{lr}}\hoff
+\cell{}
+\fw\erow
+\brow
+\cell{}
+\hon\cell{\n{lrb}\\\s}\hoff
+\cell{} \cell{} \cell{} \cell{} \cell{}
+\hon\cell{\n{lrb}\\\s}\hoff
+\cell{}
+\fw\erow
+\brow
+\cell{} \cell{} \cell{} \cell{} \cell{} \cell{} \cell{} \cell{} \cell{}
+\fw\erow
+\brow
+\cell{}
+\hon\cell{\n{lt}} \cell{\n{rt}}\hoff
+\cell{}
+\hon\cell{\n{lt}} \cell{\n{t}} \cell{\n{t}} \cell{\n{rt}}\hoff
+\cell{}
+\fw\erow
+\brow
+\cell{}
+\hon\cell{\n{lb}} \cell{\n{rb}\\\s}\hoff
+\cell{}
+\hon\cell{\n{lb}} \cell{\n{b}} \cell{\n{b}} \cell{\n{rb}\\\s}\hoff
+\cell{}
+\fw\erow
+\brow
+\cell{} \cell{} \cell{} \cell{} \cell{} \cell{} \cell{} \cell{} \cell{}
+\fw\erow
+\brow
+\cell{}
+\hon\cell{\n{lt}} \cell{\n{t}} \cell{\n{t}} \cell{\n{rt}}\hoff
+\cell{}
+\hon\cell{\n{lt}} \cell{\n{rt}}\hoff
+\cell{}
+\fw\erow
+\brow
+\cell{}
+\hon\cell{\n{l}} \cell{\n{}} \cell{\n{}} \cell{\n{r}}\hoff
+\cell{}
+\hon\cell{\n{l}} \cell{\n{r}}\hoff
+\cell{}
+\fw\erow
+\brow
+\cell{}
+\hon\cell{\n{l}} \cell{\n{}} \cell{\n{}} \cell{\n{r}}\hoff
+\cell{}
+\hon\cell{\n{l}} \cell{\n{r}}\hoff
+\cell{}
+\fw\erow
+\brow
+\cell{}
+\hon\cell{\n{lb}} \cell{\n{b}} \cell{\n{b}} \cell{\n{rb}\\\s}\hoff
+\cell{}
+\hon\cell{\n{lb}} \cell{\n{rb}\\\s}\hoff
+\cell{}
+\fw\erow
+\brow
+\cell{} \cell{} \cell{} \cell{} \cell{} \cell{} \cell{} \cell{} \cell{}
+\fw\erow
+\end{calstable}
+
+\end{document}
