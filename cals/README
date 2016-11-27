@@ -4,7 +4,7 @@ The "cals" package is a set of macros to typeset multipage tables
 with repeatable headers and footers, with cells spanned over
 rows and columns. Decorations are supported: padding, background
 color, width of separation rules. The code is compatible with
-multicols and bidi.
+multicol and bidi.
 
 The work is released to public (LaTeX license, see below)
 by bitplant.de GmbH, a company which provides technical
