@@ -1,0 +1,32 @@
+% Allow table in colspan
+% No warnings are expected:
+%  You can't use `\\prevdepth' in horizontal mode.
+%  Missing $ inserted.
+%  etc.
+
+\par
+\begin{calstable}
+\colwidths{{1in}{1in}{1in}{1in}}
+\brow
+\cell{normal}
+\tracingall
+
+\nullcell{ltb}
+\nullcell{rtb}
+\spancontent{
+  xxx\par
+
+  \begin{calstable}
+  \colwidths{{1in}}
+  \brow\cell{inner table}\erow
+  \end{calstable}
+}
+\par
+
+\cell{normal}
+%\tracingall
+%\par
+\erow
+\end{calstable}
+
+\end{document}

@@ -151,11 +151,11 @@
 %    \begin{macrocode}
 \newcommand\spancontent[1]{}
 \def\spancontent{%
-\let\cals@tmp=\cals@celll@end
+\let\cals@tmp@celll=\cals@celll@end
 \let\cals@cell@width=\cals@span@width
 \def\cals@celll@end{%
   \cals@width@cell@put@row%
-  \let\cals@celll@end=\cals@tmp}%
+  \let\cals@celll@end=\cals@tmp@celll}%
 \setbox0=\cals@cell{\cals@span@width}{\cals@span@height}%
 }%{Implicit content}
 %    \end{macrocode}

@@ -30,7 +30,7 @@
 %% 
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesPackage{cals}
-    [2016/11/23 CALS tables v.2.4.1]
+    [2016/11/23 CALS tables v.2.4.2]
 
 
 
@@ -75,11 +75,11 @@
 
 \newcommand\spancontent[1]{}
 \def\spancontent{%
-\let\cals@tmp=\cals@celll@end
+\let\cals@tmp@celll=\cals@celll@end
 \let\cals@cell@width=\cals@span@width
 \def\cals@celll@end{%
   \cals@width@cell@put@row%
-  \let\cals@celll@end=\cals@tmp}%
+  \let\cals@celll@end=\cals@tmp@celll}%
 \setbox0=\cals@cell{\cals@span@width}{\cals@span@height}%
 }%{Implicit content}
 
