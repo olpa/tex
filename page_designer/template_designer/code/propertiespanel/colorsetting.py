@@ -32,7 +32,7 @@ class colorSetting:
         rgb = self.myColor.getRgb()
         selectPanel = self.frame.FindWindowByName("colorSelectPanel")
         if selectPanel:
-            selectPanel.color.SetValue(wx.Color(rgb[0], rgb[1], rgb[2]))
+            selectPanel.color.SetValue(wx.Colour(rgb[0], rgb[1], rgb[2]))
 
     def setRgb(self):
         rgb = self.myColor.getRgb()

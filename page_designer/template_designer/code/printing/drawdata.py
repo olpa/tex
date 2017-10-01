@@ -205,7 +205,7 @@ class DrawData:
 
         #set font
         dc.SetFont(wx.Font(9, wx.FONTFAMILY_SWISS, wx.NORMAL, wx.NORMAL))
-        dc.SetTextForeground(wx.Color(0,0,0,0))
+        dc.SetTextForeground(wx.Colour(0,0,0,0))
 
         #main frame
         rectangle = self.convertFrameData(xml, dc)

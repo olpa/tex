@@ -90,7 +90,7 @@ class information(wx.Panel):
         self.staticBox = wx.StaticBox(self, -1, _(u"Information"))
 
         self.status = wx.StaticText(self, -1, "", name="informationStatus")
-        self.status.SetForegroundColour(wx.Color(255,0,0,0))
+        self.status.SetForegroundColour(wx.Colour(255,0,0,0))
 
         self.labelName = wx.StaticText(self, -1, _(u"Name"))
         self.inputName = wx.TextCtrl(self, -1, "", name="informationName")

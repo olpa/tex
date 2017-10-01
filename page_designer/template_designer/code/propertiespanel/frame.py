@@ -28,7 +28,7 @@ class frame(wx.Panel):
         self.contentType = contentType(self)
 
         self.status = wx.StaticText(self, -1, "", name="dimPosStatus")
-        self.status.SetForegroundColour(wx.Color(255,0,0,0))
+        self.status.SetForegroundColour(wx.Colour(255,0,0,0))
 
         self.dimension = dimension(self)
         self.position = position(self)

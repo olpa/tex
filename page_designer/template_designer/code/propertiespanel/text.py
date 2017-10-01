@@ -77,7 +77,7 @@ class text(wx.Panel):
         self.staticBox = wx.StaticBox(self, -1, _(u"Contents"))
 
         self.status = wx.StaticText(self, -1, "")
-        self.status.SetForegroundColour(wx.Color(255,0,0,0))
+        self.status.SetForegroundColour(wx.Colour(255,0,0,0))
 
         self.text = wx.TextCtrl(self, -1, "", style=wx.TE_MULTILINE|wx.TE_NO_VSCROLL, name="text")
         self.text.SetValidator(textValidator(self, _(u"Please enter some text!")))
